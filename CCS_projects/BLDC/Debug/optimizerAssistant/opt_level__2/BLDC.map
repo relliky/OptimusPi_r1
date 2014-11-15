@@ -1,0 +1,736 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.5                      
+******************************************************************************
+>> Linked Thu Jul 17 15:41:41 2014
+
+OUTPUT FILE NAME:   <BLDC.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00001e5d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000287a  0003d786  R  X
+  SRAM                  20000000   00008000  00000aa8  00007558  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002880   00002880    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00001f6a   00001f6a    r-x .text
+  000021d8    000021d8    00000654   00000654    r-- .const
+  00002830    00002830    00000050   00000050    r-- .cinit
+20000000    20000000    00000aa8   00000000    rw-
+  20000000    20000000    0000026c   00000000    rw- .vtable
+  2000026c    2000026c    00000800   00000000    rw- .stack
+  20000a6c    20000a6c    00000020   00000000    rw- .data
+  20000a8c    20000a8c    00000014   00000000    rw- .bss
+  20000aa0    20000aa0    00000008   00000000    rw- .sysmem
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123ah6pm_startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    0000026c    00001f6a     
+                  0000026c    0000052a     PWM.obj (.text)
+                  00000796    00000002     --HOLE-- [fill = 0]
+                  00000798    000003cc     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  00000b64    000002e4     ADC.obj (.text)
+                  00000e48    000002bc     CommutationController.obj (.text)
+                  00001104    0000024c     Commutator.obj (.text)
+                  00001350    000001fe     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  0000154e    00000108                   : sysctl.obj (.text:SysCtlClockSet)
+                  00001656    000000d0                   : timer.obj (.text:TimerIntRegister)
+                  00001726    00000002     --HOLE-- [fill = 0]
+                  00001728    000000bc     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.text)
+                  000017e4    000000aa     motor.obj (.text)
+                  0000188e    000000a4     LED.obj (.text)
+                  00001932    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  000019ce    00000002     --HOLE-- [fill = 0]
+                  000019d0    00000094                                   : auto_init.obj (.text)
+                  00001a64    0000007e     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  00001ae2    0000007c                   : interrupt.obj (.text:IntEnable)
+                  00001b5e    00000076     main.obj (.text)
+                  00001bd4    0000006e     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  00001c42    00000064                   : adc.obj (.text:ADCIntRegister)
+                  00001ca6    00000062     ZCDetector.obj (.text)
+                  00001d08    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  00001d66    00000054     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  00001dba    00000052                   : gpio.obj (.text:GPIOPinConfigure)
+                  00001e0c    0000004e                   : interrupt.obj (.text:IntRegister)
+                  00001e5a    00000002     --HOLE-- [fill = 0]
+                  00001e5c    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00001ea4    00000044                                   : cpy_tbl.obj (.text)
+                  00001ee8    00000044                                   : exit.obj (.text)
+                  00001f2c    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001f60    0000002c                   : pwm.obj (.text:PWMGenConfigure)
+                  00001f8c    00000022                   : adc.obj (.text:ADCSequenceDataGet)
+                  00001fae    00000022                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00001fd0    0000001e                   : gpio.obj (.text:GPIOPinTypeADC)
+                  00001fee    0000001e                   : pwm.obj (.text:PWMPulseWidthSet)
+                  0000200c    0000001c                   : gpio.obj (.text:GPIOPinTypePWM)
+                  00002028    0000001c     ADC.obj (.text:retain)
+                  00002044    0000001c     CommutationController.obj (.text:retain)
+                  00002060    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00002078    00000016     driverlib.lib : pwm.obj (.text:PWMOutputInvert)
+                  0000208e    00000016                   : pwm.obj (.text:PWMOutputState)
+                  000020a4    00000014                   : sysctl.obj (.text:SysCtlPWMClockSet)
+                  000020b8    00000014                   : timer.obj (.text:TimerDisable)
+                  000020cc    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  000020e0    00000012     driverlib.lib : pwm.obj (.text:PWMGenPeriodSet)
+                  000020f2    00000012                   : timer.obj (.text:TimerLoadSet)
+                  00002104    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00002116    00000010     driverlib.lib : adc.obj (.text:ADCIntEnable)
+                  00002126    0000000e                   : adc.obj (.text:ADCIntDisable)
+                  00002134    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  00002142    0000000e                   : timer.obj (.text:TimerEnable)
+                  00002150    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  0000215e    0000000c     driverlib.lib : pwm.obj (.text:PWMGenEnable)
+                  0000216a    0000000c     tm4c123ah6pm_startup_ccs.obj (.text)
+                  00002176    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
+                  00002180    0000000a                   : pwm.obj (.text:PWMGenIntTrigEnable)
+                  0000218a    0000000a                   : timer.obj (.text:TimerIntDisable)
+                  00002194    0000000a                   : timer.obj (.text:TimerLoadGet)
+                  0000219e    0000000a                   : timer.obj (.text:TimerValueGet)
+                  000021a8    00000008                   : timer.obj (.text:TimerIntEnable)
+                  000021b0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : delete.obj (.text)
+                  000021b8    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  000021be    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  000021c4    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000021ca    00000004     driverlib.lib : pwm.obj (.text:PWMSyncTimeBase)
+                  000021ce    00000004                   : pwm.obj (.text:PWMSyncUpdate)
+                  000021d2    00000004                   : timer.obj (.text:TimerIntClear)
+
+.const     0    000021d8    00000654     
+                  000021d8    00000218     driverlib.lib : gpio.obj (.const)
+                  000023f0    0000010c                   : interrupt.obj (.const)
+                  000024fc    000000a8                   : timer.obj (.const)
+                  000025a4    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv123__fundamental_type_infoE)
+                  000025cc    00000025                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv120__si_class_type_infoE)
+                  000025f1    00000024                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv119__pointer_type_infoE)
+                  00002615    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__class_type_infoE)
+                  00002637    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__pbase_type_infoE)
+                  00002659    0000001d     CommutationController.obj (.const:.typeinfo:_ZTS26CommutationControllerClass)
+                  00002676    00000012     Commutator.obj (.const:.typeinfo:_ZTS15CommutatorClass)
+                  00002688    00000012     ZCDetector.obj (.const:.typeinfo:_ZTS15ZCDetectorClass)
+                  0000269a    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSe)
+                  0000269c    00000010                                   : typeinfo_.obj (.const:.typeinfo:_ZTIPKe)
+                  000026ac    00000010     motor.obj (.const:_ZTV10motorClass)
+                  000026bc    00000010     Commutator.obj (.const:_ZTV15CommutatorClass)
+                  000026cc    00000010     ZCDetector.obj (.const:_ZTV15ZCDetectorClass)
+                  000026dc    00000010     CommutationController.obj (.const:_ZTV26CommutationControllerClass)
+                  000026ec    00000010     ADC.obj (.const:_ZTV8ADCClass)
+                  000026fc    00000010     LED.obj (.const:_ZTV8LEDClass)
+                  0000270c    00000010     PWM.obj (.const:_ZTV8PWMClass)
+                  0000271c    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:_ZTVN10__cxxabiv117__class_type_infoE)
+                  0000272c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv119__pointer_type_infoE)
+                  0000273c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv120__si_class_type_infoE)
+                  0000274c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv123__fundamental_type_infoE)
+                  0000275c    0000000d     motor.obj (.const:.typeinfo:_ZTS10motorClass)
+                  00002769    0000000d     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSSt9type_info)
+                  00002776    00000002     --HOLE-- [fill = 0]
+                  00002778    0000000c     Commutator.obj (.const:.typeinfo:_ZTI15CommutatorClass)
+                  00002784    0000000c     CommutationController.obj (.const:.typeinfo:_ZTI26CommutationControllerClass)
+                  00002790    0000000c     ADC.obj (.const:.typeinfo:_ZTI8ADCClass)
+                  0000279c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__class_type_infoE)
+                  000027a8    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__pbase_type_infoE)
+                  000027b4    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv119__pointer_type_infoE)
+                  000027c0    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv120__si_class_type_infoE)
+                  000027cc    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv123__fundamental_type_infoE)
+                  000027d8    0000000a     ADC.obj (.const:.typeinfo:_ZTS8ADCClass)
+                  000027e2    0000000a     LED.obj (.const:.typeinfo:_ZTS8LEDClass)
+                  000027ec    0000000a     PWM.obj (.const:.typeinfo:_ZTS8PWMClass)
+                  000027f6    00000002     --HOLE-- [fill = 0]
+                  000027f8    00000008     motor.obj (.const:.typeinfo:_ZTI10motorClass)
+                  00002800    00000008     ZCDetector.obj (.const:.typeinfo:_ZTI15ZCDetectorClass)
+                  00002808    00000008     LED.obj (.const:.typeinfo:_ZTI8LEDClass)
+                  00002810    00000008     PWM.obj (.const:.typeinfo:_ZTI8PWMClass)
+                  00002818    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTISt9type_info)
+                  00002820    00000008                                   : typeinfo_.obj (.const:.typeinfo:_ZTIe)
+                  00002828    00000004                                   : typeinfo_.obj (.const:.typeinfo:_ZTSPKe)
+
+.cinit     0    00002830    00000050     
+                  00002830    0000001b     (.cinit..data.load) [load image, compression = rle]
+                  0000284b    00000001     --HOLE-- [fill = 0]
+                  0000284c    0000000c     (__TI_handler_table)
+                  00002858    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002860    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00002868    00000018     (__TI_cinit_table)
+
+.vtable    0    20000000    0000026c     UNINITIALIZED
+                  20000000    0000026c     driverlib.lib : interrupt.obj (.vtable)
+
+.stack     0    2000026c    00000800     UNINITIALIZED
+                  2000026c    00000800     --HOLE--
+
+.data      0    20000a6c    00000020     UNINITIALIZED
+                  20000a6c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.data)
+                  20000a78    00000008                                   : _lock.obj (.data)
+                  20000a80    00000008                                   : exit.obj (.data)
+                  20000a88    00000004                                   : stkdepth_vars.obj (.data)
+
+.bss       0    20000a8c    00000014     UNINITIALIZED
+                  20000a8c    00000004     (.common:ADC0)
+                  20000a90    00000004     (.common:ADC1)
+                  20000a94    00000004     (.common:CommTimer0)
+                  20000a98    00000004     (.common:CommTimer1)
+                  20000a9c    00000004     (.common:_ZSt16__dummy_typeinfo)
+
+.sysmem    0    20000aa0    00000008     UNINITIALIZED
+                  20000aa0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002868 records: 3, size/record: 8, table size: 24
+	.data: load addr=00002830, load size=0000001b bytes, run addr=20000a6c, run size=00000020 bytes, compression=rle
+	.bss: load addr=00002858, load size=00000008 bytes, run addr=20000a8c, run size=00000014 bytes, compression=zero_init
+	.vtable: load addr=00002860, load size=00000008 bytes, run addr=20000000, run size=0000026c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000284c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+20000a8c   ADC0
+20000a90   ADC1
+00002177   ADCIntClear
+00002127   ADCIntDisable
+00002117   ADCIntEnable
+00001c43   ADCIntRegister
+00001d67   ADCSequenceConfigure
+00001f8d   ADCSequenceDataGet
+00002135   ADCSequenceEnable
+00001a65   ADCSequenceStepConfigure
+00001ee9   C$$EXIT
+20000a94   CommTimer0
+20000a98   CommTimer1
+00001351   GPIOPadConfigSet
+00001dbb   GPIOPinConfigure
+00001fd1   GPIOPinTypeADC
+00001faf   GPIOPinTypeGPIOOutput
+0000200d   GPIOPinTypePWM
+000021b9   GPIOPinWrite
+00001ae3   IntEnable
+00001e0d   IntRegister
+00001f61   PWMGenConfigure
+0000215f   PWMGenEnable
+00002181   PWMGenIntTrigEnable
+000020e1   PWMGenPeriodSet
+00002079   PWMOutputInvert
+0000208f   PWMOutputState
+00001fef   PWMPulseWidthSet
+000021cb   PWMSyncTimeBase
+000021cf   PWMSyncUpdate
+0000216b   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+0000154f   SysCtlClockSet
+000021bf   SysCtlDelay
+000020a5   SysCtlPWMClockSet
+00001f2d   SysCtlPeripheralEnable
+00001bd5   TimerConfigure
+000020b9   TimerDisable
+00002143   TimerEnable
+000021d3   TimerIntClear
+0000218b   TimerIntDisable
+000021a9   TimerIntEnable
+00001657   TimerIntRegister
+00002195   TimerLoadGet
+000020f3   TimerLoadSet
+0000219f   TimerValueGet
+000017d5   _ZN10__cxxabiv116__enum_type_infoD0Ev
+000017d3   _ZN10__cxxabiv116__enum_type_infoD1Ev
+000017d3   _ZN10__cxxabiv116__enum_type_infoD2Ev
+000017cb   _ZN10__cxxabiv117__array_type_infoD0Ev
+000017c9   _ZN10__cxxabiv117__array_type_infoD1Ev
+000017c9   _ZN10__cxxabiv117__array_type_infoD2Ev
+000017c1   _ZN10__cxxabiv117__class_type_infoD0Ev
+000017bf   _ZN10__cxxabiv117__class_type_infoD1Ev
+000017bf   _ZN10__cxxabiv117__class_type_infoD2Ev
+000017b7   _ZN10__cxxabiv117__pbase_type_infoD0Ev
+000017b5   _ZN10__cxxabiv117__pbase_type_infoD1Ev
+000017b5   _ZN10__cxxabiv117__pbase_type_infoD2Ev
+000017ad   _ZN10__cxxabiv119__pointer_type_infoD0Ev
+000017ab   _ZN10__cxxabiv119__pointer_type_infoD1Ev
+000017ab   _ZN10__cxxabiv119__pointer_type_infoD2Ev
+000017a3   _ZN10__cxxabiv120__function_type_infoD0Ev
+000017a1   _ZN10__cxxabiv120__function_type_infoD1Ev
+000017a1   _ZN10__cxxabiv120__function_type_infoD2Ev
+00001799   _ZN10__cxxabiv120__si_class_type_infoD0Ev
+00001797   _ZN10__cxxabiv120__si_class_type_infoD1Ev
+00001797   _ZN10__cxxabiv120__si_class_type_infoD2Ev
+0000178f   _ZN10__cxxabiv121__vmi_class_type_infoD0Ev
+0000178d   _ZN10__cxxabiv121__vmi_class_type_infoD1Ev
+0000178d   _ZN10__cxxabiv121__vmi_class_type_infoD2Ev
+00001785   _ZN10__cxxabiv123__fundamental_type_infoD0Ev
+00001783   _ZN10__cxxabiv123__fundamental_type_infoD1Ev
+00001783   _ZN10__cxxabiv123__fundamental_type_infoD2Ev
+0000177b   _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+00001779   _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+00001779   _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+00001889   _ZN10motorClass11setPWMWidthEj
+00001863   _ZN10motorClass4initEj
+00001839   _ZN10motorClass5startEv
+00001835   _ZN10motorClass8getStateEv
+00001831   _ZN10motorClass8setStateE14controlState_t
+0000180b   _ZN10motorClassC1Ev
+0000180b   _ZN10motorClassC2Ev
+000017fd   _ZN10motorClassD0Ev
+000017e5   _ZN10motorClassD1Ev
+000017e5   _ZN10motorClassD2Ev
+00001321   _ZN15CommutatorClass15disableSwitchesEv
+00001319   _ZN15CommutatorClass4initEjP8ADCClass
+00001137   _ZN15CommutatorClass9commutateEv
+00001117   _ZN15CommutatorClassC1Ev
+00001117   _ZN15CommutatorClassC2Ev
+00001109   _ZN15CommutatorClassD0Ev
+00001105   _ZN15CommutatorClassD1Ev
+00001105   _ZN15CommutatorClassD2Ev
+00001cc7   _ZN15ZCDetectorClass10ZCDetectedEjj
+00001cc3   _ZN15ZCDetectorClass14setZCDirectionE23zeroCrossingDirection_t
+00001cb1   _ZN15ZCDetectorClassC1Ev
+00001cb1   _ZN15ZCDetectorClassC2Ev
+00001ca9   _ZN15ZCDetectorClassD0Ev
+00001ca7   _ZN15ZCDetectorClassD1Ev
+00001ca7   _ZN15ZCDetectorClassD2Ev
+00002053   _ZN26CommutationControllerClass10ISR0StaticEv
+00002045   _ZN26CommutationControllerClass10ISR1StaticEv
+00000ebd   _ZN26CommutationControllerClass12initAsTimer0Ev
+00000edf   _ZN26CommutationControllerClass12initAsTimer1Ev
+00000f69   _ZN26CommutationControllerClass15enableInterruptEv
+00000f7f   _ZN26CommutationControllerClass15getTimeoutValueEv
+00000f73   _ZN26CommutationControllerClass15setTimeoutValueEj
+00000f5f   _ZN26CommutationControllerClass16disableInterruptEv
+00000f89   _ZN26CommutationControllerClass3ISREv
+00000f03   _ZN26CommutationControllerClass4initEjP8ADCClassP10motorClass
+00000eb3   _ZN26CommutationControllerClass6enableEv
+00000ea9   _ZN26CommutationControllerClass7disableEv
+00000e9f   _ZN26CommutationControllerClass8getValueEv
+00000e5b   _ZN26CommutationControllerClassC1Ev
+00000e5b   _ZN26CommutationControllerClassC2Ev
+00000e4d   _ZN26CommutationControllerClassD0Ev
+00000e49   _ZN26CommutationControllerClassD1Ev
+00000e49   _ZN26CommutationControllerClassD2Ev
+00002037   _ZN8ADCClass10ISR0StaticEv
+00002029   _ZN8ADCClass10ISR1StaticEv
+00000c41   _ZN8ADCClass10initAsADC0Ev
+00000c97   _ZN8ADCClass10initAsADC1Ev
+00000e45   _ZN8ADCClass14getMeasurementEv
+00000d79   _ZN8ADCClass15enableInterruptEv
+00000cef   _ZN8ADCClass16disableInterruptEv
+00000e3f   _ZN8ADCClass17getZCDetectedFlagEv
+00000e3b   _ZN8ADCClass18getMeasurementTimeEv
+00000e33   _ZN8ADCClass19clearZCDetectedFlagEv
+00000d81   _ZN8ADCClass3ISREv
+00000cf7   _ZN8ADCClass4initEjP26CommutationControllerClassP10motorClass
+00000c05   _ZN8ADCClass8setPhaseE7phase_t
+00000be7   _ZN8ADCClass9IIRFilterEj
+00000b87   _ZN8ADCClassC1Ev
+00000b87   _ZN8ADCClassC2Ev
+00000b79   _ZN8ADCClassD0Ev
+00000b65   _ZN8ADCClassD1Ev
+00000b65   _ZN8ADCClassD2Ev
+000018cf   _ZN8LEDClass10initAsLED0Ev
+000018e9   _ZN8LEDClass10initAsLED1Ev
+00001929   _ZN8LEDClass3setEv
+00001903   _ZN8LEDClass4initEj
+000018c5   _ZN8LEDClass5clearEv
+000018af   _ZN8LEDClass6toggleEv
+00001899   _ZN8LEDClassC1Ev
+00001899   _ZN8LEDClassC2Ev
+00001891   _ZN8LEDClassD0Ev
+0000188f   _ZN8LEDClassD1Ev
+0000188f   _ZN8LEDClassD2Ev
+000002df   _ZN8PWMClass10initAsPWM0Ev
+000003d1   _ZN8PWMClass10initAsPWM1Ev
+0000073b   _ZN8PWMClass11setPWMWidthEj
+00000691   _ZN8PWMClass20setOutputEnableStateEbbbbbb
+000005e7   _ZN8PWMClass20setOutputInvertStateEbbbbbb
+000004ab   _ZN8PWMClass4initEj
+00000277   _ZN8PWMClassC1Ev
+00000277   _ZN8PWMClassC2Ev
+0000026f   _ZN8PWMClassD0Ev
+0000026d   _ZN8PWMClassD1Ev
+0000026d   _ZN8PWMClassD2Ev
+0000173b   _ZNKSt9type_info4nameEv
+0000176b   _ZNKSt9type_info6beforeERKS_
+00001755   _ZNKSt9type_infoeqERKS_
+0000173f   _ZNKSt9type_infoneERKS_
+00001733   _ZNSt9type_infoD0Ev
+00001731   _ZNSt9type_infoD1Ev
+00001731   _ZNSt9type_infoD2Ev
+20000a9c   _ZSt16__dummy_typeinfo
+00001729   _ZSt21__gen_dummy_typeinfosv
+000027f8   _ZTI10motorClass
+00002778   _ZTI15CommutatorClass
+00002800   _ZTI15ZCDetectorClass
+00002784   _ZTI26CommutationControllerClass
+00002790   _ZTI8ADCClass
+00002808   _ZTI8LEDClass
+00002810   _ZTI8PWMClass
+0000279c   _ZTIN10__cxxabiv117__class_type_infoE
+000027a8   _ZTIN10__cxxabiv117__pbase_type_infoE
+000027b4   _ZTIN10__cxxabiv119__pointer_type_infoE
+000027c0   _ZTIN10__cxxabiv120__si_class_type_infoE
+000027cc   _ZTIN10__cxxabiv123__fundamental_type_infoE
+0000269c   _ZTIPKe
+00002818   _ZTISt9type_info
+00002820   _ZTIe
+0000275c   _ZTS10motorClass
+00002676   _ZTS15CommutatorClass
+00002688   _ZTS15ZCDetectorClass
+00002659   _ZTS26CommutationControllerClass
+000027d8   _ZTS8ADCClass
+000027e2   _ZTS8LEDClass
+000027ec   _ZTS8PWMClass
+00002615   _ZTSN10__cxxabiv117__class_type_infoE
+00002637   _ZTSN10__cxxabiv117__pbase_type_infoE
+000025f1   _ZTSN10__cxxabiv119__pointer_type_infoE
+000025cc   _ZTSN10__cxxabiv120__si_class_type_infoE
+000025a4   _ZTSN10__cxxabiv123__fundamental_type_infoE
+00002828   _ZTSPKe
+00002769   _ZTSSt9type_info
+0000269a   _ZTSe
+000026ac   _ZTV10motorClass
+000026bc   _ZTV15CommutatorClass
+000026cc   _ZTV15ZCDetectorClass
+000026dc   _ZTV26CommutationControllerClass
+000026ec   _ZTV8ADCClass
+000026fc   _ZTV8LEDClass
+0000270c   _ZTV8PWMClass
+0000271c   _ZTVN10__cxxabiv117__class_type_infoE
+0000272c   _ZTVN10__cxxabiv119__pointer_type_infoE
+0000273c   _ZTVN10__cxxabiv120__si_class_type_infoE
+0000274c   _ZTVN10__cxxabiv123__fundamental_type_infoE
+000021b1   _ZdlPv
+20000a6c   __STACK_END
+00000800   __STACK_SIZE
+2000046c   __STACK_TOP
+00000008   __SYSMEM_SIZE
+00002868   __TI_CINIT_Base
+00002880   __TI_CINIT_Limit
+0000284c   __TI_Handler_Table_Base
+00002858   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+000019d1   __TI_auto_init
+20000a80   __TI_cleanup_ptr
+00002151   __TI_decompress_none
+000021c5   __TI_decompress_rle24
+20000a84   __TI_dtors_ptr
+00000000   __TI_static_base__
+00002105   __TI_zero_init
+00001933   __aeabi_memcpy
+00001933   __aeabi_memcpy4
+00001933   __aeabi_memcpy8
+ffffffff   __binit__
+ffffffff   __c_args__
+2000026c   __stack
+00002061   _args_main
+00001e5d   _c_int00
+20000a78   _lock
+000020db   _nop
+000020d3   _register_lock
+000020cd   _register_unlock
+20000aa0   _sys_memory
+20000a7c   _unlock
+00001eed   abort
+ffffffff   binit
+00000b2d   calloc
+00001ea5   copy_in
+00001ef5   exit
+00000887   free
+20000000   g_pfnRAMVectors
+00000000   g_pfnVectors
+00001b5f   main
+20000a88   main_func_sp
+00000825   malloc
+00000a4d   memalign
+00001933   memcpy
+00000799   minit
+00000947   realloc
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000008   __SYSMEM_SIZE
+0000026d   _ZN8PWMClassD1Ev
+0000026d   _ZN8PWMClassD2Ev
+0000026f   _ZN8PWMClassD0Ev
+00000277   _ZN8PWMClassC1Ev
+00000277   _ZN8PWMClassC2Ev
+000002df   _ZN8PWMClass10initAsPWM0Ev
+000003d1   _ZN8PWMClass10initAsPWM1Ev
+000004ab   _ZN8PWMClass4initEj
+000005e7   _ZN8PWMClass20setOutputInvertStateEbbbbbb
+00000691   _ZN8PWMClass20setOutputEnableStateEbbbbbb
+0000073b   _ZN8PWMClass11setPWMWidthEj
+00000799   minit
+00000800   __STACK_SIZE
+00000825   malloc
+00000887   free
+00000947   realloc
+00000a4d   memalign
+00000b2d   calloc
+00000b65   _ZN8ADCClassD1Ev
+00000b65   _ZN8ADCClassD2Ev
+00000b79   _ZN8ADCClassD0Ev
+00000b87   _ZN8ADCClassC1Ev
+00000b87   _ZN8ADCClassC2Ev
+00000be7   _ZN8ADCClass9IIRFilterEj
+00000c05   _ZN8ADCClass8setPhaseE7phase_t
+00000c41   _ZN8ADCClass10initAsADC0Ev
+00000c97   _ZN8ADCClass10initAsADC1Ev
+00000cef   _ZN8ADCClass16disableInterruptEv
+00000cf7   _ZN8ADCClass4initEjP26CommutationControllerClassP10motorClass
+00000d79   _ZN8ADCClass15enableInterruptEv
+00000d81   _ZN8ADCClass3ISREv
+00000e33   _ZN8ADCClass19clearZCDetectedFlagEv
+00000e3b   _ZN8ADCClass18getMeasurementTimeEv
+00000e3f   _ZN8ADCClass17getZCDetectedFlagEv
+00000e45   _ZN8ADCClass14getMeasurementEv
+00000e49   _ZN26CommutationControllerClassD1Ev
+00000e49   _ZN26CommutationControllerClassD2Ev
+00000e4d   _ZN26CommutationControllerClassD0Ev
+00000e5b   _ZN26CommutationControllerClassC1Ev
+00000e5b   _ZN26CommutationControllerClassC2Ev
+00000e9f   _ZN26CommutationControllerClass8getValueEv
+00000ea9   _ZN26CommutationControllerClass7disableEv
+00000eb3   _ZN26CommutationControllerClass6enableEv
+00000ebd   _ZN26CommutationControllerClass12initAsTimer0Ev
+00000edf   _ZN26CommutationControllerClass12initAsTimer1Ev
+00000f03   _ZN26CommutationControllerClass4initEjP8ADCClassP10motorClass
+00000f5f   _ZN26CommutationControllerClass16disableInterruptEv
+00000f69   _ZN26CommutationControllerClass15enableInterruptEv
+00000f73   _ZN26CommutationControllerClass15setTimeoutValueEj
+00000f7f   _ZN26CommutationControllerClass15getTimeoutValueEv
+00000f89   _ZN26CommutationControllerClass3ISREv
+00001105   _ZN15CommutatorClassD1Ev
+00001105   _ZN15CommutatorClassD2Ev
+00001109   _ZN15CommutatorClassD0Ev
+00001117   _ZN15CommutatorClassC1Ev
+00001117   _ZN15CommutatorClassC2Ev
+00001137   _ZN15CommutatorClass9commutateEv
+00001319   _ZN15CommutatorClass4initEjP8ADCClass
+00001321   _ZN15CommutatorClass15disableSwitchesEv
+00001351   GPIOPadConfigSet
+0000154f   SysCtlClockSet
+00001657   TimerIntRegister
+00001729   _ZSt21__gen_dummy_typeinfosv
+00001731   _ZNSt9type_infoD1Ev
+00001731   _ZNSt9type_infoD2Ev
+00001733   _ZNSt9type_infoD0Ev
+0000173b   _ZNKSt9type_info4nameEv
+0000173f   _ZNKSt9type_infoneERKS_
+00001755   _ZNKSt9type_infoeqERKS_
+0000176b   _ZNKSt9type_info6beforeERKS_
+00001779   _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+00001779   _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+0000177b   _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+00001783   _ZN10__cxxabiv123__fundamental_type_infoD1Ev
+00001783   _ZN10__cxxabiv123__fundamental_type_infoD2Ev
+00001785   _ZN10__cxxabiv123__fundamental_type_infoD0Ev
+0000178d   _ZN10__cxxabiv121__vmi_class_type_infoD1Ev
+0000178d   _ZN10__cxxabiv121__vmi_class_type_infoD2Ev
+0000178f   _ZN10__cxxabiv121__vmi_class_type_infoD0Ev
+00001797   _ZN10__cxxabiv120__si_class_type_infoD1Ev
+00001797   _ZN10__cxxabiv120__si_class_type_infoD2Ev
+00001799   _ZN10__cxxabiv120__si_class_type_infoD0Ev
+000017a1   _ZN10__cxxabiv120__function_type_infoD1Ev
+000017a1   _ZN10__cxxabiv120__function_type_infoD2Ev
+000017a3   _ZN10__cxxabiv120__function_type_infoD0Ev
+000017ab   _ZN10__cxxabiv119__pointer_type_infoD1Ev
+000017ab   _ZN10__cxxabiv119__pointer_type_infoD2Ev
+000017ad   _ZN10__cxxabiv119__pointer_type_infoD0Ev
+000017b5   _ZN10__cxxabiv117__pbase_type_infoD1Ev
+000017b5   _ZN10__cxxabiv117__pbase_type_infoD2Ev
+000017b7   _ZN10__cxxabiv117__pbase_type_infoD0Ev
+000017bf   _ZN10__cxxabiv117__class_type_infoD1Ev
+000017bf   _ZN10__cxxabiv117__class_type_infoD2Ev
+000017c1   _ZN10__cxxabiv117__class_type_infoD0Ev
+000017c9   _ZN10__cxxabiv117__array_type_infoD1Ev
+000017c9   _ZN10__cxxabiv117__array_type_infoD2Ev
+000017cb   _ZN10__cxxabiv117__array_type_infoD0Ev
+000017d3   _ZN10__cxxabiv116__enum_type_infoD1Ev
+000017d3   _ZN10__cxxabiv116__enum_type_infoD2Ev
+000017d5   _ZN10__cxxabiv116__enum_type_infoD0Ev
+000017e5   _ZN10motorClassD1Ev
+000017e5   _ZN10motorClassD2Ev
+000017fd   _ZN10motorClassD0Ev
+0000180b   _ZN10motorClassC1Ev
+0000180b   _ZN10motorClassC2Ev
+00001831   _ZN10motorClass8setStateE14controlState_t
+00001835   _ZN10motorClass8getStateEv
+00001839   _ZN10motorClass5startEv
+00001863   _ZN10motorClass4initEj
+00001889   _ZN10motorClass11setPWMWidthEj
+0000188f   _ZN8LEDClassD1Ev
+0000188f   _ZN8LEDClassD2Ev
+00001891   _ZN8LEDClassD0Ev
+00001899   _ZN8LEDClassC1Ev
+00001899   _ZN8LEDClassC2Ev
+000018af   _ZN8LEDClass6toggleEv
+000018c5   _ZN8LEDClass5clearEv
+000018cf   _ZN8LEDClass10initAsLED0Ev
+000018e9   _ZN8LEDClass10initAsLED1Ev
+00001903   _ZN8LEDClass4initEj
+00001929   _ZN8LEDClass3setEv
+00001933   __aeabi_memcpy
+00001933   __aeabi_memcpy4
+00001933   __aeabi_memcpy8
+00001933   memcpy
+000019d1   __TI_auto_init
+00001a65   ADCSequenceStepConfigure
+00001ae3   IntEnable
+00001b5f   main
+00001bd5   TimerConfigure
+00001c43   ADCIntRegister
+00001ca7   _ZN15ZCDetectorClassD1Ev
+00001ca7   _ZN15ZCDetectorClassD2Ev
+00001ca9   _ZN15ZCDetectorClassD0Ev
+00001cb1   _ZN15ZCDetectorClassC1Ev
+00001cb1   _ZN15ZCDetectorClassC2Ev
+00001cc3   _ZN15ZCDetectorClass14setZCDirectionE23zeroCrossingDirection_t
+00001cc7   _ZN15ZCDetectorClass10ZCDetectedEjj
+00001d67   ADCSequenceConfigure
+00001dbb   GPIOPinConfigure
+00001e0d   IntRegister
+00001e5d   _c_int00
+00001ea5   copy_in
+00001ee9   C$$EXIT
+00001eed   abort
+00001ef5   exit
+00001f2d   SysCtlPeripheralEnable
+00001f61   PWMGenConfigure
+00001f8d   ADCSequenceDataGet
+00001faf   GPIOPinTypeGPIOOutput
+00001fd1   GPIOPinTypeADC
+00001fef   PWMPulseWidthSet
+0000200d   GPIOPinTypePWM
+00002029   _ZN8ADCClass10ISR1StaticEv
+00002037   _ZN8ADCClass10ISR0StaticEv
+00002045   _ZN26CommutationControllerClass10ISR1StaticEv
+00002053   _ZN26CommutationControllerClass10ISR0StaticEv
+00002061   _args_main
+00002079   PWMOutputInvert
+0000208f   PWMOutputState
+000020a5   SysCtlPWMClockSet
+000020b9   TimerDisable
+000020cd   _register_unlock
+000020d3   _register_lock
+000020db   _nop
+000020e1   PWMGenPeriodSet
+000020f3   TimerLoadSet
+00002105   __TI_zero_init
+00002117   ADCIntEnable
+00002127   ADCIntDisable
+00002135   ADCSequenceEnable
+00002143   TimerEnable
+00002151   __TI_decompress_none
+0000215f   PWMGenEnable
+0000216b   ResetISR
+00002177   ADCIntClear
+00002181   PWMGenIntTrigEnable
+0000218b   TimerIntDisable
+00002195   TimerLoadGet
+0000219f   TimerValueGet
+000021a9   TimerIntEnable
+000021b1   _ZdlPv
+000021b9   GPIOPinWrite
+000021bf   SysCtlDelay
+000021c5   __TI_decompress_rle24
+000021cb   PWMSyncTimeBase
+000021cf   PWMSyncUpdate
+000021d3   TimerIntClear
+000025a4   _ZTSN10__cxxabiv123__fundamental_type_infoE
+000025cc   _ZTSN10__cxxabiv120__si_class_type_infoE
+000025f1   _ZTSN10__cxxabiv119__pointer_type_infoE
+00002615   _ZTSN10__cxxabiv117__class_type_infoE
+00002637   _ZTSN10__cxxabiv117__pbase_type_infoE
+00002659   _ZTS26CommutationControllerClass
+00002676   _ZTS15CommutatorClass
+00002688   _ZTS15ZCDetectorClass
+0000269a   _ZTSe
+0000269c   _ZTIPKe
+000026ac   _ZTV10motorClass
+000026bc   _ZTV15CommutatorClass
+000026cc   _ZTV15ZCDetectorClass
+000026dc   _ZTV26CommutationControllerClass
+000026ec   _ZTV8ADCClass
+000026fc   _ZTV8LEDClass
+0000270c   _ZTV8PWMClass
+0000271c   _ZTVN10__cxxabiv117__class_type_infoE
+0000272c   _ZTVN10__cxxabiv119__pointer_type_infoE
+0000273c   _ZTVN10__cxxabiv120__si_class_type_infoE
+0000274c   _ZTVN10__cxxabiv123__fundamental_type_infoE
+0000275c   _ZTS10motorClass
+00002769   _ZTSSt9type_info
+00002778   _ZTI15CommutatorClass
+00002784   _ZTI26CommutationControllerClass
+00002790   _ZTI8ADCClass
+0000279c   _ZTIN10__cxxabiv117__class_type_infoE
+000027a8   _ZTIN10__cxxabiv117__pbase_type_infoE
+000027b4   _ZTIN10__cxxabiv119__pointer_type_infoE
+000027c0   _ZTIN10__cxxabiv120__si_class_type_infoE
+000027cc   _ZTIN10__cxxabiv123__fundamental_type_infoE
+000027d8   _ZTS8ADCClass
+000027e2   _ZTS8LEDClass
+000027ec   _ZTS8PWMClass
+000027f8   _ZTI10motorClass
+00002800   _ZTI15ZCDetectorClass
+00002808   _ZTI8LEDClass
+00002810   _ZTI8PWMClass
+00002818   _ZTISt9type_info
+00002820   _ZTIe
+00002828   _ZTSPKe
+0000284c   __TI_Handler_Table_Base
+00002858   __TI_Handler_Table_Limit
+00002868   __TI_CINIT_Base
+00002880   __TI_CINIT_Limit
+20000000   g_pfnRAMVectors
+2000026c   __stack
+2000046c   __STACK_TOP
+20000a6c   __STACK_END
+20000a78   _lock
+20000a7c   _unlock
+20000a80   __TI_cleanup_ptr
+20000a84   __TI_dtors_ptr
+20000a88   main_func_sp
+20000a8c   ADC0
+20000a90   ADC1
+20000a94   CommTimer0
+20000a98   CommTimer1
+20000a9c   _ZSt16__dummy_typeinfo
+20000aa0   _sys_memory
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[257 symbols]

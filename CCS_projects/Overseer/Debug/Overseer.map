@@ -1,0 +1,1158 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.6                      
+******************************************************************************
+>> Linked Sat Nov 15 12:17:43 2014
+
+OUTPUT FILE NAME:   <Overseer.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00006ffd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000084ea  00037b16  R  X
+  SRAM                  20000000   00008000  00003ea4  0000415c  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000084f0   000084f0    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000755a   0000755a    r-x .text
+  000077c8    000077c8    00000c6c   00000c6c    r-- .const
+  00008434    00008434    00000008   00000008    r-- .init_array
+  00008440    00008440    000000b0   000000b0    r-- .cinit
+20000000    20000000    00003ea4   00000000    rw-
+  20000000    20000000    0000026c   00000000    rw- .vtable
+  2000026c    2000026c    00001a3c   00000000    rw- .bss
+  20001ca8    20001ca8    00001000   00000000    rw- .stack
+  20002ca8    20002ca8    00001000   00000000    rw- .sysmem
+  20003ca8    20003ca8    000001fc   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123ah6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    0000755a     
+                  0000026c    00000ec0     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.obj (.text)
+                  0000112c    00000d80     MessageParser.obj (.text)
+                  00001eac    00000918     Overseer.obj (.text)
+                  000027c4    0000087c     InputCapture.obj (.text)
+                  00003040    000003cc     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  0000340c    0000036e     SPISlave.obj (.text:_ZN13SPISlaveClass3ISREv)
+                  0000377a    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : newhandler.obj (.text)
+                  0000377c    0000035c     SPIMaster.obj (.text)
+                  00003ad8    00000320     PinController.obj (.text)
+                  00003df8    00000310     rtsv7M4_T_le_v4SPD16_eabi.lib : lowlev.obj (.text)
+                  00004108    000002f0     GPIOOutput.obj (.text)
+                  000043f8    000002dc     GPIOInput.obj (.text)
+                  000046d4    000002d4     rtsv7M4_T_le_v4SPD16_eabi.lib : trgdrv.obj (.text)
+                  000049a8    000002a0                                   : vla_alloc.obj (.text)
+                  00004c48    00000264     SPISlave.obj (.text)
+                  00004eac    0000023e     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  000050ea    000001f4     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.obj (.text)
+                  000052de    00000002     --HOLE-- [fill = 0]
+                  000052e0    000001e8     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  000054c8    000001dc                   : sysctl.obj (.text:SysCtlClockSet)
+                  000056a4    000001c0     rtsv7M4_T_le_v4SPD16_eabi.lib : fopen.obj (.text)
+                  00005864    000001b6                                   : fd_add_t2.obj (.text)
+                  00005a1a    00000002     --HOLE-- [fill = 0]
+                  00005a1c    00000198     MotorController.obj (.text)
+                  00005bb4    00000140     InputCapture.obj (.text:retain)
+                  00005cf4    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
+                  00005e2a    00000002     --HOLE-- [fill = 0]
+                  00005e2c    00000134                                   : fputs.obj (.text)
+                  00005f60    000000fc                                   : fd_mul_t2.obj (.text)
+                  0000605c    000000f4                                   : dtor_list.obj (.text)
+                  00006150    000000dc                                   : setvbuf.obj (.text)
+                  0000622c    000000c0                                   : fflush.obj (.text)
+                  000062ec    000000bc                                   : typeinfo_.obj (.text)
+                  000063a8    000000ac                                   : _io_perm.obj (.text)
+                  00006454    0000009c                                   : fputc.obj (.text)
+                  000064f0    0000009c                                   : memcpy_t2.obj (.text)
+                  0000658c    00000098                                   : fclose.obj (.text)
+                  00006624    00000094     driverlib.lib : timer.obj (.text:_TimerIntNumberGet)
+                  000066b8    00000094     rtsv7M4_T_le_v4SPD16_eabi.lib : auto_init.obj (.text)
+                  0000674c    0000008c     driverlib.lib : ssi.obj (.text:SSIConfigSetExpClk)
+                  000067d8    0000008c                   : timer.obj (.text:TimerConfigure)
+                  00006864    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  000068ea    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  00006970    00000080     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  000069f0    00000080                   : ssi.obj (.text:_SSIIntNumberGet)
+                  00006a70    00000078     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00006ae8    00000074     SPISlave.obj (.text:_ZN15RingBufferClassI9message_sE4pushES0_)
+                  00006b5c    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : fprintf.obj (.text)
+                  00006bc8    00000068     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00006c30    00000064     rtsv7M4_T_le_v4SPD16_eabi.lib : fseek.obj (.text)
+                  00006c94    00000062     SPISlave.obj (.text:_ZN15RingBufferClassI9message_sE3popEPS0_)
+                  00006cf6    00000002     --HOLE-- [fill = 0]
+                  00006cf8    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.obj (.text)
+                  00006d58    0000005e                                   : copy_decompress_rle.obj (.text)
+                  00006db6    0000005c     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  00006e12    00000002     --HOLE-- [fill = 0]
+                  00006e14    0000005c                   : interrupt.obj (.text:IntRegister)
+                  00006e70    0000005a     rtsv7M4_T_le_v4SPD16_eabi.lib : ltoa.obj (.text)
+                  00006eca    00000002     --HOLE-- [fill = 0]
+                  00006ecc    00000054     driverlib.lib : interrupt.obj (.text:IntPrioritySet)
+                  00006f20    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.obj (.text)
+                  00006f6c    00000048     SPISlave.obj (.text:_ZN15RingBufferClassIhE13returnToQueueEh)
+                  00006fb4    00000048     SPISlave.obj (.text:_ZN15RingBufferClassIhE4pushEh)
+                  00006ffc    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00007044    00000048                                   : fd_toi_t2.obj (.text)
+                  0000708c    00000044     SPISlave.obj (.text:_ZN15RingBufferClassIhE3popEPh)
+                  000070d0    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00007114    00000044                                   : exit.obj (.text)
+                  00007158    00000044                                   : xdtest.obj (.text)
+                  0000719c    00000040     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000071dc    00000030     SPISlave.obj (.text:_ZN15RingBufferClassI9message_sEC1Ev)
+                  0000720c    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : strncpy.obj (.text)
+                  0000723c    0000002e                                   : i_tofd_t2.obj (.text)
+                  0000726a    00000002     --HOLE-- [fill = 0]
+                  0000726c    0000002c                                   : new_.obj (.text)
+                  00007298    0000002a     driverlib.lib : timer.obj (.text:TimerControlEvent)
+                  000072c2    0000002a                   : timer.obj (.text:TimerLoadSet)
+                  000072ec    0000002a                   : timer.obj (.text:TimerMatchSet)
+                  00007316    0000002a                   : timer.obj (.text:TimerPrescaleMatchSet)
+                  00007340    0000002a                   : timer.obj (.text:TimerPrescaleSet)
+                  0000736a    00000028                   : timer.obj (.text:TimerIntRegister)
+                  00007392    00000002     --HOLE-- [fill = 0]
+                  00007394    00000028     SPISlave.obj (.text:_ZN15RingBufferClassIhEC1Ev)
+                  000073bc    00000024     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  000073e0    00000024                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00007404    00000024                   : gpio.obj (.text:GPIOPinTypeSSI)
+                  00007428    00000024                   : gpio.obj (.text:GPIOPinTypeTimer)
+                  0000744c    00000022                   : ssi.obj (.text:SSIDataGetNonBlocking)
+                  0000746e    00000020                   : gpio.obj (.text:GPIOPinWrite)
+                  0000748e    00000020                   : ssi.obj (.text:SSIDataPutNonBlocking)
+                  000074ae    0000001e                   : ssi.obj (.text:SSIIntRegister)
+                  000074cc    0000001e                   : ssi.obj (.text:SSIIntStatus)
+                  000074ea    0000001e                   : timer.obj (.text:TimerDisable)
+                  00007508    0000001e                   : timer.obj (.text:TimerEnable)
+                  00007526    0000001e                   : timer.obj (.text:TimerIntStatus)
+                  00007544    0000001c                   : ssi.obj (.text:SSIDataGet)
+                  00007560    0000001c                   : timer.obj (.text:TimerValueGet)
+                  0000757c    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memccpy.obj (.text)
+                  00007598    0000001a     driverlib.lib : ssi.obj (.text:SSIDataPut)
+                  000075b2    00000018                   : gpio.obj (.text:GPIOPinRead)
+                  000075ca    00000018                   : ssi.obj (.text:SSIIntDisable)
+                  000075e2    00000018                   : ssi.obj (.text:SSIIntEnable)
+                  000075fa    00000018                   : timer.obj (.text:TimerIntDisable)
+                  00007612    00000018                   : timer.obj (.text:TimerIntEnable)
+                  0000762a    00000002     --HOLE-- [fill = 0]
+                  0000762c    00000018     SPISlave.obj (.text:retain)
+                  00007644    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  0000765c    00000018                                   : ll_mul_t2.obj (.text)
+                  00007674    00000018                                   : strcmp.obj (.text)
+                  0000768c    00000016     driverlib.lib : ssi.obj (.text:SSIEnable)
+                  000076a2    00000016     SPISlave.obj (.text:_ZN15RingBufferClassI9message_sED0Ev)
+                  000076b8    00000016     SPISlave.obj (.text:_ZN15RingBufferClassIhED0Ev)
+                  000076ce    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : memchr.obj (.text)
+                  000076e4    00000016                                   : strchr.obj (.text)
+                  000076fa    00000002     --HOLE-- [fill = 0]
+                  000076fc    00000014                                   : _lock.obj (.text)
+                  00007710    00000014                                   : strlen.obj (.text)
+                  00007724    00000012     driverlib.lib : ssi.obj (.text:SSIIntClear)
+                  00007736    00000012                   : timer.obj (.text:TimerIntClear)
+                  00007748    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  0000775a    00000012                                   : xdclass.obj (.text)
+                  0000776c    00000010                                   : strcpy.obj (.text)
+                  0000777c    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  0000778a    0000000c     SPISlave.obj (.text:_ZN15RingBufferClassI9message_sED1Ev)
+                  00007796    0000000c     SPISlave.obj (.text:_ZN15RingBufferClassIhED1Ev)
+                  000077a2    0000000c     tm4c123ah6pm_startup_ccs.obj (.text)
+                  000077ae    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : delete.obj (.text)
+                  000077b6    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  000077bc    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000077c2    00000004                                   : error.obj (.text)
+
+.const     0    000077c8    00000c6c     
+                  000077c8    0000054c     MessageParser.obj (.const)
+                  00007d14    00000102     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+                  00007e16    00000002                                   : typeinfo_.obj (.const:.typeinfo:_ZTSe)
+                  00007e18    0000009c     driverlib.lib : interrupt.obj (.const:g_pui32Regs)
+                  00007eb4    00000090                   : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00007f44    00000070                   : interrupt.obj (.const)
+                  00007fb4    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00008020    00000060                   : timer.obj (.const:g_ppui32TimerIntMap)
+                  00008080    00000048                   : ssi.obj (.const)
+                  000080c8    00000040                   : timer.obj (.const:g_ppui32TimerIntMapSnowflake)
+                  00008108    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv123__fundamental_type_infoE)
+                  00008130    00000025                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv120__si_class_type_infoE)
+                  00008155    00000024                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv119__pointer_type_infoE)
+                  00008179    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__class_type_infoE)
+                  0000819b    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__pbase_type_infoE)
+                  000081bd    0000001e     SPISlave.obj (.const:.typeinfo:_ZTS15RingBufferClassI9message_sE)
+                  000081db    00000017     MotorController.obj (.const:.typeinfo:_ZTS20MotorControllerClass)
+                  000081f2    00000015     SPISlave.obj (.const:.typeinfo:_ZTS15RingBufferClassIhE)
+                  00008207    00000015     MessageParser.obj (.const:.typeinfo:_ZTS18MessageParserClass)
+                  0000821c    00000015     PinController.obj (.const:.typeinfo:_ZTS18PinControllerClass)
+                  00008231    00000014     InputCapture.obj (.const:.typeinfo:_ZTS17InputCaptureClass)
+                  00008245    00000012     GPIOOutput.obj (.const:.typeinfo:_ZTS15GPIOOutputClass)
+                  00008257    00000011     GPIOInput.obj (.const:.typeinfo:_ZTS14GPIOInputClass)
+                  00008268    00000011     SPIMaster.obj (.const:.typeinfo:_ZTS14SPIMasterClass)
+                  00008279    00000003     --HOLE-- [fill = 0]
+                  0000827c    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIPKe)
+                  0000828c    00000010     SPISlave.obj (.const:.typeinfo:_ZTS13SPISlaveClass)
+                  0000829c    00000010     SPISlave.obj (.const:_ZTV13SPISlaveClass)
+                  000082ac    00000010     GPIOInput.obj (.const:_ZTV14GPIOInputClass)
+                  000082bc    00000010     SPIMaster.obj (.const:_ZTV14SPIMasterClass)
+                  000082cc    00000010     GPIOOutput.obj (.const:_ZTV15GPIOOutputClass)
+                  000082dc    00000010     SPISlave.obj (.const:_ZTV15RingBufferClassI9message_sE)
+                  000082ec    00000010     SPISlave.obj (.const:_ZTV15RingBufferClassIhE)
+                  000082fc    00000010     InputCapture.obj (.const:_ZTV17InputCaptureClass)
+                  0000830c    00000010     MessageParser.obj (.const:_ZTV18MessageParserClass)
+                  0000831c    00000010     PinController.obj (.const:_ZTV18PinControllerClass)
+                  0000832c    00000010     MotorController.obj (.const:_ZTV20MotorControllerClass)
+                  0000833c    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:_ZTVN10__cxxabiv117__class_type_infoE)
+                  0000834c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv119__pointer_type_infoE)
+                  0000835c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv120__si_class_type_infoE)
+                  0000836c    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv123__fundamental_type_infoE)
+                  0000837c    0000000d                                   : typeinfo_.obj (.const:.typeinfo:_ZTSSt9type_info)
+                  00008389    00000003     --HOLE-- [fill = 0]
+                  0000838c    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__class_type_infoE)
+                  00008398    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__pbase_type_infoE)
+                  000083a4    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv119__pointer_type_infoE)
+                  000083b0    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv120__si_class_type_infoE)
+                  000083bc    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv123__fundamental_type_infoE)
+                  000083c8    00000008     SPISlave.obj (.const:.typeinfo:_ZTI13SPISlaveClass)
+                  000083d0    00000008     GPIOInput.obj (.const:.typeinfo:_ZTI14GPIOInputClass)
+                  000083d8    00000008     SPIMaster.obj (.const:.typeinfo:_ZTI14SPIMasterClass)
+                  000083e0    00000008     GPIOOutput.obj (.const:.typeinfo:_ZTI15GPIOOutputClass)
+                  000083e8    00000008     SPISlave.obj (.const:.typeinfo:_ZTI15RingBufferClassI9message_sE)
+                  000083f0    00000008     SPISlave.obj (.const:.typeinfo:_ZTI15RingBufferClassIhE)
+                  000083f8    00000008     InputCapture.obj (.const:.typeinfo:_ZTI17InputCaptureClass)
+                  00008400    00000008     MessageParser.obj (.const:.typeinfo:_ZTI18MessageParserClass)
+                  00008408    00000008     PinController.obj (.const:.typeinfo:_ZTI18PinControllerClass)
+                  00008410    00000008     MotorController.obj (.const:.typeinfo:_ZTI20MotorControllerClass)
+                  00008418    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTISt9type_info)
+                  00008420    00000008                                   : typeinfo_.obj (.const:.typeinfo:_ZTIe)
+                  00008428    00000008     driverlib.lib : timer.obj (.const)
+                  00008430    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSPKe)
+
+.init_array 
+*          0    00008434    00000008     
+                  00008434    00000004     MotorController.obj (.init_array)
+                  00008438    00000004     Overseer.obj (.init_array)
+
+.cinit     0    00008440    000000b0     
+                  00008440    00000078     (.cinit..data.load) [load image, compression = rle]
+                  000084b8    0000000c     (__TI_handler_table)
+                  000084c4    00000004     --HOLE-- [fill = 0]
+                  000084c8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000084d0    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  000084d8    00000018     (__TI_cinit_table)
+
+.vtable    0    20000000    0000026c     UNINITIALIZED
+                  20000000    0000026c     driverlib.lib : interrupt.obj (.vtable)
+
+.bss       0    2000026c    00001a3c     UNINITIALIZED
+                  2000026c    0000162c     Overseer.obj (.bss:RPiSPISlave)
+                  20001898    00000158     Overseer.obj (.bss)
+                  200019f0    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.obj (.bss:__CIOBUF_)
+                  20001b10    000000a0                                   : defs.obj (.bss:__TI_tmpnams)
+                  20001bb0    00000054     MotorController.obj (.bss:_ZN20MotorControllerClass4SPI1E)
+                  20001c04    00000054     MotorController.obj (.bss:_ZN20MotorControllerClass4SPI2E)
+                  20001c58    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : vla_alloc.obj (.bss)
+                  20001c74    00000008     (.common:parmbuf)
+                  20001c7c    00000004     (.common:IC0)
+                  20001c80    00000004     (.common:IC1)
+                  20001c84    00000004     (.common:IC2)
+                  20001c88    00000004     (.common:IC3)
+                  20001c8c    00000004     (.common:IC4)
+                  20001c90    00000004     (.common:IC5)
+                  20001c94    00000004     (.common:IC6)
+                  20001c98    00000004     (.common:IC7)
+                  20001c9c    00000004     (.common:SPI0)
+                  20001ca0    00000004     (.common:_ZSt16__dummy_typeinfo)
+                  20001ca4    00000004     (.common:__dso_handle)
+
+.stack     0    20001ca8    00001000     UNINITIALIZED
+                  20001ca8    00001000     --HOLE--
+
+.sysmem    0    20002ca8    00001000     UNINITIALIZED
+                  20002ca8    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+                  20002cb0    00000ff8     --HOLE--
+
+.data      0    20003ca8    000001fc     UNINITIALIZED
+                  20003ca8    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.data:_ftable)
+                  20003d98    000000d0                                   : lowlev.obj (.data)
+                  20003e68    00000010                                   : defs.obj (.data)
+                  20003e78    0000000c                                   : memory.obj (.data)
+                  20003e84    00000008                                   : _lock.obj (.data)
+                  20003e8c    00000008                                   : exit.obj (.data)
+                  20003e94    00000004                                   : dtor_list.obj (.data)
+                  20003e98    00000004                                   : fopen.obj (.data)
+                  20003e9c    00000004                                   : stkdepth_vars.obj (.data)
+                  20003ea0    00000004                                   : vars.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000084d8 records: 3, size/record: 8, table size: 24
+	.data: load addr=00008440, load size=00000078 bytes, run addr=20003ca8, run size=000001fc bytes, compression=rle
+	.bss: load addr=000084c8, load size=00000008 bytes, run addr=2000026c, run size=00001a3c bytes, compression=zero_init
+	.vtable: load addr=000084d0, load size=00000008 bytes, run addr=20000000, run size=0000026c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000084b8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00007115   C$$EXIT
+00006d23   C$$IO$$
+00006db7   GPIODirModeSet
+00004ead   GPIOPadConfigSet
+00006bc9   GPIOPinConfigure
+000075b3   GPIOPinRead
+000073bd   GPIOPinTypeGPIOInput
+000073e1   GPIOPinTypeGPIOOutput
+00007405   GPIOPinTypeSSI
+00007429   GPIOPinTypeTimer
+0000746f   GPIOPinWrite
+00004961   HOSTclock
+00004929   HOSTclose
+000048eb   HOSTgetenv
+0000488f   HOSTlseek
+0000483d   HOSTopen
+000047f1   HOSTread
+00004793   HOSTrename
+00004759   HOSTtime
+00004721   HOSTunlink
+000046d5   HOSTwrite
+00006971   IntEnable
+00006ecd   IntPrioritySet
+00006e15   IntRegister
+000077a3   ResetISR
+00008434   SHT$$INIT_ARRAY$$Base
+0000843c   SHT$$INIT_ARRAY$$Limit
+20001c9c   SPI0
+0000674d   SSIConfigSetExpClk
+00007545   SSIDataGet
+0000744d   SSIDataGetNonBlocking
+00007599   SSIDataPut
+0000748f   SSIDataPutNonBlocking
+0000768d   SSIEnable
+00007725   SSIIntClear
+000075cb   SSIIntDisable
+000075e3   SSIIntEnable
+000074af   SSIIntRegister
+000074cd   SSIIntStatus
+000052e1   SysCtlClockGet
+000054c9   SysCtlClockSet
+000077b7   SysCtlDelay
+0000719d   SysCtlPeripheralEnable
+000067d9   TimerConfigure
+00007299   TimerControlEvent
+000074eb   TimerDisable
+00007509   TimerEnable
+00007737   TimerIntClear
+000075fb   TimerIntDisable
+00007613   TimerIntEnable
+0000736b   TimerIntRegister
+00007527   TimerIntStatus
+000072c3   TimerLoadSet
+000072ed   TimerMatchSet
+00007317   TimerPrescaleMatchSet
+00007341   TimerPrescaleSet
+00007561   TimerValueGet
+0000775b   _Dclass
+00007159   _Dtest
+0000203d   _Z17emptyMessageQueuev
+00001ecd   _Z17updateReadBuffersv
+0000377b   _Z21__default_new_handlerv
+00006399   _ZN10__cxxabiv116__enum_type_infoD0Ev
+00006397   _ZN10__cxxabiv116__enum_type_infoD1Ev
+00006397   _ZN10__cxxabiv116__enum_type_infoD2Ev
+0000638f   _ZN10__cxxabiv117__array_type_infoD0Ev
+0000638d   _ZN10__cxxabiv117__array_type_infoD1Ev
+0000638d   _ZN10__cxxabiv117__array_type_infoD2Ev
+00006385   _ZN10__cxxabiv117__class_type_infoD0Ev
+00006383   _ZN10__cxxabiv117__class_type_infoD1Ev
+00006383   _ZN10__cxxabiv117__class_type_infoD2Ev
+0000637b   _ZN10__cxxabiv117__pbase_type_infoD0Ev
+00006379   _ZN10__cxxabiv117__pbase_type_infoD1Ev
+00006379   _ZN10__cxxabiv117__pbase_type_infoD2Ev
+00006371   _ZN10__cxxabiv119__pointer_type_infoD0Ev
+0000636f   _ZN10__cxxabiv119__pointer_type_infoD1Ev
+0000636f   _ZN10__cxxabiv119__pointer_type_infoD2Ev
+00006367   _ZN10__cxxabiv120__function_type_infoD0Ev
+00006365   _ZN10__cxxabiv120__function_type_infoD1Ev
+00006365   _ZN10__cxxabiv120__function_type_infoD2Ev
+0000635d   _ZN10__cxxabiv120__si_class_type_infoD0Ev
+0000635b   _ZN10__cxxabiv120__si_class_type_infoD1Ev
+0000635b   _ZN10__cxxabiv120__si_class_type_infoD2Ev
+00006353   _ZN10__cxxabiv121__vmi_class_type_infoD0Ev
+00006351   _ZN10__cxxabiv121__vmi_class_type_infoD1Ev
+00006351   _ZN10__cxxabiv121__vmi_class_type_infoD2Ev
+00006349   _ZN10__cxxabiv123__fundamental_type_infoD0Ev
+00006347   _ZN10__cxxabiv123__fundamental_type_infoD1Ev
+00006347   _ZN10__cxxabiv123__fundamental_type_infoD2Ev
+0000633f   _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+0000633d   _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+0000633d   _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+0000762d   _ZN13SPISlaveClass10ISR0StaticEv
+00004cd7   _ZN13SPISlaveClass10getMessageEP9message_s
+00004df3   _ZN13SPISlaveClass10initAsSSI0Ev
+00004ce9   _ZN13SPISlaveClass18updateReadResponseEhj
+0000340d   _ZN13SPISlaveClass3ISREv
+00004d05   _ZN13SPISlaveClass4initEj
+00004c49   _ZN13SPISlaveClassC1Ej
+00004c49   _ZN13SPISlaveClassC2Ej
+00004cc1   _ZN13SPISlaveClassD0Ev
+00004c97   _ZN13SPISlaveClassD1Ev
+00004c97   _ZN13SPISlaveClassD2Ev
+00004437   _ZN14GPIOInputClass14getInputStatusEv
+00004453   _ZN14GPIOInputClass17configPeripheralsE9pinName_t
+0000460f   _ZN14GPIOInputClass9initAsAN0Ev
+0000462b   _ZN14GPIOInputClass9initAsAN1Ev
+00004647   _ZN14GPIOInputClass9initAsAN2Ev
+00004663   _ZN14GPIOInputClass9initAsAN3Ev
+0000467f   _ZN14GPIOInputClass9initAsAN4Ev
+0000469b   _ZN14GPIOInputClass9initAsAN5Ev
+0000452f   _ZN14GPIOInputClass9initAsIC0Ev
+0000454b   _ZN14GPIOInputClass9initAsIC1Ev
+00004567   _ZN14GPIOInputClass9initAsIC2Ev
+00004583   _ZN14GPIOInputClass9initAsIC3Ev
+0000459f   _ZN14GPIOInputClass9initAsIC4Ev
+000045bb   _ZN14GPIOInputClass9initAsIC5Ev
+000045d7   _ZN14GPIOInputClass9initAsIC6Ev
+000045f3   _ZN14GPIOInputClass9initAsIC7Ev
+000043f9   _ZN14GPIOInputClassC1E9pinName_t
+000043f9   _ZN14GPIOInputClassC2E9pinName_t
+00004421   _ZN14GPIOInputClassD0Ev
+00004415   _ZN14GPIOInputClassD1Ev
+00004415   _ZN14GPIOInputClassD2Ev
+000039df   _ZN14SPIMasterClass10initAsSPI1Ev
+00003a35   _ZN14SPIMasterClass10initAsSPI2Ev
+00003871   _ZN14SPIMasterClass11sendMessageEhPjj
+000037b7   _ZN14SPIMasterClass17configPeripheralsEj
+00003913   _ZN14SPIMasterClass7getDataEhPjj
+000039a7   _ZN14SPIMasterClass9sendBytesEPhj
+0000377d   _ZN14SPIMasterClassC1Ej
+0000377d   _ZN14SPIMasterClassC2Ej
+000037a1   _ZN14SPIMasterClassD0Ev
+00003795   _ZN14SPIMasterClassD1Ev
+00003795   _ZN14SPIMasterClassD2Ev
+00004159   _ZN15GPIOOutputClass14setOutputStateEb
+00004179   _ZN15GPIOOutputClass17configPeripheralsE9pinName_t
+00004333   _ZN15GPIOOutputClass9initAsAN0Ev
+0000434f   _ZN15GPIOOutputClass9initAsAN1Ev
+0000436b   _ZN15GPIOOutputClass9initAsAN2Ev
+00004387   _ZN15GPIOOutputClass9initAsAN3Ev
+000043a3   _ZN15GPIOOutputClass9initAsAN4Ev
+000043bf   _ZN15GPIOOutputClass9initAsAN5Ev
+00004253   _ZN15GPIOOutputClass9initAsIC0Ev
+0000426f   _ZN15GPIOOutputClass9initAsIC1Ev
+0000428b   _ZN15GPIOOutputClass9initAsIC2Ev
+000042a7   _ZN15GPIOOutputClass9initAsIC3Ev
+000042c3   _ZN15GPIOOutputClass9initAsIC4Ev
+000042df   _ZN15GPIOOutputClass9initAsIC5Ev
+000042fb   _ZN15GPIOOutputClass9initAsIC6Ev
+00004317   _ZN15GPIOOutputClass9initAsIC7Ev
+00004109   _ZN15GPIOOutputClassC1E9pinName_t
+00004109   _ZN15GPIOOutputClassC2E9pinName_t
+00004143   _ZN15GPIOOutputClassD0Ev
+0000412d   _ZN15GPIOOutputClassD1Ev
+0000412d   _ZN15GPIOOutputClassD2Ev
+00006c95   _ZN15RingBufferClassI9message_sE3popEPS0_
+00006ae9   _ZN15RingBufferClassI9message_sE4pushES0_
+000071dd   _ZN15RingBufferClassI9message_sEC1Ev
+000076a3   _ZN15RingBufferClassI9message_sED0Ev
+0000778b   _ZN15RingBufferClassI9message_sED1Ev
+00006f6d   _ZN15RingBufferClassIhE13returnToQueueEh
+0000708d   _ZN15RingBufferClassIhE3popEPh
+00006fb5   _ZN15RingBufferClassIhE4pushEh
+00007395   _ZN15RingBufferClassIhEC1Ev
+000076b9   _ZN15RingBufferClassIhED0Ev
+00007797   _ZN15RingBufferClassIhED1Ev
+00005c45   _ZN17InputCaptureClass10ISR0StaticEv
+00005c57   _ZN17InputCaptureClass10ISR1StaticEv
+00005c69   _ZN17InputCaptureClass10ISR2StaticEv
+00005c7b   _ZN17InputCaptureClass10ISR3StaticEv
+00005c8d   _ZN17InputCaptureClass10ISR4StaticEv
+00005c9f   _ZN17InputCaptureClass10ISR5StaticEv
+00005cb1   _ZN17InputCaptureClass10ISR6StaticEv
+00005cc3   _ZN17InputCaptureClass10ISR7StaticEv
+00002ef5   _ZN17InputCaptureClass10timeoutISREv
+00002e8d   _ZN17InputCaptureClass12resetTimeoutEv
+000028a5   _ZN17InputCaptureClass17configPeripheralsE9pinName_t
+00005bb5   _ZN17InputCaptureClass17timeoutISR0StaticEv
+00005bc7   _ZN17InputCaptureClass17timeoutISR1StaticEv
+00005bd9   _ZN17InputCaptureClass17timeoutISR2StaticEv
+00005beb   _ZN17InputCaptureClass17timeoutISR3StaticEv
+00005bfd   _ZN17InputCaptureClass17timeoutISR4StaticEv
+00005c0f   _ZN17InputCaptureClass17timeoutISR5StaticEv
+00005c21   _ZN17InputCaptureClass17timeoutISR6StaticEv
+00005c33   _ZN17InputCaptureClass17timeoutISR7StaticEv
+00002f6d   _ZN17InputCaptureClass3ISREv
+0000282d   _ZN17InputCaptureClass9getPeriodEv
+00002b3d   _ZN17InputCaptureClass9initAsIC0Ev
+00002b95   _ZN17InputCaptureClass9initAsIC1Ev
+00002bf3   _ZN17InputCaptureClass9initAsIC2Ev
+00002c59   _ZN17InputCaptureClass9initAsIC3Ev
+00002ccd   _ZN17InputCaptureClass9initAsIC4Ev
+00002d41   _ZN17InputCaptureClass9initAsIC5Ev
+00002db1   _ZN17InputCaptureClass9initAsIC6Ev
+00002e25   _ZN17InputCaptureClass9initAsIC7Ev
+000027c5   _ZN17InputCaptureClassC1E9pinName_t
+000027c5   _ZN17InputCaptureClassC2E9pinName_t
+00002817   _ZN17InputCaptureClassD0Ev
+0000280b   _ZN17InputCaptureClassD1Ev
+0000280b   _ZN17InputCaptureClassD2Ev
+00001df1   _ZN18MessageParserClass12getDirectionEh
+00001e15   _ZN18MessageParserClass15getReadResponseEh
+00001dcd   _ZN18MessageParserClass17getNumberOfParamsEh
+00001e3d   _ZN18MessageParserClass18updateReadResponseEhj
+0000112d   _ZN18MessageParserClassC1Ev
+0000112d   _ZN18MessageParserClassC2Ev
+00001db1   _ZN18MessageParserClassD0Ev
+00001da1   _ZN18MessageParserClassD1Ev
+00001da1   _ZN18MessageParserClassD2Ev
+00003da5   _ZN18PinControllerClass11getICPeriodEv
+00003ddf   _ZN18PinControllerClass17getGPIOInputStateEv
+00003dbf   _ZN18PinControllerClass18setGPIOOutputStateEb
+00003bc5   _ZN18PinControllerClass6configE9pinType_t
+00003ad9   _ZN18PinControllerClassC1E9pinName_t
+00003b0f   _ZN18PinControllerClassC1E9pinName_t9pinType_t
+00003ad9   _ZN18PinControllerClassC2E9pinName_t
+00003b0f   _ZN18PinControllerClassC2E9pinName_t9pinType_t
+00003bab   _ZN18PinControllerClassD0Ev
+00003b4f   _ZN18PinControllerClassD1Ev
+00003b4f   _ZN18PinControllerClassD2Ev
+00005b15   _ZN20MotorControllerClass11setPWMWidthEj
+20001bb0   _ZN20MotorControllerClass4SPI1E
+20001c04   _ZN20MotorControllerClass4SPI2E
+00005ae9   _ZN20MotorControllerClass4stopEv
+00005abd   _ZN20MotorControllerClass5startEv
+00005a77   _ZN20MotorControllerClass6configE19motorChannelState_t
+00005b43   _ZN20MotorControllerClass7runningEv
+00005a1d   _ZN20MotorControllerClassC1Ej
+00005a1d   _ZN20MotorControllerClassC2Ej
+00005a61   _ZN20MotorControllerClassD0Ev
+00005a4d   _ZN20MotorControllerClassD1Ev
+00005a4d   _ZN20MotorControllerClassD2Ev
+000062ff   _ZNKSt9type_info4nameEv
+0000632f   _ZNKSt9type_info6beforeERKS_
+00006319   _ZNKSt9type_infoeqERKS_
+00006303   _ZNKSt9type_infoneERKS_
+000062f7   _ZNSt9type_infoD0Ev
+000062f5   _ZNSt9type_infoD1Ev
+000062f5   _ZNSt9type_infoD2Ev
+20001ca0   _ZSt16__dummy_typeinfo
+000062ed   _ZSt21__gen_dummy_typeinfosv
+000083c8   _ZTI13SPISlaveClass
+000083d0   _ZTI14GPIOInputClass
+000083d8   _ZTI14SPIMasterClass
+000083e0   _ZTI15GPIOOutputClass
+000083e8   _ZTI15RingBufferClassI9message_sE
+000083f0   _ZTI15RingBufferClassIhE
+000083f8   _ZTI17InputCaptureClass
+00008400   _ZTI18MessageParserClass
+00008408   _ZTI18PinControllerClass
+00008410   _ZTI20MotorControllerClass
+0000838c   _ZTIN10__cxxabiv117__class_type_infoE
+00008398   _ZTIN10__cxxabiv117__pbase_type_infoE
+000083a4   _ZTIN10__cxxabiv119__pointer_type_infoE
+000083b0   _ZTIN10__cxxabiv120__si_class_type_infoE
+000083bc   _ZTIN10__cxxabiv123__fundamental_type_infoE
+0000827c   _ZTIPKe
+00008418   _ZTISt9type_info
+00008420   _ZTIe
+0000828c   _ZTS13SPISlaveClass
+00008257   _ZTS14GPIOInputClass
+00008268   _ZTS14SPIMasterClass
+00008245   _ZTS15GPIOOutputClass
+000081bd   _ZTS15RingBufferClassI9message_sE
+000081f2   _ZTS15RingBufferClassIhE
+00008231   _ZTS17InputCaptureClass
+00008207   _ZTS18MessageParserClass
+0000821c   _ZTS18PinControllerClass
+000081db   _ZTS20MotorControllerClass
+00008179   _ZTSN10__cxxabiv117__class_type_infoE
+0000819b   _ZTSN10__cxxabiv117__pbase_type_infoE
+00008155   _ZTSN10__cxxabiv119__pointer_type_infoE
+00008130   _ZTSN10__cxxabiv120__si_class_type_infoE
+00008108   _ZTSN10__cxxabiv123__fundamental_type_infoE
+00008430   _ZTSPKe
+0000837c   _ZTSSt9type_info
+00007e16   _ZTSe
+0000829c   _ZTV13SPISlaveClass
+000082ac   _ZTV14GPIOInputClass
+000082bc   _ZTV14SPIMasterClass
+000082cc   _ZTV15GPIOOutputClass
+000082dc   _ZTV15RingBufferClassI9message_sE
+000082ec   _ZTV15RingBufferClassIhE
+000082fc   _ZTV17InputCaptureClass
+0000830c   _ZTV18MessageParserClass
+0000831c   _ZTV18PinControllerClass
+0000832c   _ZTV20MotorControllerClass
+0000833c   _ZTVN10__cxxabiv117__class_type_infoE
+0000834c   _ZTVN10__cxxabiv119__pointer_type_infoE
+0000835c   _ZTVN10__cxxabiv120__si_class_type_infoE
+0000836c   _ZTVN10__cxxabiv123__fundamental_type_infoE
+000077af   _ZdlPv
+0000726d   _Znwj
+200019f0   __CIOBUF_
+20002ca8   __STACK_END
+00001000   __STACK_SIZE
+20001ea8   __STACK_TOP
+00001000   __SYSMEM_SIZE
+000084d8   __TI_CINIT_Base
+000084f0   __TI_CINIT_Limit
+000084b8   __TI_Handler_Table_Base
+000084c4   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+000066b9   __TI_auto_init
+0000576d   __TI_cleanup
+20003e8c   __TI_cleanup_ptr
+0000658d   __TI_closefile
+0000777d   __TI_decompress_none
+000077bd   __TI_decompress_rle24
+0000622d   __TI_doflush
+20003e90   __TI_dtors_ptr
+20003e68   __TI_ft_end
+00000e23   __TI_printfi
+0000640b   __TI_rd_ok
+00006d27   __TI_readmsg
+00000000   __TI_static_base__
+20001b10   __TI_tmpnams
+00006cf9   __TI_writemsg
+000063a9   __TI_wrt_ok
+00007749   __TI_zero_init
+000077c3   __abort_execution
+000060b5   __aeabi_atexit
+00006865   __aeabi_cdcmpeq
+00006865   __aeabi_cdcmple
+000068eb   __aeabi_cdrcmple
+00007045   __aeabi_d2iz
+0000586f   __aeabi_dadd
+00005cf5   __aeabi_ddiv
+00005f61   __aeabi_dmul
+00005865   __aeabi_dsub
+0000723d   __aeabi_i2d
+0000765d   __aeabi_lmul
+00006a71   __aeabi_memclr
+00006a71   __aeabi_memclr4
+00006a71   __aeabi_memclr8
+000064f1   __aeabi_memcpy
+000064f1   __aeabi_memcpy4
+000064f1   __aeabi_memcpy8
+00006a73   __aeabi_memset
+00006a73   __aeabi_memset4
+00006a73   __aeabi_memset8
+20003e74   __aeabi_stderr
+20003e6c   __aeabi_stdin
+20003e70   __aeabi_stdout
+000050eb   __aeabi_uldivmod
+ffffffff   __binit__
+ffffffff   __c_args__
+000060a3   __cxa_atexit
+0000605d   __cxa_finalize
+0000609d   __cxa_ia64_exit
+20001ca4   __dso_handle
+20001ca8   __stack
+00002605   __sti___12_Overseer_cpp_main
+00005b77   __sti___19_MotorController_cpp_8d80494e
+00004ab7   __vla_alloc
+000049a9   __vla_dealloc
+00004a37   __vla_dealloc_eh
+00007645   _args_main
+00006ffd   _c_int00
+00007d14   _ctypes_
+20003ca8   _ftable
+20003e84   _lock
+20003ea0   _new_handler
+0000770b   _nop
+00007703   _register_lock
+000076fd   _register_unlock
+20002ca8   _sys_memory
+20003e88   _unlock
+00007119   abort
+0000405b   add_device
+000060a7   atexit
+00006f21   atoi
+ffffffff   binit
+000033d5   calloc
+00004009   close
+000070d1   copy_in
+00007121   exit
+000065f3   fclose
+00006279   fflush
+000057c3   fopen
+00006b65   fprintf
+00006455   fputc
+00005e2d   fputs
+0000312f   free
+00005799   freopen
+00006c31   fseek
+20000000   g_pfnRAMVectors
+00000000   g_pfnVectors
+00003fe5   lseek
+00006e71   ltoa
+00001ead   main
+20003e9c   main_func_sp
+000030cd   malloc
+000032f5   memalign
+0000757d   memccpy
+000076cf   memchr
+000064f1   memcpy
+00006a79   memset
+00003041   minit
+00003f37   open
+000064d9   putc
+000064dd   putchar
+00005f39   puts
+00003f13   read
+000031ef   realloc
+00003e89   remove
+00003eeb   remove_device
+00003ead   rename
+00006151   setvbuf
+000076e5   strchr
+00007675   strcmp
+0000776d   strcpy
+00007711   strlen
+0000720d   strncpy
+00003e89   unlink
+00003df9   write
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000e23   __TI_printfi
+00001000   __STACK_SIZE
+00001000   __SYSMEM_SIZE
+0000112d   _ZN18MessageParserClassC1Ev
+0000112d   _ZN18MessageParserClassC2Ev
+00001da1   _ZN18MessageParserClassD1Ev
+00001da1   _ZN18MessageParserClassD2Ev
+00001db1   _ZN18MessageParserClassD0Ev
+00001dcd   _ZN18MessageParserClass17getNumberOfParamsEh
+00001df1   _ZN18MessageParserClass12getDirectionEh
+00001e15   _ZN18MessageParserClass15getReadResponseEh
+00001e3d   _ZN18MessageParserClass18updateReadResponseEhj
+00001ead   main
+00001ecd   _Z17updateReadBuffersv
+0000203d   _Z17emptyMessageQueuev
+00002605   __sti___12_Overseer_cpp_main
+000027c5   _ZN17InputCaptureClassC1E9pinName_t
+000027c5   _ZN17InputCaptureClassC2E9pinName_t
+0000280b   _ZN17InputCaptureClassD1Ev
+0000280b   _ZN17InputCaptureClassD2Ev
+00002817   _ZN17InputCaptureClassD0Ev
+0000282d   _ZN17InputCaptureClass9getPeriodEv
+000028a5   _ZN17InputCaptureClass17configPeripheralsE9pinName_t
+00002b3d   _ZN17InputCaptureClass9initAsIC0Ev
+00002b95   _ZN17InputCaptureClass9initAsIC1Ev
+00002bf3   _ZN17InputCaptureClass9initAsIC2Ev
+00002c59   _ZN17InputCaptureClass9initAsIC3Ev
+00002ccd   _ZN17InputCaptureClass9initAsIC4Ev
+00002d41   _ZN17InputCaptureClass9initAsIC5Ev
+00002db1   _ZN17InputCaptureClass9initAsIC6Ev
+00002e25   _ZN17InputCaptureClass9initAsIC7Ev
+00002e8d   _ZN17InputCaptureClass12resetTimeoutEv
+00002ef5   _ZN17InputCaptureClass10timeoutISREv
+00002f6d   _ZN17InputCaptureClass3ISREv
+00003041   minit
+000030cd   malloc
+0000312f   free
+000031ef   realloc
+000032f5   memalign
+000033d5   calloc
+0000340d   _ZN13SPISlaveClass3ISREv
+0000377b   _Z21__default_new_handlerv
+0000377d   _ZN14SPIMasterClassC1Ej
+0000377d   _ZN14SPIMasterClassC2Ej
+00003795   _ZN14SPIMasterClassD1Ev
+00003795   _ZN14SPIMasterClassD2Ev
+000037a1   _ZN14SPIMasterClassD0Ev
+000037b7   _ZN14SPIMasterClass17configPeripheralsEj
+00003871   _ZN14SPIMasterClass11sendMessageEhPjj
+00003913   _ZN14SPIMasterClass7getDataEhPjj
+000039a7   _ZN14SPIMasterClass9sendBytesEPhj
+000039df   _ZN14SPIMasterClass10initAsSPI1Ev
+00003a35   _ZN14SPIMasterClass10initAsSPI2Ev
+00003ad9   _ZN18PinControllerClassC1E9pinName_t
+00003ad9   _ZN18PinControllerClassC2E9pinName_t
+00003b0f   _ZN18PinControllerClassC1E9pinName_t9pinType_t
+00003b0f   _ZN18PinControllerClassC2E9pinName_t9pinType_t
+00003b4f   _ZN18PinControllerClassD1Ev
+00003b4f   _ZN18PinControllerClassD2Ev
+00003bab   _ZN18PinControllerClassD0Ev
+00003bc5   _ZN18PinControllerClass6configE9pinType_t
+00003da5   _ZN18PinControllerClass11getICPeriodEv
+00003dbf   _ZN18PinControllerClass18setGPIOOutputStateEb
+00003ddf   _ZN18PinControllerClass17getGPIOInputStateEv
+00003df9   write
+00003e89   remove
+00003e89   unlink
+00003ead   rename
+00003eeb   remove_device
+00003f13   read
+00003f37   open
+00003fe5   lseek
+00004009   close
+0000405b   add_device
+00004109   _ZN15GPIOOutputClassC1E9pinName_t
+00004109   _ZN15GPIOOutputClassC2E9pinName_t
+0000412d   _ZN15GPIOOutputClassD1Ev
+0000412d   _ZN15GPIOOutputClassD2Ev
+00004143   _ZN15GPIOOutputClassD0Ev
+00004159   _ZN15GPIOOutputClass14setOutputStateEb
+00004179   _ZN15GPIOOutputClass17configPeripheralsE9pinName_t
+00004253   _ZN15GPIOOutputClass9initAsIC0Ev
+0000426f   _ZN15GPIOOutputClass9initAsIC1Ev
+0000428b   _ZN15GPIOOutputClass9initAsIC2Ev
+000042a7   _ZN15GPIOOutputClass9initAsIC3Ev
+000042c3   _ZN15GPIOOutputClass9initAsIC4Ev
+000042df   _ZN15GPIOOutputClass9initAsIC5Ev
+000042fb   _ZN15GPIOOutputClass9initAsIC6Ev
+00004317   _ZN15GPIOOutputClass9initAsIC7Ev
+00004333   _ZN15GPIOOutputClass9initAsAN0Ev
+0000434f   _ZN15GPIOOutputClass9initAsAN1Ev
+0000436b   _ZN15GPIOOutputClass9initAsAN2Ev
+00004387   _ZN15GPIOOutputClass9initAsAN3Ev
+000043a3   _ZN15GPIOOutputClass9initAsAN4Ev
+000043bf   _ZN15GPIOOutputClass9initAsAN5Ev
+000043f9   _ZN14GPIOInputClassC1E9pinName_t
+000043f9   _ZN14GPIOInputClassC2E9pinName_t
+00004415   _ZN14GPIOInputClassD1Ev
+00004415   _ZN14GPIOInputClassD2Ev
+00004421   _ZN14GPIOInputClassD0Ev
+00004437   _ZN14GPIOInputClass14getInputStatusEv
+00004453   _ZN14GPIOInputClass17configPeripheralsE9pinName_t
+0000452f   _ZN14GPIOInputClass9initAsIC0Ev
+0000454b   _ZN14GPIOInputClass9initAsIC1Ev
+00004567   _ZN14GPIOInputClass9initAsIC2Ev
+00004583   _ZN14GPIOInputClass9initAsIC3Ev
+0000459f   _ZN14GPIOInputClass9initAsIC4Ev
+000045bb   _ZN14GPIOInputClass9initAsIC5Ev
+000045d7   _ZN14GPIOInputClass9initAsIC6Ev
+000045f3   _ZN14GPIOInputClass9initAsIC7Ev
+0000460f   _ZN14GPIOInputClass9initAsAN0Ev
+0000462b   _ZN14GPIOInputClass9initAsAN1Ev
+00004647   _ZN14GPIOInputClass9initAsAN2Ev
+00004663   _ZN14GPIOInputClass9initAsAN3Ev
+0000467f   _ZN14GPIOInputClass9initAsAN4Ev
+0000469b   _ZN14GPIOInputClass9initAsAN5Ev
+000046d5   HOSTwrite
+00004721   HOSTunlink
+00004759   HOSTtime
+00004793   HOSTrename
+000047f1   HOSTread
+0000483d   HOSTopen
+0000488f   HOSTlseek
+000048eb   HOSTgetenv
+00004929   HOSTclose
+00004961   HOSTclock
+000049a9   __vla_dealloc
+00004a37   __vla_dealloc_eh
+00004ab7   __vla_alloc
+00004c49   _ZN13SPISlaveClassC1Ej
+00004c49   _ZN13SPISlaveClassC2Ej
+00004c97   _ZN13SPISlaveClassD1Ev
+00004c97   _ZN13SPISlaveClassD2Ev
+00004cc1   _ZN13SPISlaveClassD0Ev
+00004cd7   _ZN13SPISlaveClass10getMessageEP9message_s
+00004ce9   _ZN13SPISlaveClass18updateReadResponseEhj
+00004d05   _ZN13SPISlaveClass4initEj
+00004df3   _ZN13SPISlaveClass10initAsSSI0Ev
+00004ead   GPIOPadConfigSet
+000050eb   __aeabi_uldivmod
+000052e1   SysCtlClockGet
+000054c9   SysCtlClockSet
+0000576d   __TI_cleanup
+00005799   freopen
+000057c3   fopen
+00005865   __aeabi_dsub
+0000586f   __aeabi_dadd
+00005a1d   _ZN20MotorControllerClassC1Ej
+00005a1d   _ZN20MotorControllerClassC2Ej
+00005a4d   _ZN20MotorControllerClassD1Ev
+00005a4d   _ZN20MotorControllerClassD2Ev
+00005a61   _ZN20MotorControllerClassD0Ev
+00005a77   _ZN20MotorControllerClass6configE19motorChannelState_t
+00005abd   _ZN20MotorControllerClass5startEv
+00005ae9   _ZN20MotorControllerClass4stopEv
+00005b15   _ZN20MotorControllerClass11setPWMWidthEj
+00005b43   _ZN20MotorControllerClass7runningEv
+00005b77   __sti___19_MotorController_cpp_8d80494e
+00005bb5   _ZN17InputCaptureClass17timeoutISR0StaticEv
+00005bc7   _ZN17InputCaptureClass17timeoutISR1StaticEv
+00005bd9   _ZN17InputCaptureClass17timeoutISR2StaticEv
+00005beb   _ZN17InputCaptureClass17timeoutISR3StaticEv
+00005bfd   _ZN17InputCaptureClass17timeoutISR4StaticEv
+00005c0f   _ZN17InputCaptureClass17timeoutISR5StaticEv
+00005c21   _ZN17InputCaptureClass17timeoutISR6StaticEv
+00005c33   _ZN17InputCaptureClass17timeoutISR7StaticEv
+00005c45   _ZN17InputCaptureClass10ISR0StaticEv
+00005c57   _ZN17InputCaptureClass10ISR1StaticEv
+00005c69   _ZN17InputCaptureClass10ISR2StaticEv
+00005c7b   _ZN17InputCaptureClass10ISR3StaticEv
+00005c8d   _ZN17InputCaptureClass10ISR4StaticEv
+00005c9f   _ZN17InputCaptureClass10ISR5StaticEv
+00005cb1   _ZN17InputCaptureClass10ISR6StaticEv
+00005cc3   _ZN17InputCaptureClass10ISR7StaticEv
+00005cf5   __aeabi_ddiv
+00005e2d   fputs
+00005f39   puts
+00005f61   __aeabi_dmul
+0000605d   __cxa_finalize
+0000609d   __cxa_ia64_exit
+000060a3   __cxa_atexit
+000060a7   atexit
+000060b5   __aeabi_atexit
+00006151   setvbuf
+0000622d   __TI_doflush
+00006279   fflush
+000062ed   _ZSt21__gen_dummy_typeinfosv
+000062f5   _ZNSt9type_infoD1Ev
+000062f5   _ZNSt9type_infoD2Ev
+000062f7   _ZNSt9type_infoD0Ev
+000062ff   _ZNKSt9type_info4nameEv
+00006303   _ZNKSt9type_infoneERKS_
+00006319   _ZNKSt9type_infoeqERKS_
+0000632f   _ZNKSt9type_info6beforeERKS_
+0000633d   _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev
+0000633d   _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev
+0000633f   _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev
+00006347   _ZN10__cxxabiv123__fundamental_type_infoD1Ev
+00006347   _ZN10__cxxabiv123__fundamental_type_infoD2Ev
+00006349   _ZN10__cxxabiv123__fundamental_type_infoD0Ev
+00006351   _ZN10__cxxabiv121__vmi_class_type_infoD1Ev
+00006351   _ZN10__cxxabiv121__vmi_class_type_infoD2Ev
+00006353   _ZN10__cxxabiv121__vmi_class_type_infoD0Ev
+0000635b   _ZN10__cxxabiv120__si_class_type_infoD1Ev
+0000635b   _ZN10__cxxabiv120__si_class_type_infoD2Ev
+0000635d   _ZN10__cxxabiv120__si_class_type_infoD0Ev
+00006365   _ZN10__cxxabiv120__function_type_infoD1Ev
+00006365   _ZN10__cxxabiv120__function_type_infoD2Ev
+00006367   _ZN10__cxxabiv120__function_type_infoD0Ev
+0000636f   _ZN10__cxxabiv119__pointer_type_infoD1Ev
+0000636f   _ZN10__cxxabiv119__pointer_type_infoD2Ev
+00006371   _ZN10__cxxabiv119__pointer_type_infoD0Ev
+00006379   _ZN10__cxxabiv117__pbase_type_infoD1Ev
+00006379   _ZN10__cxxabiv117__pbase_type_infoD2Ev
+0000637b   _ZN10__cxxabiv117__pbase_type_infoD0Ev
+00006383   _ZN10__cxxabiv117__class_type_infoD1Ev
+00006383   _ZN10__cxxabiv117__class_type_infoD2Ev
+00006385   _ZN10__cxxabiv117__class_type_infoD0Ev
+0000638d   _ZN10__cxxabiv117__array_type_infoD1Ev
+0000638d   _ZN10__cxxabiv117__array_type_infoD2Ev
+0000638f   _ZN10__cxxabiv117__array_type_infoD0Ev
+00006397   _ZN10__cxxabiv116__enum_type_infoD1Ev
+00006397   _ZN10__cxxabiv116__enum_type_infoD2Ev
+00006399   _ZN10__cxxabiv116__enum_type_infoD0Ev
+000063a9   __TI_wrt_ok
+0000640b   __TI_rd_ok
+00006455   fputc
+000064d9   putc
+000064dd   putchar
+000064f1   __aeabi_memcpy
+000064f1   __aeabi_memcpy4
+000064f1   __aeabi_memcpy8
+000064f1   memcpy
+0000658d   __TI_closefile
+000065f3   fclose
+000066b9   __TI_auto_init
+0000674d   SSIConfigSetExpClk
+000067d9   TimerConfigure
+00006865   __aeabi_cdcmpeq
+00006865   __aeabi_cdcmple
+000068eb   __aeabi_cdrcmple
+00006971   IntEnable
+00006a71   __aeabi_memclr
+00006a71   __aeabi_memclr4
+00006a71   __aeabi_memclr8
+00006a73   __aeabi_memset
+00006a73   __aeabi_memset4
+00006a73   __aeabi_memset8
+00006a79   memset
+00006ae9   _ZN15RingBufferClassI9message_sE4pushES0_
+00006b65   fprintf
+00006bc9   GPIOPinConfigure
+00006c31   fseek
+00006c95   _ZN15RingBufferClassI9message_sE3popEPS0_
+00006cf9   __TI_writemsg
+00006d23   C$$IO$$
+00006d27   __TI_readmsg
+00006db7   GPIODirModeSet
+00006e15   IntRegister
+00006e71   ltoa
+00006ecd   IntPrioritySet
+00006f21   atoi
+00006f6d   _ZN15RingBufferClassIhE13returnToQueueEh
+00006fb5   _ZN15RingBufferClassIhE4pushEh
+00006ffd   _c_int00
+00007045   __aeabi_d2iz
+0000708d   _ZN15RingBufferClassIhE3popEPh
+000070d1   copy_in
+00007115   C$$EXIT
+00007119   abort
+00007121   exit
+00007159   _Dtest
+0000719d   SysCtlPeripheralEnable
+000071dd   _ZN15RingBufferClassI9message_sEC1Ev
+0000720d   strncpy
+0000723d   __aeabi_i2d
+0000726d   _Znwj
+00007299   TimerControlEvent
+000072c3   TimerLoadSet
+000072ed   TimerMatchSet
+00007317   TimerPrescaleMatchSet
+00007341   TimerPrescaleSet
+0000736b   TimerIntRegister
+00007395   _ZN15RingBufferClassIhEC1Ev
+000073bd   GPIOPinTypeGPIOInput
+000073e1   GPIOPinTypeGPIOOutput
+00007405   GPIOPinTypeSSI
+00007429   GPIOPinTypeTimer
+0000744d   SSIDataGetNonBlocking
+0000746f   GPIOPinWrite
+0000748f   SSIDataPutNonBlocking
+000074af   SSIIntRegister
+000074cd   SSIIntStatus
+000074eb   TimerDisable
+00007509   TimerEnable
+00007527   TimerIntStatus
+00007545   SSIDataGet
+00007561   TimerValueGet
+0000757d   memccpy
+00007599   SSIDataPut
+000075b3   GPIOPinRead
+000075cb   SSIIntDisable
+000075e3   SSIIntEnable
+000075fb   TimerIntDisable
+00007613   TimerIntEnable
+0000762d   _ZN13SPISlaveClass10ISR0StaticEv
+00007645   _args_main
+0000765d   __aeabi_lmul
+00007675   strcmp
+0000768d   SSIEnable
+000076a3   _ZN15RingBufferClassI9message_sED0Ev
+000076b9   _ZN15RingBufferClassIhED0Ev
+000076cf   memchr
+000076e5   strchr
+000076fd   _register_unlock
+00007703   _register_lock
+0000770b   _nop
+00007711   strlen
+00007725   SSIIntClear
+00007737   TimerIntClear
+00007749   __TI_zero_init
+0000775b   _Dclass
+0000776d   strcpy
+0000777d   __TI_decompress_none
+0000778b   _ZN15RingBufferClassI9message_sED1Ev
+00007797   _ZN15RingBufferClassIhED1Ev
+000077a3   ResetISR
+000077af   _ZdlPv
+000077b7   SysCtlDelay
+000077bd   __TI_decompress_rle24
+000077c3   __abort_execution
+00007d14   _ctypes_
+00007e16   _ZTSe
+00008108   _ZTSN10__cxxabiv123__fundamental_type_infoE
+00008130   _ZTSN10__cxxabiv120__si_class_type_infoE
+00008155   _ZTSN10__cxxabiv119__pointer_type_infoE
+00008179   _ZTSN10__cxxabiv117__class_type_infoE
+0000819b   _ZTSN10__cxxabiv117__pbase_type_infoE
+000081bd   _ZTS15RingBufferClassI9message_sE
+000081db   _ZTS20MotorControllerClass
+000081f2   _ZTS15RingBufferClassIhE
+00008207   _ZTS18MessageParserClass
+0000821c   _ZTS18PinControllerClass
+00008231   _ZTS17InputCaptureClass
+00008245   _ZTS15GPIOOutputClass
+00008257   _ZTS14GPIOInputClass
+00008268   _ZTS14SPIMasterClass
+0000827c   _ZTIPKe
+0000828c   _ZTS13SPISlaveClass
+0000829c   _ZTV13SPISlaveClass
+000082ac   _ZTV14GPIOInputClass
+000082bc   _ZTV14SPIMasterClass
+000082cc   _ZTV15GPIOOutputClass
+000082dc   _ZTV15RingBufferClassI9message_sE
+000082ec   _ZTV15RingBufferClassIhE
+000082fc   _ZTV17InputCaptureClass
+0000830c   _ZTV18MessageParserClass
+0000831c   _ZTV18PinControllerClass
+0000832c   _ZTV20MotorControllerClass
+0000833c   _ZTVN10__cxxabiv117__class_type_infoE
+0000834c   _ZTVN10__cxxabiv119__pointer_type_infoE
+0000835c   _ZTVN10__cxxabiv120__si_class_type_infoE
+0000836c   _ZTVN10__cxxabiv123__fundamental_type_infoE
+0000837c   _ZTSSt9type_info
+0000838c   _ZTIN10__cxxabiv117__class_type_infoE
+00008398   _ZTIN10__cxxabiv117__pbase_type_infoE
+000083a4   _ZTIN10__cxxabiv119__pointer_type_infoE
+000083b0   _ZTIN10__cxxabiv120__si_class_type_infoE
+000083bc   _ZTIN10__cxxabiv123__fundamental_type_infoE
+000083c8   _ZTI13SPISlaveClass
+000083d0   _ZTI14GPIOInputClass
+000083d8   _ZTI14SPIMasterClass
+000083e0   _ZTI15GPIOOutputClass
+000083e8   _ZTI15RingBufferClassI9message_sE
+000083f0   _ZTI15RingBufferClassIhE
+000083f8   _ZTI17InputCaptureClass
+00008400   _ZTI18MessageParserClass
+00008408   _ZTI18PinControllerClass
+00008410   _ZTI20MotorControllerClass
+00008418   _ZTISt9type_info
+00008420   _ZTIe
+00008430   _ZTSPKe
+00008434   SHT$$INIT_ARRAY$$Base
+0000843c   SHT$$INIT_ARRAY$$Limit
+000084b8   __TI_Handler_Table_Base
+000084c4   __TI_Handler_Table_Limit
+000084d8   __TI_CINIT_Base
+000084f0   __TI_CINIT_Limit
+20000000   g_pfnRAMVectors
+200019f0   __CIOBUF_
+20001b10   __TI_tmpnams
+20001bb0   _ZN20MotorControllerClass4SPI1E
+20001c04   _ZN20MotorControllerClass4SPI2E
+20001c9c   SPI0
+20001ca0   _ZSt16__dummy_typeinfo
+20001ca4   __dso_handle
+20001ca8   __stack
+20001ea8   __STACK_TOP
+20002ca8   __STACK_END
+20002ca8   _sys_memory
+20003ca8   _ftable
+20003e68   __TI_ft_end
+20003e6c   __aeabi_stdin
+20003e70   __aeabi_stdout
+20003e74   __aeabi_stderr
+20003e84   _lock
+20003e88   _unlock
+20003e8c   __TI_cleanup_ptr
+20003e90   __TI_dtors_ptr
+20003e9c   main_func_sp
+20003ea0   _new_handler
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+
+[417 symbols]

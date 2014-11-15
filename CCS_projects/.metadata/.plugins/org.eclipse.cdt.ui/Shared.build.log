@@ -1,0 +1,130 @@
+
+**** Build of configuration Debug for project Shared ****
+
+"c:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../MessageParser.cpp'
+'Invoking: ARM Compiler'
+"c:/ti/ccsv6/tools/compiler/arm_5.1.7/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="c:/ti/ccsv6/tools/compiler/arm_5.1.7/include" -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="MessageParser.pp"  "../MessageParser.cpp"
+"../MessageParser.cpp", line 17: error #29: expected an expression
+"../MessageParser.cpp", line 19: error #29: expected an expression
+"../MessageParser.cpp", line 20: error #29: expected an expression
+"../MessageParser.cpp", line 21: error #29: expected an expression
+"../MessageParser.cpp", line 22: error #29: expected an expression
+"../MessageParser.cpp", line 23: error #29: expected an expression
+"../MessageParser.cpp", line 24: error #29: expected an expression
+"../MessageParser.cpp", line 25: error #29: expected an expression
+"../MessageParser.cpp", line 26: error #29: expected an expression
+"../MessageParser.cpp", line 27: error #29: expected an expression
+"../MessageParser.cpp", line 28: error #29: expected an expression
+"../MessageParser.cpp", line 29: error #29: expected an expression
+"../MessageParser.cpp", line 30: error #29: expected an expression
+"../MessageParser.cpp", line 31: error #29: expected an expression
+"../MessageParser.cpp", line 32: error #29: expected an expression
+"../MessageParser.cpp", line 33: error #29: expected an expression
+"../MessageParser.cpp", line 34: error #29: expected an expression
+"../MessageParser.cpp", line 35: error #29: expected an expression
+"../MessageParser.cpp", line 36: error #29: expected an expression
+"../MessageParser.cpp", line 37: error #29: expected an expression
+"../MessageParser.cpp", line 38: error #29: expected an expression
+"../MessageParser.cpp", line 39: error #29: expected an expression
+"../MessageParser.cpp", line 40: error #29: expected an expression
+"../MessageParser.cpp", line 41: error #29: expected an expression
+"../MessageParser.cpp", line 42: error #29: expected an expression
+"../MessageParser.cpp", line 43: error #29: expected an expression
+"../MessageParser.cpp", line 44: error #29: expected an expression
+"../MessageParser.cpp", line 45: error #29: expected an expression
+"../MessageParser.cpp", line 46: error #29: expected an expression
+"../MessageParser.cpp", line 47: error #29: expected an expression
+"../MessageParser.cpp", line 48: error #29: expected an expression
+"../MessageParser.cpp", line 49: error #29: expected an expression
+"../MessageParser.cpp", line 50: error #29: expected an expression
+"../MessageParser.cpp", line 51: error #29: expected an expression
+"../MessageParser.cpp", line 52: error #29: expected an expression
+"../MessageParser.cpp", line 53: error #29: expected an expression
+"../MessageParser.cpp", line 54: error #29: expected an expression
+"../MessageParser.cpp", line 55: error #29: expected an expression
+"../MessageParser.cpp", line 56: error #29: expected an expression
+"../MessageParser.cpp", line 57: error #29: expected an expression
+"../MessageParser.cpp", line 58: error #29: expected an expression
+"../MessageParser.cpp", line 59: error #29: expected an expression
+"../MessageParser.cpp", line 60: error #29: expected an expression
+"../MessageParser.cpp", line 61: error #29: expected an expression
+"../MessageParser.cpp", line 62: error #29: expected an expression
+"../MessageParser.cpp", line 63: error #29: expected an expression
+"../MessageParser.cpp", line 64: error #29: expected an expression
+"../MessageParser.cpp", line 65: error #29: expected an expression
+"../MessageParser.cpp", line 66: error #29: expected an expression
+"../MessageParser.cpp", line 67: error #29: expected an expression
+"../MessageParser.cpp", line 68: error #29: expected an expression
+"../MessageParser.cpp", line 69: error #29: expected an expression
+"../MessageParser.cpp", line 70: error #29: expected an expression
+"../MessageParser.cpp", line 71: error #29: expected an expression
+"../MessageParser.cpp", line 72: error #29: expected an expression
+"../MessageParser.cpp", line 73: error #29: expected an expression
+"../MessageParser.cpp", line 74: error #29: expected an expression
+"../MessageParser.cpp", line 75: error #29: expected an expression
+"../MessageParser.cpp", line 76: error #29: expected an expression
+"../MessageParser.cpp", line 77: error #29: expected an expression
+"../MessageParser.cpp", line 78: error #29: expected an expression
+"../MessageParser.cpp", line 79: error #29: expected an expression
+"../MessageParser.cpp", line 80: error #29: expected an expression
+"../MessageParser.cpp", line 81: error #29: expected an expression
+"../MessageParser.cpp", line 82: error #29: expected an expression
+"../MessageParser.cpp", line 83: error #29: expected an expression
+"../MessageParser.cpp", line 84: error #29: expected an expression
+"../MessageParser.cpp", line 85: error #29: expected an expression
+"../MessageParser.cpp", line 86: error #29: expected an expression
+"../MessageParser.cpp", line 87: error #29: expected an expression
+"../MessageParser.cpp", line 88: error #29: expected an expression
+"../MessageParser.cpp", line 89: error #29: expected an expression
+"../MessageParser.cpp", line 90: error #29: expected an expression
+"../MessageParser.cpp", line 91: error #29: expected an expression
+"../MessageParser.cpp", line 92: error #29: expected an expression
+"../MessageParser.cpp", line 93: error #29: expected an expression
+"../MessageParser.cpp", line 94: error #29: expected an expression
+"../MessageParser.cpp", line 95: error #29: expected an expression
+"../MessageParser.cpp", line 96: error #29: expected an expression
+"../MessageParser.cpp", line 97: error #29: expected an expression
+"../MessageParser.cpp", line 98: error #29: expected an expression
+"../MessageParser.cpp", line 99: error #29: expected an expression
+"../MessageParser.cpp", line 100: error #29: expected an expression
+"../MessageParser.cpp", line 101: error #29: expected an expression
+"../MessageParser.cpp", line 102: error #29: expected an expression
+"../MessageParser.cpp", line 103: error #29: expected an expression
+"../MessageParser.cpp", line 104: error #29: expected an expression
+"../MessageParser.cpp", line 105: error #29: expected an expression
+"../MessageParser.cpp", line 106: error #29: expected an expression
+"../MessageParser.cpp", line 107: error #29: expected an expression
+"../MessageParser.cpp", line 108: error #29: expected an expression
+"../MessageParser.cpp", line 109: error #29: expected an expression
+"../MessageParser.cpp", line 110: error #29: expected an expression
+"../MessageParser.cpp", line 111: error #29: expected an expression
+"../MessageParser.cpp", line 112: error #29: expected an expression
+
+"../MessageParser.cpp", line 113: error #29: expected an expression
+>> Compilation failure
+"../MessageParser.cpp", line 114: error #29: expected an expression
+"../MessageParser.cpp", line 115: error #29: expected an expression
+"../MessageParser.cpp", line 116: error #29: expected an expression
+"../MessageParser.cpp", line 117: error #29: expected an expression
+Error limit reached.
+100 errors detected in the compilation of "../MessageParser.cpp".
+Compilation terminated.
+gmake: *** [MessageParser.obj] Error 1
+'Building file: ../SPISlave.cpp'
+'Invoking: ARM Compiler'
+"c:/ti/ccsv6/tools/compiler/arm_5.1.7/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="c:/ti/ccsv6/tools/compiler/arm_5.1.7/include" -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="SPISlave.pp"  "../SPISlave.cpp"
+"..\SPISlave.h", line 14: fatal error #1965: cannot open source file "inc/hw_memmap.h"
+1 catastrophic error detected in the compilation of "../SPISlave.cpp".
+Compilation terminated.
+
+>> Compilation failure
+gmake: *** [SPISlave.obj] Error 1
+'Building file: ../tm4c123ah6pm_startup_ccs.c'
+'Invoking: ARM Compiler'
+"c:/ti/ccsv6/tools/compiler/arm_5.1.7/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="c:/ti/ccsv6/tools/compiler/arm_5.1.7/include" -g --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="tm4c123ah6pm_startup_ccs.pp"  "../tm4c123ah6pm_startup_ccs.c"
+'Finished building: ../tm4c123ah6pm_startup_ccs.c'
+' '
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****

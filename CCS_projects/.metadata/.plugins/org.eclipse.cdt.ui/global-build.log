@@ -1,0 +1,178 @@
+
+**** Build of configuration Debug for project BLDC ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../tm4c123ah6pm_startup_ccs.c'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="tm4c123ah6pm_startup_ccs.pp"  "../tm4c123ah6pm_startup_ccs.c"
+'Finished building: ../tm4c123ah6pm_startup_ccs.c'
+' '
+'Building file: ../src/shared/LED.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/shared/LED.pp" --obj_directory="src/shared"  "../src/shared/LED.cpp"
+'Finished building: ../src/shared/LED.cpp'
+' '
+'Building file: ../src/shared/MessageParser.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/shared/MessageParser.pp" --obj_directory="src/shared"  "../src/shared/MessageParser.cpp"
+'Finished building: ../src/shared/MessageParser.cpp'
+' '
+'Building file: ../src/shared/SPISlave.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/shared/SPISlave.pp" --obj_directory="src/shared"  "../src/shared/SPISlave.cpp"
+'Finished building: ../src/shared/SPISlave.cpp'
+' '
+'Building file: ../src/Motor.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/Motor.pp" --obj_directory="src"  "../src/Motor.cpp"
+'Finished building: ../src/Motor.cpp'
+' '
+'Building file: ../src/main.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/main.pp" --obj_directory="src"  "../src/main.cpp"
+'Finished building: ../src/main.cpp'
+' '
+'Building file: ../src/BLDC/ADC.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/ADC.pp" --obj_directory="src/BLDC"  "../src/BLDC/ADC.cpp"
+'Finished building: ../src/BLDC/ADC.cpp'
+' '
+'Building file: ../src/BLDC/BLDC.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/BLDC.pp" --obj_directory="src/BLDC"  "../src/BLDC/BLDC.cpp"
+'Finished building: ../src/BLDC/BLDC.cpp'
+' '
+'Building file: ../src/BLDC/CommutationController.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/CommutationController.pp" --obj_directory="src/BLDC"  "../src/BLDC/CommutationController.cpp"
+'Finished building: ../src/BLDC/CommutationController.cpp'
+' '
+'Building file: ../src/BLDC/Commutator.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/Commutator.pp" --obj_directory="src/BLDC"  "../src/BLDC/Commutator.cpp"
+'Finished building: ../src/BLDC/Commutator.cpp'
+' '
+'Building file: ../src/BLDC/IIRFilter.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/IIRFilter.pp" --obj_directory="src/BLDC"  "../src/BLDC/IIRFilter.cpp"
+'Finished building: ../src/BLDC/IIRFilter.cpp'
+' '
+'Building file: ../src/BLDC/PWM.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/PWM.pp" --obj_directory="src/BLDC"  "../src/BLDC/PWM.cpp"
+'Finished building: ../src/BLDC/PWM.cpp'
+' '
+'Building file: ../src/BLDC/StartupSequencer.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/StartupSequencer.pp" --obj_directory="src/BLDC"  "../src/BLDC/StartupSequencer.cpp"
+'Finished building: ../src/BLDC/StartupSequencer.cpp'
+' '
+'Building file: ../src/BLDC/ZCDetector.cpp'
+'Invoking: ARM Compiler'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict --include_path="D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare" -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="src/BLDC/ZCDetector.pp" --obj_directory="src/BLDC"  "../src/BLDC/ZCDetector.cpp"
+'Finished building: ../src/BLDC/ZCDetector.cpp'
+' '
+'Building target: BLDC.out'
+'Invoking: ARM Linker'
+"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff --opt_for_speed=5 --fp_mode=strict -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off -z -m"BLDC.map" --heap_size=8192 --stack_size=4096 -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/lib" -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="BLDC_linkInfo.xml" --rom_model -o "BLDC.out"  "./tm4c123ah6pm_startup_ccs.obj" "./src/shared/LED.obj" "./src/shared/MessageParser.obj" "./src/shared/SPISlave.obj" "./src/Motor.obj" "./src/main.obj" "./src/BLDC/ADC.obj" "./src/BLDC/BLDC.obj" "./src/BLDC/CommutationController.obj" "./src/BLDC/Commutator.obj" "./src/BLDC/IIRFilter.obj" "./src/BLDC/PWM.obj" "./src/BLDC/StartupSequencer.obj" "./src/BLDC/ZCDetector.obj" "../tm4c123ah6pm.cmd" -l"libc.a" -lH:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\TivaWare\driverlib\ccs\Debug\driverlib.lib" 
+<Linking>
+'Finished building target: BLDC.out'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project BLDC ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "BLDC.out"  "BLDC.hex" 
+DEL /F "src\shared\LED.pp" "src\shared\MessageParser.pp" "src\shared\SPISlave.pp" "src\Motor.pp" "src\main.pp" "src\BLDC\ADC.pp" "src\BLDC\BLDC.pp" "src\BLDC\CommutationController.pp" "src\BLDC\Commutator.pp" "src\BLDC\IIRFilter.pp" "src\BLDC\PWM.pp" "src\BLDC\StartupSequencer.pp" "src\BLDC\ZCDetector.pp" 
+DEL /F "tm4c123ah6pm_startup_ccs.pp" 
+DEL /F "tm4c123ah6pm_startup_ccs.obj" "src\shared\LED.obj" "src\shared\MessageParser.obj" "src\shared\SPISlave.obj" "src\Motor.obj" "src\main.obj" "src\BLDC\ADC.obj" "src\BLDC\BLDC.obj" "src\BLDC\CommutationController.obj" "src\BLDC\Commutator.obj" "src\BLDC\IIRFilter.obj" "src\BLDC\PWM.obj" "src\BLDC\StartupSequencer.obj" "src\BLDC\ZCDetector.obj" 
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project BLDC ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "BLDC.out"  "BLDC.hex" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\BLDC.out
+DEL /F "src\shared\LED.pp" "src\shared\MessageParser.pp" "src\shared\SPISlave.pp" "src\Motor.pp" "src\main.pp" "src\BLDC\ADC.pp" "src\BLDC\BLDC.pp" "src\BLDC\CommutationController.pp" "src\BLDC\Commutator.pp" "src\BLDC\IIRFilter.pp" "src\BLDC\PWM.pp" "src\BLDC\StartupSequencer.pp" "src\BLDC\ZCDetector.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\shared\LED.pp
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\Motor.pp
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\BLDC\ADC.pp
+DEL /F "tm4c123ah6pm_startup_ccs.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\tm4c123ah6pm_startup_ccs.pp
+DEL /F "tm4c123ah6pm_startup_ccs.obj" "src\shared\LED.obj" "src\shared\MessageParser.obj" "src\shared\SPISlave.obj" "src\Motor.obj" "src\main.obj" "src\BLDC\ADC.obj" "src\BLDC\BLDC.obj" "src\BLDC\CommutationController.obj" "src\BLDC\Commutator.obj" "src\BLDC\IIRFilter.obj" "src\BLDC\PWM.obj" "src\BLDC\StartupSequencer.obj" "src\BLDC\ZCDetector.obj" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\tm4c123ah6pm_startup_ccs.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\shared\LED.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\Motor.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\BLDC\ADC.obj
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project Overseer ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "Overseer.out"  "Overseer.hex" 
+DEL /F "src\shared\LED.pp" "src\shared\MessageParser.pp" "src\shared\SPIMaster.pp" "src\shared\SPISlave.pp" "src\PinControllers\GPIOInput.pp" "src\PinControllers\GPIOOutput.pp" "src\PinControllers\InputCapture.pp" "src\MotorController.pp" "src\Overseer.pp" "src\PinController.pp" 
+DEL /F "tm4c123ah6pm_startup_ccs.pp" 
+DEL /F "tm4c123ah6pm_startup_ccs.obj" "src\shared\LED.obj" "src\shared\MessageParser.obj" "src\shared\SPIMaster.obj" "src\shared\SPISlave.obj" "src\PinControllers\GPIOInput.obj" "src\PinControllers\GPIOOutput.obj" "src\PinControllers\InputCapture.obj" "src\MotorController.obj" "src\Overseer.obj" "src\PinController.obj" 
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project Overseer ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "Overseer.out"  "Overseer.hex" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\Overseer.out
+DEL /F "src\shared\LED.pp" "src\shared\MessageParser.pp" "src\shared\SPIMaster.pp" "src\shared\SPISlave.pp" "src\PinControllers\GPIOInput.pp" "src\PinControllers\GPIOOutput.pp" "src\PinControllers\InputCapture.pp" "src\MotorController.pp" "src\Overseer.pp" "src\PinController.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\shared\LED.pp
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\PinControllers\GPIOInput.pp
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\MotorController.pp
+DEL /F "tm4c123ah6pm_startup_ccs.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\tm4c123ah6pm_startup_ccs.pp
+DEL /F "tm4c123ah6pm_startup_ccs.obj" "src\shared\LED.obj" "src\shared\MessageParser.obj" "src\shared\SPIMaster.obj" "src\shared\SPISlave.obj" "src\PinControllers\GPIOInput.obj" "src\PinControllers\GPIOOutput.obj" "src\PinControllers\InputCapture.obj" "src\MotorController.obj" "src\Overseer.obj" "src\PinController.obj" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\tm4c123ah6pm_startup_ccs.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\shared\LED.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\PinControllers\GPIOInput.obj
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\src\MotorController.obj
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project Tivaware_driverlib_css ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "Tivaware_driverlib_css.out"  "Tivaware_driverlib_css.hex" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\Tivaware_driverlib_css.out
+DEL /F "adc.pp" "aes.pp" "can.pp" "comp.pp" "cpu.pp" "crc.pp" "des.pp" "eeprom.pp" "emac.pp" "epi.pp" "flash.pp" "fpu.pp" "gpio.pp" "hibernate.pp" "i2c.pp" "interrupt.pp" "lcd.pp" "mpu.pp" "onewire.pp" "pwm.pp" "qei.pp" "shamd5.pp" "ssi.pp" "sw_crc.pp" "sysctl.pp" "sysexc.pp" "systick.pp" "timer.pp" "tm4c123ah6pm_startup_ccs.pp" "uart.pp" "udma.pp" "usb.pp" "watchdog.pp" 
+DEL /F "epi_workaround_ccs.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\epi_workaround_ccs.pp
+DEL /F "adc.obj" "aes.obj" "can.obj" "comp.obj" "cpu.obj" "crc.obj" "des.obj" "eeprom.obj" "emac.obj" "epi.obj" "epi_workaround_ccs.obj" "flash.obj" "fpu.obj" "gpio.obj" "hibernate.obj" "i2c.obj" "interrupt.obj" "lcd.obj" "mpu.obj" "onewire.obj" "pwm.obj" "qei.obj" "shamd5.obj" "ssi.obj" "sw_crc.obj" "sysctl.obj" "sysexc.obj" "systick.obj" "timer.obj" "tm4c123ah6pm_startup_ccs.obj" "uart.obj" "udma.obj" "usb.obj" "watchdog.obj" 
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project Tivaware_driverlib_css ****
+
+"D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "Tivaware_driverlib_css.out"  "Tivaware_driverlib_css.hex" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\Tivaware_driverlib_css.out
+DEL /F "adc.pp" "aes.pp" "can.pp" "comp.pp" "cpu.pp" "crc.pp" "des.pp" "eeprom.pp" "emac.pp" "epi.pp" "flash.pp" "fpu.pp" "gpio.pp" "hibernate.pp" "i2c.pp" "interrupt.pp" "lcd.pp" "mpu.pp" "onewire.pp" "pwm.pp" "qei.pp" "shamd5.pp" "ssi.pp" "sw_crc.pp" "sysctl.pp" "sysexc.pp" "systick.pp" "timer.pp" "tm4c123ah6pm_startup_ccs.pp" "uart.pp" "udma.pp" "usb.pp" "watchdog.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\adc.pp
+DEL /F "epi_workaround_ccs.pp" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\epi_workaround_ccs.pp
+DEL /F "adc.obj" "aes.obj" "can.obj" "comp.obj" "cpu.obj" "crc.obj" "des.obj" "eeprom.obj" "emac.obj" "epi.obj" "epi_workaround_ccs.obj" "flash.obj" "fpu.obj" "gpio.obj" "hibernate.obj" "i2c.obj" "interrupt.obj" "lcd.obj" "mpu.obj" "onewire.obj" "pwm.obj" "qei.obj" "shamd5.obj" "ssi.obj" "sw_crc.obj" "sysctl.obj" "sysexc.obj" "systick.obj" "timer.obj" "tm4c123ah6pm_startup_ccs.obj" "uart.obj" "udma.obj" "usb.obj" "watchdog.obj" 
+Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Tivaware_driverlib_css\Debug\adc.obj
+'Finished clean'
+' '
+
+**** Build Finished ****

@@ -1,0 +1,101 @@
+/*
+ * SPISlave.cpp
+ *
+ *  Created on: 18 Jul 2014
+ *      Author: admin
+ */
+
+#include "SPISlave.h"
+
+SPISlaveClass* SPI0;
+
+SPISlaveClass::SPISlaveClass() {
+	// TODO Auto-generated constructor stub
+
+}
+
+SPISlaveClass::~SPISlaveClass() {
+	// TODO Auto-generated destructor stub
+}
+
+void SPISlaveClass::initAsSSI0()
+{
+	SYSCTL_PERIPH_GPIO = SYSCTL_PERIPH_GPIOA;
+	SYSCTL_PERIPH_SSI = SYSCTL_PERIPH_SSI0;
+	GPIO_PORT_BASE = GPIO_PORTA_BASE;
+	SSI_BASE = SSI0_BASE;
+	GPIO_CFG_MISO = GPIO_PA4_SSI0RX;
+	GPIO_CFG_MOSI = GPIO_PA5_SSI0TX;
+	GPIO_CFG_CLK = GPIO_PA2_SSI0CLK;
+	GPIO_CFG_FSS = GPIO_PA3_SSI0FSS;
+	GPIO_PIN_MISO = GPIO_PIN_4;
+	GPIO_PIN_MOSI = GPIO_PIN_5;
+	GPIO_PIN_CLK = GPIO_PIN_2;
+	GPIO_PIN_FSS = GPIO_PIN_3;
+
+	SPI0 = this;
+}
+
+void SPISlaveClass::init(uint32_t channel)
+{
+	switch (channel) {
+	case 0: initAsSSI0(); break;
+	}
+
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIO);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_SSI);
+	GPIOPinConfigure(GPIO_CFG_MISO);
+	GPIOPinConfigure(GPIO_CFG_MOSI);
+	GPIOPinConfigure(GPIO_CFG_CLK);
+	GPIOPinConfigure(GPIO_CFG_FSS);
+
+	GPIOPinTypeSSI(GPIO_PORT_BASE, GPIO_PIN_MISO | GPIO_PIN_MOSI | GPIO_PIN_CLK | GPIO_PIN_FSS);
+
+	SSIConfigSetExpClk(SSI_BASE, SysCtlClockGet(), SSI_FRF_MOTO_MODE_0, SSI_MODE_SLAVE, 1000000, 16);
+
+	SSIIntRegister(SSI_BASE, ISR0Static);
+
+	SSIIntEnable(SSI_BASE, SSI_RXFF); // Enable RX FIFO half full interrupt
+
+	SSIEnable(SSI_BASE);
+}
+
+interrupt void SPISlaveClass::ISR0Static()
+{
+	SPI0->ISR();
+}
+
+inline void SPISlaveClass::ISR()
+{
+	intStatus = SSIIntStatus(SSI_BASE, true);
+	SSIIntClear(SSI_BASE, SSI_RXFF); // Clear RX FIFO half full interrupt
+
+	switch (intStatus){
+	case SSI_RXFF: // RX FIFO half full
+		message_s message = receiveMessage();
+		while (!messageQueue.push(message));
+		break;
+	}
+}
+
+message_s SPISlaveClass::receiveMessage()
+{
+	message_s message;
+	message.command = getWord();
+	message.data = getWord();
+	return message;
+}
+
+bool SPISlaveClass::getMessage(message_s* message)
+{
+	return messageQueue.pop(message);
+}
+
+uint32_t SPISlaveClass::getWord()
+{
+	uint32_t buf[2] = {0};
+	SSIDataGet(SSI_BASE, &buf[0]);
+	SSIDataGet(SSI_BASE, &buf[1]);
+
+	return (buf[0] | (buf[1] << 16));
+}
