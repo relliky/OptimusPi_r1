@@ -30,17 +30,40 @@ static PinControllerClass IC0(IC0Pin), IC1(IC1Pin), IC2(IC2Pin), IC3(IC3Pin), IC
 
 void main(void)
 {
+	uint8_t a = 10;
+	uint8_t d = 2;
+	uint16_t i = 0;
+
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
-    motor0.config(BLDC);
-	motor0.start();
+ //   motor0.config(BLDC);
+//	motor0.start();
+
+	I2CClass I2CClass_0;
+
+
+	#define MPU9150_ADDRESS_AD0_HIGH 0x69
+	#define MPU9150_ADDRESS_AD0_LOW  0X68
+	#define MPU9150_RA_WHO_AM_I 0x75
+
+	I2CClass_0.initI2C0();
+
+//	if(a == 0x68) {d = 3;}
 
 	while (1)
 	{
+
+
+		// a always get 0xff;
+		a = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I);
+
+		for(i=0;i<600;i++){}
 		//updateReadBuffers();
 		//emptyMessageQueue();
 
-		motor0.setPWMWidth(0xA0);
+//		motor0.setPWMWidth(0xA0);
+
+
 	}
 }
 
