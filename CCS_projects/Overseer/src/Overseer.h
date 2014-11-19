@@ -17,6 +17,7 @@
 #include "shared/SPICommands.h"
 #include "MotorController.h"
 #include "PinController.h"
+#include "shared/I2C.h"
 
 
 void updateReadBuffers();
