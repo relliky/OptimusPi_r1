@@ -25,9 +25,9 @@ class I2CClass {
 public:
 	I2CClass();
 	virtual ~I2CClass();
-	void initI2C0();
+	void 	initI2C0();
 	uint8_t readI2C0(uint8_t slave_addr, uint8_t reg);
-
+	void 	writeI2C0(uint8_t slave_addr, uint8_t reg, uint8_t data);
 };
 
 #endif /* I2C_H_ */

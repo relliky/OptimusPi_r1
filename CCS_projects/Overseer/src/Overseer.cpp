@@ -30,8 +30,7 @@ static PinControllerClass IC0(IC0Pin), IC1(IC1Pin), IC2(IC2Pin), IC3(IC3Pin), IC
 
 void main(void)
 {
-	uint8_t a = 10;
-	uint8_t d = 2;
+	uint8_t a = 10,b = 12, c = 14, d = 16, e = 18;
 	uint16_t i = 0;
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
@@ -42,22 +41,47 @@ void main(void)
 	I2CClass I2CClass_0;
 
 
-	#define MPU9150_ADDRESS_AD0_HIGH 0x69
 	#define MPU9150_ADDRESS_AD0_LOW  0X68
 	#define MPU9150_RA_WHO_AM_I 0x75
+	#define MPU9150_RA_TEST_RW 0x74
+
+	#define TEST_REG_VALUE 0x0f
 
 	I2CClass_0.initI2C0();
 
 //	if(a == 0x68) {d = 3;}
 
-	while (1)
+
+	for(register signed char x;; x++)
 	{
+
+		I2CClass_0.writeI2C0(MPU9150_ADDRESS_AD0_LOW,MPU9150_RA_TEST_RW,TEST_REG_VALUE);
+
+		for(i=0;i<600;i++){}
+
+		I2CClass_0.writeI2C0(MPU9150_ADDRESS_AD0_LOW,MPU9150_RA_TEST_RW, x);
+
+		for(i=0;i<600;i++){}
+
+		a = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_TEST_RW);
+
+		for(i=0;i<600;i++){}
+
+//		b = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I);
+
+//		c = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_TEST_RW);
+
+
 
 
 		// a always get 0xff;
-		a = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I);
+	//	d = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_TEST_RW);
 
-		for(i=0;i<600;i++){}
+
+	//	for(i=0;i<600;i++){}
+//		e = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I);
+
+//		for(i=0;i<600;i++){}
 		//updateReadBuffers();
 		//emptyMessageQueue();
 

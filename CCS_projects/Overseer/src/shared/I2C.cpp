@@ -46,6 +46,9 @@ void I2CClass::initI2C0()
 	// be set to 400kbps.
 	I2CMasterInitExpClk(I2C0_BASE, SysCtlClockGet(), false);
 
+	// Set data rate to 400kbps by following code
+	//I2CMasterInitExpClk(I2C0_BASE, SysCtlClockGet(), true);
+
 	//clear I2C FIFOs
 	HWREG(I2C0_BASE + I2C_O_FIFOCTL) = 80008000;
 
@@ -83,15 +86,31 @@ uint8_t I2CClass::readI2C0(uint8_t slave_addr, uint8_t reg)
 }
 
 
-/*
-uint8_t I2CClass::testI2C0(uint8_t slave_addr, uint8_t reg)
+//write specified register on slave device
+void I2CClass::writeI2C0(uint8_t slave_addr, uint8_t reg, uint8_t data)
 {
 
 	//specify that we are writing (a register address) to the
     //slave device
     I2CMasterSlaveAddrSet(I2C0_BASE, slave_addr, false);
 
-}
+    //specify register to be write
+    I2CMasterDataPut(I2C0_BASE, reg);
 
-*/
+    //send control byte and register address byte to slave device
+    I2CMasterControl(I2C0_BASE, I2C_MASTER_CMD_BURST_SEND_START);
+
+    //wait for MCU to finish transaction
+    while(I2CMasterBusy(I2C0_BASE));
+
+    //Put the data needs to be written into the specified register
+    I2CMasterDataPut(I2C0_BASE, data);
+
+    //send control byte and write to the register we
+    //specified
+    I2CMasterControl(I2C0_BASE, I2C_MASTER_CMD_BURST_SEND_FINISH);
+
+    //wait for MCU to finish transaction
+    while(I2CMasterBusy(I2C0_BASE));
+}
 
