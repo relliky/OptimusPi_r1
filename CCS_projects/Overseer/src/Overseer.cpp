@@ -30,7 +30,7 @@ static PinControllerClass IC0(IC0Pin), IC1(IC1Pin), IC2(IC2Pin), IC3(IC3Pin), IC
 
 void main(void)
 {
-	uint8_t a = 10,b = 12, c = 14, d = 16, e = 18;
+	uint8_t a = 0,b = 0, c = 0, d = 0, e = 0;
 	uint16_t i = 0;
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
@@ -47,25 +47,27 @@ void main(void)
 
 	#define TEST_REG_VALUE 0x0f
 
-	I2CClass_0.initI2C0();
 
-//	if(a == 0x68) {d = 3;}
+		I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, &a, 1);
+		while(a != 0x68){}
+		//pass
+
+		//test bit 3 of b (4th bit) out of 0x68, which is 0b0110_1000[3] = 0x1
+		I2CClass_0.readBit8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 3, &b);
+		while(b != 0x1){}
+		//pass
+
+		//test [5:3] of b => 0b0110_1000[5:3]=> 0b101 => 0x5
+		I2CClass_0.readbits8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 5, 3, &c);
+		while(c != 0x5){}
+		//pass
+
+		//N.B. readRegisters16 CANNOT BE tested for MPU9150  due to its special usage.
+		while(1){}
 
 
-	for(register signed char x;; x++)
-	{
 
-		I2CClass_0.writeI2C0(MPU9150_ADDRESS_AD0_LOW,MPU9150_RA_TEST_RW,TEST_REG_VALUE);
 
-		for(i=0;i<600;i++){}
-
-		I2CClass_0.writeI2C0(MPU9150_ADDRESS_AD0_LOW,MPU9150_RA_TEST_RW, x);
-
-		for(i=0;i<600;i++){}
-
-		a = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_TEST_RW);
-
-		for(i=0;i<600;i++){}
 
 //		b = I2CClass_0.readI2C0(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I);
 
@@ -88,7 +90,7 @@ void main(void)
 //		motor0.setPWMWidth(0xA0);
 
 
-	}
+
 }
 
 /**
