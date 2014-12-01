@@ -18,6 +18,8 @@ I2CClass::~I2CClass()
 }
 
 // This method initialize an I2C master and configure I2C module0 as the master module. It also configure 
+// PB2,PB3, i.e. Port B pin 2, Port B pin 3 as SCL and SDA signals of the I2C bus. And the I2C is running
+// on 100kbps.
 
 int I2CClass::openI2C()
 {
