@@ -10,6 +10,12 @@
 
 #include <iostream>
 
+//Get rid of Linux dependencies for Eigen library
+//This Linux dependencies are for debug usage only.  -- By Tai 1st/Dec/2014
+#ifndef NDEBUG
+	#define NDEBUG
+#endif
+
 #include "Eigen/Eigen"
 #include "struct_euler.h"
 #include "Quaternion.h"
