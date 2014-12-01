@@ -1,18 +1,26 @@
 // AUTHOR: TAI
-// THE FOLLOWING WEB LINKS ARE USEFUL INFORMATION TO SET UP RASPBERY PI AND RALTED SOFTWARE AS WELL AS SEVER DOCUMENTATIONS.
+// THE FOLLOWING WEB LINKS ARE USEFUL INFORMATION TO SET UP RASPBERY PI AND RALTED SOFTWARE AS WELL AS SEVERAL DOCUMENTATIONS.
 // DO NOT USE IT IF YOU ARE NOT SURE WHAT YOU ARE LOOKING FOR JUST IN CASE IT CONFUSED YOU MORE.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 SOME USEFUL INFORMATION FOR SETTING UP RASPBERRY PI TO COMPILE AND RUN THE QUADCOPTER PROJECT.	
 ------------------------------------------------------------------------------------------------------------------------------------------
+1. [Working for both cross complication and remote debug] Linux eclipse to cross-compile ARM-based pi projects
 
-1. [NOT WORKING FOR CROSS COMPILATION OR FOR REMOTE DEBUG SINCE LACK OF PYTHON PACKAGE 2.6 IN CYGWIN] See tutorial below to set up windows eclipse in windows to compile c/c++ project for Raspberry Pi
+1) Cross compilation
+	http://hertaville.com/2012/09/28/development-environment-raspberry-pi-cross-compiler/
+	(Official raspberry toolchains)
+	https://github.com/raspberrypi/tools
+2) Remote Debugging
+	http://hertaville.com/2013/01/11/remote-debugging/
+
+2. [NOT WORKING FOR CROSS COMPILATION OR FOR REMOTE DEBUG SINCE LACK OF PYTHON PACKAGE 2.6 IN CYGWIN] See tutorial below to set up windows eclipse in windows to compile c/c++ project for Raspberry Pi
 
 	http://www.raspberry-projects.com/pi/programming-in-c/compilers-and-ides/eclipse/programming-the-rpi-in-windows-using-eclipse
 
 	A copy of the above webpage is saved in the folder called "TUTORIAL_FOR_SETTING_UP"
 
-2. [NOT WORKING FOR CROSS COMPILATION OR FOR REMOTE DEBUG SINCE LACK OF PYTHON PACKAGE 2.6 IN CYGWIN] S Windows Eclipse project setting for compilation and debug
+3. [NOT WORKING FOR CROSS COMPILATION OR FOR REMOTE DEBUG SINCE LACK OF PYTHON PACKAGE 2.6 IN CYGWIN] S Windows Eclipse project setting for compilation and debug
 
 	http://www.a2p.it/wordpress/tech-stuff/development/remote-debugging-raspberrypi/
 
@@ -22,14 +30,6 @@ SOME USEFUL INFORMATION FOR SETTING UP RASPBERRY PI TO COMPILE AND RUN THE QUADC
 2) Help on Debug Configuration setting, Step 6. http://www.raspberrypi.org/forums/viewtopic.php?f=33&t=31101&p=271826&hilit=debug+not+terminating#p271826	
 !!! THIS ERROR CANNOT BE FIXED CURRENTLY!!!  arm-unknown-linux-gnueabi-gdb.exe requires a python v2.6 but cygwin currently only have python 2.7.x image to install.
 
-3. [Working for both cross complication and remote debug] Linux eclipse to cross-compile ARM-based pi projects
-
-1) Cross compilation
-	http://hertaville.com/2012/09/28/development-environment-raspberry-pi-cross-compiler/
-	(Official raspberry toolchains)
-	https://github.com/raspberrypi/tools
-2) Remote Debugging
-	http://hertaville.com/2013/01/11/remote-debugging/
 
 4. [REALLY TRICKY SINCE THERE IS LITTLE INFORMATION ABOUT IT] Setting up Linux I2C library to support C++ on Raspberry Pi
 
