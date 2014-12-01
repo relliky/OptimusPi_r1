@@ -14,7 +14,6 @@
  * @param AD0Status
  */
 MPU9150Class::MPU9150Class(bool AD0Status)
-		: I2C("/dev/i2c-1")
 {
 	if (AD0Status)
 		MPUAddress = MPU9150_ADDRESS_AD0_HIGH;
