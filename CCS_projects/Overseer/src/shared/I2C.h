@@ -22,8 +22,8 @@
 #include "driverlib/i2c.h"
 
 // Local defines
+// Restrict the maximum bytes communicated in one function up to 32 bytes
 #define MAX_BYTES_IN_A_TRANSCATION	32
-
 
 class I2CClass {
 
@@ -31,13 +31,13 @@ public:
 	I2CClass();
 	virtual ~I2CClass();
 	int readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* data, uint8_t len);
-	//N.B. readRegisters16 CAN ONLY be used for a few registers!!! see the description for detail.
+	//N.B. readRegisters16 CAN ONLY be used for a few BIG ENDIAN registers!!! see its description for detail.
 	int readRegisters16(uint8_t slaveAddress, uint8_t registerAddress, uint16_t* data, uint8_t len);
 	int readBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t* data);
 	int readbits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t* data);
 	int writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* buf, uint8_t len);
 	int writeBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t data);
-//	int writeBits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t data);
+	int writeBits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t data);
 
 private:
 	int openI2C();

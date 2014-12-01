@@ -17,6 +17,7 @@ I2CClass::~I2CClass()
 
 }
 
+// This method initialize an I2C master and configure I2C module0 as the master module. It also configure 
 
 int I2CClass::openI2C()
 {
@@ -120,11 +121,17 @@ int I2CClass::writeI2CAByte(uint8_t slaveAddress, uint8_t registerAddress, uint8
 }
 
 // The array of data is Little Endian
+/** Read a number of 8-bit device registers from I2C salve decide.
+ * @param slaveAddress I2C slave device address
+ * @param registerAddress Register regAddr to read from
+ * @param data Pointer to the data/array where the value of registers to be read is put
+ * @param len number of bytes to be read
+ * @return Status of read operation, 0 on sucess, -1 on failure on first byte read, -2 on failure on sencond byte read, ... , -n on failure on nth byte read
+ */
 int I2CClass::readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* data, uint8_t len)
 {
 	uint8_t buf_internal;
 	uint8_t offset = 0;
-	int err = 0;
 
 	if(len < 1)
 		//error handle for invalid value.
@@ -132,35 +139,36 @@ int I2CClass::readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint
 
 	if(len == 1)
 	{
-		err += this->readI2CAByte(slaveAddress, registerAddress, &buf_internal);
+		if( this->readI2CAByte(slaveAddress, registerAddress, &buf_internal) < 0) return -1;
 		*data = buf_internal;
-		return err;
+		return 0;
 	}else
 		{
 			for(offset=0; offset<len-1; offset++)
 			{
-				err += this->readI2CAByte(slaveAddress, registerAddress + offset, &buf_internal);
+				if( this->readI2CAByte(slaveAddress, registerAddress + offset, &buf_internal) < 0 ) return (-1*offset);
 				data[offset] = buf_internal;
 			}
-			return err;
+			return 0;
 		}
-
 }
 
-// The every two bytes for following 16 bits registers are big endian, which is [7:0],[15:8] against to address, address+1. !! For reading ACCEL_XOUT_L,ACCEL_XOUT_H,ACCEL_YOUT_L,ACCEL_YOUT_H,ACCEL_ZOUT_L,ACCEL_ZOUT_H.
-// This method CANNOT BE USED FOR READING COMMON SUCESSIVE REGISTERS!
+// The every two bytes for following 16 bits registers are big endian,
+// which is [15:8],[7:0] against to address, address+1. !!
+// For reading ACCEL_XOUT_L,ACCEL_XOUT_H,ACCEL_YOUT_L,
+// ACCEL_YOUT_H,ACCEL_ZOUT_L,ACCEL_ZOUT_H.
+// This method CANNOT BE USED FOR READING COMMON LITTLE ENDIAN SUCESSIVE REGISTERS!
 // HAVING A LOOK AT MPU9150 REGISTER MAP WOULD ILLUSTRATE MORE.
 int I2CClass::readRegisters16(uint8_t slaveAddress, uint8_t registerAddress, uint16_t* data, uint8_t len)
 {
 	uint8_t buf[MAX_BYTES_IN_A_TRANSCATION], i = 0;
-	int err = 0;
 
-	err += this->readRegisters8(slaveAddress, registerAddress, buf, len*2);
+	if( this->readRegisters8(slaveAddress, registerAddress, buf, len*2) < 0) return -1;
 	for(i = 0; i < len; i++)
 	{
 		data[i] = (uint16_t)buf[i*2] << 8 | (uint16_t)buf[i*2+1];
 	}
-	return err;
+	return 0;
 }
 
 
@@ -174,11 +182,10 @@ int I2CClass::readRegisters16(uint8_t slaveAddress, uint8_t registerAddress, uin
 int I2CClass::readBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t* data)
 {
 	uint8_t buf;
-	int err = 0;
 
-	err += this->readRegisters8(slaveAddress, registerAddress, &buf, 1);
+	if( this->readRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -1;
 	*data = (buf & (1 << bitNum)) >> bitNum;
-	return err;
+	return 0;
 }
 
 
@@ -198,54 +205,89 @@ int I2CClass::readbits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t M
     //    010   masked
     //   -> 010 shifted
     uint8_t buf, mask;
-    int 	err = 0;
 
-	err += this->readRegisters8(slaveAddress, registerAddress, &buf, 1);
+	if( this->readRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -1;
 	mask = ((1 << len) - 1) << (MSBLoc - len + 1);
 	buf &= mask;
 	*data =buf >> (MSBLoc - len + 1);
-    return err;
+    return 0;
 }
 
+// N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
+// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
+// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
 // The array is little Endian
 int I2CClass::writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* buf, uint8_t len)
 {
 	uint8_t offset;
-	int 	err = 0;
 
 	if(len == 1)
 	{
-		err += this->writeI2CAByte(slaveAddress, registerAddress, *buf);
-		return err;
+		if( this->writeI2CAByte(slaveAddress, registerAddress, *buf) < 0) return -1;
+		return 0;
 	}else
 		{
 			for(offset=0; offset<len-1; offset++)
 			{
-				err += this->writeI2CAByte(slaveAddress, registerAddress + offset, buf[offset]);
+				if (this->writeI2CAByte(slaveAddress, registerAddress + offset, buf[offset]) < 0) return -1;
 			}
-			return err;
+			return 0;
 		}
 
 }
 
 
 // N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
-// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS INVALID IN A R/W REGISTER.
-// THIS MEANS IF A R/W REGISTER IS WRITTEN INTO 0xFF, REAEDING IT STILL RETURNS 0x00.
+// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
+// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
 /** write a single bit in an 8-bit device register.
  * @param devAddr I2C slave device address
  * @param regAddr Register regAddr to write to
  * @param bitNum Bit position to write (0-7)
  * @param value New bit value to write
- * @return Status of operation (true = success)
+ * @return Status of operation 0 on sucess, -1 on failure on read, -2 on failure on write but a success on read.
  */
 int I2CClass::writeBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t data)
 {
     uint8_t buf;
-    int		err;
-    err += this->readRegisters8(slaveAddress, registerAddress, &buf, 1);
+
+    if(this->readRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -1;
     buf = (data != 0) ? (buf | (1 << bitNum)) : (buf & ~(1 << bitNum));
-    err += writeRegisters8(slaveAddress, registerAddress, &buf, 1);
-    return err;
+    if(this->writeRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -2;
+    return 0;
+}
+
+// N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
+// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
+// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
+/** Write multiple bits in an 8-bit device register.
+ * @param slaveAddress I2C slave device address
+ * @param registerAddress Register regAddr to write to
+ * @param MSBLoc a.k.a bitStart First bit position to write (0-7)
+ * @param len Number of bits to write (not more than 8)
+ * @param data Right-aligned value to write
+ * @return Status of operation 0 on sucess, -1 on failure on read, -2 on failure on write but a success on read.
+ */
+int I2CClass::writeBits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t data)
+{
+    //      010 value to write
+    // 76543210 bit numbers
+    //    xxx   args: MSBLoc/bitStart=4, length =3
+    // 00011100 mask byte
+    // 10101111 original value (sample)
+    // 10100011 original & ~mask
+    // 10101011 masked | value
+    uint8_t buf, mask;
+    if (this->readRegisters8(slaveAddress, registerAddress, &buf, 1) < 0)
+    	{return -1;}
+    	else{
+			mask = ((1 << len) - 1) << (MSBLoc - len + 1);
+			data <<= (MSBLoc - len + 1); // shift data into correct position
+			data &= mask; // zero all non-important bits in data
+			buf &= ~(mask); // zero all important bits in existing byte
+			buf |= data; // combine data with existing byte
+			if(this->writeRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -2;
+			else return 0;
+			}
 }
 
