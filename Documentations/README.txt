@@ -33,17 +33,27 @@ SOME USEFUL INFORMATION FOR SETTING UP RASPBERRY PI TO COMPILE AND RUN THE QUADC
 
 4. [REALLY TRICKY SINCE THERE IS LITTLE INFORMATION ABOUT IT] Setting up Linux I2C library to support C++ on Raspberry Pi
 
-i) [SHOULD BE WORKING]Added linux I2C_SMBus library
-	http://www.lm-sensors.org/wiki/I2CTools_4_Plan
+[POSSBILE PROBLEM] using "sudo apt-get install i2c-tools" does not provide smbus function required in the OptimusPi project.
+[REASON] the "sudo apt-get install i2c-tools" only provide version 3.0.0, but we need version 3.3.5 to fix the problem
+[SOLUTION] Download lm_sensors-3.3.5 package http://www.lm-sensors.org/wiki/Download and install it
+[INSTRUCTION TO INSTALL] Uncompress it and read a file called "INSTALL"
+i) install the following tools by "sudo apt-get install" followed by the name of the applications: 
+bison, flex, perl, rrdtool 
+ii) type the following command into terminal to install lm-sensors-3.3.5
+export CONFIG_I2C=y
+export CONFIG_I2C_CHARDEV=m
+export CONFIG_HWMON=y
+iii) type "make clean" and then type "sudo make install"
+iv) check if there are any errors, fix it and redo step (iii)
 
-ii) [Other documentations. YOU MAY NOT FIND IT HELPFUL AND CONFUSING. DO NOT READ THEM IF YOU ARE NOT TOUCHING VERY LOW LEVEL OF I2C IMPLEMENTATION]
+1) More detailed explanations about linux I2C_TOOLS issue
+	http://www.lm-sensors.org/wiki/I2CTools_4_Plan
+2) [Other documentations. YOU MAY NOT FIND IT HELPFUL AND CONFUSING. DO NOT READ THEM IF YOU ARE NOT TOUCHING VERY LOW LEVEL OF I2C IMPLEMENTATION]
 	http://www.raspberry-projects.com/pi/programming-in-c/i2c/using-the-i2c-interface
 	http://skpang.co.uk/blog/archives/575
 	http://www.hobbytronics.co.uk/raspberry-pi-raspbian-distro
 	(Get raspberry pi library copy over to Linux x86_64)
-1)
 	http://www.raspberrypi.org/forums/viewtopic.php?f=33&t=24396
-2)
 	http://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler
 	http://raspberrypi.stackexchange.com/questions/3627/is-there-an-i2c-library
 	https://xgoat.com/wp/2007/11/11/using-i2c-from-userspace-in-linux/
@@ -51,7 +61,7 @@ ii) [Other documentations. YOU MAY NOT FIND IT HELPFUL AND CONFUSING. DO NOT REA
 	https://www.kernel.org/doc/Documentation/i2c/smbus-protocol
 	https://www.kernel.org/doc/Documentation/i2c/
 
-	3)i2c-dev.c
+3)i2c-dev.c
 	http://lxr.free-electrons.com/source/drivers/i2c/i2c-dev.c#L333
 
 4) Library Source Code:
