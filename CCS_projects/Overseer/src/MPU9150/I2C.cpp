@@ -146,7 +146,7 @@ int I2CClass::readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint
 		return 0;
 	}else
 		{
-			for(offset=0; offset<len-1; offset++)
+			for(offset=0; offset<len; offset++)
 			{
 				if( this->readI2CAByte(slaveAddress, registerAddress + offset, &buf_internal) < 0 ) return (-1*offset);
 				data[offset] = buf_internal;
