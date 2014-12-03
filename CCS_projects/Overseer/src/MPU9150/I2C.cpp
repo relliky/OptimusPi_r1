@@ -229,7 +229,7 @@ int I2CClass::writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uin
 		return 0;
 	}else
 		{
-			for(offset=0; offset<len-1; offset++)
+			for(offset=0; offset<len; offset++)
 			{
 				if (this->writeI2CAByte(slaveAddress, registerAddress + offset, buf[offset]) < 0) return -1;
 			}
