@@ -50,19 +50,22 @@ void I2CTestClass::runBasicReadTest(void)
 	while(TP_Rreg16_single != 0x68){}
 	//pass
 
-	//1.2.2 test readReg16 multiple word functionality by testing the second reg lower 8 bits
+	//1.2.2 test readReg16 multiple words functionality
+	//by testing the second reg lower 8 bits
 	I2CClass_0.readRegisters16(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I - 3, TP_Rreg16_multiple_arr, 2);
 	// TP_Rreg16[1][7:0] = Reg value of who_am_i reg.
 	TP_Rreg16_multiple_arr[1] = (TP_Rreg16_multiple_arr[1] << 8) >> 8;
 	while(TP_Rreg16_multiple_arr[1] != 0x68){}
 	//pass
 
-	//1.3. test bit 3 of b (4th bit) out of 0x68, which is 0b0110_1000[3] = 0x1
+	//1.3. test readBit8, reading a single bit from a 8-bit device register
+	//by reading bit 3 of b (4th bit) out of 0x68, which is 0b0110_1000[3] = 0x1
 	I2CClass_0.readBit8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 3, &TP_readBit8);
 	while(TP_readBit8 != 0x1){}
 	//pass
 
-	//1.4 test [5:3] of b => 0b0110_1000[5:3]=> 0b101 => 0x5
+	//1.4 test readbits8, reading multiple bits from a 8-bit device register
+	// by reading [5:3] of b => 0b0110_1000[5:3]=> 0b101 => 0x5
 	I2CClass_0.readbits8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 5, 3, &TP_readbits8);
 	while(TP_readbits8 != 0x5){}
 	//pass
@@ -85,6 +88,7 @@ void I2CTestClass::runBasicWriteTest(void)
 
 
 	//2.0 check the reset value of the test reg for following testing.
+	I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_reset, 1);
 	I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_reset, 1);
 	//This read return as 0x00, so assuming the reset value of MPU9150_RA_INT_PIN_CFG is 0x00
 	while(TP_test_reg_reset != 0x00){}
@@ -102,6 +106,7 @@ void I2CTestClass::runBasicWriteTest(void)
 	//2.1.2 test writeReg8 multiple byte functionality
 	//Reset the test reg back to 0x00 and rewrite it into 0x20
 	//Reset the test reg back to 0x00
+	I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_reset, 1);
 	I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_reset, 1);
 	while(TP_test_reg_reset != 0x00){}
 	//put 0x20 into the second byte
@@ -114,7 +119,7 @@ void I2CTestClass::runBasicWriteTest(void)
 	while(TP_Wreg8_mut_read != 0x20){}
 	//pass
 
-	//2.2 test writebit8
+	//2.2 test writeBit8, writing a single bit to a 8-bit device register
 	//Set the test reg to 0x20 and write a 0 to bit 5.
 	//Set the test reg to 0x20
 	I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_set, 1);
@@ -128,7 +133,7 @@ void I2CTestClass::runBasicWriteTest(void)
 	while(TP_Wbit_data_read != 0x00){}
 	//pass
 
-	//2.2 test writebits8
+	//2.2 test writebits8, writing multiple bits to a 8-bit device register
 	//Reset the test reg to 0x00 and write a 0b11 into bit 5 and bit 6
 	//Reset the test reg to 0x00
 	I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &TP_test_reg_reset, 1);
