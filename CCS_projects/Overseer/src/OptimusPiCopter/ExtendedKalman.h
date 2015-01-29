@@ -12,6 +12,7 @@
 
 //Get rid of Linux dependencies for Eigen library
 //This Linux dependencies are for debug usage only.  -- By Tai 1st/Dec/2014
+//More information about the flags can be found in http://eigen.tuxfamily.org/dox/TopicPreprocessorDirectives.html
 #ifndef NDEBUG
 	#define NDEBUG
 #endif
