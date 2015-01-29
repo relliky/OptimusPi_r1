@@ -74,6 +74,38 @@ iv) check if there are any errors, fix it and redo step (iii)
 	https://github.com/vmayoral/bb_mpu9150/tree/master/src/linux-mpu9150
 
 
+5. Interfacing an SPI ADC (MCP3008) chip to the Raspberry Pi using C++ (spidev)
+	http://hertaville.com/2013/07/24/interfacing-an-spi-adc-mcp3008-chip-to-the-raspberry-pi-using-c/
+Other documentations
+1) Serial Peripheral Interface Bus (Wikipedia)
+http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+2) Understanding the SPI Bus with NI LabVIEW
+http://www.ni.com/white-paper/9119/en/
+3) Introduction to Serial Peripheral Interface
+http://www.embedded.com/electronics-blogs/beginner-s-corner/4023908/Introduction-to-Serial-Peripheral-Interface
+
+6. TI printf support
+ 
+1) Printf support for MSP430 CCSTUDIO compiler via JTAG!
+http://processors.wiki.ti.com/index.php/Printf_support_for_MSP430_CCSTUDIO_compiler
+2) Tips for using printf
+http://processors.wiki.ti.com/index.php/Tips_for_using_printf
+3) How to use printf in a project
+http://processors.wiki.ti.com/index.php?title=Tips_for_using_printf&oldid=15475#How_to_use_printf_in_a_project
+4) Printf support in compiler
+http://processors.wiki.ti.com/index.php/Printf_support_in_compiler
+5) MSP430 Optimizing C/C++ Compiler v 4.4 User's 
+http://www.ti.com/lit/ug/slau132j/slau132j.pdfGuidehttp://www.ti.com/lit/ug/slau132j/slau132j.pdf
+6)[Useless] ITM printf
+http://www.keil.com/support/man/docs/ulink2/ulink2_trace_itm_viewer.htm
+7) Printf via JTAG (using ITM?)
+http://stackoverflow.com/questions/3224583/output-debug-via-printf-on-a-cortex-m3-cpu-stalls-at-bkpt-instruction-confusi
+
+1*) GSG:Debugging projects v5
+http://processors.wiki.ti.com/index.php/GSG:Debugging_projects_v5
+2*) Getting Started with the TI Stellaris LaunchPad on Linux
+http://www.jann.cc/2012/12/11/getting_started_with_the_ti_stellaris_launchpad_on_linux.html
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 SOME USEFUL INFORMATION FOR SETTING UP RASPBERRY PI FOR GENERAL USAGE
