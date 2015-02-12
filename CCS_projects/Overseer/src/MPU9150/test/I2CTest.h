@@ -10,7 +10,7 @@
 
 #include "../I2C.h"
 
-#define MPU9150_ADDRESS_AD0_LOW  0X68
+#define MPU9150_ADDRESS_AD0_LOW  0x68
 
 #define MPU9150_RA_WHO_AM_I 0x75
 #define MPU9150_RA_INT_PIN_CFG 0x37
@@ -25,7 +25,7 @@ public:
 	void runBasicWriteTest(void);
 
 private:
-	I2CClass I2CClass_0;
+	I2CClass I2C_UUT;
 };
 
 
