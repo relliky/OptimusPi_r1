@@ -9,10 +9,19 @@
 #define OVERSEER_H_
 
 
+
 #include <stdbool.h>
 #include <stdint.h>
-#include "driverlib/sysctl.h"
 
+
+#define DEBUG
+// Enable debug printf and run tests based on "scr/Debug/DebugOptions.h"
+#ifdef DEBUG
+#include "DebugFunction/DebugFunction.h"
+#endif
+
+
+#include "driverlib/sysctl.h"
 #include "shared/SPISlave.h"
 #include "shared/SPICommands.h"
 #include "MotorController.h"

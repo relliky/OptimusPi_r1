@@ -20,11 +20,8 @@
 
 #include "Overseer.h"
 
-//Test Compilations
-#define DEBUG_RUN_I2C_BASIC_TEST
-#ifdef DEBUG_RUN_I2C_BASIC_TEST
-	#include "MPU9150/test/I2CTest.h"
-#endif
+
+#include "OptimusPiCopter/AHRS.h"
 
 static SPISlaveClass RPiSPISlave(0);
 static MotorControllerClass motor0(0);
@@ -39,16 +36,61 @@ void main(void)
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
- //   motor0.config(BLDC);
-//	motor0.start();
+//    motor1.config(BLDC);
+//	motor1.start();
 
 
 
-	#ifdef DEBUG_RUN_I2C_BASIC_TEST
-			I2CTestClass I2CTest;
-			I2CTest.runBasicReadTest();
-			I2CTest.runBasicWriteTest();
+	#ifdef DEBUG
+			DebugFunctionClass Debug_0;
+			Debug_0.RunTests();
+
 	#endif
+
+
+
+/*
+			printf("Hello World.\n");
+			std::cout << "Hello, << sign and cout.\n" ;
+			std::cerr << "Hello, cerr.\n" ; //printing in red but very slow!!
+			printf("Trying to printf info between two cerr.\n");
+			std::cout << "Trying to forward info to cout between two cerr.\n" ;
+			std::cerr << "2nd cerr.\n" ; // Still got printed out.
+			std::cout << "Hello, message after 2nd cerr\n" ; //
+			std::cerr << "last cerr.\n" ; // Still got printed out.
+			std::cout << "Hello, cout after last cerr\n" ; // NOT getting printed out. If there is cout is the last function. But it gets printed out if any function after this is invoked.
+			//printf("printf info after last cerr\n");
+*/
+
+while(1){} //Stop here
+/*
+
+	AHRSClass AHRS;
+	static float Pitch;
+	static float Roll;
+	static float Yaw;
+	static float X;
+	static float Y;
+	static float Z;
+	static float P;
+	static float Q;
+	static float R;
+	static float Temp;
+
+	while(1)
+	{
+		 Pitch = AHRS.getPitch();
+		 Roll = AHRS.getRoll();
+		 Yaw = AHRS.getYaw();
+		 X = AHRS.getX();
+		 Y = AHRS.getY();
+		 Z = AHRS.getZ();
+		 P = AHRS.getP();
+		 Q = AHRS.getQ();
+		 R = AHRS.getR();
+		 Temp = AHRS.getTemp();
+	}
+*/
 
 	while(1)
 	{
@@ -56,7 +98,7 @@ void main(void)
 		//updateReadBuffers();
 		//emptyMessageQueue();
 
-//		motor0.setPWMWidth(0xA0);
+		motor1.setPWMWidth(0xA0);
 
 	}
 
