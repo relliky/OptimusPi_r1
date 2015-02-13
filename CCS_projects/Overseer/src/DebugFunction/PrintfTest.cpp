@@ -28,7 +28,7 @@ void PrintfTestClass::VariableStringTest(void)
 	{
 		printf("     printf: i is %d\n", i);
 		std::cout << "     cout: i is " << i << "\n";
-		std::cout << "     cerr: i is " << i << "\n";
+		std::cerr << "     cerr: i is " << i << "\n";
 	}
 
 	printf("     floats tests.\n");
@@ -36,7 +36,7 @@ void PrintfTestClass::VariableStringTest(void)
 	{
 		printf("     printf: i is %f\n", f);
 		std::cout << "     cout: i is " << f << "\n";
-		std::cout << "     cerr: i is " << f << "\n";
+		std::cerr << "     cerr: i is " << f << "\n";
 	}
 
 	std::cout << "\n";
@@ -51,7 +51,7 @@ void PrintfTestClass::ConstStringTest_LastMethodIsNotCout(void)
 	std::cout << "     Trying to forward info to cout between two cerr.\n" ;
 	std::cerr << "     2nd cerr.\n" ; // Still got printed out.
 	std::cout << "     Hello, message after 2nd cerr\n" ; //
-	std::cerr << "     last cerr.\n" ; // Still got printed out.
+	std::cerr << "     3nd cerr.\n" ; // Still got printed out.
 	std::cout << "     Hello, cout after last cerr\n" ; // getting printed out. If there is cout as the last function, it would not print out. But it gets printed out if any function after this is invoked.
 	printf("     printf info after last cerr\n\n");
 }
@@ -61,7 +61,7 @@ void PrintfTestClass::ConstStringTest_LastMethodIsCout(void)
 	std::cout << "  3) Start ConstStringTest_LastMethodIsCout Test.\n";
 	std::cout << "  There is a cout to print after next cerr, but it would not get printed out. \n";
 	std::cerr << "  last cerr.\n" ; // Still got printed out.
-	std::cout << "  Hello, cout after last cerr\n\n" ; // NOT getting printed out. If there is cout as the last function, it would not print out. But it gets printed out if any function after this is invoked.
+	std::cout << "  WARNING: This line (cout) should not get printed out unless there is anything getting printed out after this line. \n\n" ; // NOT getting printed out. If there is cout as the last function, it would not print out. But it gets printed out if any function after this is invoked.
 	//printf("printf info after last cerr\n");
 }
 
