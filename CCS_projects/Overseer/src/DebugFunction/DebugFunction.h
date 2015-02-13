@@ -37,6 +37,10 @@
 			#include "PrintfTest.h"
 		#endif
 
+		#ifdef DEBUG_RUN_CONT_MPU_TEST
+			#include <src/MPU9150/test/MPU9150Test.h>
+		#endif
+
 	#endif //#ifdef DEBUG
 
 
