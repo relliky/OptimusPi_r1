@@ -2,7 +2,7 @@
  * iohandler.h
  *
  *  Created on: 3 Dec 2014
- *      Author: Rellik
+ *      Author: Tai
  */
 
 #ifndef IOHANDLER_H_
@@ -22,7 +22,7 @@ class _mystd
 	{
 		class _op& operator<< (const char* str)
 		{
-			SendString(str);
+			SendStr(str);
 			return *this;
 		}
 		class _op& operator<< (const double dbl)
