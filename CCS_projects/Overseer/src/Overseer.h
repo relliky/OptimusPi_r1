@@ -14,20 +14,22 @@
 #include <stdint.h>
 
 
-#define DEBUG
+//#define DEBUG
 // Enable debug printf and run tests based on "scr/Debug/DebugOptions.h"
 #ifdef DEBUG
-#include "DebugFunction/DebugFunction.h"
+#include <src/shared/DebugFunction/DebugFunction.h>
 #endif
 
 
 #include "driverlib/sysctl.h"
-#include "shared/SPISlave.h"
-#include "shared/SPICommands.h"
-#include "MotorController.h"
-#include "PinController.h"
-#include "MPU9150/I2C.h"
+#include <src/OptimusPiCopter/Control/Control.h>
 
+/*
+#include "shared/SPI/SPISlave/SPISlave.h"
+#include "shared/SPI/SPICommands/SPICommands.h"
+#include "OverseerOptimusPiInterface/OptimusPiInterface.h"
+#include "shared/I2C/I2C.h"
+*/
 
 void updateReadBuffers();
 void emptyMessageQueue();

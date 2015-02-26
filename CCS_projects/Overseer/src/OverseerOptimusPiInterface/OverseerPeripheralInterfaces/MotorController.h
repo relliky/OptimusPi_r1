@@ -8,8 +8,8 @@
 #ifndef MOTORCONTROLLER_H_
 #define MOTORCONTROLLER_H_
 
-#include "shared/SPIMaster.h"
-#include "shared/SPICommands.h"
+#include <src/shared/SPI/SPIMaster/SPIMaster.h>
+#include <src/shared/SPI/SPICommands/SPICommands.h>
 
 typedef enum {unconfigured, BLDC, brushed, stepper} motorChannelState_t;
 
@@ -23,7 +23,7 @@ public:
 	void config(motorChannelState_t newState);
 	void start();
 	void stop();
-	void setPWMWidth(uint32_t period);
+	void setPower(uint32_t period);
 	bool running();
 
 private:

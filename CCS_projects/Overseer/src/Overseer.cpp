@@ -20,9 +20,9 @@
 
 #include "Overseer.h"
 
+//#include "OptimusPiCopter/AHRS/AHRS.h"
 
-#include "OptimusPiCopter/AHRS.h"
-
+/*
 static SPISlaveClass RPiSPISlave(0);
 static MotorControllerClass motor0(0);
 static MotorControllerClass motor1(1);
@@ -30,39 +30,36 @@ static MotorControllerClass motor2(2);
 static MotorControllerClass motor3(3);
 static PinControllerClass IC0(IC0Pin), IC1(IC1Pin), IC2(IC2Pin), IC3(IC3Pin), IC4(IC4Pin), IC5(IC5Pin), IC6(IC6Pin),
 		IC7(IC7Pin), AN0(AN0Pin), AN1(AN1Pin), AN2(AN2Pin), AN3(AN3Pin), AN4(AN4Pin), AN5(AN5Pin);
+*/
 
 void main(void)
 {
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
-//    motor1.config(BLDC);
-//	motor1.start();
+/*
+    motor1.config(BLDC);
+	motor1.start();
+*/
 
-
-
+	#undef DEBUG
 	#ifdef DEBUG
 			DebugFunctionClass Debug_0;
 			Debug_0.RunTests();
-
 	#endif
 
 
+	ControlClass Control;
+	Control.enable();
 
-/*
-			printf("Hello World.\n");
-			std::cout << "Hello, << sign and cout.\n" ;
-			std::cerr << "Hello, cerr.\n" ; //printing in red but very slow!!
-			printf("Trying to printf info between two cerr.\n");
-			std::cout << "Trying to forward info to cout between two cerr.\n" ;
-			std::cerr << "2nd cerr.\n" ; // Still got printed out.
-			std::cout << "Hello, message after 2nd cerr\n" ; //
-			std::cerr << "last cerr.\n" ; // Still got printed out.
-			std::cout << "Hello, cout after last cerr\n" ; // NOT getting printed out. If there is cout is the last function. But it gets printed out if any function after this is invoked.
-			//printf("printf info after last cerr\n");
-*/
 
-while(1){} //Stop here
+	while(1){} //Stop here
+
+
+
+			//OptimusPiInterfaceClass  test;
+
+
 /*
 
 	AHRSClass AHRS;
@@ -77,20 +74,41 @@ while(1){} //Stop here
 	static float R;
 	static float Temp;
 
+
 	while(1)
 	{
-		 Pitch = AHRS.getPitch();
-		 Roll = AHRS.getRoll();
-		 Yaw = AHRS.getYaw();
-		 X = AHRS.getX();
-		 Y = AHRS.getY();
-		 Z = AHRS.getZ();
-		 P = AHRS.getP();
-		 Q = AHRS.getQ();
-		 R = AHRS.getR();
-		 Temp = AHRS.getTemp();
+
+		for(int i=0; i<10; i++)
+		{
+			 AHRS.update(0.1);
+			 Pitch = AHRS.getPitch();
+			 Roll = AHRS.getRoll();
+			 Yaw = AHRS.getYaw();
+			 X = AHRS.getX();
+			 Y = AHRS.getY();
+			 Z = AHRS.getZ();
+			 P = AHRS.getP();
+			 Q = AHRS.getQ();
+			 R = AHRS.getR();
+			 Temp = AHRS.getTemp();
+		}
+		printf("Pitch is %f\n",Pitch);
+		printf("Roll is %f\n",Roll);
+		printf("Yaw is %f\n",Yaw);
+		printf("X is %f\n",X);
+		printf("Y is %f\n",Y);
+		printf("Z is %f\n",Z);
+		printf("P is %f\n",P);
+		printf("Q is %f\n",Q);
+		printf("R is %f\n",R);
+		printf("Temp is %f\n",Temp);
 	}
+
 */
+
+
+
+/*
 
 	while(1)
 	{
@@ -102,14 +120,17 @@ while(1){} //Stop here
 
 	}
 
-
+*/
 
 
 }
 
+
+
 /**
  * Updates the SPI slave read buffers with new data.
  */
+/*
 void updateReadBuffers()
 {
 	// Currently broken as 24/7 polling just floods the SPI bus, we need to either poll these registers on demand or at a fixed interval
@@ -117,6 +138,8 @@ void updateReadBuffers()
 //	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_1, motor1.running());
 //	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_2, motor2.running());
 //	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_3, motor3.running());
+
+
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_WIDTH, IC0.getICPeriod());
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_WIDTH, IC1.getICPeriod());
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_WIDTH, IC2.getICPeriod());
@@ -139,7 +162,9 @@ void updateReadBuffers()
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN3_GPIO_INPUT_STATUS, AN3.getGPIOInputState());
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN4_GPIO_INPUT_STATUS, AN4.getGPIOInputState());
 	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, AN5.getGPIOInputState());
+
 }
+*/
 
 /**
  * Empties the message queue, performaing a switch statement on every message command in order to carry out the
@@ -147,6 +172,7 @@ void updateReadBuffers()
  *
  * @TODO this could be implemented using a dictionary class to neaten things up
  */
+/*
 void emptyMessageQueue()
 {
 	message_s message;
@@ -397,3 +423,5 @@ void emptyMessageQueue()
 		}
 	}
 }
+*/
+

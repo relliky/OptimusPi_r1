@@ -7,9 +7,15 @@
 
 #include "MotorController.h"
 
-//@TODO this is apparently risky, see rule 29
+//@TODO this is apparently risky, see rule 29  //REVISIT: WHAT IS THIS?  WHERE IS RULE 29?  -- TAI LI 24/02/15
 SPIMasterClass MotorControllerClass::SPI1(1);
 SPIMasterClass MotorControllerClass::SPI2(2);
+
+//REVISIT: It is risky because that SPI1, SPI2 here are initialised in the first time (there are two static object defined in MotorController.h)
+//         and SPIMasterClass.configPeripherals(channel) have been runned as part of constructor. It enables SPI1 and SPI2 hardware. So theoritically it should work.
+//         However, I guess since SPI1 and SPI2 share the same RX/TX FIFO, the FIFO should be emptyed before the processor switch to another.
+//         Have not gotten a solution to it yet.
+
 
 /**
  * Constructor, with the motor channel to control specified
@@ -53,6 +59,21 @@ void MotorControllerClass::config(motorChannelState_t newState)
 		else
 			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_BLDC);
 		break;
+/*
+	case stepper:
+		if (channel % 2 == 0)
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH0_STEPPER);
+		else
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_STEPPER);
+		break;
+
+	case brushed:
+		if (channel % 2 == 0)
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH0_BRUSHED);
+		else
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_BRUSHED);
+		break;
+*/
 	}
 }
 
@@ -83,7 +104,7 @@ void MotorControllerClass::stop()
  *
  * @param period 0 to 1000
  */
-void MotorControllerClass::setPWMWidth(uint32_t period)
+void MotorControllerClass::setPower(uint32_t period)
 {
 	if (channel % 2 == 0)
 		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_SET_MOTOR_0_DUTY, &period, 1);

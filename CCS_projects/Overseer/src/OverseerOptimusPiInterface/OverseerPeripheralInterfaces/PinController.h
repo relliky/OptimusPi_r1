@@ -10,10 +10,10 @@
 
 #include <cstddef>
 
-#include "PinControllers/InputCapture.h"
-#include "PinControllers/GPIOOutput.h"
-#include "PinControllers/GPIOInput.h"
-#include "PinControllers/GPIOPinNames_t.h"
+#include <src/PinControllers/InputCapture.h>
+#include <src/PinControllers/GPIOOutput.h>
+#include <src/PinControllers/GPIOInput.h>
+#include <src/PinControllers/GPIOPinNames_t.h>
 
 
 
@@ -28,7 +28,7 @@ public:
 	virtual ~PinControllerClass();
 
 	void config(pinType_t newPinType);
-	uint32_t getICPeriod();
+	uint32_t getInputCaptureWidth();
 	void setGPIOOutputState(bool state);
 	bool getGPIOInputState();
 

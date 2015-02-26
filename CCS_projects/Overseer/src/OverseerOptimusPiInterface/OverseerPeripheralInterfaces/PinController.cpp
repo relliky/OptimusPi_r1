@@ -55,7 +55,7 @@ PinControllerClass::~PinControllerClass()
  *
  * @return - 32bit width
  */
-uint32_t PinControllerClass::getICPeriod()
+uint32_t PinControllerClass::getInputCaptureWidth()
 {
 	if (pinType == InputCaptureType)
 		return inputCaptureController->getPeriod();

@@ -8,24 +8,24 @@
 #include "OptimusPiInterface.h"
 
 OptimusPiInterfaceClass::OptimusPiInterfaceClass()
-		: motor0(0, &SPI),
-		  motor1(1, &SPI),
-		  motor2(2, &SPI),
-		  motor3(3, &SPI),
-		  IC0(IC0Pin, &SPI),
-		  IC1(IC1Pin, &SPI),
-		  IC2(IC2Pin, &SPI),
-		  IC3(IC3Pin, &SPI),
-		  IC4(IC4Pin, &SPI),
-		  IC5(IC5Pin, &SPI),
-		  IC6(IC6Pin, &SPI),
-		  IC7(IC7Pin, &SPI),
-		  AN0(AN0Pin, &SPI),
-		  AN1(AN1Pin, &SPI),
-		  AN2(AN2Pin, &SPI),
-		  AN3(AN3Pin, &SPI),
-		  AN4(AN4Pin, &SPI),
-		  AN5(AN5Pin, &SPI)
+		: motor0(0),
+		  motor1(1),
+		  motor2(2),
+		  motor3(3),
+		  IC0(IC0Pin),
+		  IC1(IC1Pin),
+		  IC2(IC2Pin),
+		  IC3(IC3Pin),
+		  IC4(IC4Pin),
+		  IC5(IC5Pin),
+		  IC6(IC6Pin),
+		  IC7(IC7Pin),
+		  AN0(AN0Pin),
+		  AN1(AN1Pin),
+		  AN2(AN2Pin),
+		  AN3(AN3Pin),
+		  AN4(AN4Pin),
+		  AN5(AN5Pin)
 {
 	// TODO Auto-generated constructor stub
 
