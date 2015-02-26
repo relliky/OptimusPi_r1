@@ -1,0 +1,40 @@
+/*
+ * MPU9150Test.h
+ *
+ *  Created on: 12 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef MPU9150TEST_H_
+#define MPU9150TEST_H_
+
+// ** For some reason of the scope of #include directives, "DebugOptions.h" does not get included in this file.
+//#ifdef DEBUG_PRINTF_VIA_JTAG
+	//Adding stdio.h for debugging. Printf-like debug information will be forwarding to CCS via JTAG
+	#include <stdio.h>
+	#include <iostream>
+//#endif
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <src/shared/MPU9150/MPU9150.h>
+#include <src/OptimusPiCopter/AHRS/MerayoCalib.h>
+
+
+class MPU9150TestClass
+{
+public:
+	MPU9150TestClass();
+	virtual ~MPU9150TestClass();
+	void printRawData(void);
+	void printScaledSensorData(void);
+
+private:
+	MPU9150Class MPU_UUT;
+	calibrationData_s accCalibData, magCalibData;
+	sensorData_s<int16_t> rawData;
+	sensorData_s<float> scaledSensorData;
+};
+
+
+#endif /* MPU9150TEST_H_ */
