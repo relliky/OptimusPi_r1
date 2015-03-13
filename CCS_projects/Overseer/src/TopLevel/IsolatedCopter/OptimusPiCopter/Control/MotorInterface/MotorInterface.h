@@ -8,7 +8,7 @@
 #ifndef MOTORINTERFACE_H_
 #define MOTORINTERFACE_H_
 
-#include <src/OverseerOptimusPiInterface/OptimusPiInterface.h>
+#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OptimusPiInterface.h>
 
 #define MOTOR_MAX_POWER 700
 #define MOTOR_MIN_POWER 200

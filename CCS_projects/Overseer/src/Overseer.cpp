@@ -37,11 +37,17 @@ void main(void)
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
+	ArbitratorClass Arbitrator;
+
+//	PiSlavedCopterClass PiSlavedCopter1;
 /*
     motor1.config(BLDC);
 	motor1.start();
 */
 
+
+
+/*
 	#undef DEBUG
 	#ifdef DEBUG
 			DebugFunctionClass Debug_0;
@@ -51,21 +57,54 @@ void main(void)
 
 	ControlClass Control;
 	Control.enable();
+	delete &Control;
+*/
+
+/*
+	LEDClass LED1(1);
+	LED1.set();
+*/
+
+//	GPTimerClass Timer1(NULL);
+//	Timer1.start();
+
+//	LEDClass LED0(0);
+//	LED0.set();
+
+/*
+	while(1){
+
+		LED1.toggle();
+
+		float oneSecDelay = 66666666/2.6666666/2;
+		int   delay = (int)(oneSecDelay/10);
+		SysCtlDelay(delay);
+	} //Loop here to serve timer interrupt
+
+*/
+
+/*
+	OptimusPiInterfaceClass OptimusPi;
+
+	OptimusPiInterfaceClass* OptPiPtr;
+
+	OptPiPtr = &OptimusPi;
+	RXInterfaceClass RX_0(OptPiPtr);
+
+	while(1){RX_0.update();}
+
+*/
 
 
-	while(1){} //Stop here
 
-
-
-			//OptimusPiInterfaceClass  test;
 
 
 /*
 
 	AHRSClass AHRS;
-	static float Pitch;
-	static float Roll;
-	static float Yaw;
+	static float Pitch, PitchM;
+	static float Roll, RollM;
+	static float Yaw, YawM;
 	static float X;
 	static float Y;
 	static float Z;
@@ -78,12 +117,21 @@ void main(void)
 	while(1)
 	{
 
-		for(int i=0; i<10; i++)
+		for(int i=0; i<50; i++)
 		{
-			 AHRS.update(0.1);
+
+				float dt = 0.01;
+				float oneSecDelay = 66666666/2.6666666/2;
+				int   delay = (int)(oneSecDelay*dt);
+				SysCtlDelay(delay);
+
+			 AHRS.update(dt);
 			 Pitch = AHRS.getPitch();
 			 Roll = AHRS.getRoll();
 			 Yaw = AHRS.getYaw();
+			// Data fused out still is approching to 0.
+
+
 			 X = AHRS.getX();
 			 Y = AHRS.getY();
 			 Z = AHRS.getZ();
@@ -91,10 +139,15 @@ void main(void)
 			 Q = AHRS.getQ();
 			 R = AHRS.getR();
 			 Temp = AHRS.getTemp();
+
+			 if(PitchM >= Pitch) {PitchM = Pitch;}
+			 if(PitchM >= Roll) {RollM = Roll;}
+			 if(YawM >= Yaw) {YawM = Yaw;}
 		}
 		printf("Pitch is %f\n",Pitch);
 		printf("Roll is %f\n",Roll);
 		printf("Yaw is %f\n",Yaw);
+
 		printf("X is %f\n",X);
 		printf("Y is %f\n",Y);
 		printf("Z is %f\n",Z);
@@ -102,10 +155,10 @@ void main(void)
 		printf("Q is %f\n",Q);
 		printf("R is %f\n",R);
 		printf("Temp is %f\n",Temp);
+
 	}
 
 */
-
 
 
 /*
@@ -126,302 +179,4 @@ void main(void)
 }
 
 
-
-/**
- * Updates the SPI slave read buffers with new data.
- */
-/*
-void updateReadBuffers()
-{
-	// Currently broken as 24/7 polling just floods the SPI bus, we need to either poll these registers on demand or at a fixed interval
-//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_0, motor0.running());
-//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_1, motor1.running());
-//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_2, motor2.running());
-//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_3, motor3.running());
-
-
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_WIDTH, IC0.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_WIDTH, IC1.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_WIDTH, IC2.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_WIDTH, IC3.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_WIDTH, IC4.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_WIDTH, IC5.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_WIDTH, IC6.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_WIDTH, IC7.getICPeriod());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_GPIO_INPUT_STATUS, IC0.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_GPIO_INPUT_STATUS, IC1.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_GPIO_INPUT_STATUS, IC2.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_GPIO_INPUT_STATUS, IC3.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_GPIO_INPUT_STATUS, IC4.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_GPIO_INPUT_STATUS, IC5.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_GPIO_INPUT_STATUS, IC6.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_GPIO_INPUT_STATUS, IC7.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN0_GPIO_INPUT_STATUS, AN0.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN1_GPIO_INPUT_STATUS, AN1.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN2_GPIO_INPUT_STATUS, AN2.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN3_GPIO_INPUT_STATUS, AN3.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN4_GPIO_INPUT_STATUS, AN4.getGPIOInputState());
-	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, AN5.getGPIOInputState());
-
-}
-*/
-
-/**
- * Empties the message queue, performaing a switch statement on every message command in order to carry out the
- * requested operation.
- *
- * @TODO this could be implemented using a dictionary class to neaten things up
- */
-/*
-void emptyMessageQueue()
-{
-	message_s message;
-	while (RPiSPISlave.getMessage(&message))
-	{
-		switch (message.command)
-		{
-		case OVERSEER_CONFIG_MOTOR_CH0_BLDC:
-			motor0.config(BLDC);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH0_BRUSHED:
-			motor0.config(brushed);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH0_STEPPER:
-			motor0.config(stepper);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH1_BLDC:
-			motor1.config(BLDC);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH1_BRUSHED:
-			motor1.config(brushed);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH1_STEPPER:
-			motor1.config(stepper);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH2_BLDC:
-			motor2.config(BLDC);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH2_BRUSHED:
-			motor2.config(brushed);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH2_STEPPER:
-			motor2.config(stepper);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH3_BLDC:
-			motor3.config(BLDC);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH3_BRUSHED:
-			motor3.config(brushed);
-			break;
-		case OVERSEER_CONFIG_MOTOR_CH3_STEPPER:
-			motor3.config(stepper);
-			break;
-		case OVERSEER_START_MOTOR_0:
-			motor0.start();
-			break;
-		case OVERSEER_START_MOTOR_1:
-			motor1.start();
-			break;
-		case OVERSEER_START_MOTOR_2:
-			motor2.start();
-			break;
-		case OVERSEER_START_MOTOR_3:
-			motor3.start();
-			break;
-		case OVERSEER_STOP_MOTOR_0:
-			motor0.stop();
-			break;
-		case OVERSEER_STOP_MOTOR_1:
-			motor1.stop();
-			break;
-		case OVERSEER_STOP_MOTOR_2:
-			motor2.stop();
-			break;
-		case OVERSEER_STOP_MOTOR_3:
-			motor3.stop();
-			break;
-		case OVERSEER_SET_MOTOR_PWM_0:
-			motor0.setPWMWidth(message.parameters[0]);
-			break;
-		case OVERSEER_SET_MOTOR_PWM_1:
-			motor1.setPWMWidth(message.parameters[0]);
-			break;
-		case OVERSEER_SET_MOTOR_PWM_2:
-			motor2.setPWMWidth(message.parameters[0]);
-			break;
-		case OVERSEER_SET_MOTOR_PWM_3:
-			motor3.setPWMWidth(message.parameters[0]);
-			break;
-		case OVERSEER_CONFIG_IC0_INPUT_CAPTURE:
-			IC0.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC0_GPIO_OUTPUT:
-			IC0.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC0_GPIO_INPUT:
-			IC0.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC1_INPUT_CAPTURE:
-			IC1.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC1_GPIO_OUTPUT:
-			IC1.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC1_GPIO_INPUT:
-			IC1.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC2_INPUT_CAPTURE:
-			IC2.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC2_GPIO_OUTPUT:
-			IC2.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC2_GPIO_INPUT:
-			IC2.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC3_INPUT_CAPTURE:
-			IC3.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC3_GPIO_OUTPUT:
-			IC3.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC3_GPIO_INPUT:
-			IC3.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC4_INPUT_CAPTURE:
-			IC4.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC4_GPIO_OUTPUT:
-			IC4.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC4_GPIO_INPUT:
-			IC4.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC5_INPUT_CAPTURE:
-			IC5.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC5_GPIO_OUTPUT:
-			IC5.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC5_GPIO_INPUT:
-			IC5.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC6_INPUT_CAPTURE:
-			IC6.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC6_GPIO_OUTPUT:
-			IC6.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC6_GPIO_INPUT:
-			IC6.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_IC7_INPUT_CAPTURE:
-			IC7.config(InputCaptureType);
-			break;
-		case OVERSEER_CONFIG_IC7_GPIO_OUTPUT:
-			IC7.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_IC7_GPIO_INPUT:
-			IC7.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN0_ANALOG_INPUT:
-			AN0.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN0_GPIO_OUTPUT:
-			AN0.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN0_GPIO_INPUT:
-			AN0.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN1_ANALOG_INPUT:
-			AN1.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN1_GPIO_OUTPUT:
-			AN1.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN1_GPIO_INPUT:
-			AN1.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN2_ANALOG_INPUT:
-			AN2.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN2_GPIO_OUTPUT:
-			AN2.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN2_GPIO_INPUT:
-			AN2.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN3_ANALOG_INPUT:
-			AN3.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN3_GPIO_OUTPUT:
-			AN3.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN3_GPIO_INPUT:
-			AN3.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN4_ANALOG_INPUT:
-			AN4.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN4_GPIO_OUTPUT:
-			AN4.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN4_GPIO_INPUT:
-			AN4.config(GPIOInputType);
-			break;
-		case OVERSEER_CONFIG_AN5_ANALOG_INPUT:
-			AN5.config(AnalogInputType);
-			break;
-		case OVERSEER_CONFIG_AN5_GPIO_OUTPUT:
-			AN5.config(GPIOOutputType);
-			break;
-		case OVERSEER_CONFIG_AN5_GPIO_INPUT:
-			AN5.config(GPIOInputType);
-			break;
-		case OVERSEER_SET_IC0_GPIO_OUTPUT_STATUS:
-			IC0.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC1_GPIO_OUTPUT_STATUS:
-			IC1.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC2_GPIO_OUTPUT_STATUS:
-			IC2.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC3_GPIO_OUTPUT_STATUS:
-			IC3.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC4_GPIO_OUTPUT_STATUS:
-			IC4.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC5_GPIO_OUTPUT_STATUS:
-			IC5.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC6_GPIO_OUTPUT_STATUS:
-			IC6.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_IC7_GPIO_OUTPUT_STATUS:
-			IC7.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN0_GPIO_OUTPUT_STATUS:
-			AN0.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN1_GPIO_OUTPUT_STATUS:
-			AN1.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN2_GPIO_OUTPUT_STATUS:
-			AN2.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN3_GPIO_OUTPUT_STATUS:
-			AN3.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN4_GPIO_OUTPUT_STATUS:
-			AN4.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		case OVERSEER_SET_AN5_GPIO_OUTPUT_STATUS:
-			AN5.setGPIOOutputState((bool) message.parameters[0]);
-			break;
-		}
-	}
-}
-*/
 

@@ -119,6 +119,10 @@
 #define OVERSEER_GET_AN4_ANALOG_VALUE			0x6f
 #define OVERSEER_GET_AN5_ANALOG_VALUE			0x70
 
+//added two SPI commands to arbitrat whether the system is running isolated or as a pi slave.
+#define OVERSEER_CONFIG_AS_ISOLATED_SYSTEM      0x71
+#define OVERSEER_CONFIG_AS_PI_SLAVED            0x72
+
 #define MOTOR_CONTROLLER_CONFIG_CH0_BLDC 		0x01
 #define MOTOR_CONTROLLER_CONFIG_CH0_STEPPER 	0x02
 #define MOTOR_CONTROLLER_CONFIG_CH0_BRUSHED 	0x03

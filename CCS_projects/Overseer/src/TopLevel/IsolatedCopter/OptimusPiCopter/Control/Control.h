@@ -11,9 +11,9 @@
 #include "PID/PID.h"
 #include "../AHRS/AHRS.h"
 #include "../RX/RXInterface.h"
+#include "../GPTimer/GPTimer.h"
 #include "MotorInterface/MotorInterface.h"
-#include <src/OverseerOptimusPiInterface/OptimusPiInterface.h>
-//#include "Timer.h"
+#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OptimusPiInterface.h>
 //#include "Logger.h"
 
 
@@ -49,6 +49,7 @@ struct s_orientation
 	double theta;
 };
 
+
 class ControlClass
 {
 public:
@@ -80,7 +81,7 @@ public:
 private:
 	PIDClass ratePitchPID, rateRollPID, rateYawPID;
 	PIDClass attitudePitchPID, attitudeRollPID;
-//	TimerClass timer;
+	GPTimerClass timer;
 //	LoggerClass Logger;
 	
 	bool motorsStarted;

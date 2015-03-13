@@ -22,6 +22,10 @@
 
 #include "../SPICommands/SPICommands.h"
 
+//REVISIT: dynamically allocate memory cause a run-time malloc function error. Changing to static preallocation.   ---Tai 06/03/15
+//         See sendMessage method in SPIMaster.cpp.
+#define MAX_NUM_OF_PARAMS 32
+
 class SPIMasterClass {
 public:
 	SPIMasterClass(uint32_t channel);

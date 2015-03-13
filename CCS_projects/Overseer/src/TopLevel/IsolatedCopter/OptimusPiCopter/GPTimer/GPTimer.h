@@ -10,7 +10,12 @@
 #define GPTIMERCLASS_H_
 
 #define PART_TM4C123AH6PM //Needed to make pin_map include properly, isnt used in examples
+// stdint has to be defined before other drivers.
 #include <stdint.h>
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <iostream>
 
 #include "driverlib/pin_map.h"
 #include "inc/hw_memmap.h"
@@ -20,27 +25,26 @@
 #include "driverlib/timer.h"
 #include "driverlib/interrupt.h"
 
-
-//debug
+//for testing
 #include <src/shared/LED/LED.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <iostream>
-#include "driverlib/sysctl.h"
+
+// This ControlClass has to be decleared (just a prototype) otherwise its pointer cannot be decleared.
+// The acutal ControlClass is defined later in the .cpp file.
+// This is to resolve the recursive including between "GPTimer.h" and "Control.h".
+// So the pointer class would not be wrong before it is assigned.    ---Tai  13/03/15
+class ControlClass;
 
 class GPTimerClass
 {
 public:
-	GPTimerClass();
+	GPTimerClass(ControlClass* controlPtr);
 	virtual ~GPTimerClass();
 
-	static void ISRStatic();
-	void ISR();
+	float getDt();
+	void setDt(float dt_set);
 	void start();
 	void stop();
-	void config();
-
+	void ISR();
 
 
 private:
@@ -49,8 +53,16 @@ private:
 	uint32_t TIMER_BASE;
 	uint32_t INT_TIMERnA_TM4C123;
 	uint32_t TIMER;
+//	static	GPTimerClass* Timer;
 
+	void calcdt();
+	static void ISRStatic();
+
+	float    dt;
+	bool 	 timerOn;
+	ControlClass* control;
 	LEDClass LED0;
+
 };
 
 

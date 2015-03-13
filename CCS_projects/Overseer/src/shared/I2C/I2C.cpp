@@ -58,7 +58,7 @@ int I2CClass::openI2C()
 
 }
 
-//read specified register on slave device
+//read a byte of data from a specified register on slave device
 int I2CClass::readI2CAByte(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* buf)
 {
 
@@ -92,7 +92,7 @@ int I2CClass::readI2CAByte(uint8_t slaveAddress, uint8_t registerAddress, uint8_
 }
 
 
-//write specified register on slave device
+//write a byte of data to a specified register on slave device
 int I2CClass::writeI2CAByte(uint8_t slaveAddress, uint8_t registerAddress, uint8_t buf)
 {
 
@@ -215,10 +215,6 @@ int I2CClass::readbits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t M
     return 0;
 }
 
-// N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
-// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
-// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
-// The array is little Endian
 int I2CClass::writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* buf, uint8_t len)
 {
 	uint8_t offset;
@@ -239,9 +235,6 @@ int I2CClass::writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uin
 }
 
 
-// N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
-// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
-// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
 /** write a single bit in an 8-bit device register.
  * @param devAddr I2C slave device address
  * @param regAddr Register regAddr to write to
@@ -259,9 +252,6 @@ int I2CClass::writeBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t b
     return 0;
 }
 
-// N.B. IT WOULD NOT WORK UNLESS A READ OF THIS REGISTER IS VALID!!!
-// SO FAR, IT SEEMS A READ TO A REGISTER MOST OF TIME IS VALID IN THE REG, MPU9150_RA_INT_PIN_CFG 0x37.
-// THIS MEANS IF ANOTHER R/W REGISTER APART FROM THE ABOVE IS WRITTEN INTO 0xFF, REAEDING IT COULE STILL RETURN 0x00.
 /** Write multiple bits in an 8-bit device register.
  * @param slaveAddress I2C slave device address
  * @param registerAddress Register regAddr to write to

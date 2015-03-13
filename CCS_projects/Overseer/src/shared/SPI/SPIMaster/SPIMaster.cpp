@@ -93,9 +93,11 @@ void SPIMasterClass::sendBytes(uint8_t* data, uint32_t len)
 		SSIDataPut(SSI_BASE, data[i]);
 }
 
+
 void SPIMasterClass::sendMessage(uint8_t command, uint32_t* parameters, uint32_t numberOfParams)
 {
-	uint8_t messageBytes[1 + (4 * numberOfParams)];
+	//REVISIT: dynamically allocate memory cause a run-time malloc function error. Changing to static preallocation.   ---Tai 06/03/15
+	uint8_t messageBytes[1 + (4 * MAX_NUM_OF_PARAMS)];
 
 	messageBytes[0] = command;
 	union

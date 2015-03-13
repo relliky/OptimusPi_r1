@@ -11,6 +11,7 @@
 #define RX_MIN 80000
 #define RX_MID ((RX_MAX + RX_MIN) / 2)
 
+
 RXInterfaceClass::RXInterfaceClass(OptimusPiInterfaceClass* OptimusPiPtr)
 {
 	OptimusPi = OptimusPiPtr;

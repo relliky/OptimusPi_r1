@@ -61,6 +61,51 @@ void AHRSClass::update(float dt)
 	MerayoCalibClass::apply(&scaledSensorData.x, &scaledSensorData.y, &scaledSensorData.z, &accCalibData);
 	fuse(dt);
 	transformOrientation();
+
+//	#define DEBUG_AHRS
+	#ifdef DEBUG_AHRS
+
+		static float PitchTest;
+		static float RollTest;
+		static float YawTest;
+		static float XTest;
+		static float YTest;
+		static float ZTest;
+		static float PTest;
+		static float QTest;
+		static float RTest;
+		static float TempTest;
+
+		static int i=0;
+
+		i++;
+		if(i==20)
+		{
+			i=0;
+			 PitchTest = this->getPitch();
+			 RollTest = this->getRoll();
+			 YawTest = this->getYaw();
+			 XTest = this->getX();
+			 YTest = this->getY();
+			 ZTest = this->getZ();
+			 PTest = this->getP();
+			 QTest = this->getQ();
+			 RTest = this->getR();
+			 TempTest = this->getTemp();
+
+			printf("Pitch is %f\n",PitchTest);
+			printf("Roll is %f\n",RollTest);
+			printf("Yaw is %f\n",YawTest);
+			printf("X is %f\n",XTest);
+			printf("Y is %f\n",YTest);
+			printf("Z is %f\n",ZTest);
+			printf("P is %f\n",PTest);
+			printf("Q is %f\n",QTest);
+			printf("R is %f\n",RTest);
+			printf("Temp is %f\n",TempTest);
+		}
+	#endif
+
 }
 
 void AHRSClass::getSensors()

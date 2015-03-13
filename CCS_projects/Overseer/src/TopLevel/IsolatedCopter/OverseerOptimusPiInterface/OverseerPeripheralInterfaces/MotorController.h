@@ -13,9 +13,6 @@
 
 typedef enum {unconfigured, BLDC, brushed, stepper} motorChannelState_t;
 
-/*
- *
- */
 class MotorControllerClass {
 public:
 	MotorControllerClass(uint32_t newChannel);
@@ -32,5 +29,7 @@ private:
 	uint32_t channel;
 	motorChannelState_t state;
 };
+
+
 
 #endif /* MOTORCONTROLLER_H_ */

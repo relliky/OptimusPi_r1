@@ -11,10 +11,11 @@
 SPIMasterClass MotorControllerClass::SPI1(1);
 SPIMasterClass MotorControllerClass::SPI2(2);
 
-//REVISIT: It is risky because that SPI1, SPI2 here are initialised in the first time (there are two static object defined in MotorController.h)
-//         and SPIMasterClass.configPeripherals(channel) have been runned as part of constructor. It enables SPI1 and SPI2 hardware. So theoritically it should work.
-//         However, I guess since SPI1 and SPI2 share the same RX/TX FIFO, the FIFO should be emptyed before the processor switch to another.
-//         Have not gotten a solution to it yet.
+// Global pointers used for two SPIs to two motor controllers in
+// <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp>
+// extern SPIMasterClass MotorControllerClass::SPI1(1);
+// extern SPIMasterClass MotorControllerClass::SPI2(2);
+// #include "MotorControllerGlobalVariables.h"
 
 
 /**

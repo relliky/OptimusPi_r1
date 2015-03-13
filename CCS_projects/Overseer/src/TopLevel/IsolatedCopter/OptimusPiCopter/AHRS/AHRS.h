@@ -17,6 +17,12 @@
 #include "ExtendedKalman.h"
 #include "Quaternion.h"
 
+//debug
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <iostream>
+
 
 struct euler_s
 {

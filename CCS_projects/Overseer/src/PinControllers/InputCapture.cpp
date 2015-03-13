@@ -20,6 +20,8 @@ static InputCaptureClass* IC5;
 static InputCaptureClass* IC6;
 static InputCaptureClass* IC7;
 
+
+
 /**
  * The input capture class configures an ICn input to measure the high time of a PWM signal.
  *
@@ -429,8 +431,8 @@ void InputCaptureClass::ISR()
 	}
 }
 
-uint32_t InputCaptureClass::getPeriod()
-{
+ uint32_t InputCaptureClass::getPeriod()
+ {
 	bool timeoutOccured = timeout; // Storing variable locally in case timeout is modified while this function is accessing
 	if (timeoutOccured == false)
 	{
@@ -450,11 +452,11 @@ uint32_t InputCaptureClass::getPeriod()
 	}
 	else if (timeoutOccured == true)
 	{
-		return 0;
+		 return 0;
 	}
 	else
 	{
 		while(1){} // What the fuck
 	}
-}
+ }
 

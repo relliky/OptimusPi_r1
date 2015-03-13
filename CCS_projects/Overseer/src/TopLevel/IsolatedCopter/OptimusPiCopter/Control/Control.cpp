@@ -7,6 +7,7 @@
 
 #include "Control.h"
 
+
 ControlClass::ControlClass()//(std::string logFilename)
 		: ratePitchPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
 				rateRollPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
@@ -16,19 +17,30 @@ ControlClass::ControlClass()//(std::string logFilename)
 				AHRS(),
 				OptimusPi(),
 				Motors(&OptimusPi),
-				RX(&OptimusPi)
+				RX(&OptimusPi),
+				timer(this)
 //				,
-//				timer(this),
 //				Logger(&RX, &AHRS, logFilename.c_str())
 {
 
 	motorsStarted = false;
 
+
 }
 
 ControlClass::~ControlClass()
 {
-
+// Adding destrutor --TAI   10/03/15
+	delete &ratePitchPID;
+	delete &rateRollPID;
+	delete &rateYawPID;
+	delete &attitudePitchPID;
+	delete &attitudeRollPID;
+	delete &AHRS;
+	delete &OptimusPi;
+	delete &Motors;
+	delete &RX;
+	delete &timer;
 }
 
 void ControlClass::enable()
@@ -38,12 +50,12 @@ void ControlClass::enable()
 	Motors.startMotor(rearLeft);
 	Motors.startMotor(rearRight);
 	motorsStarted = true;
-//	timer.start();
+	timer.start();
 }
 
 void ControlClass::disable()
 {
-//	timer.stop();
+	timer.stop();
 }
 
 void ControlClass::update(float dt)

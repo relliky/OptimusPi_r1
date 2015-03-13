@@ -46,8 +46,12 @@ void LEDClass::set()
 	GPIOPinWrite(GPIO_PORT_BASE, GPIO_PIN, 0xff);
 }
 
+
 void LEDClass::toggle()
 {
+	//REVIST: Read the actual states of LED to toggle, rather than just assuming it is off by default setting toggleBuf = 0.   --- TAI 07/03/15
+	toggleBuf = GPIOPinRead(GPIO_PORT_BASE, GPIO_PIN);
+
 	toggleBuf = ~toggleBuf;
 	GPIOPinWrite(GPIO_PORT_BASE, GPIO_PIN, toggleBuf);
 }
