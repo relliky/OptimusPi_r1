@@ -6,20 +6,12 @@
  */
 
 #include "InputCapture.h"
+// Static pointers used for calling ISR in InputCaptureClass timerout and event capture interrupts
+#include "InputCaptureGlobalVariables.h"
 
 #define TIMER_MAX_VALUE 0xFFFFFFFF
 #define TIMEOUT_CYCLES 2400000 // 30ms
 #define INTERRUPT_PRIORITY 3
-
-static InputCaptureClass* IC0;
-static InputCaptureClass* IC1;
-static InputCaptureClass* IC2;
-static InputCaptureClass* IC3;
-static InputCaptureClass* IC4;
-static InputCaptureClass* IC5;
-static InputCaptureClass* IC6;
-static InputCaptureClass* IC7;
-
 
 
 /**
