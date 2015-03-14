@@ -8,8 +8,8 @@
 #ifndef ARBITRATORCLASS_H_
 #define ARBITRATORCLASS_H_
 
-#include "../PiSlavedCopter/PiSlavedCopter.h"
-#include "../IsolatedCopter/OptimusPiCopter/Control/Control.h"
+#include "../RPiControlledCopter/RPiControlledCopter.h"
+#include "../StandaloneCopter/StandaloneCopter.h"
 
 class ArbitratorClass
 {
@@ -17,8 +17,8 @@ public:
 	ArbitratorClass();
 	virtual ~ArbitratorClass();
 
-	PiSlavedCopterClass PiSlavedCopter;
-	ControlClass 		Control;
+	RPiControlledCopterClass	RPiControlledCopter;
+	StandaloneCopterWrapper		StandaloneCopter;
 };
 
 
