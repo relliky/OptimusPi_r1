@@ -14,8 +14,7 @@
 
 #include <src/shared/SPI/SPISlave/SPISlave.h>
 #include <src/shared/SPI/SPICommands/SPICommands.h>
-#include <src/TopLevel/StandaloneCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.h>
-#include <src/TopLevel/StandaloneCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.h>
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
 
 class RPiControlledCopterClass
 {
@@ -23,13 +22,18 @@ public:
 	RPiControlledCopterClass();
 	virtual ~RPiControlledCopterClass();
 
+	bool isSwitchedToStandaloneCopterMode();
+	void setSwitchedToStandaloneCopterMode();
+	void clearSwitchedToStandaloneCopterMode();
 	void updateReadBuffers();
 	void emptyMessageQueue();
+	void running();
+
 
 private:
-	SPISlaveClass RPiSPISlave;
-	MotorControllerClass motor0, motor1, motor2, motor3;
-	PinControllerClass IC0, IC1, IC2, IC3, IC4, IC5, IC6, IC7, AN0, AN1, AN2, AN3, AN4, AN5;
+	SPISlaveClass            RPiSPISlave;
+	OptimusPiInterfaceClass  OptimusPi;
+	bool                     SwitchToStandaloneCopterMode;
 };
 
 

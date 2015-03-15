@@ -24,6 +24,35 @@ MPU9150Class::MPU9150Class(bool AD0Status)
 
 	accel_sf = 16384;
 	gyro_sf = 131;
+
+	if (this->reset() < 0)
+		std::cerr << "Failed to reset MPU" << std::endl;
+
+	if (this->testConnection())
+		std::cout << "MPU9150 connection verified" << std::endl;
+	else
+		std::cout << "MPU9150 connection failed" << std::endl; // exit(1);
+
+	if (this->setSleepStatus(false) < 0)
+		std::cerr << "Failed to set MPU sleep status" << std::endl;
+
+	if (this->setAccelRange(MPU9150_ACCEL_FS_2) < 0)
+		std::cerr << "Failed to set MPU accel range" << std::endl;
+
+	if (this->setGyroRange(MPU9150_GYRO_FS_500) < 0)
+		std::cerr << "Failed to set MPU gyro range" << std::endl;
+
+	if (this->setDLPFCornerFrequency(MPU9150_DLPF_BW_98) < 0)
+		std::cerr << "Failed to set MPU DLPF corner frequency" << std::endl;
+
+	if (this->setSampleRateDivider(0) < 0)
+		std::cerr << "Failed to set MPU sample rate divider" << std::endl;
+
+	if (this->setClockSource(MPU9150_CLOCK_PLL_ZGYRO) < 0)
+		std::cerr << "Failed to set MPU clock source" << std::endl;
+
+	if (this->setI2CPassthrough(true))
+		std::cerr << "Failed to enable I2C passthrough" << std::endl;
 }
 
 MPU9150Class::~MPU9150Class()
@@ -298,4 +327,72 @@ int MPU9150Class::reset()
 	} while (res != 0);
 	return 0;
 }
+
+/**
+ * Gets the raw 16 bit sensor data from the three accelerometers, temperature sensor, and three gyroscopes
+ * but these data are dumped data into RawSensorDataDumpedOutToRPi. And If a RPi is present as a master,
+ * RPi will pick up these raw data for high-level algorithem.
+ *
+ * @return - 0 on success, -1 on error
+ */
+
+
+int MPU9150Class::updateRawSensorDataDumpedOutToRPi()
+{
+	if (this->getRawSensorData(&RawSensorDataDumpedOutToRPi) < 0)
+		return -1;
+	else
+		return 0;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_x()
+{
+	return RawSensorDataDumpedOutToRPi.x;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_y()
+{
+	return RawSensorDataDumpedOutToRPi.y;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_z()
+{
+	return RawSensorDataDumpedOutToRPi.z;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_temp()
+{
+	return RawSensorDataDumpedOutToRPi.temp;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_p()
+{
+	return RawSensorDataDumpedOutToRPi.p;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_q()
+{
+	return RawSensorDataDumpedOutToRPi.q;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_r()
+{
+	return RawSensorDataDumpedOutToRPi.r;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_magx()
+{
+	return RawSensorDataDumpedOutToRPi.magx;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_magy()
+{
+	return RawSensorDataDumpedOutToRPi.magy;
+}
+
+int16_t MPU9150Class::getRawSensorDataDumpedOutToRPi_magz()
+{
+	return RawSensorDataDumpedOutToRPi.magz;
+}
+
 

@@ -3,6 +3,8 @@
 #ifndef SPICOMMANDS_H_
 #define SPICOMMANDS_H_
 
+
+// Commands from RaspberryPi to Overseer
 #define READ_ACK							0x55
 #define DUMMY_BYTE							0x00
 
@@ -119,10 +121,25 @@
 #define OVERSEER_GET_AN4_ANALOG_VALUE			0x6f
 #define OVERSEER_GET_AN5_ANALOG_VALUE			0x70
 
-//added two SPI commands to arbitrat whether the system is running isolated or as a pi slave.
-#define OVERSEER_CONFIG_AS_ISOLATED_SYSTEM      0x71
-#define OVERSEER_CONFIG_AS_PI_SLAVED            0x72
+//added ten SPI commends for sending data from MPU9150 up to Raspberry Pi if a RPi is present as a master
+#define OVERSEER_GET_MPU_X_RAW_DATA             0x71
+#define OVERSEER_GET_MPU_Y_RAW_DATA             0x72
+#define OVERSEER_GET_MPU_Z_RAW_DATA             0x73
+#define OVERSEER_GET_MPU_TEMP_RAW_DATA          0x74
+#define OVERSEER_GET_MPU_P_RAW_DATA             0x75
+#define OVERSEER_GET_MPU_Q_RAW_DATA             0x76
+#define OVERSEER_GET_MPU_R_RAW_DATA             0x77
+#define OVERSEER_GET_MPU_MAGX_RAW_DATA          0x78
+#define OVERSEER_GET_MPU_MAGY_RAW_DATA          0x79
+#define OVERSEER_GET_MPU_MAGZ_RAW_DATA          0x7a
 
+//added two SPI commands to arbitrat whether the system is running standalone by RF remote control or as a slave of pi.
+#define OVERSEER_CONFIG_AS_STANDALONE_COPTER    0xfe
+#define OVERSEER_CONFIG_AS_PI_CONTROLLED_COPTER 0xff
+
+
+
+// Commands from Overseer to BLDC controllers
 #define MOTOR_CONTROLLER_CONFIG_CH0_BLDC 		0x01
 #define MOTOR_CONTROLLER_CONFIG_CH0_STEPPER 	0x02
 #define MOTOR_CONTROLLER_CONFIG_CH0_BRUSHED 	0x03

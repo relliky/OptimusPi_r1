@@ -11,14 +11,23 @@
 #include "../RPiControlledCopter/RPiControlledCopter.h"
 #include "../StandaloneCopter/StandaloneCopter.h"
 
+typedef enum {StandaloneCopterMode, RPiControlledCopterMode} copterMode_t;
+
 class ArbitratorClass
 {
 public:
 	ArbitratorClass();
 	virtual ~ArbitratorClass();
+	void setStandaloneCopterMode();
+	void setRPiControlledCopterMode();
+	void running();
 
-	RPiControlledCopterClass	RPiControlledCopter;
-	StandaloneCopterWrapper		StandaloneCopter;
+
+private:
+	copterMode_t copterMode;
+	RPiControlledCopterClass*	RPiControlledCopter;
+	StandaloneCopterClass*		StandaloneCopter;
+
 };
 
 

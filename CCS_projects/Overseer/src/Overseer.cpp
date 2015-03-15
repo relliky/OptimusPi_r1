@@ -20,17 +20,10 @@
 
 #include "Overseer.h"
 
+
 //#include "OptimusPiCopter/AHRS/AHRS.h"
 
-/*
-static SPISlaveClass RPiSPISlave(0);
-static MotorControllerClass motor0(0);
-static MotorControllerClass motor1(1);
-static MotorControllerClass motor2(2);
-static MotorControllerClass motor3(3);
-static PinControllerClass IC0(IC0Pin), IC1(IC1Pin), IC2(IC2Pin), IC3(IC3Pin), IC4(IC4Pin), IC5(IC5Pin), IC6(IC6Pin),
-		IC7(IC7Pin), AN0(AN0Pin), AN1(AN1Pin), AN2(AN2Pin), AN3(AN3Pin), AN4(AN4Pin), AN5(AN5Pin);
-*/
+
 
 void main(void)
 {
@@ -38,8 +31,8 @@ void main(void)
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
 	ArbitratorClass Arbitrator;
+	Arbitrator.running();
 
-//	PiSlavedCopterClass PiSlavedCopter1;
 /*
     motor1.config(BLDC);
 	motor1.start();
@@ -57,7 +50,7 @@ void main(void)
 
 	ControlClass Control;
 	Control.enable();
-	delete &Control;
+
 */
 
 /*
@@ -148,13 +141,7 @@ void main(void)
 		printf("Roll is %f\n",Roll);
 		printf("Yaw is %f\n",Yaw);
 
-		printf("X is %f\n",X);
-		printf("Y is %f\n",Y);
-		printf("Z is %f\n",Z);
-		printf("P is %f\n",P);
-		printf("Q is %f\n",Q);
-		printf("R is %f\n",R);
-		printf("Temp is %f\n",Temp);
+
 
 	}
 
@@ -175,6 +162,9 @@ void main(void)
 
 */
 
+	EigenTestClass EigenTest;
+	EigenTest.runEigenTests();
+	while(1){}
 
 }
 

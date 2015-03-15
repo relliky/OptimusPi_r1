@@ -6,25 +6,24 @@
  */
 
 #include "Control.h"
+#include "../../StandaloneCopter.h"
 
-
-ControlClass::ControlClass()//(std::string logFilename)
+ControlClass::ControlClass(StandaloneCopterClass* StandaloneCopterPtr)   //(std::string logFilename)
 		: ratePitchPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
 				rateRollPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
 				rateYawPID(YAW_RATE_KP, YAW_RATE_KI, YAW_RATE_KD, YAW_RATE_INTEGRAL_LIMIT, YAW_RATE_OUTPUT_LIMIT),
 				attitudePitchPID(ATTITUDE_KP, ATTITUDE_KI, ATTITUDE_KD, ATTITUDE_INTEGRAL_LIMIT, ATTITUDE_OUTPUT_LIMIT),
 				attitudeRollPID(ATTITUDE_KP, ATTITUDE_KI, ATTITUDE_KD, ATTITUDE_INTEGRAL_LIMIT, ATTITUDE_OUTPUT_LIMIT),
-				AHRS(),
+				AHRS(&OptimusPi),
 				OptimusPi(),
 				Motors(&OptimusPi),
 				RX(&OptimusPi),
-				timer(this)
+				timer(this, StandaloneCopterPtr)
 //				,
 //				Logger(&RX, &AHRS, logFilename.c_str())
 {
 
 	motorsStarted = false;
-
 
 }
 

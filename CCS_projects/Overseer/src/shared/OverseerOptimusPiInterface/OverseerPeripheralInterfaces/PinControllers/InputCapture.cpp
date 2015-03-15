@@ -6,20 +6,12 @@
  */
 
 #include "InputCapture.h"
+// Static pointers used for calling ISR in InputCaptureClass timerout and event capture interrupts
+#include "InputCaptureGlobalVariables.h"
 
 #define TIMER_MAX_VALUE 0xFFFFFFFF
 #define TIMEOUT_CYCLES 2400000 // 30ms
 #define INTERRUPT_PRIORITY 3
-
-static InputCaptureClass* IC0;
-static InputCaptureClass* IC1;
-static InputCaptureClass* IC2;
-static InputCaptureClass* IC3;
-static InputCaptureClass* IC4;
-static InputCaptureClass* IC5;
-static InputCaptureClass* IC6;
-static InputCaptureClass* IC7;
-
 
 
 /**
@@ -40,7 +32,13 @@ InputCaptureClass::InputCaptureClass(pinName_t pin)
 
 InputCaptureClass::~InputCaptureClass()
 {
-// TODO Auto-generated destructor stub
+	// clear the timer interrupt and disable the whole timer module   ---Tai 15/03/15
+	TimerDisable(WTIMER_BASE, TIMER_BOTH);
+	TimerDisable(TIMER_BASE, TIMER_BOTH);
+	TimerIntClear(WTIMER_BASE, TIMER_CAPn_EVENT);
+	TimerIntClear(TIMER_BASE, TIMER_TIMn_MATCH);
+	TimerIntDisable(WTIMER_BASE, TIMER_CAPn_EVENT);
+	TimerIntDisable(TIMER_BASE, TIMER_TIMn_MATCH);
 }
 
 void InputCaptureClass::configPeripherals(pinName_t pin)

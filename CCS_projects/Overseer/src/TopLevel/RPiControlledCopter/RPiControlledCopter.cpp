@@ -8,33 +8,32 @@
 #include "RPiControlledCopter.h"
 
 RPiControlledCopterClass::RPiControlledCopterClass()
- 				: RPiSPISlave(0),
-				  motor0(0),
-				  motor1(1),
-				  motor2(2),
-				  motor3(3),
-				  IC0(IC0Pin),
-				  IC1(IC1Pin),
-				  IC2(IC2Pin),
-				  IC3(IC3Pin),
-				  IC4(IC4Pin),
-				  IC5(IC5Pin),
-				  IC6(IC6Pin),
-				  IC7(IC7Pin),
-				  AN0(AN0Pin),
-				  AN1(AN1Pin),
-				  AN2(AN2Pin),
-				  AN3(AN3Pin),
-				  AN4(AN4Pin),
-				  AN5(AN5Pin)
+			: RPiSPISlave(0),
+			  OptimusPi()
 {
 	// TODO Auto-generated constructor stub
-
+	SwitchToStandaloneCopterMode = false;
 }
 
 RPiControlledCopterClass::~RPiControlledCopterClass()
 {
 	// TODO Auto-generated destructor stub
+}
+
+void RPiControlledCopterClass::setSwitchedToStandaloneCopterMode()
+{
+	SwitchToStandaloneCopterMode = true;
+}
+
+void RPiControlledCopterClass::clearSwitchedToStandaloneCopterMode()
+{
+	SwitchToStandaloneCopterMode = false;
+}
+
+bool RPiControlledCopterClass::isSwitchedToStandaloneCopterMode()
+{
+	this->running();
+	return SwitchToStandaloneCopterMode;
 }
 
 /**
@@ -48,28 +47,41 @@ void RPiControlledCopterClass::updateReadBuffers()
 	//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_1, motor1.running());
 	//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_2, motor2.running());
 	//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_3, motor3.running());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_WIDTH, IC0.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_WIDTH, IC1.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_WIDTH, IC2.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_WIDTH, IC3.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_WIDTH, IC4.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_WIDTH, IC5.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_WIDTH, IC6.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_WIDTH, IC7.getInputCaptureWidth());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_GPIO_INPUT_STATUS, IC0.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_GPIO_INPUT_STATUS, IC1.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_GPIO_INPUT_STATUS, IC2.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_GPIO_INPUT_STATUS, IC3.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_GPIO_INPUT_STATUS, IC4.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_GPIO_INPUT_STATUS, IC5.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_GPIO_INPUT_STATUS, IC6.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_GPIO_INPUT_STATUS, IC7.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN0_GPIO_INPUT_STATUS, AN0.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN1_GPIO_INPUT_STATUS, AN1.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN2_GPIO_INPUT_STATUS, AN2.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN3_GPIO_INPUT_STATUS, AN3.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN4_GPIO_INPUT_STATUS, AN4.getGPIOInputState());
-		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, AN5.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_WIDTH, OptimusPi.IC0.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_WIDTH, OptimusPi.IC1.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_WIDTH, OptimusPi.IC2.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_WIDTH, OptimusPi.IC3.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_WIDTH, OptimusPi.IC4.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_WIDTH, OptimusPi.IC5.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_WIDTH, OptimusPi.IC6.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_WIDTH, OptimusPi.IC7.getInputCaptureWidth());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_GPIO_INPUT_STATUS, OptimusPi.IC0.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_GPIO_INPUT_STATUS, OptimusPi.IC1.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_GPIO_INPUT_STATUS, OptimusPi.IC2.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_GPIO_INPUT_STATUS, OptimusPi.IC3.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_GPIO_INPUT_STATUS, OptimusPi.IC4.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_GPIO_INPUT_STATUS, OptimusPi.IC5.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_GPIO_INPUT_STATUS, OptimusPi.IC6.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_GPIO_INPUT_STATUS, OptimusPi.IC7.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN0_GPIO_INPUT_STATUS, OptimusPi.AN0.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN1_GPIO_INPUT_STATUS, OptimusPi.AN1.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN2_GPIO_INPUT_STATUS, OptimusPi.AN2.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN3_GPIO_INPUT_STATUS, OptimusPi.AN3.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN4_GPIO_INPUT_STATUS, OptimusPi.AN4.getGPIOInputState());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, OptimusPi.AN5.getGPIOInputState());
+
+		// read the raw data from MPU9150
+		OptimusPi.MPU.updateRawSensorDataDumpedOutToRPi();
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_X_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_x());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_Y_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_y());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_Z_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_z());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_TEMP_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_temp());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_P_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_p());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_Q_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_q());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_R_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_r());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGX_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magx());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGY_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magy());
+		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGZ_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magz());
 
 }
 
@@ -85,251 +97,262 @@ void RPiControlledCopterClass::emptyMessageQueue()
 	message_s message;
 	while (RPiSPISlave.getMessage(&message))
 	{
+		//added flag to switch to StandaloneCopter mode		--- Tai
+		if(message.command == OVERSEER_CONFIG_AS_STANDALONE_COPTER)
+		{
+			this->setSwitchedToStandaloneCopterMode();
+			break;
+		}
+
 		switch (message.command)
 		{
 		case OVERSEER_CONFIG_MOTOR_CH0_BLDC:
-			motor0.config(BLDC);
+			OptimusPi.motor0.config(BLDC);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH0_BRUSHED:
-			motor0.config(brushed);
+			OptimusPi.motor0.config(brushed);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH0_STEPPER:
-			motor0.config(stepper);
+			OptimusPi.motor0.config(stepper);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH1_BLDC:
-			motor1.config(BLDC);
+			OptimusPi.motor1.config(BLDC);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH1_BRUSHED:
-			motor1.config(brushed);
+			OptimusPi.motor1.config(brushed);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH1_STEPPER:
-			motor1.config(stepper);
+			OptimusPi.motor1.config(stepper);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH2_BLDC:
-			motor2.config(BLDC);
+			OptimusPi.motor2.config(BLDC);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH2_BRUSHED:
-			motor2.config(brushed);
+			OptimusPi.motor2.config(brushed);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH2_STEPPER:
-			motor2.config(stepper);
+			OptimusPi.motor2.config(stepper);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH3_BLDC:
-			motor3.config(BLDC);
+			OptimusPi.motor3.config(BLDC);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH3_BRUSHED:
-			motor3.config(brushed);
+			OptimusPi.motor3.config(brushed);
 			break;
 		case OVERSEER_CONFIG_MOTOR_CH3_STEPPER:
-			motor3.config(stepper);
+			OptimusPi.motor3.config(stepper);
 			break;
 		case OVERSEER_START_MOTOR_0:
-			motor0.start();
+			OptimusPi.motor0.start();
 			break;
 		case OVERSEER_START_MOTOR_1:
-			motor1.start();
+			OptimusPi.motor1.start();
 			break;
 		case OVERSEER_START_MOTOR_2:
-			motor2.start();
+			OptimusPi.motor2.start();
 			break;
 		case OVERSEER_START_MOTOR_3:
-			motor3.start();
+			OptimusPi.motor3.start();
 			break;
 		case OVERSEER_STOP_MOTOR_0:
-			motor0.stop();
+			OptimusPi.motor0.stop();
 			break;
 		case OVERSEER_STOP_MOTOR_1:
-			motor1.stop();
+			OptimusPi.motor1.stop();
 			break;
 		case OVERSEER_STOP_MOTOR_2:
-			motor2.stop();
+			OptimusPi.motor2.stop();
 			break;
 		case OVERSEER_STOP_MOTOR_3:
-			motor3.stop();
+			OptimusPi.motor3.stop();
 			break;
 		case OVERSEER_SET_MOTOR_PWM_0:
-			motor0.setPower(message.parameters[0]);
+			OptimusPi.motor0.setPower(message.parameters[0]);
 			break;
 		case OVERSEER_SET_MOTOR_PWM_1:
-			motor1.setPower(message.parameters[0]);
+			OptimusPi.motor1.setPower(message.parameters[0]);
 			break;
 		case OVERSEER_SET_MOTOR_PWM_2:
-			motor2.setPower(message.parameters[0]);
+			OptimusPi.motor2.setPower(message.parameters[0]);
 			break;
 		case OVERSEER_SET_MOTOR_PWM_3:
-			motor3.setPower(message.parameters[0]);
+			OptimusPi.motor3.setPower(message.parameters[0]);
 			break;
 		case OVERSEER_CONFIG_IC0_INPUT_CAPTURE:
-			IC0.config(InputCaptureType);
+			OptimusPi.IC0.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC0_GPIO_OUTPUT:
-			IC0.config(GPIOOutputType);
+			OptimusPi.IC0.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC0_GPIO_INPUT:
-			IC0.config(GPIOInputType);
+			OptimusPi.IC0.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC1_INPUT_CAPTURE:
-			IC1.config(InputCaptureType);
+			OptimusPi.IC1.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC1_GPIO_OUTPUT:
-			IC1.config(GPIOOutputType);
+			OptimusPi.IC1.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC1_GPIO_INPUT:
-			IC1.config(GPIOInputType);
+			OptimusPi.IC1.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC2_INPUT_CAPTURE:
-			IC2.config(InputCaptureType);
+			OptimusPi.IC2.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC2_GPIO_OUTPUT:
-			IC2.config(GPIOOutputType);
+			OptimusPi.IC2.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC2_GPIO_INPUT:
-			IC2.config(GPIOInputType);
+			OptimusPi.IC2.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC3_INPUT_CAPTURE:
-			IC3.config(InputCaptureType);
+			OptimusPi.IC3.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC3_GPIO_OUTPUT:
-			IC3.config(GPIOOutputType);
+			OptimusPi.IC3.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC3_GPIO_INPUT:
-			IC3.config(GPIOInputType);
+			OptimusPi.IC3.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC4_INPUT_CAPTURE:
-			IC4.config(InputCaptureType);
+			OptimusPi.IC4.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC4_GPIO_OUTPUT:
-			IC4.config(GPIOOutputType);
+			OptimusPi.IC4.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC4_GPIO_INPUT:
-			IC4.config(GPIOInputType);
+			OptimusPi.IC4.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC5_INPUT_CAPTURE:
-			IC5.config(InputCaptureType);
+			OptimusPi.IC5.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC5_GPIO_OUTPUT:
-			IC5.config(GPIOOutputType);
+			OptimusPi.IC5.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC5_GPIO_INPUT:
-			IC5.config(GPIOInputType);
+			OptimusPi.IC5.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC6_INPUT_CAPTURE:
-			IC6.config(InputCaptureType);
+			OptimusPi.IC6.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC6_GPIO_OUTPUT:
-			IC6.config(GPIOOutputType);
+			OptimusPi.IC6.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC6_GPIO_INPUT:
-			IC6.config(GPIOInputType);
+			OptimusPi.IC6.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_IC7_INPUT_CAPTURE:
-			IC7.config(InputCaptureType);
+			OptimusPi.IC7.config(InputCaptureType);
 			break;
 		case OVERSEER_CONFIG_IC7_GPIO_OUTPUT:
-			IC7.config(GPIOOutputType);
+			OptimusPi.IC7.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_IC7_GPIO_INPUT:
-			IC7.config(GPIOInputType);
+			OptimusPi.IC7.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN0_ANALOG_INPUT:
-			AN0.config(AnalogInputType);
+			OptimusPi.AN0.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN0_GPIO_OUTPUT:
-			AN0.config(GPIOOutputType);
+			OptimusPi.AN0.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN0_GPIO_INPUT:
-			AN0.config(GPIOInputType);
+			OptimusPi.AN0.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN1_ANALOG_INPUT:
-			AN1.config(AnalogInputType);
+			OptimusPi.AN1.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN1_GPIO_OUTPUT:
-			AN1.config(GPIOOutputType);
+			OptimusPi.AN1.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN1_GPIO_INPUT:
-			AN1.config(GPIOInputType);
+			OptimusPi.AN1.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN2_ANALOG_INPUT:
-			AN2.config(AnalogInputType);
+			OptimusPi.AN2.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN2_GPIO_OUTPUT:
-			AN2.config(GPIOOutputType);
+			OptimusPi.AN2.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN2_GPIO_INPUT:
-			AN2.config(GPIOInputType);
+			OptimusPi.AN2.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN3_ANALOG_INPUT:
-			AN3.config(AnalogInputType);
+			OptimusPi.AN3.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN3_GPIO_OUTPUT:
-			AN3.config(GPIOOutputType);
+			OptimusPi.AN3.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN3_GPIO_INPUT:
-			AN3.config(GPIOInputType);
+			OptimusPi.AN3.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN4_ANALOG_INPUT:
-			AN4.config(AnalogInputType);
+			OptimusPi.AN4.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN4_GPIO_OUTPUT:
-			AN4.config(GPIOOutputType);
+			OptimusPi.AN4.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN4_GPIO_INPUT:
-			AN4.config(GPIOInputType);
+			OptimusPi.AN4.config(GPIOInputType);
 			break;
 		case OVERSEER_CONFIG_AN5_ANALOG_INPUT:
-			AN5.config(AnalogInputType);
+			OptimusPi.AN5.config(AnalogInputType);
 			break;
 		case OVERSEER_CONFIG_AN5_GPIO_OUTPUT:
-			AN5.config(GPIOOutputType);
+			OptimusPi.AN5.config(GPIOOutputType);
 			break;
 		case OVERSEER_CONFIG_AN5_GPIO_INPUT:
-			AN5.config(GPIOInputType);
+			OptimusPi.AN5.config(GPIOInputType);
 			break;
 		case OVERSEER_SET_IC0_GPIO_OUTPUT_STATUS:
-			IC0.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC0.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC1_GPIO_OUTPUT_STATUS:
-			IC1.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC1.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC2_GPIO_OUTPUT_STATUS:
-			IC2.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC2.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC3_GPIO_OUTPUT_STATUS:
-			IC3.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC3.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC4_GPIO_OUTPUT_STATUS:
-			IC4.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC4.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC5_GPIO_OUTPUT_STATUS:
-			IC5.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC5.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC6_GPIO_OUTPUT_STATUS:
-			IC6.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC6.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_IC7_GPIO_OUTPUT_STATUS:
-			IC7.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.IC7.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN0_GPIO_OUTPUT_STATUS:
-			AN0.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN0.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN1_GPIO_OUTPUT_STATUS:
-			AN1.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN1.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN2_GPIO_OUTPUT_STATUS:
-			AN2.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN2.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN3_GPIO_OUTPUT_STATUS:
-			AN3.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN3.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN4_GPIO_OUTPUT_STATUS:
-			AN4.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN4.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		case OVERSEER_SET_AN5_GPIO_OUTPUT_STATUS:
-			AN5.setGPIOOutputState((bool) message.parameters[0]);
+			OptimusPi.AN5.setGPIOOutputState((bool) message.parameters[0]);
 			break;
 		}
 	}
-
-
 }
 
+// This method is required to be called to keep running the PiControlledCopter.
+void RPiControlledCopterClass::running()
+{
+	this->updateReadBuffers();
+	this->emptyMessageQueue();
+}

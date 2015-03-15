@@ -8,15 +8,27 @@
 #ifndef STANDALONECOPTER_H_
 #define STANDALONECOPTER_H_
 
+#include <src/shared/SPI/SPISlave/SPISlave.h>
+#include <src/shared/SPI/SPICommands/SPICommands.h>
 #include "OptimusPiCopter/Control/Control.h"
 
-class StandaloneCopterWrapper
+
+class StandaloneCopterClass
 {
 public:
-	StandaloneCopterWrapper();
-	virtual ~StandaloneCopterWrapper();
+	StandaloneCopterClass();
+	virtual ~StandaloneCopterClass();
 
-	ControlClass Control;
+	void checkModeStatus();
+	void setRPiControlledCopterMode();
+	bool isSwitchedToRPiControlledCopterMode();
+	void clearRPiControlledCopterMode();
+	void running();
+
+private:
+	SPISlaveClass   RPiSPISlave;
+	ControlClass    Control;
+	bool            SwitchToRPiControlledCopterMode;
 };
 
 #endif /* STANDALONECOPTER_H_ */

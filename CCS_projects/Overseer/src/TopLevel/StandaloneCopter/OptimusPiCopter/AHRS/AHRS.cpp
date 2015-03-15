@@ -9,37 +9,10 @@
 
 
 
-AHRSClass::AHRSClass() : MPU(0)
+AHRSClass::AHRSClass(OptimusPiInterfaceClass* OptimusPiPtr)
 {
-	if (MPU.reset() < 0)
-		std::cerr << "Failed to reset MPU" << std::endl;
-	
-	if (MPU.testConnection())
-		std::cout << "MPU9150 connection verified" << std::endl;
-	else
-		std::cout << "MPU9150 connection failed" << std::endl; // exit(1);
-	
-	if (MPU.setSleepStatus(false) < 0)
-		std::cerr << "Failed to set MPU sleep status" << std::endl;
-	
-	if (MPU.setAccelRange(MPU9150_ACCEL_FS_2) < 0)
-		std::cerr << "Failed to set MPU accel range" << std::endl;
-	
-	if (MPU.setGyroRange(MPU9150_GYRO_FS_500) < 0)
-		std::cerr << "Failed to set MPU gyro range" << std::endl;
-	
-	if (MPU.setDLPFCornerFrequency(MPU9150_DLPF_BW_98) < 0)
-		std::cerr << "Failed to set MPU DLPF corner frequency" << std::endl;
-	
-	if (MPU.setSampleRateDivider(0) < 0)
-		std::cerr << "Failed to set MPU sample rate divider" << std::endl;
-	
-	if (MPU.setClockSource(MPU9150_CLOCK_PLL_ZGYRO) < 0)
-		std::cerr << "Failed to set MPU clock source" << std::endl;
-	
-	if (MPU.setI2CPassthrough(true))
-		std::cerr << "Failed to enable I2C passthrough" << std::endl;
-	
+	OptimusPi = OptimusPiPtr;
+
 	accCalibData.xb = 0.0045f;
 	accCalibData.yb = -0.0041;
 	accCalibData.zb = -0.0479;
@@ -110,7 +83,7 @@ void AHRSClass::update(float dt)
 
 void AHRSClass::getSensors()
 {
-	if (MPU.getScaledSensorData(&scaledSensorData) < 0)
+	if (OptimusPi->MPU.getScaledSensorData(&scaledSensorData) < 0)
 	{
 		std::cerr << "Failed to getScaledSensorData in AHRSClass::getSensors()" << std::endl;
 	}

@@ -18,7 +18,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <src/shared/MPU9150/MPU9150.h>
-#include <src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/MerayoCalib.h>
+#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/MerayoCalib.h>
 
 
 class MPU9150TestClass

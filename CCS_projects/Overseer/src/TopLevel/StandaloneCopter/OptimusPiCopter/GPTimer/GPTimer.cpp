@@ -13,17 +13,20 @@
 // The acutal ControlClass is redefined later in the .cpp file.
 // So the pointer class would not be wrong before it is assigned.    ---Tai  13/03/15
 #include "../Control/Control.h"
+#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
 
 // Static pointer used for calling ISR in timer interrupt
 #include "GPTimerGlobalVariables.h"
 
-GPTimerClass::GPTimerClass(ControlClass* controlPtr)
-:LED0(0)
+GPTimerClass::GPTimerClass(ControlClass* controlPtr,  StandaloneCopterClass* StandaloneCopterPtr)
+						//for test usage
+						//:LED0(0)
 {
 	//Default dt = 0.1s
 	dt = 0.1;
 	timerOn = false;
-//	control = controlPtr;
+	StandaloneCopter = StandaloneCopterPtr;
+	control = controlPtr;
 
 	//Use Full-width 32bit Timer2 as GPTimer in this class.
 	Timer = this;
@@ -45,6 +48,9 @@ GPTimerClass::~GPTimerClass()
 
 void GPTimerClass::start()
 {
+	//for test usage
+	//LED0.set();
+
 	// Clear the interrupt source now it is disabled and have no source to trigger it.
 	TimerIntClear(TIMER_BASE, TIMER_TIMA_TIMEOUT);
 
@@ -81,7 +87,6 @@ void GPTimerClass::start()
 	TimerEnable(TIMER_BASE, TIMER);
 
 	timerOn = true;
-	LED0.set();
 }
 
 void GPTimerClass::stop()
@@ -107,14 +112,12 @@ void GPTimerClass::ISR()
 	if (timerOn == false) return ;
 
 	// Callback to control parent
-//	control->update(dt);
-//	static int a = 0;
-//	a+= dt;
+	control->update(dt);
+	// Callback to StandaloneCopter parent
+	StandaloneCopter->checkModeStatus();
 
-//	static int i1 = 2;
-//	if(i1%2 == 0){LED0.clear();}else {LED0.set();}
-	LED0.toggle();
-//	i1++;
+	//for test usage
+//	LED0.toggle();
 //	printf("This is %d sec.\n",a);
 
 }

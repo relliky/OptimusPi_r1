@@ -13,7 +13,7 @@
 #include "../GPTimer/GPTimer.h"
 #include "PID/PID.h"
 #include "MotorInterface/MotorInterface.h"
-#include "../../OverseerOptimusPiInterface/OptimusPiInterface.h"
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
 //#include "Logger.h"
 
 
@@ -49,11 +49,12 @@ struct s_orientation
 	double theta;
 };
 
+class StandaloneCopterClass;
 
 class ControlClass
 {
 public:
-	ControlClass();//(std::string logFilename)
+	ControlClass(StandaloneCopterClass* StandaloneCopterPtr);  //(std::string logFilename)
 	virtual ~ControlClass();
 	
 	void enable();

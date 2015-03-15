@@ -25,7 +25,8 @@ OptimusPiInterfaceClass::OptimusPiInterfaceClass()
 		  AN2(AN2Pin),
 		  AN3(AN3Pin),
 		  AN4(AN4Pin),
-		  AN5(AN5Pin)
+		  AN5(AN5Pin),
+		  MPU(0)
 {
 	// TODO Auto-generated constructor stub
 

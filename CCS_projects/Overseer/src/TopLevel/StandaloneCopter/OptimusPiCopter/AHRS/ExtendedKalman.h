@@ -17,13 +17,16 @@
 	#define NDEBUG
 #endif
 
-#include "Eigen/Eigen"
+#include <src/ExternalLibrary/Eigen/Eigen>
 #include "struct_euler.h"
 #include "Quaternion.h"
 #include <math.h>
 using Eigen::Matrix;
 
 #define pi 3.14159265358979
+
+
+
 
 class ExtendedKalmanClass
 {

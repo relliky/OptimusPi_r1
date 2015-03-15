@@ -8,7 +8,8 @@
 #ifndef RXINTERFACE_H_
 #define RXINTERFACE_H_
 
-#include "../../OverseerOptimusPiInterface/OptimusPiInterface.h"
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
+
 
 class RXInterfaceClass
 {

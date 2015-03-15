@@ -3,7 +3,6 @@
  *
  *  Created on: 4 Mar 2015
  *      Author: Rellik
- *      Comment: This class cannot be called TimerClass, otherwise there is a problem in liniking symbols.   --Tai  3rd/Mar/2014
  */
 
 #ifndef GPTIMERCLASS_H_
@@ -24,6 +23,7 @@
 #include "driverlib/gpio.h"
 #include "driverlib/timer.h"
 #include "driverlib/interrupt.h"
+//#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
 
 //for testing
 #include <src/shared/LED/LED.h>
@@ -33,18 +33,19 @@
 // This is to resolve the recursive including between "GPTimer.h" and "Control.h".
 // So the pointer class would not be wrong before it is assigned.    ---Tai  13/03/15
 class ControlClass;
+class StandaloneCopterClass;
 
 class GPTimerClass
 {
 public:
-	GPTimerClass(ControlClass* controlPtr);
+	GPTimerClass(ControlClass* controlPtr, StandaloneCopterClass* StandaloneCopterPtr);
 	virtual ~GPTimerClass();
 
 	float getDt();
-	void setDt(float dt_set);
-	void start();
-	void stop();
-	void ISR();
+	void  setDt(float dt_set);
+	void  start();
+	void  stop();
+	void  ISR();
 
 
 private:
@@ -53,7 +54,6 @@ private:
 	uint32_t TIMER_BASE;
 	uint32_t INT_TIMERnA_TM4C123;
 	uint32_t TIMER;
-//	static	GPTimerClass* Timer;
 
 	void calcdt();
 	static void ISRStatic();
@@ -61,7 +61,10 @@ private:
 	float    dt;
 	bool 	 timerOn;
 	ControlClass* control;
-	LEDClass LED0;
+	StandaloneCopterClass* StandaloneCopter;
+
+//for test usage
+	//LEDClass LED0;
 
 };
 

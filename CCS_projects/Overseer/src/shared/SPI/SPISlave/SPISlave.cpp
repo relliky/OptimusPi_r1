@@ -6,8 +6,8 @@
  */
 
 #include "SPISlave.h"
-
-SPISlaveClass* SPI0;
+// Static pointer used for calling ISR in SPISlave interrupt
+#include "SPISlaveGlobalVariables.h"
 
 SPISlaveClass::SPISlaveClass(uint32_t channel)
 {
@@ -37,7 +37,7 @@ void SPISlaveClass::initAsSSI0()
 	GPIO_PIN_FSS = GPIO_PIN_3;
 	INT_SSI_TM4C123 = INT_SSI0_TM4C123;
 
-	SPI0 = this;
+	SPISlave0 = this;
 }
 
 void SPISlaveClass::init(uint32_t channel)
@@ -84,7 +84,7 @@ void SPISlaveClass::updateReadResponse(uint8_t command, uint32_t data)
  */
 interrupt void SPISlaveClass::ISR0Static()
 {
-	SPI0->ISR();
+	SPISlave0->ISR();
 }
 
 /**

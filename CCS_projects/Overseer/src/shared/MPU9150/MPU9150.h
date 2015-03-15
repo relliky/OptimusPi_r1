@@ -11,6 +11,11 @@
 #include "MPU9150RegisterMap.h"
 #include <src/shared/I2C/I2C.h>
 
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <iostream>
+
 template<typename T>
 struct sensorData_s
 {
@@ -26,22 +31,36 @@ public:
 	virtual ~MPU9150Class();
 
 	bool testConnection();
-	int getRawSensorData(sensorData_s<int16_t>* data);
-	int getScaledSensorData(sensorData_s<float>* data);
-	int setSampleRateDivider(uint8_t data);
-	int setDLPFCornerFrequency(uint8_t data);
-	int setGyroRange(uint8_t data);
-	int setAccelRange(uint8_t data);
-	int setI2CPassthrough(bool enable);
-	int setSleepStatus(bool data);
-	int setClockSource(uint8_t data);
-	int reset();
+	int  getRawSensorData(sensorData_s<int16_t>* data);
+	int  getScaledSensorData(sensorData_s<float>* data);
+	int  setSampleRateDivider(uint8_t data);
+	int  setDLPFCornerFrequency(uint8_t data);
+	int  setGyroRange(uint8_t data);
+	int  setAccelRange(uint8_t data);
+	int  setI2CPassthrough(bool enable);
+	int  setSleepStatus(bool data);
+	int  setClockSource(uint8_t data);
+	int  reset();
+
+	//  Providing method to get the raw data for PiControlledCopter mode     ---Tai 15/03/2015
+	int updateRawSensorDataDumpedOutToRPi();
+	int16_t getRawSensorDataDumpedOutToRPi_x();
+	int16_t getRawSensorDataDumpedOutToRPi_y();
+	int16_t getRawSensorDataDumpedOutToRPi_z();
+	int16_t getRawSensorDataDumpedOutToRPi_temp();
+	int16_t getRawSensorDataDumpedOutToRPi_p();
+	int16_t getRawSensorDataDumpedOutToRPi_q();
+	int16_t getRawSensorDataDumpedOutToRPi_r();
+	int16_t getRawSensorDataDumpedOutToRPi_magx();
+	int16_t getRawSensorDataDumpedOutToRPi_magy();
+	int16_t getRawSensorDataDumpedOutToRPi_magz();
 
 private:
 	I2CClass I2C;
-	
 	uint8_t MPUAddress, magAddress;
 	float accel_sf, gyro_sf;
+
+	sensorData_s<int16_t> RawSensorDataDumpedOutToRPi;
 };
 
 #endif /* MPU9150_H_ */

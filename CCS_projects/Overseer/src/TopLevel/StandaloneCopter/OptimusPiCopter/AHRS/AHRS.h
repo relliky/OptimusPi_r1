@@ -10,12 +10,13 @@
 
 #include <iostream>
 
-
 #include <src/shared/MPU9150/MPU9150.h>
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
 #include "MerayoCalib.h"
 #include "Kalman.h"
 #include "ExtendedKalman.h"
 #include "Quaternion.h"
+
 
 //debug
 #include <stdbool.h>
@@ -34,7 +35,7 @@ struct euler_s
 class AHRSClass : public MerayoCalibClass
 {
 public:
-	AHRSClass();
+	AHRSClass(OptimusPiInterfaceClass* OptimusPiPtr);
 	virtual ~AHRSClass();
 
 	void update(float dt);
@@ -54,7 +55,7 @@ public:
 	float getMagZ();
 	float getTemp();
 
-//private:
+private:
 	void getSensors();
 	void fuse(float dt);
 	void transformOrientation();
@@ -62,12 +63,12 @@ public:
 
 //    KalmanClass kalmanPhi_, kalmanPsi_;
 	ExtendedKalmanClass EKF;
-	MPU9150Class MPU;
 	QuaternionClass quaternion;
 	euler_s orientation;
 	calibrationData_s accCalibData, magCalibData;
-
 	sensorData_s<float> scaledSensorData;
+
+	OptimusPiInterfaceClass* OptimusPi;
 };
 
 #endif	/* AHRS_H */

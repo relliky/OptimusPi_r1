@@ -23,6 +23,7 @@
 
 #include "RingBuffer.h"
 #include "MessageParser.h"
+#include "../SPICommands/SPICommands.h"
 
 struct message_s
 {
