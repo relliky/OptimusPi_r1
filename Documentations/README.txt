@@ -106,6 +106,13 @@ http://processors.wiki.ti.com/index.php/GSG:Debugging_projects_v5
 2*) Getting Started with the TI Stellaris LaunchPad on Linux
 http://www.jann.cc/2012/12/11/getting_started_with_the_ti_stellaris_launchpad_on_linux.html
 
+7. Eigen Lib Reference:
+
+http://eigen.tuxfamily.org/dox/group__TutorialMatrixClass.html
+
+8. HobbyKing Rx & Tx set up & binging
+https://www.youtube.com/watch?v=7TPvau8zaYM
+https://www.youtube.com/watch?v=lzoMxdqME7I
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 SOME USEFUL INFORMATION FOR SETTING UP RASPBERRY PI FOR GENERAL USAGE
