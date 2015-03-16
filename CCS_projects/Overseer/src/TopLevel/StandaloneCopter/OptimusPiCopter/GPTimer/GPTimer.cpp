@@ -132,9 +132,16 @@ void GPTimerClass::setDt(float dt_set)
 {
 	dt = dt_set;
 	// The timer interrupt is initially set to be called at 10Hz. Therefore, dt is 0.1.
-	// By experiement, 25s in the real life is 30s in the target board as set-up.Therefore, it needs to multiply a factor 30/25=6/5 to tune the timer to count the accurate time.
+
+	//	uint32_t loadval = SysCtlClockGet()/dtFreqency;
+	// REVISIT: IT IS A KNOWN BUG IN LATEST TIVA PRIPHERAL DRIVER V2.1.
+	// SysCtlClockGet() returns 66MHz when the system is set to 80MHz.   --- TAI 16/03/15
+	// Reference: http://e2e.ti.com/support/microcontrollers/tiva_arm/f/908/t/343830
+
 	uint32_t dtFreqency = (uint32_t)(1/dt);
-	uint32_t loadval = SysCtlClockGet()/dtFreqency*6/5;
+	uint32_t systemClockFrequency = 80000000;
+	uint32_t loadval = systemClockFrequency/dtFreqency;
+
 	//Counting from 0 up to the loaded value. Trigger interrupt when the value reaching this value.
 	TimerLoadSet(TIMER_BASE, TIMER, loadval);
 }
