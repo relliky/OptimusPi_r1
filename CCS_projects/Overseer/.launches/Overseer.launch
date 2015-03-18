@@ -17,7 +17,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v2 USB Emulator/CORTEX_M4_0" value="${build_artifact:Overseer}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v2 USB Emulator/CORTEX_M4_0" value="Overseer"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:Overseer}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v2 USB Emulator/CORTEX_M4_0" value="H:/MyDropbox\Dropbox\Quadcopter_project\Tai_projects\CCS MCU projects\Overseer\Debug\Overseer.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v2 USB Emulator/CORTEX_M4_0" value="H:/MyDropbox\Dropbox\PiCopter_r1\CCS_projects\Overseer\Debug\Overseer.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="Texas Instruments XDS100v2 USB Emulator/CORTEX_M4_0@##separator##@0" value="32-Bit Hex - TI Style"/>
 </mapAttribute>

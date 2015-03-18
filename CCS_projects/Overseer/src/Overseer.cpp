@@ -30,8 +30,8 @@ void main(void)
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
-	ArbitratorClass Arbitrator;
-	Arbitrator.running();
+//	ArbitratorClass Arbitrator;
+//	Arbitrator.start();
 
 /*
     motor1.config(BLDC);
@@ -92,9 +92,10 @@ void main(void)
 
 
 
-/*
 
-	AHRSClass AHRS;
+
+	OptimusPiInterfaceClass OptimusPi;
+	AHRSClass AHRS(&OptimusPi);
 	static float Pitch, PitchM;
 	static float Roll, RollM;
 	static float Yaw, YawM;
@@ -113,7 +114,7 @@ void main(void)
 		for(int i=0; i<50; i++)
 		{
 
-				float dt = 0.01;
+				float dt = 0.005;//200Hz
 				float oneSecDelay = 66666666/2.6666666/2;
 				int   delay = (int)(oneSecDelay*dt);
 				SysCtlDelay(delay);
@@ -140,12 +141,16 @@ void main(void)
 		printf("Pitch is %f\n",Pitch);
 		printf("Roll is %f\n",Roll);
 		printf("Yaw is %f\n",Yaw);
-
-
+		printf("x is %f\n",AHRS.scaledSensorData.x);
+		printf("y is %f\n",AHRS.scaledSensorData.y);
+		printf("z is %f\n", AHRS.scaledSensorData.z);
+		printf("p is %f\n",AHRS.scaledSensorData.p);
+		printf("q is %f\n",AHRS.scaledSensorData.q);
+		printf("r is %f\n", AHRS.scaledSensorData.r);
 
 	}
 
-*/
+
 
 
 /*
@@ -162,8 +167,8 @@ void main(void)
 
 */
 
-	EigenTestClass EigenTest;
-	EigenTest.runEigenTests();
+//	EigenTestClass EigenTest;
+//	EigenTest.runEigenTests();
 	while(1){}
 
 }

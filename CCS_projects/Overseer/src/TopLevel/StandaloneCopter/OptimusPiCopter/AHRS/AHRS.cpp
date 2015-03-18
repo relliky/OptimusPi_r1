@@ -38,16 +38,16 @@ void AHRSClass::update(float dt)
 //	#define DEBUG_AHRS
 	#ifdef DEBUG_AHRS
 
-		static float PitchTest;
-		static float RollTest;
-		static float YawTest;
-		static float XTest;
-		static float YTest;
-		static float ZTest;
-		static float PTest;
-		static float QTest;
-		static float RTest;
-		static float TempTest;
+		 float PitchTest;
+	   	 float RollTest;
+		 float YawTest;
+		 float XTest;
+		 float YTest;
+		 float ZTest;
+		 float PTest;
+		 float QTest;
+		 float RTest;
+		 float TempTest;
 
 		static int i=0;
 

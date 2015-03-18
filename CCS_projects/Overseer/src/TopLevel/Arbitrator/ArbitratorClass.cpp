@@ -28,7 +28,7 @@ void ArbitratorClass::setRPiControlledCopterMode()
 	copterMode = RPiControlledCopterMode;
 }
 
-void ArbitratorClass::running()
+void ArbitratorClass::start()
 {
 	while(1)
 	{

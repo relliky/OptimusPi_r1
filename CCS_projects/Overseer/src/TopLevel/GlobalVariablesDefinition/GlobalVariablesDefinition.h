@@ -9,7 +9,7 @@
 #define GLOBALVARIABLESDEFINITION_H_
 
 
-// Static pointers used for two SPIs to two motor controllers
+// Static objects used for two SPIs to two motor controllers
 // in <src/TopLevel/StandaloneCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp>
 
 SPIMasterClass OverseerSPIMaster1(1);

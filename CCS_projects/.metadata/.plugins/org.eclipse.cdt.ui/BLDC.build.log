@@ -3,18 +3,9 @@
 
 "D:\\Pro_tools\\TI_Code_Composer_Studio_CCS\\ccsv6\\utils\\bin\\gmake" -k clean 
 DEL /F  "BLDC.out"  "BLDC.hex" 
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\BLDC.out
 DEL /F "src\shared\LED.pp" "src\shared\MessageParser.pp" "src\shared\SPISlave.pp" "src\Motor.pp" "src\main.pp" "src\BLDC\ADC.pp" "src\BLDC\BLDC.pp" "src\BLDC\CommutationController.pp" "src\BLDC\Commutator.pp" "src\BLDC\IIRFilter.pp" "src\BLDC\PWM.pp" "src\BLDC\StartupSequencer.pp" "src\BLDC\ZCDetector.pp" 
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\shared\LED.pp
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\Motor.pp
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\BLDC\ADC.pp
 DEL /F "tm4c123ah6pm_startup_ccs.pp" 
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\tm4c123ah6pm_startup_ccs.pp
 DEL /F "tm4c123ah6pm_startup_ccs.obj" "src\shared\LED.obj" "src\shared\MessageParser.obj" "src\shared\SPISlave.obj" "src\Motor.obj" "src\main.obj" "src\BLDC\ADC.obj" "src\BLDC\BLDC.obj" "src\BLDC\CommutationController.obj" "src\BLDC\Commutator.obj" "src\BLDC\IIRFilter.obj" "src\BLDC\PWM.obj" "src\BLDC\StartupSequencer.obj" "src\BLDC\ZCDetector.obj" 
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\tm4c123ah6pm_startup_ccs.obj
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\shared\LED.obj
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\Motor.obj
-Could Not Find H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\BLDC\Debug\src\BLDC\ADC.obj
 'Finished clean'
 ' '
 

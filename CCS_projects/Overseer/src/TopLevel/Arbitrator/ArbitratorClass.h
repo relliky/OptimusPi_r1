@@ -20,7 +20,7 @@ public:
 	virtual ~ArbitratorClass();
 	void setStandaloneCopterMode();
 	void setRPiControlledCopterMode();
-	void running();
+	void start();
 
 
 private:

@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -l"libc.a" -l"H:/MyDropbox/Dropbox/Quadcopter_project/Tai_projects/CCS\ MCU\ projects/TivaWare/driverlib/ccs/Debug/driverlib.lib"
+LIBS := -l"libc.a" -l"H:/MyDropbox/Dropbox/PiCopter_r1/CCS_projects/TivaWare/driverlib/ccs/Debug/driverlib.lib"
 

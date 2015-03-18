@@ -103,7 +103,26 @@ S64_DEPS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
-src/shared \
-src/PinControllers \
+src/shared/SPI/SPISlave \
+src/shared/SPI/SPIMaster \
+src/shared/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers \
+src/shared/OverseerOptimusPiInterface/OverseerPeripheralInterfaces \
+src/shared/OverseerOptimusPiInterface \
+src/shared/MPU9150/test \
+src/shared/MPU9150 \
+src/shared/LED \
+src/shared/I2C/test \
+src/shared/I2C \
+src/shared/DebugFunction \
+src/TopLevel/StandaloneCopter \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/RX \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/GPTimer \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/PID \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/MotorInterface \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/Control \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test \
+src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS \
+src/TopLevel/RPiControlledCopter \
+src/TopLevel/Arbitrator \
 src \
 

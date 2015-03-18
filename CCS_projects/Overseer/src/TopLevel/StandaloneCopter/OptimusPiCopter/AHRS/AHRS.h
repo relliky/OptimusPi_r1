@@ -55,7 +55,7 @@ public:
 	float getMagZ();
 	float getTemp();
 
-private:
+//private:
 	void getSensors();
 	void fuse(float dt);
 	void transformOrientation();

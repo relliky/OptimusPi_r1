@@ -21,7 +21,11 @@
 #include <src/shared/DebugFunction/DebugFunction.h>
 #endif
 
-#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.h>
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
+
+#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/AHRS.h>
+
+//#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.h>
 
 #include "driverlib/sysctl.h"
 //#include <src/TopLevel/PiSlavedCopter/PiSlavedCopter.h>
