@@ -71,4 +71,13 @@ void DebugFunctionClass::RunTests(void)
 			printf("     Test finished\n");
 	#endif
 
+	#ifdef DEBUG_EXTENDEDKALMAN
+		// ExtendedKalman Debug information will be enabled
+	#endif
+
+	#ifdef DEBUG_AHRS
+		// AHRS Debug information will be enabled
+	#endif
+
+
 }

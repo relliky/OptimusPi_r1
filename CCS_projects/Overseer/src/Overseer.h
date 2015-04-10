@@ -15,7 +15,8 @@
 
 
 
-//#define DEBUG
+
+#define DEBUG
 // Enable debug printf and run tests based on "scr/Debug/DebugOptions.h"
 #ifdef DEBUG
 #include <src/shared/DebugFunction/DebugFunction.h>

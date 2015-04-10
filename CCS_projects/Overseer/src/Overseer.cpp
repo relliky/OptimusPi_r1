@@ -23,7 +23,12 @@
 
 //#include "OptimusPiCopter/AHRS/AHRS.h"
 
-
+#include <vector>
+class TestDataClass
+{
+public:
+	float Pitch, Roll, Yaw, X, Y, Z, Temp, P, Q, R;
+};
 
 void main(void)
 {
@@ -40,14 +45,15 @@ void main(void)
 
 
 
-/*
+
+	#define DEBUG
 	#undef DEBUG
 	#ifdef DEBUG
 			DebugFunctionClass Debug_0;
 			Debug_0.RunTests();
 	#endif
 
-
+/*
 	ControlClass Control;
 	Control.enable();
 
@@ -88,29 +94,73 @@ void main(void)
 
 */
 
+// operator
 
 
+	//struct Test_s {float a,b;};
 
 
 
 
 	OptimusPiInterfaceClass OptimusPi;
 	AHRSClass AHRS(&OptimusPi);
-	static float Pitch, PitchM;
-	static float Roll, RollM;
-	static float Yaw, YawM;
-	static float X;
-	static float Y;
-	static float Z;
-	static float P;
-	static float Q;
-	static float R;
-	static float Temp;
 
 
-	while(1)
+	//printf("\nThis is MPU9150 scaledSensoredData in AHRS before AHRS.update().fuse(dt) function. dt=0.05 <=> 200Hz.\n");
+
+	std::vector<TestDataClass> TestData(20);
+
+	TestData.at(0).X = 0.031491;
+	TestData.at(0).Y = -0.642912;
+	TestData.at(0).Z = 0.885281;
+	TestData.at(0).P = -39.465649;
+	TestData.at(0).Q = -19.389313;
+	TestData.at(0).R = 10.854961;
+	TestData.at(0).Temp = 27.597059;
+
+
+	for(int i=0; i<1; i++)
 	{
+		AHRS.scaledSensorData.x = TestData.at(i).X;
+		AHRS.scaledSensorData.y = TestData.at(i).Y;
+		AHRS.scaledSensorData.z = TestData.at(i).Z;
+		AHRS.scaledSensorData.p = TestData.at(i).P;
+		AHRS.scaledSensorData.q = TestData.at(i).Q;
+		AHRS.scaledSensorData.r = TestData.at(i).R;
+		AHRS.update(0.05);
 
+        float PitchTest = AHRS.getPitch();
+        float RollTest = AHRS.getRoll();
+        float YawTest = AHRS.getYaw();
+        float XTest = AHRS.getX();
+        float YTest = AHRS.getY();
+        float ZTest = AHRS.getZ();
+        float PTest = AHRS.getP();
+        float QTest = AHRS.getQ();
+        float RTest = AHRS.getR();
+
+
+        printf("\nThis is data set %d\n", i);
+        printf("Pitch is %f\n",PitchTest);
+        printf("Roll is %f\n",RollTest);
+        printf("Yaw is %f\n",YawTest);
+        printf("X is %f\n",XTest);
+        printf("Y is %f\n",YTest);
+        printf("Z is %f\n",ZTest);
+        printf("P is %f\n",PTest);
+        printf("Q is %f\n",QTest);
+        printf("R is %f\n",RTest);
+
+	}
+
+
+
+			while(1);
+
+
+
+
+/*
 		for(int i=0; i<50; i++)
 		{
 
@@ -119,6 +169,18 @@ void main(void)
 				int   delay = (int)(oneSecDelay*dt);
 				SysCtlDelay(delay);
 
+
+			static float Pitch, PitchM;
+			static float Roll, RollM;
+			static float Yaw, YawM;
+			static float X;
+			static float Y;
+			static float Z;
+			static float P;
+			static float Q;
+			static float R;
+			static float Temp;
+
 			 AHRS.update(dt);
 			 Pitch = AHRS.getPitch();
 			 Roll = AHRS.getRoll();
@@ -126,13 +188,6 @@ void main(void)
 			// Data fused out still is approching to 0.
 
 
-			 X = AHRS.getX();
-			 Y = AHRS.getY();
-			 Z = AHRS.getZ();
-			 P = AHRS.getP();
-			 Q = AHRS.getQ();
-			 R = AHRS.getR();
-			 Temp = AHRS.getTemp();
 
 			 if(PitchM >= Pitch) {PitchM = Pitch;}
 			 if(PitchM >= Roll) {RollM = Roll;}
@@ -150,7 +205,7 @@ void main(void)
 
 	}
 
-
+*/
 
 
 /*

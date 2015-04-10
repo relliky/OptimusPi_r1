@@ -9,8 +9,8 @@
 #ifndef DEBUGOPTIONS_H_
 #define DEBUGOPTIONS_H_
 
-	#define DEBUG
-//	#define DEBUG_PRINTF_VIA_JTAG
+   //#define DEBUG
+   //#define DEBUG_PRINTF_VIA_JTAG
 
 	/* Enable all tests */
 	//#define DEBUG_RUN_ALL_TEST
@@ -21,6 +21,11 @@
 	#define DEBUG_RUN_CONT_MPU_TEST
 
 //	#define DEBUG_RUN_PRINTF_TEST
+
+//	#define DEBUG_EXTENDEDKALMAN
+
+//	#define DEBUG_AHRS
+
 
 
 
