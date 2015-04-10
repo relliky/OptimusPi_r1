@@ -18,12 +18,14 @@
 #include "Quaternion.h"
 
 
-//debug
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <iostream>
-
+//debug usage only
+//#define DEBUG_AHRS
+#ifdef DEBUG_AHRS
+	#include <stdbool.h>
+	#include <stdint.h>
+	#include <stdio.h>
+	#include <iostream>
+#endif
 
 struct euler_s
 {

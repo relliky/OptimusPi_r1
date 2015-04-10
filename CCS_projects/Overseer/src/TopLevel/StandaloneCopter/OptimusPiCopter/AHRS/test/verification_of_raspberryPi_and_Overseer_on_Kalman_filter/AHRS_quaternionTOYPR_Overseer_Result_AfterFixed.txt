@@ -1,0 +1,47 @@
+[CORTEX_M4_0] MPU9150 connection verified
+quaternion.w is 0.953422
+quaternion.x is 0.301277
+quaternion.y is 0.0147571
+quaternion.z is 0
+
+This is running AHRSClass::quaternionToYPR, involing <math.h> and atan2(), and pow() IN DOUBLE TYPE
+double test1 result is derived from manipulation of 4 constants. Results should be 0.287244 and actual result is 0.287244
+double test2 result is derived from manipulation of 4 floats. Results should be 0.287244 and actual result is 0.287244
+double test3 result is derived from manipulation of 4 doubles. Results should be 0.287244 and actual result is 0.287244
+v1 is 0.287244
+v2 is 0.0909854
+v3 is 0.0140697
+v4 is 0.00444597
+v5 is 0.000217772
+v6 is 0.612257
+v7 is 0.0281432
+v8 is 0.00889557
+v9 is -35.0797
+v10 is 1.61249
+v11 is 0.509679
+
+This is running AHRSClass::quaternionToYPR, involing <math.h> and atan2(), and pow() IN FLOAT TYPE
+float test4 result is derived from manipulation of 4 constants. Results should be 0.287244 and actual result is 0.287244
+double test5 result is derived from manipulation of 4 floats. Results should be 0.287244 and actual result is 0.287244
+vf1 is 0.287244
+vf2 is 0.0909854
+vf3 is 0.0140697
+vf4 is 0.00444597
+vf5 is 0.000217772
+vf6 is 0.612257
+vf7 is 0.0281432
+vf8 is 0.00889557
+vf9 is -35.0797
+vf10 is 1.61249
+vf11 is 0.509679
+
+This is data set 0
+Pitch is 1.612486
+Roll is 35.079723
+Yaw is 0.509679
+X is 0.031491
+Y is -0.642912
+Z is 0.885281
+P is 19.389313
+Q is 39.465649
+R is -10.854961

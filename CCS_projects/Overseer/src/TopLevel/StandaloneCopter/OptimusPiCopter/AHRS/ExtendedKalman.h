@@ -26,7 +26,14 @@ using Eigen::Matrix;
 #define pi 3.14159265358979
 
 
-
+//debug usage only
+//#define DEBUG_EXTENDEDKALMAN
+#ifdef DEBUG_EXTENDEDKALMAN
+	#include <stdbool.h>
+	#include <stdint.h>
+	#include <stdio.h>
+	#include <iostream>
+#endif
 
 class ExtendedKalmanClass
 {
@@ -34,8 +41,8 @@ public:
     ExtendedKalmanClass();
     virtual ~ExtendedKalmanClass();
     
-    QuaternionClass predict(float gyro_p, float gyro_q, float gyro_r, float dt);
-    QuaternionClass update(float acc_x, float acc_y, float acc_z, float dt);
+    void predict(float gyro_p, float gyro_q, float gyro_r, float dt, QuaternionClass *quaternion);
+    void update(float acc_x, float acc_y, float acc_z, float dt, QuaternionClass *quaternion);
 private:
     Matrix<float,7,7> Q;
     Matrix<float, 7, 1> x;

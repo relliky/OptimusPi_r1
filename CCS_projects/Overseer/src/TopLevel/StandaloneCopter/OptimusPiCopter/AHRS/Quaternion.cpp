@@ -17,7 +17,7 @@ QuaternionClass::~QuaternionClass() {
 }
 
  void QuaternionClass::normalise(){
-    double norm = sqrt(w*w + x*x + y*y + z*z);
+    float norm = sqrt(w*w + x*x + y*y + z*z);
     w /= norm;
     x /= norm;
     y /= norm;

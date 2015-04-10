@@ -19,7 +19,7 @@ public:
     
     void normalise();
     
-    double w, x, y, z;
+    float w, x, y, z;
 private:
 
 };

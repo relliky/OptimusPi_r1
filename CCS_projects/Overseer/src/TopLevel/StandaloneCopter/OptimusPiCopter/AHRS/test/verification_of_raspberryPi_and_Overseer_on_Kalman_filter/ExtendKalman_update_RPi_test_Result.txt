@@ -1,0 +1,147 @@
+ExtendedKalmanClass constuctor initialisation
+Matrix Q is 
+  0   0   0   0   0   0   0
+  0   0   0   0   0   0   0
+  0   0   0   0   0   0   0
+  0   0   0   0   0   0   0
+  0   0   0   0 0.2   0   0
+  0   0   0   0   0 0.2   0
+  0   0   0   0   0   0 0.2
+Matrix x is 
+1
+0
+0
+0
+0
+0
+0
+Matrix F is 
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+Matrix P is 
+1e+07     0     0     0     0     0     0
+    0 1e+07     0     0     0     0     0
+    0     0 1e+07     0     0     0     0
+    0     0     0 1e+07     0     0     0
+    0     0     0     0 1e+07     0     0
+    0     0     0     0     0 1e+07     0
+    0     0     0     0     0     0 1e+07
+Matrix z is 
+0
+0
+0
+Matrix h is 
+0
+0
+0
+Matrix y is 
+0
+0
+0
+Matrix H is 
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+Matrix S is 
+0 0 0
+0 0 0
+0 0 0
+Matrix R is 
+1e+06     0     0
+    0 1e+06     0
+    0     0 1e+06
+Matrix K is 
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+Matrix I is 
+1 0 0 0 0 0 0
+0 1 0 0 0 0 0
+0 0 1 0 0 0 0
+0 0 0 1 0 0 0
+0 0 0 0 1 0 0
+0 0 0 0 0 1 0
+0 0 0 0 0 0 1
+ExtendKalmanClass update test start in Overseer
+q0 is 1
+q1 is 0
+q2 is 0
+q3 is 0
+Matrix x is 
+1
+0
+0
+0
+norm is 1.09455
+Matrix z is 
+0.0287706
+-0.587373
+-0.808805
+Matrix h is 
+0
+-0
+-1
+Matrix y is 
+0.0287706
+-0.587373
+0.191195
+Matrix H is 
+0 -0 2 -0 0 0 0 
+-0 -2 -0 -0 0 0 0 
+0 0 -0 0 0 0 
+Matrix S is 
+4.1e+07 0 0
+0 4.1e+07 0
+0 0 4.1e+07
+Matrix K is 
+0 0 -0.487805
+0 -0.487805 0
+0.487805 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+Matrix x is 
+0.906734
+0.286523
+0.0140344
+0
+norm is 0.951031
+Matrix x is 
+0.953422
+0.301277
+0.0147571
+0
+Matrix P is 
+243903 0 0 0 0 0 0 
+0 243903 0 0 0 0 0 
+0 0 243903 0 0 0 0 
+0 0 0 1e+07 0 0 0 
+0 0 0 0 1e+07 0 0 
+0 0 0 0 0 1e+07 0 
+0 0 0 0 0 0 1e+07 
+Matrix x is 
+0.953422
+0.301277
+0.0147571
+0
+
+This is data set 0
+Pitch is 1.612486
+Roll is 35.079720
+Yaw is 0.509679
+X is 0.031491
+Y is -0.642912
+Z is 0.885281
+P is 19.389313
+Q is 39.465649
+R is -10.854961
