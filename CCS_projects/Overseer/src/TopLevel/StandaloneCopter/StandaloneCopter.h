@@ -24,6 +24,7 @@ public:
 	bool isSwitchedToRPiControlledCopterMode();
 	void clearRPiControlledCopterMode();
 	void running();
+	void setDt(float dt_set);
 
 private:
 	SPISlaveClass   RPiSPISlave;

@@ -11,6 +11,10 @@ ArbitratorClass::ArbitratorClass()
 {
 	//Setting default mode as Standalone Copter.
 	this->setStandaloneCopterMode();
+	StandaloneCopter = NULL;
+	RPiControlledCopter = NULL;
+	//Default dt = 0.005s, running on 200Hz
+	dt = 0.05;
 }
 
 ArbitratorClass::~ArbitratorClass()
@@ -35,9 +39,11 @@ void ArbitratorClass::start()
 		if(copterMode == StandaloneCopterMode)
 		{
 			StandaloneCopter = new StandaloneCopterClass();
+			StandaloneCopter->setDt(dt);
 			//Running the copter while waiting to switch to anther mode.
-			while(StandaloneCopter->isSwitchedToRPiControlledCopterMode());
+			while(!StandaloneCopter->isSwitchedToRPiControlledCopterMode());
 			delete StandaloneCopter;
+			StandaloneCopter = NULL;
 			this->setRPiControlledCopterMode();
 		}
 
@@ -45,9 +51,18 @@ void ArbitratorClass::start()
 		{
 			RPiControlledCopter = new RPiControlledCopterClass();
 			//Running the copter while waiting to switch to anther mode.
-			while(RPiControlledCopter->isSwitchedToStandaloneCopterMode());
+			while(!RPiControlledCopter->isSwitchedToStandaloneCopterMode());
 			delete RPiControlledCopter;
+			RPiControlledCopter = NULL;
 			this->setStandaloneCopterMode();
 		}
 	}
 }
+
+
+void ArbitratorClass::setDtInStandaloneCopterMode(float dt_set)
+{
+	dt = dt_set;
+}
+
+

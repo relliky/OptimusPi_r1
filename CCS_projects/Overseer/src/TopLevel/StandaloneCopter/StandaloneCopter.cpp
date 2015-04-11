@@ -46,7 +46,12 @@ void StandaloneCopterClass::setRPiControlledCopterMode()
 bool StandaloneCopterClass::isSwitchedToRPiControlledCopterMode()
 {
 	this->running();
-	return SwitchToRPiControlledCopterMode;
+	if(SwitchToRPiControlledCopterMode == true)
+	{
+		return true;
+	}else{
+			return false;
+		 }
 }
 
 
@@ -60,3 +65,9 @@ void StandaloneCopterClass::running()
 {
 
 }
+
+void StandaloneCopterClass::setDt(float dt_set)
+{
+	Control.setDt(dt_set);
+}
+

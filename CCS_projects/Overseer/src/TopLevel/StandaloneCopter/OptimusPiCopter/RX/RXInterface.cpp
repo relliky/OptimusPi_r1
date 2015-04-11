@@ -30,11 +30,17 @@ RXInterfaceClass::~RXInterfaceClass()
 
 void RXInterfaceClass::update()
 {
+	// HobbyKing 2.4 Ghz RX chanel 1
 	rawReceiverData.roll = OptimusPi->IC5.getInputCaptureWidth();
+	// HobbyKing 2.4 Ghz RX chanel 2
 	rawReceiverData.pitch = OptimusPi->IC4.getInputCaptureWidth();
+	// HobbyKing 2.4 Ghz RX chanel 3
 	rawReceiverData.throttle = OptimusPi->IC3.getInputCaptureWidth();
+	// HobbyKing 2.4 Ghz RX chanel 4
 	rawReceiverData.yaw = OptimusPi->IC2.getInputCaptureWidth();
+	// HobbyKing 2.4 Ghz RX chanel 5
 	rawReceiverData.sw1 = OptimusPi->IC1.getInputCaptureWidth();
+	// HobbyKing 2.4 Ghz RX chanel 6
 	rawReceiverData.sw2 = OptimusPi->IC0.getInputCaptureWidth();
 	
 	receiverData.roll = (float)((int32_t)rawReceiverData.roll - RX_MID) / (float)(RX_MID - RX_MIN);
@@ -48,6 +54,19 @@ void RXInterfaceClass::update()
 	constrain(&receiverData.pitch, 1.0f);
 	constrain(&receiverData.throttle, 1.0f);
 	constrain(&receiverData.yaw, 1.0f);
+
+	#ifdef DEBUG_RX
+	std::cout << "receiverData.roll is " << receiverData.roll << std::endl;
+	std::cout << "receiverData.pitch is " << receiverData.pitch << std::endl;
+	std::cout << "receiverData.throttle is " << receiverData.throttle << std::endl;
+	std::cout << "receiverData.yaw is " << receiverData.yaw << std::endl;
+
+	//	std::cout << "receiverData.sw1 is " << receiverData.sw1 << std::endl;
+	//	std::cout << "receiverData.sw2 is " << receiverData.sw2 << std::endl;
+
+
+	#endif
+
 }
 
 float RXInterfaceClass::getPitch()

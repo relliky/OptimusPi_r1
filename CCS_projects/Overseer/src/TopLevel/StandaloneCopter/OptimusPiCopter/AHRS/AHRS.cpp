@@ -30,8 +30,8 @@ AHRSClass::~AHRSClass()
 
 void AHRSClass::update(float dt)
 {
-	//getSensors();
-	//MerayoCalibClass::apply(&scaledSensorData.x, &scaledSensorData.y, &scaledSensorData.z, &accCalibData);
+	getSensors();
+	MerayoCalibClass::apply(&scaledSensorData.x, &scaledSensorData.y, &scaledSensorData.z, &accCalibData);
 	fuse(dt);
 	transformOrientation();
 

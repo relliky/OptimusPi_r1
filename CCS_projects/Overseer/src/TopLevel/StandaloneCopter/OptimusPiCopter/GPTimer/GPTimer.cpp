@@ -3,7 +3,7 @@
  *
  *  Created on: 4 Mar 2015
  *      Author: Tai
- *      Comment: This class has a problem in liniking symbols.   --Tai  3rd/Mar/2014
+ *      Comment: This class used yo have a problem in liniking symbols.   --Tai  3rd/Mar/2014
  *      Solution: Declear the the timerclass pointer as static in cpp file rather than in headfile.
  */
 
@@ -22,8 +22,8 @@ GPTimerClass::GPTimerClass(ControlClass* controlPtr,  StandaloneCopterClass* Sta
 						//for test usage
 						//:LED0(0)
 {
-	//Default dt = 0.1s
-	dt = 0.1;
+	//Default dt = 0.005s, running on 200Hz set in ArbitratorClass.cpp
+	//dt = 0.005;
 	timerOn = false;
 	StandaloneCopter = StandaloneCopterPtr;
 	control = controlPtr;
@@ -71,9 +71,15 @@ void GPTimerClass::start()
 
 	// The timer interrupt is initially set to be called at 10Hz. Therefore, dt is 0.1.
 	// By experiement, 25s in the real life is 30s in the target board as set-up.Therefore, it needs to multiply a factor 30/25=6/5 to tune the timer to count the accurate time.
+	// It is a bug in SysCtlClockGet() for this version of TivaWare, SysCtlClockGet() returns 66MHz when the clock is configured at 80MHz.
+	//	uint32_t loadval = SysCtlClockGet()/dtFreqency;
+	// REVISIT: IT IS A KNOWN BUG IN LATEST TIVA PRIPHERAL DRIVER V2.1.
+	// SysCtlClockGet() returns 66MHz when the system is set to 80MHz.   --- TAI 16/03/15
+	// Reference: http://e2e.ti.com/support/microcontrollers/tiva_arm/f/908/t/343830
+
 	float 	 dtFrequency    = 1/dt;
-	float 	 clockFrequency = (float)SysCtlClockGet();
-	uint32_t loadval        = (float)(clockFrequency/dtFrequency*6/5);
+	float 	 clockFrequency = 80000000;
+	uint32_t loadval        = (float)(clockFrequency/dtFrequency);
 	//Counting from 0 up to the loaded value. Trigger interrupt when the value reaching this value.
 	TimerLoadSet(TIMER_BASE, TIMER, loadval);
 	//Slow down the clock of the timer by dividing the master clock frequency by 0xFF.
@@ -131,19 +137,8 @@ float GPTimerClass::getDt()
 void GPTimerClass::setDt(float dt_set)
 {
 	dt = dt_set;
-	// The timer interrupt is initially set to be called at 10Hz. Therefore, dt is 0.1.
-
-	//	uint32_t loadval = SysCtlClockGet()/dtFreqency;
-	// REVISIT: IT IS A KNOWN BUG IN LATEST TIVA PRIPHERAL DRIVER V2.1.
-	// SysCtlClockGet() returns 66MHz when the system is set to 80MHz.   --- TAI 16/03/15
-	// Reference: http://e2e.ti.com/support/microcontrollers/tiva_arm/f/908/t/343830
-
-	uint32_t dtFreqency = (uint32_t)(1/dt);
-	uint32_t systemClockFrequency = 80000000;
-	uint32_t loadval = systemClockFrequency/dtFreqency;
-
-	//Counting from 0 up to the loaded value. Trigger interrupt when the value reaching this value.
-	TimerLoadSet(TIMER_BASE, TIMER, loadval);
+	// reload dt as interrupt time
+	this->start();
 }
 
 

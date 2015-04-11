@@ -66,6 +66,7 @@ public:
 	void getAttitudePID();
 	void setYawRatePID(float KP, float KI, float KD);
 	void getYawRatePID();
+	void setDt(float dt_set);
 
 private:
 	void updateControl(float dt);

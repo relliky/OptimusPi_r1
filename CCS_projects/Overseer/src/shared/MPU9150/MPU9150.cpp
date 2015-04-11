@@ -26,33 +26,73 @@ MPU9150Class::MPU9150Class(bool AD0Status)
 	gyro_sf = 131;
 
 	if (this->reset() < 0)
+	{
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to reset MPU" << std::endl;
-
+	#endif
+	}
+	
 	if (this->testConnection())
+	{	
+	#ifdef DEBUG_MPU_INFO
 		std::cout << "MPU9150 connection verified" << std::endl;
-	else
+	#endif
+	}
+	#ifdef DEBUG_MPU_INFO
+	else{
 		std::cout << "MPU9150 connection failed" << std::endl; // exit(1);
+		}
+	#endif
 
 	if (this->setSleepStatus(false) < 0)
+	{
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU sleep status" << std::endl;
-
-	if (this->setAccelRange(MPU9150_ACCEL_FS_2) < 0)
+	#endif
+	}
+	
+	if (this->setAccelRange(MPU9150_ACCEL_FS_2) < 0)			
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU accel range" << std::endl;
-
+	#endif
+    }
+	
 	if (this->setGyroRange(MPU9150_GYRO_FS_500) < 0)
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU gyro range" << std::endl;
-
+	#endif
+    }
+	
 	if (this->setDLPFCornerFrequency(MPU9150_DLPF_BW_98) < 0)
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU DLPF corner frequency" << std::endl;
-
+	#endif
+    }
+	
 	if (this->setSampleRateDivider(0) < 0)
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU sample rate divider" << std::endl;
-
+	#endif
+    }
+	
 	if (this->setClockSource(MPU9150_CLOCK_PLL_ZGYRO) < 0)
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to set MPU clock source" << std::endl;
-
+	#endif
+    }
+	
 	if (this->setI2CPassthrough(true))
+    {		
+	#ifdef DEBUG_MPU_INFO
 		std::cerr << "Failed to enable I2C passthrough" << std::endl;
+	#endif
+    }
+	
 }
 
 MPU9150Class::~MPU9150Class()

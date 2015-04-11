@@ -16,9 +16,9 @@
 	//#define DEBUG_RUN_ALL_TEST
 
 	/* Enable each individual test */
-	#define DEBUG_RUN_I2C_BASIC_TEST
+//	#define DEBUG_RUN_I2C_BASIC_TEST
 
-	#define DEBUG_RUN_CONT_MPU_TEST
+//	#define DEBUG_RUN_CONT_MPU_TEST
 
 //	#define DEBUG_RUN_PRINTF_TEST
 

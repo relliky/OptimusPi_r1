@@ -9,7 +9,7 @@
 #include "../../StandaloneCopter.h"
 
 ControlClass::ControlClass(StandaloneCopterClass* StandaloneCopterPtr)   //(std::string logFilename)
-		: ratePitchPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
+			  : ratePitchPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
 				rateRollPID(RATE_KP, RATE_KI, RATE_KD, RATE_INTEGRAL_LIMIT, RATE_OUTPUT_LIMIT),
 				rateYawPID(YAW_RATE_KP, YAW_RATE_KI, YAW_RATE_KD, YAW_RATE_INTEGRAL_LIMIT, YAW_RATE_OUTPUT_LIMIT),
 				attitudePitchPID(ATTITUDE_KP, ATTITUDE_KI, ATTITUDE_KD, ATTITUDE_INTEGRAL_LIMIT, ATTITUDE_OUTPUT_LIMIT),
@@ -159,5 +159,10 @@ inline void ControlClass::constrain(double* value, float range)
 		*value = range;
 	else if (*value < -range)
 		*value = -range;
+}
+
+void ControlClass::setDt(float dt_set)
+{
+	timer.setDt(dt_set);
 }
 

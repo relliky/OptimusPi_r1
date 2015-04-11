@@ -14,7 +14,12 @@
  * @TODO Create motor status register to allow overseer to monitor rotation status
  * @TODO Add initial speed parameter to motor startup command
  * @TODO Add motor rotation direction change command
- */
+ * 			--- Matthew Waston
+ * Move the code from Raspberry Pi down to Overseer  --done
+ * including:
+ * 1) Adding MPU9150 support, I2C support on Overseer
+ * 2)
+  */
 
 #define MCU_OVERSEER
 
@@ -22,26 +27,28 @@
 
 
 //#include "OptimusPiCopter/AHRS/AHRS.h"
-
+/*
 #include <vector>
 class TestDataClass
 {
 public:
 	float Pitch, Roll, Yaw, X, Y, Z, Temp, P, Q, R;
 };
-
+*/
 void main(void)
 {
 
 	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
 
-//	ArbitratorClass Arbitrator;
-//	Arbitrator.start();
 
-/*
-    motor1.config(BLDC);
-	motor1.start();
-*/
+//	RPiControlledCopter.running();
+
+
+	ArbitratorClass Arbitrator;
+	Arbitrator.setDtInStandaloneCopterMode(2);
+	Arbitrator.start();
+
+
 
 
 
@@ -53,16 +60,43 @@ void main(void)
 			Debug_0.RunTests();
 	#endif
 
-/*
-	ControlClass Control;
-	Control.enable();
 
+
+//	OptimusPiInterfaceClass OptimusPi;
+//	AHRSClass AHRS(&OptimusPi);
+
+	while(1);
+
+
+/*
+	PinControllerClass p7(IC7Pin, GPIOOutputType);
+	p7.~PinControllerClass();
 */
 
 /*
-	LEDClass LED1(1);
-	LED1.set();
+	motor1.config(BLDC);
+	motor1.start();
 */
+
+
+
+
+
+/*
+	int * a;
+	a = new int(1);
+	std::cout << *a << std::endl;
+*/
+
+/*
+    LEDClass LED0(0) ;
+    LEDClass LED1(1);
+
+    LED0.LEDClass(0);
+*/
+//	LEDClass LED1(1);
+//	LED1.set();
+
 
 //	GPTimerClass Timer1(NULL);
 //	Timer1.start();
@@ -100,7 +134,7 @@ void main(void)
 	//struct Test_s {float a,b;};
 
 
-
+/*
 
 	OptimusPiInterfaceClass OptimusPi;
 	AHRSClass AHRS(&OptimusPi);
@@ -157,7 +191,7 @@ void main(void)
 
 			while(1);
 
-
+*/
 
 
 /*

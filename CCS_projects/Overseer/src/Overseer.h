@@ -12,7 +12,9 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-
+// for debug usage
+#include <stdio.h>
+#include <iostream>
 
 
 
@@ -22,22 +24,33 @@
 #include <src/shared/DebugFunction/DebugFunction.h>
 #endif
 
+
+#include "driverlib/sysctl.h"
+#include <src/TopLevel/Arbitrator/ArbitratorClass.h>
+#include <src/TopLevel/GlobalVariablesDefinition/GlobalVariablesDefinition.h>
+
+
+// The following headers just for debug usage
+
+//#include <src/TopLevel/PiSlavedCopter/PiSlavedCopter.h>
+
 #include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
+
+//#include <src/shared/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.h>
+//#include <cstddef>
+//#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
+#include <src/TopLevel/RPiControlledCopter/RPiControlledCopter.h>
 
 #include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/AHRS.h>
 
 //#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.h>
 
-#include "driverlib/sysctl.h"
-//#include <src/TopLevel/PiSlavedCopter/PiSlavedCopter.h>
-#include <src/TopLevel/Arbitrator/ArbitratorClass.h>
-#include <src/TopLevel/GlobalVariablesDefinition/GlobalVariablesDefinition.h>
 
 
-//#include <src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/Control.h>
+//#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/Control.h>
 
 // LED for testing timers
-#include <src/shared/LED/LED.h>
+//#include <src/shared/LED/LED.h>
 //#include <src/OptimusPiCopter/GPTimer/GPTimer.h>
 //#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OptimusPiInterface.h>
 //#include <src/TopLevel/IsolatedCopter/OptimusPiCopter/RX/RXInterface.h>

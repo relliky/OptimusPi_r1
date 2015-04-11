@@ -11,10 +11,15 @@
 #include "MPU9150RegisterMap.h"
 #include <src/shared/I2C/I2C.h>
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <iostream>
+//debug usage only
+//#define DEBUG_AHRS
+#ifdef DEBUG_MPU_INFO
+	#include <stdbool.h>
+	#include <stdint.h>
+	#include <stdio.h>
+	#include <iostream>
+#endif
+
 
 template<typename T>
 struct sensorData_s

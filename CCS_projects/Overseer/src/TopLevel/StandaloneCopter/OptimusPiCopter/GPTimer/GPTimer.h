@@ -26,7 +26,7 @@
 //#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
 
 //for testing
-#include <src/shared/LED/LED.h>
+//#include <src/shared/LED/LED.h>
 
 // This ControlClass has to be decleared (just a prototype) otherwise its pointer cannot be decleared.
 // The acutal ControlClass is defined later in the .cpp file.

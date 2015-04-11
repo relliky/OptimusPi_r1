@@ -33,7 +33,12 @@ void RPiControlledCopterClass::clearSwitchedToStandaloneCopterMode()
 bool RPiControlledCopterClass::isSwitchedToStandaloneCopterMode()
 {
 	this->running();
-	return SwitchToStandaloneCopterMode;
+	if(SwitchToStandaloneCopterMode == true)
+	{
+		return true;
+	}else{
+			return false;
+		 }
 }
 
 /**
@@ -71,6 +76,7 @@ void RPiControlledCopterClass::updateReadBuffers()
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, OptimusPi.AN5.getGPIOInputState());
 
 		// read the raw data from MPU9150
+/*
 		OptimusPi.MPU.updateRawSensorDataDumpedOutToRPi();
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_X_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_x());
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_Y_RAW_DATA,    OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_y());
@@ -82,7 +88,7 @@ void RPiControlledCopterClass::updateReadBuffers()
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGX_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magx());
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGY_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magy());
 		RPiSPISlave.updateReadResponse(OVERSEER_GET_MPU_MAGZ_RAW_DATA, OptimusPi.MPU.getRawSensorDataDumpedOutToRPi_magz());
-
+*/
 }
 
 /**

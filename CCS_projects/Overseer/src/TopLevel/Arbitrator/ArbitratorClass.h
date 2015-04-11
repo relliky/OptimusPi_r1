@@ -10,6 +10,8 @@
 
 #include "../RPiControlledCopter/RPiControlledCopter.h"
 #include "../StandaloneCopter/StandaloneCopter.h"
+// include <cstddef> to support "new" operator to dynamically allocate memory
+#include <cstddef>
 
 typedef enum {StandaloneCopterMode, RPiControlledCopterMode} copterMode_t;
 
@@ -21,12 +23,14 @@ public:
 	void setStandaloneCopterMode();
 	void setRPiControlledCopterMode();
 	void start();
+	void setDtInStandaloneCopterMode(float dt_set);
 
 
 private:
 	copterMode_t copterMode;
 	RPiControlledCopterClass*	RPiControlledCopter;
 	StandaloneCopterClass*		StandaloneCopter;
+	float  dt;
 
 };
 
