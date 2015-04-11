@@ -74,6 +74,10 @@ encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/subdir_rules.
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/subdir_vars.mk=UTF-8
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/subdir_rules.mk=UTF-8
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/subdir_vars.mk=UTF-8
+encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/verification_of_raspberryPi_and_Overseer_on_Kalman_filter/subdir_rules.mk=UTF-8
+encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/verification_of_raspberryPi_and_Overseer_on_Kalman_filter/subdir_vars.mk=UTF-8
+encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/verify_IfRaspberryPiIsAbleToRunExtendedKalmanFilterFromSensoredDataInOverseer/subdir_rules.mk=UTF-8
+encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/verify_IfRaspberryPiIsAbleToRunExtendedKalmanFilterFromSensoredDataInOverseer/subdir_vars.mk=UTF-8
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/MotorInterface/subdir_rules.mk=UTF-8
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/MotorInterface/subdir_vars.mk=UTF-8
 encoding//Debug/src/TopLevel/StandaloneCopter/OptimusPiCopter/Control/PID/subdir_rules.mk=UTF-8

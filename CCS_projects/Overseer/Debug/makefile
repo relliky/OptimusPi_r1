@@ -203,7 +203,7 @@ all: Overseer.out
 Overseer.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --printf_support=full -z -m"Overseer.map" --heap_size=4096 --stack_size=4096 -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/lib" -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Overseer_linkInfo.xml" --rom_model -o "Overseer.out" $(ORDERED_OBJS)
+	"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --printf_support=full -z -m"Overseer.map" --heap_size=16384 --stack_size=8192 -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/lib" -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Overseer_linkInfo.xml" --rom_model -o "Overseer.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
