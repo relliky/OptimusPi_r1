@@ -1,0 +1,13 @@
+/*
+ * PrintfTest_test.cpp
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/debug/PrintfTest.h>
+
+namespace I2C_test
+{
+
+} /* namespace I2C_test */

@@ -11,7 +11,7 @@
 #include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
 
 //debug usage only
-#define DEBUG_RX
+//#define DEBUG_RX
 #ifdef DEBUG_RX
 	#include <stdbool.h>
 	#include <stdint.h>

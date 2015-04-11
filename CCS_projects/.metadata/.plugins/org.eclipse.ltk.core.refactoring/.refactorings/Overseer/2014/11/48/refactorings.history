@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Overseer/src/test/I2Ctest.cpp&apos; to &apos;I2CTest.cpp&apos;" description="Rename resource &apos;I2Ctest.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test/I2Ctest.cpp" name="I2CTest.cpp" stamp="1417172580876" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Overseer/src/test/I2Ctest.h&apos; to &apos;I2CTest.h&apos;" description="Rename resource &apos;I2Ctest.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test/I2Ctest.h" name="I2CTest.h" stamp="1417172585015" updateReferences="true"/>
+</session>

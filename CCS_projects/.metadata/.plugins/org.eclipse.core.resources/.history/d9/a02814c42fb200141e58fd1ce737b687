@@ -1,0 +1,48 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/MotorController.cpp \
+../src/Overseer.cpp \
+../src/PinController.cpp \
+../src/hahaha.cpp \
+../src/test1class.cpp 
+
+OBJS += \
+./src/MotorController.obj \
+./src/Overseer.obj \
+./src/PinController.obj \
+./src/hahaha.obj \
+./src/test1class.obj 
+
+CPP_DEPS += \
+./src/MotorController.pp \
+./src/Overseer.pp \
+./src/PinController.pp \
+./src/hahaha.pp \
+./src/test1class.pp 
+
+CPP_DEPS__QUOTED += \
+"src\MotorController.pp" \
+"src\Overseer.pp" \
+"src\PinController.pp" \
+"src\hahaha.pp" \
+"src\test1class.pp" 
+
+OBJS__QUOTED += \
+"src\MotorController.obj" \
+"src\Overseer.obj" \
+"src\PinController.obj" \
+"src\hahaha.obj" \
+"src\test1class.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/MotorController.cpp" \
+"../src/Overseer.cpp" \
+"../src/PinController.cpp" \
+"../src/hahaha.cpp" \
+"../src/test1class.cpp" 
+
+

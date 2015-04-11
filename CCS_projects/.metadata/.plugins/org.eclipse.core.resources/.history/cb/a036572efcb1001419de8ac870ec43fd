@@ -1,0 +1,51 @@
+/*
+ * PrintfTest.cpp
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/debug/PrintfTest.h>
+
+PrintfTest::PrintfTest()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+PrintfTest::~PrintfTest()
+{
+	// TODO Auto-generated destructor stub
+}
+
+
+
+void PrintfTest::StringTest_LastMethodIsNotCout()
+{
+	printf("Hello World.\n");
+	std::cout << "Hello, << sign and cout.\n" ;
+	std::cerr << "Hello, cerr.\n" ; //printing in red but very slow!!
+	printf("Trying to printf info between two cerr.\n");
+	std::cout << "Trying to forward info to cout between two cerr.\n" ;
+	std::cerr << "2nd cerr.\n" ; // Still got printed out.
+	std::cout << "Hello, message after 2nd cerr\n" ; //
+	std::cerr << "last cerr.\n" ; // Still got printed out.
+	std::cout << "Hello, cout after last cerr\n" ; // NOT getting printed out. If there is cout is the last function. But it gets printed out if any function after this is invoked.
+	printf("printf info after last cerr\n");
+}
+
+void PrintfTest::StringTest_LastMethodIsCout()
+{
+	printf("Hello World.\n");
+	std::cout << "Hello, << sign and cout.\n" ;
+	std::cerr << "Hello, cerr.\n" ; //printing in red but very slow!!
+	printf("Trying to printf info between two cerr.\n");
+	std::cout << "Trying to forward info to cout between two cerr.\n" ;
+	std::cerr << "2nd cerr.\n" ; // Still got printed out.
+	std::cout << "Hello, message after 2nd cerr\n" ; //
+	std::cerr << "last cerr.\n" ; // Still got printed out.
+	std::cout << "Hello, cout after last cerr\n" ; // NOT getting printed out. If there is cout is the last function. But it gets printed out if any function after this is invoked.
+	//printf("printf info after last cerr\n");
+}
+
+

@@ -1,0 +1,59 @@
+/*
+ * Timer.cpp
+ *
+ *  Created on: 4 Mar 2015
+ *      Author: Rellik
+ */
+
+#include <src/OptimusPiCopter/Timer/Timer.h>
+
+
+TimerClass::TimerClass()
+{
+
+	Timer = this;
+	SYSCTL_PERIPH_TIMER = SYSCTL_PERIPH_TIMER2;
+	TIMER_BASE = TIMER2_BASE;
+	TIMER = TIMER_A;
+	INT_TIMERnA_TM4C123 = INT_TIMER2A_TM4C123;
+
+
+	// Enable the timer peripheral
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER);
+	// Ensure the timer is disabled
+	TimerDisable(TIMER_BASE, TIMER_A);
+	// Configure the timer as a periodic up counter 32bit
+	TimerConfigure(TIMER_BASE, TIMER_CFG_PERIODIC_UP);
+	// Ensure the timer interrupt is disabled
+	TimerIntDisable(TIMER_BASE, TIMER_TIMA_TIMEOUT);
+	// Clear the interrupt now it is disabled
+	TimerIntClear(TIMER_BASE, TIMER_TIMA_TIMEOUT);
+	// Register one of the two static interrupt handlers to the peripheral
+	TimerIntRegister(TIMER_BASE, TIMER_A, ISRStatic);
+	// Set the interrupt priority
+	IntPrioritySet(INT_TIMERnA_TM4C123, 0); // @TODO - What should this actually be?
+
+
+}
+
+TimerClass::~TimerClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+
+void TimerClass::start()
+{
+
+}
+
+
+interrupt void TimerClass::ISRStatic()
+{
+	Timer->ISR();
+}
+
+void TimerClass::ISR()
+{
+
+}

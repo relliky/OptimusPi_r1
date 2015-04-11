@@ -1,0 +1,60 @@
+/*
+ * ArbitratorClass.cpp
+ *
+ *  Created on: 10 Mar 2015
+ *      Author: Tai
+ */
+
+#include "ArbitratorClass.h"
+
+ArbitratorClass::ArbitratorClass()
+{
+	//Setting default mode as Standalone Copter.
+	this->setStandaloneCopterMode();
+	StandaloneCopter = NULL;
+	RPiControlledCopter = NULL;
+}
+
+ArbitratorClass::~ArbitratorClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void ArbitratorClass::setStandaloneCopterMode()
+{
+	copterMode = StandaloneCopterMode;
+}
+
+void ArbitratorClass::setRPiControlledCopterMode()
+{
+	copterMode = RPiControlledCopterMode;
+}
+
+void ArbitratorClass::start()
+{
+	while(1)
+	{
+		if(copterMode == StandaloneCopterMode)
+		{
+			StandaloneCopter = new StandaloneCopterClass();
+			//Running the copter while waiting to switch to anther mode.
+			while(StandaloneCopter->isSwitchedToRPiControlledCopterMode());
+			delete StandaloneCopter;
+			this->setRPiControlledCopterMode();
+		}
+
+		if(copterMode == RPiControlledCopterMode)
+		{
+			C = new RPiControlledCopterClass();
+			//Running the copter while waiting to switch to anther mode.
+			while(RPiControlledCopter->isSwitchedToStandaloneCopterMode());
+			delete RPiControlledCopter;
+			this->setStandaloneCopterMode();
+		}
+	}
+}
+
+bool ArbitratorClass::setDtInStandaloneCopterMode(float dt)
+{
+
+}

@@ -1,0 +1,36 @@
+/*
+ * debug.h
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Tai
+ */
+
+#ifndef DEBUG_H_
+#define DEBUG_H_
+
+	#ifdef DEBUG_PRINTF_VIA_JTAG
+		//Adding stdio.h for debugging. Printf-like debug information will be forwarding to CCS via JTAG
+		#include <stdio.h>
+		#include <iostream>
+	#endif
+
+	#ifdef DEBUG_RUN_ALL_TEST
+		#define DEBUG_RUN_I2C_BASIC_TEST
+		#define DEBUG_RUN_PRINTF_TEST
+	#endif
+
+	#ifdef DEBUG_RUN_I2C_BASIC_TEST
+		#include "MPU9150/test/I2CTest.h"
+	#endif
+
+	#ifdef DEBUG_RUN_PRINTF_TEST
+		#ifndef DEBUG_PRINTF_VIA_JTAG
+			#define DEBUG_PRINTF_VIA_JTAG
+			#include <stdio.h>
+			#include <iostream>
+		#endif
+
+		#include "debug/PrintfTest.h"
+	#endif
+
+#endif /* DEBUG_H_ */

@@ -1,0 +1,41 @@
+/*
+ * PiSlavedCopterClass.cpp
+ *
+ *  Created on: 12 Mar 2015
+ *      Author: Rellik
+ */
+
+#include "PiSlavedCopterClass.h"
+
+
+PiSlavedCopterClass::PiSlavedCopterClass()
+				: RPiSPISlave(0),
+				  motor0(0),
+				  motor1(1),
+				  motor2(2),
+				  motor3(3),
+				  IC0(IC0Pin),
+				  IC1(IC1Pin),
+				  IC2(IC2Pin),
+				  IC3(IC3Pin),
+				  IC4(IC4Pin),
+				  IC5(IC5Pin),
+				  IC6(IC6Pin),
+				  IC7(IC7Pin),
+				  AN0(AN0Pin),
+				  AN1(AN1Pin),
+				  AN2(AN2Pin),
+				  AN3(AN3Pin),
+				  AN4(AN4Pin),
+				  AN5(AN5Pin)
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+PiSlavedCopterClass::~PiSlavedCopterClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+

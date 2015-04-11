@@ -1,0 +1,19 @@
+/*
+ * GlobalVariablesDefinitionForISRToInclude.h
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef GLOBALVARIABLESDEFINITIONFORISRTOINCLUDE_H_
+#define GLOBALVARIABLESDEFINITIONFORISRTOINCLUDE_H_
+
+// Pointer used for two SPIs to two motor controllers in
+// <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp>
+extern SPIMasterClass MotorControllerClass::SPI1(1);
+extern SPIMasterClass MotorControllerClass::SPI2(2);
+
+
+
+
+#endif /* GLOBALVARIABLESDEFINITIONFORISRTOINCLUDE_H_ */

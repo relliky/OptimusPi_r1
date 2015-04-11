@@ -1,0 +1,33 @@
+/*
+ * I2Ctest.h
+ *
+ *  Created on: 28 Nov 2014
+ *      Author: Rellik
+ */
+
+#ifndef I2CTEST_H_
+#define I2CTEST_H_
+
+#include "shared/I2C.h"
+
+#define MPU9150_ADDRESS_AD0_LOW  0X68
+#define MPU9150_RA_WHO_AM_I 0x75
+#define MPU9150_RA_TEST_RW 0x74
+
+#define TEST_REG_VALUE 0x0f
+
+#define MPU9150_RA_INT_PIN_CFG 0x37
+
+
+class I2CTest
+{
+public:
+	I2C_test();
+	virtual ~I2C_test();
+	void I2CTest::runBasicReadTest();
+
+};
+
+
+
+#endif /* I2CTEST_H_ */

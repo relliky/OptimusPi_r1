@@ -1,0 +1,20 @@
+/*
+ * EigenTest.h
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef EIGENTEST_H_
+#define EIGENTEST_H_
+
+
+class EigenTestClass
+{
+public:
+	EigenTestClass();
+	virtual ~EigenTestClass();
+};
+
+
+#endif /* EIGENTEST_H_ */

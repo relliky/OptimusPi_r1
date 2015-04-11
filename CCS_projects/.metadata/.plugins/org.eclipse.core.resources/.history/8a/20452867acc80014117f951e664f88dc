@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/ArbitratorClass.cpp \
+../src/Overseer.cpp 
+
+OBJS += \
+./src/ArbitratorClass.obj \
+./src/Overseer.obj 
+
+CPP_DEPS += \
+./src/ArbitratorClass.pp \
+./src/Overseer.pp 
+
+CPP_DEPS__QUOTED += \
+"src\ArbitratorClass.pp" \
+"src\Overseer.pp" 
+
+OBJS__QUOTED += \
+"src\ArbitratorClass.obj" \
+"src\Overseer.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/ArbitratorClass.cpp" \
+"../src/Overseer.cpp" 
+
+

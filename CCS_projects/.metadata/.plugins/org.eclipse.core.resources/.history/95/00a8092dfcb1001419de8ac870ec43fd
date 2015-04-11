@@ -1,0 +1,29 @@
+/*
+ * PrintfTest.h
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef PRINTFTEST_H_
+#define PRINTFTEST_H_
+
+
+	#include <stdio.h>
+	#include <iostream>
+
+
+/*
+ *
+ */
+class PrintfTest
+{
+public:
+	PrintfTest();
+	virtual ~PrintfTest();
+
+	StringTest_LastMethodIsNotCout();
+	StringTest_LastMethodIsCout();
+};
+
+#endif /* PRINTFTEST_H_ */

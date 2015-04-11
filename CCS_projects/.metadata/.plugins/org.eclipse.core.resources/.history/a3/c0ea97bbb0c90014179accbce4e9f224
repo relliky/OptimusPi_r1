@@ -1,0 +1,225 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+CG_TOOL_ROOT := D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6
+
+ORDERED_OBJS += \
+$(GEN_CMDS__FLAG) \
+"./tm4c123ah6pm_startup_ccs.obj" \
+"./src/shared/SPI/SPISlave/MessageParser.obj" \
+"./src/shared/SPI/SPISlave/SPISlave.obj" \
+"./src/shared/SPI/SPIMaster/SPIMaster.obj" \
+"./src/shared/MPU9150/test/MPU9150Test.obj" \
+"./src/shared/MPU9150/MPU9150.obj" \
+"./src/shared/LED/LED.obj" \
+"./src/shared/I2C/test/I2CTest.obj" \
+"./src/shared/I2C/I2C.obj" \
+"./src/shared/DebugFunction/DebugFunction.obj" \
+"./src/shared/DebugFunction/PrintfTest.obj" \
+"./src/TopLevel/PiSlavedCopter/PiSlavedCopter.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers/GPIOInput.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers/GPIOOutput.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers/InputCapture.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.obj" \
+"./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OptimusPiInterface.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/RX/RXInterface.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/GPTimer/GPTimer.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/PID/PID.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/MotorInterface/MotorInterface.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/Control.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/AHRS.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/ExtendedKalman.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/Kalman.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/MerayoCalib.obj" \
+"./src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/Quaternion.obj" \
+"./src/TopLevel/Arbitrator/ArbitratorClass.obj" \
+"./src/Overseer.obj" \
+"../tm4c123ah6pm.cmd" \
+-l"libc.a" \
+-l"H:\MyDropbox\Dropbox\PiCopter_r1\CCS_projects\TivaWare\driverlib\ccs\Debug\driverlib.lib" \
+
+-include ../makefile.init
+
+RM := DEL /F
+RMDIR := RMDIR /S/Q
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir_vars.mk
+-include src/shared/SPI/SPISlave/subdir_vars.mk
+-include src/shared/SPI/SPIMaster/subdir_vars.mk
+-include src/shared/MPU9150/test/subdir_vars.mk
+-include src/shared/MPU9150/subdir_vars.mk
+-include src/shared/LED/subdir_vars.mk
+-include src/shared/I2C/test/subdir_vars.mk
+-include src/shared/I2C/subdir_vars.mk
+-include src/shared/DebugFunction/subdir_vars.mk
+-include src/TopLevel/PiSlavedCopter/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/RX/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/GPTimer/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/PID/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/MotorInterface/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/subdir_vars.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/subdir_vars.mk
+-include src/TopLevel/Arbitrator/subdir_vars.mk
+-include src/subdir_vars.mk
+-include subdir_rules.mk
+-include src/shared/SPI/SPISlave/subdir_rules.mk
+-include src/shared/SPI/SPIMaster/subdir_rules.mk
+-include src/shared/MPU9150/test/subdir_rules.mk
+-include src/shared/MPU9150/subdir_rules.mk
+-include src/shared/LED/subdir_rules.mk
+-include src/shared/I2C/test/subdir_rules.mk
+-include src/shared/I2C/subdir_rules.mk
+-include src/shared/DebugFunction/subdir_rules.mk
+-include src/TopLevel/PiSlavedCopter/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinControllers/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/RX/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/GPTimer/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/PID/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/MotorInterface/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/Control/subdir_rules.mk
+-include src/TopLevel/IsolatedCopter/OptimusPiCopter/AHRS/subdir_rules.mk
+-include src/TopLevel/Arbitrator/subdir_rules.mk
+-include src/subdir_rules.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+ifneq ($(strip $(S62_DEPS)),)
+-include $(S62_DEPS)
+endif
+ifneq ($(strip $(C64_DEPS)),)
+-include $(C64_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(S55_DEPS)),)
+-include $(S55_DEPS)
+endif
+ifneq ($(strip $(C67_DEPS)),)
+-include $(C67_DEPS)
+endif
+ifneq ($(strip $(C??_DEPS)),)
+-include $(C??_DEPS)
+endif
+ifneq ($(strip $(CLA_DEPS)),)
+-include $(CLA_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif
+ifneq ($(strip $(S??_DEPS)),)
+-include $(S??_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(C62_DEPS)),)
+-include $(C62_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(ASM_UPPER_DEPS)),)
+-include $(ASM_UPPER_DEPS)
+endif
+ifneq ($(strip $(K_DEPS)),)
+-include $(K_DEPS)
+endif
+ifneq ($(strip $(C43_DEPS)),)
+-include $(C43_DEPS)
+endif
+ifneq ($(strip $(S67_DEPS)),)
+-include $(S67_DEPS)
+endif
+ifneq ($(strip $(SA_DEPS)),)
+-include $(SA_DEPS)
+endif
+ifneq ($(strip $(S43_DEPS)),)
+-include $(S43_DEPS)
+endif
+ifneq ($(strip $(OPT_DEPS)),)
+-include $(OPT_DEPS)
+endif
+ifneq ($(strip $(S64_DEPS)),)
+-include $(S64_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(C55_DEPS)),)
+-include $(C55_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+EXE_OUTPUTS += \
+Overseer.out \
+
+EXE_OUTPUTS__QUOTED += \
+"Overseer.out" \
+
+BIN_OUTPUTS += \
+Overseer.hex \
+
+BIN_OUTPUTS__QUOTED += \
+"Overseer.hex" \
+
+
+# All Target
+all: Overseer.out
+
+# Tool invocations
+Overseer.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: ARM Linker'
+	"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --abi=eabi -me -Ooff -g --gcc --display_error_number --diag_warning=225 --diag_wrap=off --printf_support=full -z -m"Overseer.map" --heap_size=4096 --stack_size=4096 -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/lib" -i"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Overseer_linkInfo.xml" --rom_model -o "Overseer.out" $(ORDERED_OBJS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+Overseer.hex: $(EXE_OUTPUTS)
+	@echo 'Invoking: ARM Hex Utility'
+	"D:/Pro_tools/TI_Code_Composer_Studio_CCS/ccsv6/tools/compiler/arm_5.1.6/bin/armhex"  -o "Overseer.hex" $(EXE_OUTPUTS__QUOTED)
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
+	-$(RM) "src\shared\SPI\SPISlave\MessageParser.pp" "src\shared\SPI\SPISlave\SPISlave.pp" "src\shared\SPI\SPIMaster\SPIMaster.pp" "src\shared\MPU9150\test\MPU9150Test.pp" "src\shared\MPU9150\MPU9150.pp" "src\shared\LED\LED.pp" "src\shared\I2C\test\I2CTest.pp" "src\shared\I2C\I2C.pp" "src\shared\DebugFunction\DebugFunction.pp" "src\shared\DebugFunction\PrintfTest.pp" "src\TopLevel\PiSlavedCopter\PiSlavedCopter.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\GPIOInput.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\GPIOOutput.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\InputCapture.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\MotorController.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinController.pp" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OptimusPiInterface.pp" 
+	-$(RM) "src\TopLevel\IsolatedCopter\OptimusPiCopter\RX\RXInterface.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\GPTimer\GPTimer.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\PID\PID.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\MotorInterface\MotorInterface.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\Control.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\AHRS.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\ExtendedKalman.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\Kalman.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\MerayoCalib.pp" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\Quaternion.pp" "src\TopLevel\Arbitrator\ArbitratorClass.pp" "src\Overseer.pp" 
+	-$(RM) "tm4c123ah6pm_startup_ccs.pp" 
+	-$(RM) "tm4c123ah6pm_startup_ccs.obj" "src\shared\SPI\SPISlave\MessageParser.obj" "src\shared\SPI\SPISlave\SPISlave.obj" "src\shared\SPI\SPIMaster\SPIMaster.obj" "src\shared\MPU9150\test\MPU9150Test.obj" "src\shared\MPU9150\MPU9150.obj" "src\shared\LED\LED.obj" "src\shared\I2C\test\I2CTest.obj" "src\shared\I2C\I2C.obj" "src\shared\DebugFunction\DebugFunction.obj" "src\shared\DebugFunction\PrintfTest.obj" "src\TopLevel\PiSlavedCopter\PiSlavedCopter.obj" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\GPIOInput.obj" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\GPIOOutput.obj" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinControllers\InputCapture.obj" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\MotorController.obj" "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinController.obj" 
+	-$(RM) "src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OptimusPiInterface.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\RX\RXInterface.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\GPTimer\GPTimer.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\PID\PID.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\MotorInterface\MotorInterface.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\Control\Control.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\AHRS.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\ExtendedKalman.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\Kalman.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\MerayoCalib.obj" "src\TopLevel\IsolatedCopter\OptimusPiCopter\AHRS\Quaternion.obj" "src\TopLevel\Arbitrator\ArbitratorClass.obj" "src\Overseer.obj" 
+	-@echo 'Finished clean'
+	-@echo ' '
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets
+

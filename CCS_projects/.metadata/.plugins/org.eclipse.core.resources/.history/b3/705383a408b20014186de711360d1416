@@ -1,0 +1,24 @@
+/*
+ * fs.cpp
+ *
+ *  Created on: 11 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/fs.h>
+
+namespace std
+{
+
+fs::fs()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+fs::~fs()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace std */

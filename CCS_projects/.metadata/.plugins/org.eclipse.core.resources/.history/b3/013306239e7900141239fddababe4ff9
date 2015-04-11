@@ -1,0 +1,175 @@
+/* 
+ * File:   CommandLineInterface.cpp
+ * Author: matt
+ * 
+ * Created on 01 November 2012, 16:14
+ */
+
+#include "CommandLineInterface.h"
+
+CommandLineInterfaceClass::CommandLineInterfaceClass(ControlClass* ControlPtr, volatile bool* quittingPtr)
+{
+	Control = ControlPtr;
+	quitting = quittingPtr;
+	initialiseMap();
+}
+
+CommandLineInterfaceClass::~CommandLineInterfaceClass()
+{
+}
+
+void CommandLineInterfaceClass::getCommand()
+{
+	std::string line;
+	do
+	{
+		std::cout << "Picopter > ";
+		do
+		{
+			std::cin.clear();
+			line.clear();
+			std::getline(std::cin, line);
+		} while (std::cin.fail());
+	} while (line.length() == 0);
+
+	std::stringstream stream(line);
+	int i = 0;
+	while (std::getline(stream, stringbuf_[i], ' '))
+	{
+		i++;
+	}
+
+	switch (lineMap_[stringbuf_[0]])
+	{
+	case en_stringNotDefined:
+		std::cout << stringbuf_[0] << " isn't a valid command" << std::endl;
+		break;
+
+	case en_openlog:
+		//		std::cout << "Opening log at " << stringbuf_[1] << std::endl;
+//		LogMan.open(stringbuf_[1].c_str());
+		break;
+
+	case en_dumporientation:
+		std::cout << "Pitch " << Control->AHRS.getPitch()
+				<< ", roll " << Control->AHRS.getRoll()
+				<< ", yaw " << Control->AHRS.getYaw() << std::endl;
+		break;
+
+	case en_dumpsensors:
+		//		if (!Timer.started)
+//		{
+//			AHRS.update();
+//		}
+		std::cout << Control->AHRS.getX() << ", "
+				<< Control->AHRS.getY() << ", "
+				<< Control->AHRS.getZ() << ", "
+				<< Control->AHRS.getP() << ", "
+				<< Control->AHRS.getQ() << ", "
+				<< Control->AHRS.getR() << ", "
+				<< Control->AHRS.getTemp() << std::endl;
+		break;
+
+	case en_dumprawsensors:
+		//		if (!Timer.started)
+//		{
+//			AHRS.update();
+//		}
+//		std::cout << std::dec << AHRS.rawData_.x << ", " << AHRS.rawData_.y << ", " << AHRS.rawData_.z << ", "
+//				<< AHRS.rawData_.p << ", " << AHRS.rawData_.q << ", " << AHRS.rawData_.r << std::endl;
+		break;
+
+	case en_dumprawmag:
+		//		if (!Timer.started)
+//		{
+//			AHRS.update();
+//		}
+//		std::cout << AHRS.rawData_.mag_x << ", " << AHRS.rawData_.mag_y << ", " << AHRS.rawData_.mag_z << std::endl;
+		break;
+
+	case en_dumprx:
+		//		if (!Timer.started)
+//		{
+//			PICInterface.getRX();
+//		}
+		std::cout.setf( std::ios::fixed, std:: ios::floatfield );
+		std::cout.precision(3);
+		std::cout << " _______________________________________________\n" << "| Pitch\t| Roll\t| Yaw\t| Thrtl\t| SW1\t| Sw2\t|\n|"
+				<< Control->RX.getPitch() << "\t|"
+				<< Control->RX.getRoll() << "\t|"
+				<< Control->RX.getYaw() << "\t|"
+				<< Control->RX.getThrottle() << "\t|"
+				<< Control->RX.getSw1() << "\t|"
+				<< Control->RX.getSw2() << "\t|\n" 
+				<< " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯"
+				<< std::endl;
+		break;
+
+	case en_resetmpu:
+		//		MPU6050.initialise();
+//		std::cout << "mpu reset" << std::endl;
+		break;
+
+	case en_readregister:
+		//		unsigned char buf[32];
+//		I2CInterface.readRegister(static_cast<unsigned char>(atoi(stringbuf_[1].c_str())),
+//				static_cast<unsigned char>(atoi(stringbuf_[2].c_str())), buf,
+//				static_cast<unsigned char>(atoi(stringbuf_[3].c_str())));
+//		std::cout << buf << std::endl;
+		break;
+
+	case en_setRatePID:
+		Control->setRatePID(atof(stringbuf_[1].c_str()), atof(stringbuf_[2].c_str()), atof(stringbuf_[3].c_str()));
+		break;
+
+	case en_getRatePID:
+		Control->getRatePID();
+		break;
+
+	case en_setAttitudePID:
+		Control->setAttitudePID(atof(stringbuf_[1].c_str()), atof(stringbuf_[2].c_str()), atof(stringbuf_[3].c_str()));
+		break;
+
+	case en_getAttitudePID:
+		Control->getAttitudePID();
+		break;
+
+	case en_setYawPID:
+		Control->setYawRatePID(atof(stringbuf_[1].c_str()), atof(stringbuf_[2].c_str()), atof(stringbuf_[3].c_str()));
+		break;
+
+	case en_getYawPID:
+		Control->getYawRatePID();
+		break;
+		
+	case en_exit:
+		*quitting = true;
+		break;
+
+	default:
+		std::cout << stringbuf_[0] << " isn't a valid command" << std::endl;
+		break;
+	}
+
+}
+
+void CommandLineInterfaceClass::initialiseMap()
+{
+	lineMap_[""] = en_stringNotDefined;
+	lineMap_["openlog"] = en_openlog;
+	lineMap_["do"] = en_dumporientation;
+	lineMap_["dr"] = en_dumprawsensors;
+	lineMap_["ds"] = en_dumpsensors;
+	lineMap_["drm"] = en_dumprawmag;
+	lineMap_["drrx"] = en_dumprawrx;
+	lineMap_["drx"] = en_dumprx;
+	lineMap_["resetmpu"] = en_resetmpu;
+	lineMap_["rr"] = en_readregister;
+	lineMap_["srpid"] = en_setRatePID;
+	lineMap_["grpid"] = en_getRatePID;
+	lineMap_["sypid"] = en_setYawPID;
+	lineMap_["gypid"] = en_getYawPID;
+	lineMap_["sapid"] = en_setAttitudePID;
+	lineMap_["gapid"] = en_getAttitudePID;
+	lineMap_["exit"] = en_exit;
+}

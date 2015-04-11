@@ -1,0 +1,35 @@
+/*
+ * RPiControlledCopter.h
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef RPICONTROLLEDCOPTER_H_
+#define RPICONTROLLEDCOPTER_H_
+
+#include <stdbool.h>
+#include <stdint.h>
+#include "driverlib/sysctl.h"
+
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
+
+class RPiControlledCopterClass
+{
+public:
+	RPiControlledCopterClass();
+	virtual ~RPiControlledCopterClass();
+
+	bool isSwitchedToStandaloneCopterMode();
+	void updateReadBuffers();
+	void emptyMessageQueue();
+
+
+private:
+	OptimusPiInterfaceClass  OptimusPi;
+	bool                     SwitchToStandaloneCopterMode;
+};
+
+
+
+#endif /* RPICONTROLLEDCOPTER_H_ */

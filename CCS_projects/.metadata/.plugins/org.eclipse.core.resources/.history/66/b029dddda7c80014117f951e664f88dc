@@ -1,0 +1,24 @@
+/*
+ * ArbitratorClass.cpp
+ *
+ *  Created on: 12 Mar 2015
+ *      Author: Rellik
+ */
+
+#include <src/ArbitratorClass.h>
+
+namespace std
+{
+
+ArbitratorClass::ArbitratorClass()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+ArbitratorClass::~ArbitratorClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace std */

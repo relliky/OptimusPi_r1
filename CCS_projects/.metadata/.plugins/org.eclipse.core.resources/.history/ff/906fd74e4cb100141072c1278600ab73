@@ -1,0 +1,21 @@
+/*
+ * printf.h
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef PRINTF_H_
+#define PRINTF_H_
+
+/*
+ *
+ */
+class printf
+{
+public:
+	printf();
+	virtual ~printf();
+};
+
+#endif /* PRINTF_H_ */

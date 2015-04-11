@@ -1,0 +1,24 @@
+/*
+ * test1class.h
+ *
+ *  Created on: 11 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef TEST1CLASS_H_
+#define TEST1CLASS_H_
+
+
+/*
+ *
+ */
+class test1class
+{
+public:
+	test1class();
+	virtual ~test1class();
+	void RunTests(void)
+};
+
+
+#endif /* TEST1CLASS_H_ */

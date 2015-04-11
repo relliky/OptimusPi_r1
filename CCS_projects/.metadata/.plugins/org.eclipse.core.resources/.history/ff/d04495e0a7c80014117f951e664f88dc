@@ -1,0 +1,26 @@
+/*
+ * ArbitratorClass.h
+ *
+ *  Created on: 12 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef ARBITRATORCLASS_H_
+#define ARBITRATORCLASS_H_
+
+namespace std
+{
+
+/*
+ *
+ */
+class ArbitratorClass
+{
+public:
+	ArbitratorClass();
+	virtual ~ArbitratorClass();
+};
+
+} /* namespace std */
+
+#endif /* ARBITRATORCLASS_H_ */

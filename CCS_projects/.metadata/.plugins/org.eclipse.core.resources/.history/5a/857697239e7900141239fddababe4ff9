@@ -1,0 +1,42 @@
+/* 
+ * File:   Logger.h
+ * Author: matt
+ *
+ * Created on 01 November 2012, 22:49
+ */
+
+#ifndef LOGGER_H
+#define	LOGGER_H
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
+#include "RXInterface.h"
+#include "AHRS.h"
+
+class ControlClass;
+
+class LoggerClass
+{
+public:
+	LoggerClass(RXInterfaceClass* RXPtr, AHRSClass* AHRSPtr, const char* filename);
+	virtual ~LoggerClass();
+
+	void update(float dt);
+	void flushIfRequired();
+
+private:
+	RXInterfaceClass* RX;
+	AHRSClass* AHRS;
+
+	int sampleno;
+	bool logging;
+	std::stringstream log;
+
+	int samplesSinceLastFlush;
+	std::fstream logFile;
+
+};
+#endif	/* LOGGER_H */
+

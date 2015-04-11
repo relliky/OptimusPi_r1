@@ -1,0 +1,48 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/OptimusPiCopter/AHRS.cpp \
+../src/OptimusPiCopter/ExtendedKalman.cpp \
+../src/OptimusPiCopter/Kalman.cpp \
+../src/OptimusPiCopter/MerayoCalib.cpp \
+../src/OptimusPiCopter/Quaternion.cpp 
+
+OBJS += \
+./src/OptimusPiCopter/AHRS.obj \
+./src/OptimusPiCopter/ExtendedKalman.obj \
+./src/OptimusPiCopter/Kalman.obj \
+./src/OptimusPiCopter/MerayoCalib.obj \
+./src/OptimusPiCopter/Quaternion.obj 
+
+CPP_DEPS += \
+./src/OptimusPiCopter/AHRS.pp \
+./src/OptimusPiCopter/ExtendedKalman.pp \
+./src/OptimusPiCopter/Kalman.pp \
+./src/OptimusPiCopter/MerayoCalib.pp \
+./src/OptimusPiCopter/Quaternion.pp 
+
+CPP_DEPS__QUOTED += \
+"src\OptimusPiCopter\AHRS.pp" \
+"src\OptimusPiCopter\ExtendedKalman.pp" \
+"src\OptimusPiCopter\Kalman.pp" \
+"src\OptimusPiCopter\MerayoCalib.pp" \
+"src\OptimusPiCopter\Quaternion.pp" 
+
+OBJS__QUOTED += \
+"src\OptimusPiCopter\AHRS.obj" \
+"src\OptimusPiCopter\ExtendedKalman.obj" \
+"src\OptimusPiCopter\Kalman.obj" \
+"src\OptimusPiCopter\MerayoCalib.obj" \
+"src\OptimusPiCopter\Quaternion.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/OptimusPiCopter/AHRS.cpp" \
+"../src/OptimusPiCopter/ExtendedKalman.cpp" \
+"../src/OptimusPiCopter/Kalman.cpp" \
+"../src/OptimusPiCopter/MerayoCalib.cpp" \
+"../src/OptimusPiCopter/Quaternion.cpp" 
+
+

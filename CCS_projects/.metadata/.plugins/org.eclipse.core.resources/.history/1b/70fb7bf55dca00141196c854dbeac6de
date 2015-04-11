@@ -1,0 +1,24 @@
+/*
+ * EigenTest.cpp
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#include <src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.h>
+
+namespace std
+{
+
+EigenTestClass::EigenTestClass()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+EigenTestClass::~EigenTestClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace std */

@@ -1,0 +1,19 @@
+/*
+ * StandaloneCopter.h
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef STANDALONECOPTER_H_
+#define STANDALONECOPTER_H_
+
+
+class StandaloneCopterWrapper
+{
+public:
+	StandaloneCopterWrapper();
+	virtual ~StandaloneCopterWrapper();
+};
+
+#endif /* STANDALONECOPTER_H_ */

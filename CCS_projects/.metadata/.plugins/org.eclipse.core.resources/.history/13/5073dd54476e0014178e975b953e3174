@@ -1,0 +1,177 @@
+/*
+ * I2C.h
+ *
+ *  Created on: 16 Nov 2014
+ *      Author: Tai
+ */
+
+// Copy code over from http://eewiki.net/display/microcontroller/I2C+Communication+with+the+TI+Tiva+TM4C123GXL#I2CCommunicationwiththeTITivaTM4C123GXL-Purpose with a little changes.
+
+#include "I2C.h"
+
+I2CClass::I2CClass(std::string device)
+{
+	this->openI2C();
+}
+
+I2CClass::~I2CClass()
+{
+    //disable I2C module 0
+    SysCtlPeripheralDisable(SYSCTL_PERIPH_I2C0);
+
+}
+
+I2CClass::openI2C()
+{
+    //enable I2C module 0
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
+
+    //reset module
+    SysCtlPeripheralReset(SYSCTL_PERIPH_I2C0);
+
+    //enable GPIO peripheral that contains I2C 0
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
+
+    // Configure the pin muxing for I2C0 functions on port B2 and B3.
+    GPIOPinConfigure(GPIO_PB2_I2C0SCL);
+    GPIOPinConfigure(GPIO_PB3_I2C0SDA);
+
+    // Select the I2C function for these pins.
+    GPIOPinTypeI2CSCL(GPIO_PORTB_BASE, GPIO_PIN_2);
+    GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_3);
+
+    // Enable and initialize the I2C0 master module.  Use the system clock for
+    // the I2C0 module.  The last parameter sets the I2C data transfer rate.
+    // If false the data rate is set to 100kbps and if true the data rate will
+    // be set to 400kbps.
+    I2CMasterInitExpClk(I2C0_BASE, SysCtlClockGet(), false);
+
+    //clear I2C FIFOs
+    HWREG(I2C0_BASE + I2C_O_FIFOCTL) = 80008000;
+}
+
+int I2CClass::writeRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* data, uint8_t len)
+{
+	this->setSlaveAddress(slaveAddress);
+	if (i2c_smbus_write_i2c_block_data(file, registerAddress, len, data) < 0)
+	{
+		std::cerr << "I2C write failed writing to " << std::hex << slaveAddress << ", errno " << std::dec << errno
+				<< std::endl;
+		return -1;
+	}
+	else
+		return 0;
+}
+
+
+
+int I2CClass::readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* data, uint8_t len)
+{
+	this->setSlaveAddress(slaveAddress);
+	if (i2c_smbus_read_i2c_block_data(file, registerAddress, len, data) != len)
+	{
+		std::cerr << "Incorrect number of bytes read, errno " << errno << std::endl;
+		return -1;
+	}
+	else
+		return 0;
+}
+
+int I2CClass::readRegisters16(uint8_t slaveAddress, uint8_t registerAddress, uint16_t* data, uint8_t len)
+{
+	uint8_t buf[len * 2];
+	uint8_t err = this->readRegisters8(slaveAddress, registerAddress, buf, len * 2);
+	for (int i = 0; i < len; i++)
+	{
+		data[i] = (uint16_t)buf[i*2] << 8 | buf[(i*2)+1];
+	}
+	return err;
+}
+
+/**
+ * Reads the value of the bit specified by bitNum in the register specified by registerAddress
+ * into the LSB of *data.
+ *
+ * @param slaveAddress
+ * @param registerAddress
+ * @param bitNum - Bit index, 0-7
+ * @param data - location to place read bit
+ * @return - 1 on success, -1 on failure
+ */
+int I2CClass::readBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t* data)
+{
+	return this->readbits8(slaveAddress, registerAddress, bitNum, 1, data);
+}
+
+/**
+ * Reads a block of len bits from the register specified by registerAddress with the MSB of
+ * the block specified by MSBLoc, placing the resulting len bits into bits 0 and upwards in
+ * data.
+ *
+ * @param slaveAddress
+ * @param registerAddress
+ * @param MSBLoc - location of requested block's MSB, 0-7
+ * @param len - length of requested block, 1-8
+ * @param data - location to place read bits
+ * @return - 1 on success, -1 on failure
+ */
+int I2CClass::readbits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t* data)
+{
+	uint8_t buf;
+	uint8_t err = this->readRegisters8(slaveAddress, registerAddress, &buf, len);
+	buf &= ((1 << len) - 1) << ((MSBLoc + 1) - len); // Zero unwanted bits
+	*data = buf >> (MSBLoc + 1 - len);
+	return err;
+}
+
+/**
+ * Writes the LSB of data to the bit index specified by bitNum.
+ *
+ * @param slaveAddress
+ * @param registerAddress
+ * @param bitNum - bit index, 0-7
+ * @param data - 1 or 0
+ * @return
+ */
+int I2CClass::writeBit8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t bitNum, uint8_t data)
+{
+	return this->writeBits8(slaveAddress, registerAddress, bitNum, 1, data);
+}
+
+/**
+ * Writes a block of len bits to the specified register, with the MSB of the block placed at the
+ * bit index specified by MSBLoc.
+ *
+ * @param slaveAddress
+ * @param registerAddress
+ * @param MSBLoc
+ * @param len
+ * @param data
+ * @return
+ */
+int I2CClass::writeBits8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t MSBLoc, uint8_t len, uint8_t data)
+{
+	uint8_t buf;
+	if(this->readRegisters8(slaveAddress, registerAddress, &buf, 1) < 0) return -1;
+	data &= (1 << len) - 1; // Zero all unwanted bits in modifier byte
+	buf &= ~(((1 << len) - 1) << ((MSBLoc + 1) - len)); // Zero the bits to modify
+	buf |= data << (MSBLoc + 1 - len); // Align modifier data with buf and combine
+	return this->writeRegisters8(slaveAddress, registerAddress, &buf, 1);
+}
+
+/**
+ * Wrapper for ioctl operation to change slave address
+ *
+ * @param address
+ * @return
+ */
+int I2CClass::setSlaveAddress(uint8_t address)
+{
+	if (ioctl(file, I2C_SLAVE, address) < 0)
+	{
+		std::cerr << "Failed to set I2C slave address at file descriptor " << file << ", errno " << errno << std::endl;
+		return -1;
+	}
+	else
+		return 0;
+}

@@ -1,0 +1,23 @@
+/* 
+ * File:   main.h
+ * Author: matt
+ *
+ * Created on 23 October 2012, 11:45
+ */
+
+#ifndef MAIN_H
+#define	MAIN_H
+
+
+#include "CommandLineInterface.h"
+#include "Control.h"
+#include "AccMagCalibration.h"
+
+#include <iostream>
+
+int main(int argc, char** argv);
+void SIGINT_handler(int sig);
+
+#endif	/* MAIN_H */
+
+

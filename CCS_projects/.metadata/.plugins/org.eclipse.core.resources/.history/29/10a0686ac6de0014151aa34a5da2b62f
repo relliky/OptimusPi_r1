@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.cpp \
+../src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/Overseer_testSourceCode_in_Overseer.cpp 
+
+OBJS += \
+./src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.obj \
+./src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/Overseer_testSourceCode_in_Overseer.obj 
+
+CPP_DEPS += \
+./src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.pp \
+./src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/Overseer_testSourceCode_in_Overseer.pp 
+
+CPP_DEPS__QUOTED += \
+"src\TopLevel\StandaloneCopter\OptimusPiCopter\AHRS\test\EigenTest.pp" \
+"src\TopLevel\StandaloneCopter\OptimusPiCopter\AHRS\test\Overseer_testSourceCode_in_Overseer.pp" 
+
+OBJS__QUOTED += \
+"src\TopLevel\StandaloneCopter\OptimusPiCopter\AHRS\test\EigenTest.obj" \
+"src\TopLevel\StandaloneCopter\OptimusPiCopter\AHRS\test\Overseer_testSourceCode_in_Overseer.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/EigenTest.cpp" \
+"../src/TopLevel/StandaloneCopter/OptimusPiCopter/AHRS/test/Overseer_testSourceCode_in_Overseer.cpp" 
+
+

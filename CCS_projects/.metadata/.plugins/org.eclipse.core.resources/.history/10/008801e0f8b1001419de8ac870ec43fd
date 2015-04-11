@@ -1,0 +1,21 @@
+/*
+ * PrintfTest.h
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef PRINTFTEST_H_
+#define PRINTFTEST_H_
+
+/*
+ *
+ */
+class PrintfTest
+{
+public:
+	PrintfTest();
+	virtual ~PrintfTest();
+};
+
+#endif /* PRINTFTEST_H_ */

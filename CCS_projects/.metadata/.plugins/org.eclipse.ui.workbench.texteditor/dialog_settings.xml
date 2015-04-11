@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="356" key="DIALOG_Y_ORIGIN"/>
+		<item value="585" key="DIALOG_Y_ORIGIN"/>
+		<item value="1054" key="DIALOG_X_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="1016" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Temp" key="selection"/>
+		<item value="initAsPWM1" key="selection"/>
 		<list key="findhistory">
-			<item value="temp"/>
-			<item value="OP"/>
-			<item value="INT"/>
-			<item value="ahrs"/>
-			<item value="SysCtlClockGet"/>
+			<item value="initAsPWM1"/>
+			<item value="configurePeripherals"/>
+			<item value="channel"/>
+			<item value="StandaloneCopter"/>
 			<item value="StandaloneCopterPtr"/>
-			<item value="controlPtr"/>
-			<item value="#include &lt;src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h&gt;"/>
+			<item value="new"/>
+			<item value="dt"/>
+			<item value="q"/>
 		</list>
 		<list key="replacehistory">
+			<item value="qf"/>
+			<item value="qd"/>
+			<item value="TestData.at(%d)"/>
+			<item value="TestData.at(j)."/>
+			<item value="TestData.at(i)."/>
+			<item value="AHRS."/>
+			<item value="AHRS"/>
 			<item value="OptimusPi-&gt;MPU."/>
-			<item value="this-&gt;"/>
-			<item value="Dumped"/>
-			<item value="Dumping"/>
-			<item value="extern"/>
-			<item value="SPISlave0"/>
-			<item value="setPower"/>
-			<item value="getInputCaptureWidth"/>
 		</list>
 	</section>
 </section>

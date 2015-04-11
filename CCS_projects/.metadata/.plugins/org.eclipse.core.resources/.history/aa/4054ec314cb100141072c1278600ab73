@@ -1,0 +1,24 @@
+/*
+ * PrintfTest.cpp
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/debug/PrintfTest.h>
+
+namespace I2C_test
+{
+
+PrintfTest::PrintfTest()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+PrintfTest::~PrintfTest()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace I2C_test */

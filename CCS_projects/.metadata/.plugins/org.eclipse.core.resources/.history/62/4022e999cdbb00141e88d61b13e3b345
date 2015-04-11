@@ -1,0 +1,33 @@
+/*
+ * OptimusPiInterface.h
+ *
+ *  Created on: 5 Aug 2014
+ *      Author: matt
+ */
+
+#ifndef OPTIMUSPIINTERFACE_H_
+#define OPTIMUSPIINTERFACE_H_
+
+#include "PeripheralInterfaces/MotorInterface.h"
+#include "PeripheralInterfaces/PinInterface.h"
+#include "shared/SPIMaster.h"
+#include "shared/SPICommands.h"
+
+class OptimusPiInterfaceClass
+{
+
+public:
+	OptimusPiInterfaceClass();
+	virtual ~OptimusPiInterfaceClass();
+	
+private:
+	SPIMasterClass SPI;
+public:
+	MotorControllerClass motor0, motor1, motor2, motor3;
+	PinControllerClass IC0, IC1, IC2, IC3, IC4, IC5, IC6, IC7, AN0, AN1, AN2, AN3, AN4, AN5;
+
+
+
+};
+
+#endif /* OPTIMUSPIINTERFACE_H_ */

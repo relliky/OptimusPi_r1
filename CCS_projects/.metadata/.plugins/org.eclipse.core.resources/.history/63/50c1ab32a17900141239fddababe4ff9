@@ -1,0 +1,102 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/OptimusPiCopter/AHRS.cpp \
+../src/OptimusPiCopter/AccMagCalibration.cpp \
+../src/OptimusPiCopter/CommandLineInterface.cpp \
+../src/OptimusPiCopter/Control.cpp \
+../src/OptimusPiCopter/ExtendedKalman.cpp \
+../src/OptimusPiCopter/Kalman.cpp \
+../src/OptimusPiCopter/Logger.cpp \
+../src/OptimusPiCopter/MerayoCalib.cpp \
+../src/OptimusPiCopter/MotorInterface.cpp \
+../src/OptimusPiCopter/PID.cpp \
+../src/OptimusPiCopter/Quaternion.cpp \
+../src/OptimusPiCopter/RXInterface.cpp \
+../src/OptimusPiCopter/Timer.cpp \
+../src/OptimusPiCopter/main.cpp 
+
+OBJS += \
+./src/OptimusPiCopter/AHRS.obj \
+./src/OptimusPiCopter/AccMagCalibration.obj \
+./src/OptimusPiCopter/CommandLineInterface.obj \
+./src/OptimusPiCopter/Control.obj \
+./src/OptimusPiCopter/ExtendedKalman.obj \
+./src/OptimusPiCopter/Kalman.obj \
+./src/OptimusPiCopter/Logger.obj \
+./src/OptimusPiCopter/MerayoCalib.obj \
+./src/OptimusPiCopter/MotorInterface.obj \
+./src/OptimusPiCopter/PID.obj \
+./src/OptimusPiCopter/Quaternion.obj \
+./src/OptimusPiCopter/RXInterface.obj \
+./src/OptimusPiCopter/Timer.obj \
+./src/OptimusPiCopter/main.obj 
+
+CPP_DEPS += \
+./src/OptimusPiCopter/AHRS.pp \
+./src/OptimusPiCopter/AccMagCalibration.pp \
+./src/OptimusPiCopter/CommandLineInterface.pp \
+./src/OptimusPiCopter/Control.pp \
+./src/OptimusPiCopter/ExtendedKalman.pp \
+./src/OptimusPiCopter/Kalman.pp \
+./src/OptimusPiCopter/Logger.pp \
+./src/OptimusPiCopter/MerayoCalib.pp \
+./src/OptimusPiCopter/MotorInterface.pp \
+./src/OptimusPiCopter/PID.pp \
+./src/OptimusPiCopter/Quaternion.pp \
+./src/OptimusPiCopter/RXInterface.pp \
+./src/OptimusPiCopter/Timer.pp \
+./src/OptimusPiCopter/main.pp 
+
+CPP_DEPS__QUOTED += \
+"src\OptimusPiCopter\AHRS.pp" \
+"src\OptimusPiCopter\AccMagCalibration.pp" \
+"src\OptimusPiCopter\CommandLineInterface.pp" \
+"src\OptimusPiCopter\Control.pp" \
+"src\OptimusPiCopter\ExtendedKalman.pp" \
+"src\OptimusPiCopter\Kalman.pp" \
+"src\OptimusPiCopter\Logger.pp" \
+"src\OptimusPiCopter\MerayoCalib.pp" \
+"src\OptimusPiCopter\MotorInterface.pp" \
+"src\OptimusPiCopter\PID.pp" \
+"src\OptimusPiCopter\Quaternion.pp" \
+"src\OptimusPiCopter\RXInterface.pp" \
+"src\OptimusPiCopter\Timer.pp" \
+"src\OptimusPiCopter\main.pp" 
+
+OBJS__QUOTED += \
+"src\OptimusPiCopter\AHRS.obj" \
+"src\OptimusPiCopter\AccMagCalibration.obj" \
+"src\OptimusPiCopter\CommandLineInterface.obj" \
+"src\OptimusPiCopter\Control.obj" \
+"src\OptimusPiCopter\ExtendedKalman.obj" \
+"src\OptimusPiCopter\Kalman.obj" \
+"src\OptimusPiCopter\Logger.obj" \
+"src\OptimusPiCopter\MerayoCalib.obj" \
+"src\OptimusPiCopter\MotorInterface.obj" \
+"src\OptimusPiCopter\PID.obj" \
+"src\OptimusPiCopter\Quaternion.obj" \
+"src\OptimusPiCopter\RXInterface.obj" \
+"src\OptimusPiCopter\Timer.obj" \
+"src\OptimusPiCopter\main.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/OptimusPiCopter/AHRS.cpp" \
+"../src/OptimusPiCopter/AccMagCalibration.cpp" \
+"../src/OptimusPiCopter/CommandLineInterface.cpp" \
+"../src/OptimusPiCopter/Control.cpp" \
+"../src/OptimusPiCopter/ExtendedKalman.cpp" \
+"../src/OptimusPiCopter/Kalman.cpp" \
+"../src/OptimusPiCopter/Logger.cpp" \
+"../src/OptimusPiCopter/MerayoCalib.cpp" \
+"../src/OptimusPiCopter/MotorInterface.cpp" \
+"../src/OptimusPiCopter/PID.cpp" \
+"../src/OptimusPiCopter/Quaternion.cpp" \
+"../src/OptimusPiCopter/RXInterface.cpp" \
+"../src/OptimusPiCopter/Timer.cpp" \
+"../src/OptimusPiCopter/main.cpp" 
+
+

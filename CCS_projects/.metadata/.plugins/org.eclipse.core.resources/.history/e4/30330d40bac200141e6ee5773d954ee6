@@ -1,0 +1,84 @@
+/*
+ * TimerFunction.cpp
+ *
+ *  Created on: 4 Mar 2015
+ *      Author: Rellik
+ *      Comment: This class has a problem in liniking symbols.   --Tai  3rd/Mar/2014
+ *      Solution: Declear the the timerclass pointer as static in cpp file rather than in headfile.
+ */
+
+#include "GPTimer.h"
+
+static GPTimerClass* Timer;
+
+GPTimerClass::GPTimerClass()
+			:LED0(0)
+{
+
+	Timer = this;
+	SYSCTL_PERIPH_TIMER = SYSCTL_PERIPH_TIMER2;
+	TIMER_BASE = TIMER2_BASE;
+	TIMER = TIMER_A;
+	INT_TIMERnA_TM4C123 = INT_TIMER2A_TM4C123;
+
+
+	// Enable the timer peripheral
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER);
+	// Ensure the timer is disabled
+	TimerDisable(TIMER_BASE, TIMER);
+	// Configure the timer as a periodic up counter 32bit
+	TimerConfigure(TIMER_BASE, TIMER_CFG_SPLIT_PAIR | TIMER_CFG_A_PERIODIC_UP);
+	// Ensure the timer interrupt is disabled
+	TimerIntDisable(TIMER_BASE, TIMER_TIMA_TIMEOUT);
+	// Clear the interrupt now it is disabled
+	TimerIntClear(TIMER_BASE, TIMER_TIMA_TIMEOUT);
+	// Register one of the two static interrupt handlers to the peripheral
+	TimerIntRegister(TIMER_BASE, TIMER, ISRStatic);
+	// Set the interrupt priority
+	IntPrioritySet(INT_TIMERnA_TM4C123, 0); // @TODO - What should this actually be?
+
+
+}
+
+GPTimerClass::~GPTimerClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void GPTimerClass::config()
+{
+	//Counting from 0 up to the loaded value. Trigger interrupt when the value reaching this value.
+	TimerLoadSet(TIMER_BASE, TIMER, 0xFFF0);
+	//Slow down the clock of the timer by dividing the master clock frequency by 0xFF(256).
+	TimerPrescaleSet(TIMER_BASE, TIMER, 0xFF);
+}
+
+void GPTimerClass::start()
+{
+	TimerIntEnable(TIMER_BASE, TIMER_TIMA_TIMEOUT);
+	TimerEnable(TIMER_BASE, TIMER);
+}
+
+void GPTimerClass::stop()
+{
+
+}
+
+
+interrupt void GPTimerClass::ISRStatic()
+{
+	Timer->ISR();
+}
+
+void GPTimerClass::ISR()
+{
+	static uint32_t i = 0;
+
+	i++;
+	if(i==1000000)
+	{
+		i=0;
+		LED0.toggle();
+	}
+
+}

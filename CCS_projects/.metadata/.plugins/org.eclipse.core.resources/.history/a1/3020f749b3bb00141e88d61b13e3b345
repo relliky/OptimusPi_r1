@@ -1,0 +1,96 @@
+/*
+ * SPIWrapper.cpp
+ *
+ *  Created on: 18 Feb 2014
+ *      Author: matt
+ */
+
+#include "SPIWrapper.h"
+
+/**
+ * Constructor. Initialises the SPI object to open the /dev file interface.
+ */
+SPIWrapper::SPIWrapper()
+		: SPI("/dev/spidev0.0", SPI_MODE_0, 1000000, 8)
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+SPIWrapper::~SPIWrapper()
+{
+	// TODO Auto-generated destructor stub
+}
+
+/**
+ * Sends a single message to the board, consisting of an 8 bit command and any number of 32 bit parameters. The number of parameters
+ * must match the number specified in the SPISlave messageParser class, as the slaves need to know how many parameters to expect
+ * based on the command.
+ *
+ * @param command - 8bit command from OverseerCommands.h
+ * @param parameters - pointer to array of 32bit parameters
+ * @param numberOfParams - integer number of parameters, must be correct to avoid reading invalid array index
+ */
+void SPIWrapper::sendMessage(uint8_t command, uint32_t* parameters, uint32_t numberOfParams)
+{
+	uint8_t messageBytes[1 + (4 * numberOfParams)];
+	messageBytes[0] = command;
+	union
+	{
+		uint32_t ui32Buf;
+		uint8_t ui8Buf[4];
+	};
+
+	for (uint32_t i = 0; i < numberOfParams; i++)
+	{
+		ui32Buf = parameters[i];
+		messageBytes[1 + (4 * i)] = ui8Buf[0];
+		messageBytes[2 + (4 * i)] = ui8Buf[1];
+		messageBytes[3 + (4 * i)] = ui8Buf[2];
+		messageBytes[4 + (4 * i)] = ui8Buf[3];
+	}
+	SPI.spiWriteRead(messageBytes, sizeof(messageBytes));
+}
+
+/**
+ * Gets a number of parameters from the board, starting from the address command.
+ * 
+ * @TODO - has not been tested with more than one parameter, I may have forgotten to actually had this at some point in the RPi->overseer->motor controller chain,
+ * but it shouldn't be difficult to add in if needed.
+ * 
+ * @param command - One of the defines in OverseerCommands.h
+ * @param buf - Where to store read parameters
+ * @param numberOfParams - number of parameters to fetch
+ */
+void SPIWrapper::getData(uint8_t command, uint32_t* buf, uint32_t numberOfParams)
+{
+	// Send the command byte. Remember that command is now corrupted.
+	SPI.spiWriteRead(&command, 1);
+	uint8_t byteBuf = 0;
+	do
+	{
+		byteBuf = 0;
+		SPI.spiWriteRead(&byteBuf, 1);
+	}
+	while (byteBuf != READ_ACK);
+
+	// Now we read the parameter bytes
+	uint8_t messageBytes[4 * numberOfParams];
+	memset(messageBytes, 0, sizeof(messageBytes));
+	SPI.spiWriteRead(messageBytes, sizeof(messageBytes));
+
+	for (uint32_t i = 0; i < numberOfParams; i++)
+	{
+		union
+		{
+			uint32_t ui32Buf;
+			uint8_t ui8Buf[4];
+		};
+
+		for (uint32_t k = 0; k < 4; k++)
+		{
+			ui8Buf[k] = messageBytes[k + (4 * i)];
+		}
+		buf[i] = ui32Buf;
+	}
+}

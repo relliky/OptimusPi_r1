@@ -1,0 +1,29 @@
+/*
+ * PiSlavedCopter.cpp
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#include "PiSlavedCopter.h"
+
+
+
+PiSlavedCopterClass::PiSlavedCopterClass()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+PiSlavedCopterClass::~PiSlavedCopterClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+
+void PiSlavedCopterClass::updateReadBuffers()
+{
+
+}
+
+

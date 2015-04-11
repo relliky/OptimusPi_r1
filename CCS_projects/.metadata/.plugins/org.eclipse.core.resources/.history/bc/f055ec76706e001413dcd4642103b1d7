@@ -1,0 +1,26 @@
+/*
+ * I2C.cpp
+ *
+ *  Created on: 7 Aug 2014
+ *      Author: matt
+ */
+
+#include "I2C.h"
+
+I2CClass::I2CClass()
+{
+
+}
+
+I2CClass::~I2CClass()
+{
+
+}
+
+
+
+int I2CClass::readRegisters8(uint8_t slaveAddress, uint8_t registerAddress, uint8_t* data, uint8_t len)
+{
+	return(0);
+}
+
