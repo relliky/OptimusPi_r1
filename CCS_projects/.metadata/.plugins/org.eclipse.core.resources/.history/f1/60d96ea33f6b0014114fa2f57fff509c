@@ -1,8 +1,0 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
-
-USER_OBJS :=
-
-LIBS := -l"libc.a" -l"H:/MyDropbox/Dropbox/Quadcopter_project/Tai_projects/CCS\ MCU\ projects/TivaWare/driverlib/ccs/Debug/driverlib.lib"
-

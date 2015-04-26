@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;BLDC/src/main.cpp&apos; to &apos;BLDC.cpp&apos;" description="Rename resource &apos;main.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main.cpp" name="BLDC.cpp" stamp="1405693953273" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;BLDC/src/main.h&apos; to &apos;BLDC.h&apos;" description="Rename resource &apos;main.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main.h" name="BLDC.h" stamp="1405693958881" updateReferences="true"/>
-</session>
