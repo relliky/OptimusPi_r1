@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/DebugFunction/DebugFunction.cpp \
+../src/DebugFunction/PrintfTest.cpp 
+
+OBJS += \
+./src/DebugFunction/DebugFunction.obj \
+./src/DebugFunction/PrintfTest.obj 
+
+CPP_DEPS += \
+./src/DebugFunction/DebugFunction.pp \
+./src/DebugFunction/PrintfTest.pp 
+
+CPP_DEPS__QUOTED += \
+"src\DebugFunction\DebugFunction.pp" \
+"src\DebugFunction\PrintfTest.pp" 
+
+OBJS__QUOTED += \
+"src\DebugFunction\DebugFunction.obj" \
+"src\DebugFunction\PrintfTest.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/DebugFunction/DebugFunction.cpp" \
+"../src/DebugFunction/PrintfTest.cpp" 
+
+

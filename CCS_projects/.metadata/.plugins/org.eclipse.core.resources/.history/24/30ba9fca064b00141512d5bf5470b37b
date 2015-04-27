@@ -1,0 +1,109 @@
+/*
+ * PinController.cpp
+ *
+ *  Created on: 2 Sep 2014
+ *      Author: admin
+ */
+
+#include "PinController.h"
+
+/**
+ * Constructor, specifying the name of the pin the object is to control
+ *
+ * @param newPin - enum, see definition
+ */
+PinControllerClass::PinControllerClass(pinName_t newPin)
+{
+	pin = newPin;
+	pinType = unconfiguredType;
+	GPIOInputController = NULL;
+	GPIOOutputController = NULL;
+	inputCaptureController = NULL;
+}
+
+PinControllerClass::PinControllerClass(pinName_t newPin, pinType_t newPinType)
+{
+	pin = newPin;
+	pinType = unconfiguredType;
+	GPIOInputController = NULL;
+	GPIOOutputController = NULL;
+	inputCaptureController = NULL;
+	this->config(newPinType);
+}
+
+PinControllerClass::~PinControllerClass()
+{
+	delete GPIOInputController;
+	GPIOInputController = NULL;
+	delete GPIOOutputController;
+	GPIOOutputController = NULL;
+	delete inputCaptureController;
+	inputCaptureController = NULL;
+}
+
+uint32_t PinControllerClass::getICPeriod()
+{
+	if (pinType == InputCaptureType)
+		return inputCaptureController->getPeriod();
+	else
+		return 0;
+}
+
+void PinControllerClass::setGPIOOutputState(bool state)
+{
+	if (pinType == GPIOOutputType)
+		GPIOOutputController->setOutputState(state);
+	else
+		;
+}
+
+bool PinControllerClass::getGPIOInputState()
+{
+	if (pinType == GPIOInputType)
+		return GPIOInputController->getInputStatus();
+	else
+		return 0;
+}
+
+void PinControllerClass::config(pinType_t newPinType)
+{
+	pinType = newPinType;
+	switch (pinType)
+	{
+	case GPIOOutputType:
+		delete GPIOOutputController;
+		GPIOOutputController = NULL;
+		delete GPIOInputController;
+		GPIOInputController = NULL;
+		delete inputCaptureController;
+		inputCaptureController = NULL;
+		GPIOOutputController = new GPIOOutputClass(pin);
+		break;
+	case GPIOInputType:
+		delete GPIOOutputController;
+		GPIOOutputController = NULL;
+		delete GPIOInputController;
+		GPIOInputController = NULL;
+		delete inputCaptureController;
+		inputCaptureController = NULL;
+		inputCaptureController = new InputCaptureClass(pin);
+		break;
+	case InputCaptureType:
+		delete GPIOOutputController;
+		GPIOOutputController = NULL;
+		delete GPIOInputController;
+		GPIOInputController = NULL;
+		delete inputCaptureController;
+		inputCaptureController = NULL;
+		inputCaptureController = new InputCaptureClass(pin);
+		break;
+	case AnalogInputType:
+		delete GPIOOutputController;
+		GPIOOutputController = NULL;
+		delete GPIOInputController;
+		GPIOInputController = NULL;
+		delete inputCaptureController;
+		inputCaptureController = NULL;
+		break;
+	}
+}

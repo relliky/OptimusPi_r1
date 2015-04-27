@@ -1,0 +1,22 @@
+/*
+ * hahaha.h
+ *
+ *  Created on: 11 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef HAHAHA_H_
+#define HAHAHA_H_
+
+
+class hahaha
+{
+public:
+	hahaha();
+	virtual ~hahaha();
+	void h(void);
+};
+
+
+
+#endif /* HAHAHA_H_ */

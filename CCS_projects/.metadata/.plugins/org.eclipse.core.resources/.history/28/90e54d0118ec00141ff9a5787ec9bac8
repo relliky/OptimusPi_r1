@@ -1,0 +1,48 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/shared/AHRS/AHRS.cpp \
+../src/shared/AHRS/ExtendedKalman.cpp \
+../src/shared/AHRS/Kalman.cpp \
+../src/shared/AHRS/MerayoCalib.cpp \
+../src/shared/AHRS/Quaternion.cpp 
+
+OBJS += \
+./src/shared/AHRS/AHRS.obj \
+./src/shared/AHRS/ExtendedKalman.obj \
+./src/shared/AHRS/Kalman.obj \
+./src/shared/AHRS/MerayoCalib.obj \
+./src/shared/AHRS/Quaternion.obj 
+
+CPP_DEPS += \
+./src/shared/AHRS/AHRS.pp \
+./src/shared/AHRS/ExtendedKalman.pp \
+./src/shared/AHRS/Kalman.pp \
+./src/shared/AHRS/MerayoCalib.pp \
+./src/shared/AHRS/Quaternion.pp 
+
+CPP_DEPS__QUOTED += \
+"src\shared\AHRS\AHRS.pp" \
+"src\shared\AHRS\ExtendedKalman.pp" \
+"src\shared\AHRS\Kalman.pp" \
+"src\shared\AHRS\MerayoCalib.pp" \
+"src\shared\AHRS\Quaternion.pp" 
+
+OBJS__QUOTED += \
+"src\shared\AHRS\AHRS.obj" \
+"src\shared\AHRS\ExtendedKalman.obj" \
+"src\shared\AHRS\Kalman.obj" \
+"src\shared\AHRS\MerayoCalib.obj" \
+"src\shared\AHRS\Quaternion.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/shared/AHRS/AHRS.cpp" \
+"../src/shared/AHRS/ExtendedKalman.cpp" \
+"../src/shared/AHRS/Kalman.cpp" \
+"../src/shared/AHRS/MerayoCalib.cpp" \
+"../src/shared/AHRS/Quaternion.cpp" 
+
+

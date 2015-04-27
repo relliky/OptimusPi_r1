@@ -1,0 +1,130 @@
+/*
+ * MotorController.cpp
+ *
+ *  Created on: 11 Aug 2014
+ *      Author: admin
+ */
+
+#include "MotorController.h"
+
+//@TODO this is apparently risky, see rule 29  //REVISIT: WHAT IS THIS?  WHERE IS RULE 29?  -- TAI LI 24/02/15
+SPIMasterClass MotorControllerClass::SPI1(1);
+SPIMasterClass MotorControllerClass::SPI2(2);
+
+//REVISIT: It is risky because that SPI1, SPI2 here are initialised in the first time (there are two static object defined in MotorController.h)
+//         and SPIMasterClass.configPeripherals(channel) have been runned as part of constructor. It enables SPI1 and SPI2 hardware. So theoritically it should work.
+//         However, I guess since SPI1 and SPI2 share the same RX/TX FIFO, the FIFO should be emptyed before the processor switch to another.
+//         Have not get a solution to it yet.
+
+
+/**
+ * Constructor, with the motor channel to control specified
+ *
+ * @param newChannel - 0 to 3, motor channel
+ */
+MotorControllerClass::MotorControllerClass(uint32_t newChannel)
+{
+	channel = newChannel;
+	if (channel < 2)
+	{
+		SPI = &SPI1;
+	}
+	else
+	{
+		SPI = &SPI2;
+	}
+}
+
+/**
+ * Destructor, stops the motor before destruction.
+ */
+MotorControllerClass::~MotorControllerClass()
+{
+	this->stop();
+}
+
+/**
+ * Configures what type of motor the controller will be controlling
+ *
+ * @param newState - Currently only BLDC, but more controllers can be added here
+ */
+void MotorControllerClass::config(motorChannelState_t newState)
+{
+	state = newState;
+	switch (state)
+	{
+	case BLDC:
+		if (channel % 2 == 0)
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH0_BLDC);
+		else
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_BLDC);
+		break;
+
+	case stepper:
+		if (channel % 2 == 0)
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH0_STEPPER);
+		else
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_STEPPER);
+		break;
+
+	case brushed:
+		if (channel % 2 == 0)
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH0_BRUSHED);
+		else
+			SPI->sendMessage(MOTOR_CONTROLLER_CONFIG_CH1_BRUSHED);
+		break;
+
+	}
+}
+
+/**
+ * Generic start function
+ */
+void MotorControllerClass::start()
+{
+	if (channel % 2 == 0)
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_START_MOTOR_0);
+	else
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_START_MOTOR_1);
+}
+
+/**
+ * Generic stop function
+ */
+void MotorControllerClass::stop()
+{
+	if (channel % 2 == 0)
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_STOP_MOTOR_0);
+	else
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_STOP_MOTOR_1);
+}
+
+/**
+ * Generic set power function
+ *
+ * @param period 0 to 1000
+ */
+void MotorControllerClass::setPWMWidth(uint32_t period)
+{
+	if (channel % 2 == 0)
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_SET_MOTOR_0_DUTY, &period, 1);
+	else
+		SPI->sendMessage(MOTOR_CONTROLLER_BLDC_SET_MOTOR_1_DUTY, &period, 1);
+}
+
+/**
+ * Gets the value of the motor status register, which currently returns 1 if the motor is running
+ * and 0 if it is stopped or still starting.
+ *
+ * @return
+ */
+bool MotorControllerClass::running()
+{
+	uint32_t buf;
+	if (channel % 2 == 0)
+		SPI->getData(MOTOR_CONTROLLER_BLDC_GET_STATUS_0, &buf, 1);
+	else
+		SPI->getData(MOTOR_CONTROLLER_BLDC_GET_STATUS_1, &buf, 1);
+
+	return (bool)buf;
+}

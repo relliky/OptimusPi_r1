@@ -1,0 +1,35 @@
+/*
+ * I2Ctest.cpp
+ *
+ *  Created on: 28 Nov 2014
+ *      Author: Rellik
+ */
+
+#include "test/I2CTest.h"
+
+I2CTest::I2C_test()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+I2CTest::~I2C_test()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void I2CTest::runBasicReadTest(void)
+{
+	// TP stands for test points. It contains the value decide if the tests pass or fail.
+	uint8_t TP_Rreg8_signle = 0,
+			TP_Rreg8_multiple_arr[2],
+			TP_readBit8 = 0,
+
+
+	uint16_t TP_Rreg16_single = 0, TP_Rreg16_multiple_arr[2];
+
+
+
+
+}
+

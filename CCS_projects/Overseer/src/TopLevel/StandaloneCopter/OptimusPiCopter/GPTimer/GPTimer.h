@@ -1,0 +1,67 @@
+/*
+ * GPTimer.h
+ *
+ *  Created on: 4 Mar 2015
+ *      Author: Tai
+ */
+
+#ifndef GPTIMERCLASS_H_
+#define GPTIMERCLASS_H_
+
+#define PART_TM4C123AH6PM //Needed to make pin_map include properly, isnt used in examples
+// stdint has to be defined before other drivers.
+#include <stdint.h>
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <iostream>
+
+#include "driverlib/pin_map.h"
+#include "inc/hw_memmap.h"
+#include "inc/hw_ints.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "driverlib/timer.h"
+#include "driverlib/interrupt.h"
+//#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
+
+
+// This ControlClass has to be decleared (just a prototype) otherwise its pointer cannot be decleared.
+// The acutal ControlClass is defined later in the .cpp file.
+// This is to resolve the recursive including between "GPTimer.h" and "Control.h".
+// So the pointer class would not be wrong before it is assigned.    ---Tai  13/03/15
+class ControlClass;
+class StandaloneCopterClass;
+
+class GPTimerClass
+{
+public:
+	GPTimerClass(ControlClass* controlPtr, StandaloneCopterClass* StandaloneCopterPtr);
+	virtual ~GPTimerClass();
+
+	float getSystemUpdateRateDt();
+	void  setSystemUpdateRateDt(float dt_set);
+	void  start();
+	void  stop();
+	void  ISR();
+
+
+private:
+	// Register abstractors and accessors
+	uint32_t SYSCTL_PERIPH_TIMER;
+	uint32_t TIMER_BASE;
+	uint32_t INT_TIMERnA_TM4C123;
+	uint32_t TIMER;
+
+	void calcdt();
+	static void ISRStatic();
+
+	float    dt;
+	bool 	 timerOn;
+	ControlClass* control;
+	StandaloneCopterClass* StandaloneCopter;
+
+};
+
+
+#endif /* TIMER_H_ */

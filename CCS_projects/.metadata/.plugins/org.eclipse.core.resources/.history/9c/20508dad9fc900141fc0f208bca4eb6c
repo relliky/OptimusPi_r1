@@ -1,0 +1,26 @@
+/*
+ * PiSlavedCopter.h
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef PISLAVEDCOPTER_H_
+#define PISLAVEDCOPTER_H_
+
+namespace std
+{
+
+/*
+ *
+ */
+class PiSlavedCopterClass
+{
+public:
+	PiSlavedCopterClass();
+	virtual ~PiSlavedCopterClass();
+};
+
+} /* namespace std */
+
+#endif /* PISLAVEDCOPTER_H_ */

@@ -1,0 +1,16 @@
+/*
+ * InputCaptureGlobalVariables.h
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef INPUTCAPTUREGLOBALVARIABLES_H_
+#define INPUTCAPTUREGLOBALVARIABLES_H_
+
+//Definitions in <src/TopLevel/GlobalVariablesDefinition/GlobalVariablesDefinition.h>
+
+
+
+
+#endif /* INPUTCAPTUREGLOBALVARIABLES_H_ */

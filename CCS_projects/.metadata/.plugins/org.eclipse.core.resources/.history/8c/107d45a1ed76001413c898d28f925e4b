@@ -1,0 +1,26 @@
+/*
+ * I2Ctest.h
+ *
+ *  Created on: 28 Nov 2014
+ *      Author: Rellik
+ */
+
+#ifndef I2CTEST_H_
+#define I2CTEST_H_
+
+namespace I2C_test
+{
+
+/*
+ *
+ */
+class I2C_test
+{
+public:
+	I2C_test();
+	virtual ~I2C_test();
+};
+
+} /* namespace I2C_test */
+
+#endif /* I2CTEST_H_ */

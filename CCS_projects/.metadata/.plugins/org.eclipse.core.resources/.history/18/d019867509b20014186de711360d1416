@@ -1,0 +1,24 @@
+/*
+ * hahaha.cpp
+ *
+ *  Created on: 11 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/hahaha.h>
+
+
+
+hahaha::hahaha()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+hahaha::~hahaha()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void hahaha:h(void)
+{}

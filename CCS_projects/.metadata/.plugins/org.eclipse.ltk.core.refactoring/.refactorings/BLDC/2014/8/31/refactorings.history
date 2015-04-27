@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;BLDC/src/SPICommands.h&apos; to &apos;SPICommandsBLDC.h&apos;" description="Rename resource &apos;SPICommands.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/SPICommands.h" name="SPICommandsBLDC.h" stamp="1406897662654" updateReferences="true"/>
+</session>

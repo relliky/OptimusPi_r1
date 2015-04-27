@@ -1,0 +1,59 @@
+/* 
+ * File:   CommandLineInterface.h
+ * Author: matt
+ *
+ * Created on 01 November 2012, 16:14
+ */
+
+#ifndef COMMANDLINEINTERFACE_H
+#define	COMMANDLINEINTERFACE_H
+
+#include <iostream>
+#include <map>
+
+#include "Logger.h"
+#include "Control.h"
+
+enum lineString
+{
+	en_stringNotDefined,
+	en_openlog,
+	en_dumporientation,
+	en_dumpsensors,
+	en_dumprawsensors,
+	en_dumprawmag,
+	en_dumprawrx,
+	en_dumprx,
+	en_resetmpu,
+	en_readregister,
+	en_setRatePID,
+	en_getRatePID,
+	en_setAttitudePID,
+	en_getAttitudePID,
+	en_setYawPID,
+	en_getYawPID,
+	en_exit
+};
+
+class CommandLineInterfaceClass
+{
+public:
+	CommandLineInterfaceClass(ControlClass* ControlPtr, volatile bool* quittingPtr);
+	virtual ~CommandLineInterfaceClass();
+
+	void getCommand();
+
+private:
+	void initialiseMap();
+
+	ControlClass* Control;
+
+	std::map<std::string, lineString> lineMap_;
+	std::string stringbuf_[6];
+	
+	volatile bool* quitting;
+};
+extern CommandLineInterfaceClass CLI;
+
+#endif	/* COMMANDLINEINTERFACE_H */
+

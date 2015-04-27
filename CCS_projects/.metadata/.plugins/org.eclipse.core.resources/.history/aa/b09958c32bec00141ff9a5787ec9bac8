@@ -1,0 +1,80 @@
+/*
+ * ArbitratorClass.cpp
+ *
+ *  Created on: 10 Mar 2015
+ *      Author: Tai
+ */
+
+#include "ArbitratorClass.h"
+
+ArbitratorClass::ArbitratorClass()
+{
+	//Setting default mode as Standalone Copter.
+	this->setStandaloneCopterMode();
+	StandaloneCopter = NULL;
+	RPiControlledCopter = NULL;
+	//Default dt = 0.005s, running on 200Hz
+	dt = 0.005;
+}
+
+ArbitratorClass::~ArbitratorClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void ArbitratorClass::setCopterMode(copterMode_t copterMode_set)
+{
+	copterMode = copterMode_set;
+}
+
+
+void ArbitratorClass::start()
+{
+	while(1)
+	{
+		if(copterMode == StandaloneCopterMode)
+		{
+			StandaloneCopter = new StandaloneCopterClass();
+			StandaloneCopter->setDt(dt);
+			// Running the copter while waiting to switch to anther mode.
+			while(!StandaloneCopter->isSwitchedToRPiControlledCopterMode())
+			{
+				StandaloneCopter->running();
+			}
+			// Copter mode is switched, uninitialise and delete current mode object
+			delete StandaloneCopter;
+			StandaloneCopter = NULL;
+			this->setCopterMode(RPiControlledCopterMode);
+		}
+
+		if(copterMode == RPiControlledCopterMode)
+		{
+			RPiControlledCopter = new RPiControlledCopterClass();
+			// Running the copter while waiting to switch to anther mode.
+			while(!RPiControlledCopter->isSwitchedToStandaloneCopterMode())
+			{
+				RPiControlledCopter->running();
+			}
+			// Copter mode is switched, uninitialise and delete current mode object
+			delete RPiControlledCopter;
+			RPiControlledCopter = NULL;
+			this->setCopterMode(StandaloneCopterMode);
+		}
+	}
+}
+
+float ArbitratorClass::getUpdateRateInStandaloneCopterMode()
+{
+	if(copterMode == StandaloneCopterMode)
+	{
+		StandaloneCopterMode->
+	}else return -1;
+
+
+}
+
+void ArbitratorClass::setUpdateRateInStandaloneCopterMode(float dt_set)
+{
+	systemUpdateRateDt = dt_set;
+}
+

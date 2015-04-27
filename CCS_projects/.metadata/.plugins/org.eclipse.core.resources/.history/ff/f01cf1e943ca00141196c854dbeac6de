@@ -1,0 +1,22 @@
+/*
+ * StandaloneCopter.cpp
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#include <src/TopLevel/StandaloneCopter/StandaloneCopter.h>
+
+
+
+StandaloneCopterClass::StandaloneCopterClass()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+StandaloneCopterClass::~StandaloneCopterClass()
+{
+	// TODO Auto-generated destructor stub
+}
+

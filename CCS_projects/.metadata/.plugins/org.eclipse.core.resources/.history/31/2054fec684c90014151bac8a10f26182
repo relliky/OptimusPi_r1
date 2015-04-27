@@ -1,0 +1,22 @@
+/*
+ * GlobalVariablesDefinition.h
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef GLOBALVARIABLESDEFINITION_H_
+#define GLOBALVARIABLESDEFINITION_H_
+
+// Global pointers used for two SPIs to two motor controllers in
+// <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp>
+#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.h>
+#include <src/shared/SPI/SPIMaster/SPIMaster.h>
+SPIMasterClass MotorControllerClass::SPI1(1);
+SPIMasterClass MotorControllerClass::SPI2(2);
+
+
+
+
+
+#endif /* GLOBALVARIABLESDEFINITION_H_ */

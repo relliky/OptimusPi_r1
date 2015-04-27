@@ -1,0 +1,23 @@
+/*
+ * testoption.h
+ *
+ *  Created on: 11 Feb 2015
+ *      Author: Rellik
+ */
+
+#ifndef TESTOPTION_H_
+#define TESTOPTION_H_
+
+	#define DEBUG
+	#define DEBUG_PRINTF_VIA_JTAG
+
+	/* Enable all tests */
+	//#define DEBUG_RUN_ALL_TEST
+
+	/* Enable each individual test */
+	#define DEBUG_RUN_I2C_BASIC_TEST
+
+//	#define DEBUG_RUN_PRINTF_TEST
+
+
+#endif /* TESTOPTION_H_ */

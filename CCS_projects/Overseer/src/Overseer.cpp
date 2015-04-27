@@ -1,0 +1,64 @@
+/*
+ * main.c
+ *
+ *
+ *
+ *
+ * Communicate with BLDC - done
+ * Read data from MPU - done
+ * Communicate with both motor controllers - done
+ * @TODO Bounce programming data from pi to BLDC controllers
+ * Add input capture support - done
+ * Add input capture SPI interface - done
+ * Add GPIO input and output - done
+ * @TODO Create motor status register to allow overseer to monitor rotation status
+ * @TODO Add initial speed parameter to motor startup command
+ * @TODO Add motor rotation direction change command
+ * 			--- Matthew Waston
+ *
+ * Moved the code from Raspberry Pi down to Overseer  -- done
+ * including:
+ * 1) Added MPU9150 support, I2C/SMBus support on Overseer, and SPI commands for passing sensor data.
+ * 2) Added general-purpose timer on Overseer
+ * 3) Added printf support via JTAG
+ * 4) Added test environment for self-checking for peripheral drivers as well as debugging other codes
+ * 5) Added Arbitrator to switch fly mode between StandaloneCopter (controlled by RF controller)
+ *    or PiControlledCopter (controlled by RasbperryPi)
+ * 6) Fixed run-time bugs when code was moved from Raspberry Pi down to Overseer
+ *
+ * @TODO New quadcopter prototype has not been built up yet.
+ * @TODO New SPI commands and mechanism of switching fly mode has not been tested by using Raspbeery Pi yet.
+ * @TODO Standalone fly mode and PiControlledCopter fly mode has not been tested on hardware yet.
+ * @TODO Logger class has been removed from control. Might be worth to added it back in for viewing
+ *       the status of the system and uploading it up to Raspberry Pi if necessary.
+ *
+ * 			--- Tai Li
+  */
+
+#define MCU_OVERSEER
+
+#include "Overseer.h"
+
+
+void main(void)
+{
+
+	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
+
+	#ifdef DEBUG
+			DebugFunctionClass SelfTest;
+			SelfTest.RunTests();
+	#endif
+
+	ArbitratorClass Arbitrator;
+	// System update rate is set at 200Hz
+	Arbitrator.setUpdateRateInStandaloneCopterMode(200);
+	Arbitrator.start();
+
+
+	// should never reach here
+	while(1);
+}
+
+
+

@@ -1,0 +1,14 @@
+/*
+ * debug.h
+ *
+ *  Created on: 10 Feb 2015
+ *      Author: Tai
+ */
+
+
+#define DEBUG
+
+#define DEBUG_PRINTF_VIA_JTAG
+
+#define DEBUG_RUN_PRINTF_TEST
+

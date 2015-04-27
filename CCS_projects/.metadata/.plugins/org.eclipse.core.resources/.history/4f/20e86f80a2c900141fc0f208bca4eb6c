@@ -1,0 +1,25 @@
+/*
+ * ArbitratorClass.h
+ *
+ *  Created on: 10 Mar 2015
+ *      Author: Tai
+ */
+
+#ifndef ARBITRATORCLASS_H_
+#define ARBITRATORCLASS_H_
+
+#include "../PiSlavedCopter/PiSlavedCopter.h"
+//#include "../IsolatedCopter/OptimusPiCopter/Control/Control.h"
+
+class ArbitratorClass
+{
+public:
+	ArbitratorClass();
+	virtual ~ArbitratorClass();
+
+	PiSlavedCopterClass PiSlavedCopter;
+	//ControlClass 		Control;
+};
+
+
+#endif /* ARBITRATORCLASS_H_ */

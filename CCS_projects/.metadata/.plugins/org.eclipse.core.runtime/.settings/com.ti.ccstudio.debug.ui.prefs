@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+symbolAutoCompleteHistory<seperator>org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser<seperator>Texas\ Instruments\ XDS100v2\ USB\ Emulator\\CORTEX_M4_0=0x200008B0,0x60c2401a,___STACK_TOP,__STACK_TOP + 0x18,__STACK_TOP + 24,__STACK_TOP,0xd28
+symbolAutoCompleteHistory<seperator>org.eclipse.cdt.dsf.debug.ui.disassembly.view<seperator>Texas\ Instruments\ XDS100v2\ USB\ Emulator\\CORTEX_M4_0=0x00002268,0x60c2401a,0x06200088,0xf001bf1c,0x20000484
+useAnnotationsPrefPage=true

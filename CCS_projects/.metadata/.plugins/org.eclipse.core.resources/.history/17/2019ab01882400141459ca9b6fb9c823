@@ -1,0 +1,61 @@
+/*
+ * bldc.cpp
+ *
+ *  Created on: 10 Jul 2014
+ *      Author: admin
+ *
+ *      TO DO:
+ *      Add communication support, SPI and I2C
+ */
+
+#define MCU_BLDC
+
+#include "BLDC.h"
+
+#define CHANNEL_0 0
+#define CHANNEL_1 1
+
+//static SPISlaveClass SPISlave(0);
+
+
+void main()
+{
+	static motorClass motor0(0);
+	static motorClass motor1(1);
+	SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_INT);
+	for (;;)
+	{
+		/*message_s message;
+		if (SPISlave.getMessage(&message))
+		{
+			switch (message.command)
+			{
+			case BLDC_START_MOTOR_0:
+				motor0.start();
+				break;
+
+			case BLDC_START_MOTOR_1:
+				motor1.start();
+				break;
+
+			case BLDC_STOP_MOTOR_0:
+				motor0.stop();
+				break;
+
+			case BLDC_STOP_MOTOR_1:
+				motor1.stop();
+				break;
+
+			case BLDC_SET_MOTOR_0_DUTY:
+				if (motor0.getState() == closedloop)
+					motor0.setPWMWidth(message.parameters[0]);
+				break;
+
+			case BLDC_SET_MOTOR_1_DUTY:
+				if (motor1.getState() == closedloop)
+					motor1.setPWMWidth(message.parameters[0]);
+				break;
+			}
+		}*/
+	}
+}

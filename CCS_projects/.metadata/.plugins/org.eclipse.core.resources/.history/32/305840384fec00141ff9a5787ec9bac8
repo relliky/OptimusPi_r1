@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/shared/AHRS/AHRS.cpp \
+../src/shared/AHRS/MerayoCalib.cpp 
+
+OBJS += \
+./src/shared/AHRS/AHRS.obj \
+./src/shared/AHRS/MerayoCalib.obj 
+
+CPP_DEPS += \
+./src/shared/AHRS/AHRS.pp \
+./src/shared/AHRS/MerayoCalib.pp 
+
+CPP_DEPS__QUOTED += \
+"src\shared\AHRS\AHRS.pp" \
+"src\shared\AHRS\MerayoCalib.pp" 
+
+OBJS__QUOTED += \
+"src\shared\AHRS\AHRS.obj" \
+"src\shared\AHRS\MerayoCalib.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/shared/AHRS/AHRS.cpp" \
+"../src/shared/AHRS/MerayoCalib.cpp" 
+
+

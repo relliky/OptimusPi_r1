@@ -1,0 +1,81 @@
+/*
+ * ArbitratorClass.cpp
+ *
+ *  Created on: 10 Mar 2015
+ *      Author: Tai
+ */
+
+#include "ArbitratorClass.h"
+
+ArbitratorClass::ArbitratorClass()
+{
+	//Setting default mode as Standalone Copter.
+	this->setCopterMode(StandaloneCopterMode);
+	StandaloneCopter = NULL;
+	RPiControlledCopter = NULL;
+	//Default dt = 0.005s, running on 200Hz
+	systemUpdateRateDt = 0.005;
+}
+
+ArbitratorClass::~ArbitratorClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void ArbitratorClass::setCopterMode(copterMode_t copterMode_set)
+{
+	copterMode = copterMode_set;
+}
+
+
+void ArbitratorClass::start()
+{
+	while(1)
+	{
+		if(copterMode == StandaloneCopterMode)
+		{
+			StandaloneCopter = new StandaloneCopterClass();
+			StandaloneCopter->setSystemUpdateRateDt(systemUpdateRateDt);
+			// Running the copter while waiting to switch to anther mode.
+			while(!StandaloneCopter->isSwitchedToRPiControlledCopterMode())
+			{
+				StandaloneCopter->running();
+			}
+			// Copter mode is switched, uninitialise and delete current mode object
+			delete StandaloneCopter;
+			StandaloneCopter = NULL;
+			this->setCopterMode(RPiControlledCopterMode);
+		}
+
+		if(copterMode == RPiControlledCopterMode)
+		{
+			RPiControlledCopter = new RPiControlledCopterClass();
+			// Running the copter while waiting to switch to anther mode.
+			while(!RPiControlledCopter->isSwitchedToStandaloneCopterMode())
+			{
+				RPiControlledCopter->running();
+			}
+			// Copter mode is switched, uninitialise and delete current mode object
+			delete RPiControlledCopter;
+			RPiControlledCopter = NULL;
+			this->setCopterMode(StandaloneCopterMode);
+		}
+	}
+}
+
+float ArbitratorClass::getUpdateRateInStandaloneCopterMode()
+{
+	float systemUpdateRate;
+
+	if(copterMode == StandaloneCopterMode)
+	{
+		systemUpdateRate =  1/StandaloneCopter->getSystemUpdateRateDt();
+		return systemUpdateRate;
+	}else return -1;
+}
+
+void ArbitratorClass::setUpdateRateInStandaloneCopterMode(float updateFrequency)
+{
+	systemUpdateRateDt = 1/updateFrequency;
+}
+

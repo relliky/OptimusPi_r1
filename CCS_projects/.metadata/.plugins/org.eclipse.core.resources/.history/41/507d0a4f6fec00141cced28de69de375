@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//Debug/sources.mk=UTF-8
+encoding//Debug/src/lib/shared/SPI/SPIMaster/subdir_rules.mk=UTF-8
+encoding//Debug/src/lib/shared/SPI/SPIMaster/subdir_vars.mk=UTF-8
+encoding//Debug/src/lib/shared/SPI/SPISlave/subdir_rules.mk=UTF-8
+encoding//Debug/src/lib/shared/SPI/SPISlave/subdir_vars.mk=UTF-8
+encoding//Debug/src/lib/utilites/ExtendedKalman/subdir_rules.mk=UTF-8
+encoding//Debug/src/lib/utilites/ExtendedKalman/subdir_vars.mk=UTF-8
+encoding//Debug/src/lib/utilites/LinearKalman/subdir_rules.mk=UTF-8
+encoding//Debug/src/lib/utilites/LinearKalman/subdir_vars.mk=UTF-8
+encoding//Debug/src/lib/utilites/PID/subdir_rules.mk=UTF-8
+encoding//Debug/src/lib/utilites/PID/subdir_vars.mk=UTF-8
+encoding//Debug/subdir_rules.mk=UTF-8
+encoding//Debug/subdir_vars.mk=UTF-8

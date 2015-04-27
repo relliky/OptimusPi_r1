@@ -1,0 +1,24 @@
+/*
+ * I2Ctest.cpp
+ *
+ *  Created on: 28 Nov 2014
+ *      Author: Rellik
+ */
+
+#include "H:I2Ctest.h"
+
+namespace I2C_test
+{
+
+I2C_test::I2C_test()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+I2C_test::~I2C_test()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace I2C_test */

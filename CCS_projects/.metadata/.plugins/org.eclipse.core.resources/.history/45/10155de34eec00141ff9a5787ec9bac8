@@ -1,0 +1,76 @@
+/* 
+ * File:   AHRS.h
+ * Author: Tai
+ *
+ * Created on 29 October 2012, 22:38
+ */
+
+#ifndef AHRS_H
+#define	AHRS_H
+
+#include <iostream>
+
+#include <src/shared/MPU9150/MPU9150.h>
+#include <src/shared/OverseerOptimusPiInterface/OptimusPiInterface.h>
+#include "MerayoCalib.h"
+#include "Kalman.h"
+#include <src/lib/utilites/ExtendedKalman/ExtendedKalman.h>
+#include <src/lib/utilites/ExtendedKalman/Quaternion.h>
+
+
+//debug usage only
+//#define DEBUG_AHRS
+#ifdef DEBUG_AHRS
+	#include <stdbool.h>
+	#include <stdint.h>
+	#include <stdio.h>
+	#include <iostream>
+#endif
+
+struct euler_s
+{
+	float pitch;
+	float roll;
+	float yaw;
+};
+
+class AHRSClass : public MerayoCalibClass
+{
+public:
+	AHRSClass(OptimusPiInterfaceClass* OptimusPiPtr);
+	virtual ~AHRSClass();
+
+	void update(float dt);
+	
+	QuaternionClass getQuaternion();
+	float getPitch();
+	float getRoll();
+	float getYaw();
+	float getX();
+	float getY();
+	float getZ();
+	float getP();
+	float getQ();
+	float getR();
+	float getMagX();
+	float getMagY();
+	float getMagZ();
+	float getTemp();
+
+//private:
+	void getSensors();
+	void fuse(float dt);
+	void transformOrientation();
+	void quaternionToYPR(QuaternionClass* q, euler_s* orientation);
+
+	ExtendedKalmanClass EKF;
+	QuaternionClass quaternion;
+	euler_s orientation;
+	calibrationData_s accCalibData, magCalibData;
+	sensorData_s<float> scaledSensorData;
+
+	OptimusPiInterfaceClass* OptimusPi;
+};
+
+#endif	/* AHRS_H */
+

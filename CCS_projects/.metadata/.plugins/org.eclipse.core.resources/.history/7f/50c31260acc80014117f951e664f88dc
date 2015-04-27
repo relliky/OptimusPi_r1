@@ -1,0 +1,76 @@
+/*
+ * PiSlavedCopterClass.cpp
+ *
+ *  Created on: 12 Mar 2015
+ *      Author: Rellik
+ */
+
+#include "PiSlavedCopterClass.h"
+
+
+PiSlavedCopterClass::PiSlavedCopterClass()
+				: RPiSPISlave(0),
+				  motor0(0),
+				  motor1(1),
+				  motor2(2),
+				  motor3(3),
+				  IC0(IC0Pin),
+				  IC1(IC1Pin),
+				  IC2(IC2Pin),
+				  IC3(IC3Pin),
+				  IC4(IC4Pin),
+				  IC5(IC5Pin),
+				  IC6(IC6Pin),
+				  IC7(IC7Pin),
+				  AN0(AN0Pin),
+				  AN1(AN1Pin),
+				  AN2(AN2Pin),
+				  AN3(AN3Pin),
+				  AN4(AN4Pin),
+				  AN5(AN5Pin)
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+PiSlavedCopterClass::~PiSlavedCopterClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+
+/**
+ * Updates the SPI slave read buffers with new data.
+ */
+void PiSlavedCopterClass::updateReadBuffers()
+{
+// Currently broken as 24/7 polling just floods the SPI bus, we need to either poll these registers on demand or at a fixed interval
+//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_0, motor0.running());
+//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_1, motor1.running());
+//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_2, motor2.running());
+//	RPiSPISlave.updateReadResponse(OVERSEER_GET_MOTOR_STATUS_3, motor3.running());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_WIDTH, IC0.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_WIDTH, IC1.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_WIDTH, IC2.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_WIDTH, IC3.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_WIDTH, IC4.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_WIDTH, IC5.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_WIDTH, IC6.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_WIDTH, IC7.getICPeriod());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC0_GPIO_INPUT_STATUS, IC0.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC1_GPIO_INPUT_STATUS, IC1.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC2_GPIO_INPUT_STATUS, IC2.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC3_GPIO_INPUT_STATUS, IC3.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC4_GPIO_INPUT_STATUS, IC4.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC5_GPIO_INPUT_STATUS, IC5.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC6_GPIO_INPUT_STATUS, IC6.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_IC7_GPIO_INPUT_STATUS, IC7.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN0_GPIO_INPUT_STATUS, AN0.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN1_GPIO_INPUT_STATUS, AN1.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN2_GPIO_INPUT_STATUS, AN2.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN3_GPIO_INPUT_STATUS, AN3.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN4_GPIO_INPUT_STATUS, AN4.getGPIOInputState());
+	RPiSPISlave.updateReadResponse(OVERSEER_GET_AN5_GPIO_INPUT_STATUS, AN5.getGPIOInputState());
+
+}
+

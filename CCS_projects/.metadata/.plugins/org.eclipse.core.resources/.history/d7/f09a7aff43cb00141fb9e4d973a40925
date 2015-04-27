@@ -1,0 +1,31 @@
+/*
+ * ArbitratorClass.cpp
+ *
+ *  Created on: 10 Mar 2015
+ *      Author: Tai
+ */
+
+#include "ArbitratorClass.h"
+
+
+ArbitratorClass::ArbitratorClass()
+{
+	// TODO Auto-generated constructor stub
+	this->setStandaloneCopterMode();
+}
+
+ArbitratorClass::~ArbitratorClass()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void ArbitratorClass::setStandaloneCopterMode()
+{
+	copterMode = StandaloneCopterMode ;
+}
+
+ArbitratorClass::startCopter()
+{
+	RPiControlledCopterClass	RPiControlledCopter;
+	StandaloneCopterClass		StandaloneCopter;
+}

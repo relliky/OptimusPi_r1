@@ -1,0 +1,26 @@
+/*
+ * Timer.h
+ *
+ *  Created on: 4 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef TIMER_H_
+#define TIMER_H_
+
+namespace std
+{
+
+/*
+ *
+ */
+class TimerClass
+{
+public:
+	TimerClass();
+	virtual ~TimerClass();
+};
+
+} /* namespace std */
+
+#endif /* TIMER_H_ */

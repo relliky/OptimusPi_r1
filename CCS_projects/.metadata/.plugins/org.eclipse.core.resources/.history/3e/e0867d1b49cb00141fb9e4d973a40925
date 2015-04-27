@@ -1,0 +1,62 @@
+/*
+ * StandaloneCopter.cpp
+ *
+ *  Created on: 14 Mar 2015
+ *      Author: Rellik
+ */
+
+#include "StandaloneCopter.h"
+
+#include "OptimusPiCopter/Control/Control.h"
+
+StandaloneCopterClass::StandaloneCopterClass()
+		:Control(this),
+		 RPiSPISlave(0)
+{
+	Control.enable();
+	SwitchToPiControlledCopterMode = false;
+}
+
+StandaloneCopterClass::~StandaloneCopterClass()
+{
+	Control.disable();
+}
+
+void StandaloneCopterClass::checkModeStatus()
+{
+	message_s message;
+	while (RPiSPISlave.getMessage(&message))
+	{
+		//added flag to switch to StandaloneCopter mode
+		if(message.command == OVERSEER_CONFIG_AS_STANDALONE_COPTER)
+		{
+			SwitchToPiControlledCopterMode = true;
+			break;
+		}
+	}
+}
+
+
+void StandaloneCopterClass::setPiControlledCopterMode()
+{
+	SwitchToPiControlledCopterMode = true;
+}
+
+
+bool StandaloneCopterClass::isSwitchedToPiControlledCopterMode()
+{
+	this->running();
+	return SwitchToPiControlledCopterMode;
+}
+
+
+void StandaloneCopterClass::clearPiControlledCopterMode()
+{
+	SwitchToPiControlledCopterMode = false;
+}
+
+// Leave the GPTimer ISR to callback and update the system.
+void StandaloneCopterClass::running()
+{
+
+}

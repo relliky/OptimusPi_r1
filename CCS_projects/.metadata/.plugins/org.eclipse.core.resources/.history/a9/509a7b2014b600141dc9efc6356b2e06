@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../MPU9150_By_Tai/DebugFunction/DebugFunction.cpp \
+../MPU9150_By_Tai/DebugFunction/PrintfTest.cpp 
+
+OBJS += \
+./MPU9150_By_Tai/DebugFunction/DebugFunction.obj \
+./MPU9150_By_Tai/DebugFunction/PrintfTest.obj 
+
+CPP_DEPS += \
+./MPU9150_By_Tai/DebugFunction/DebugFunction.pp \
+./MPU9150_By_Tai/DebugFunction/PrintfTest.pp 
+
+CPP_DEPS__QUOTED += \
+"MPU9150_By_Tai\DebugFunction\DebugFunction.pp" \
+"MPU9150_By_Tai\DebugFunction\PrintfTest.pp" 
+
+OBJS__QUOTED += \
+"MPU9150_By_Tai\DebugFunction\DebugFunction.obj" \
+"MPU9150_By_Tai\DebugFunction\PrintfTest.obj" 
+
+CPP_SRCS__QUOTED += \
+"../MPU9150_By_Tai/DebugFunction/DebugFunction.cpp" \
+"../MPU9150_By_Tai/DebugFunction/PrintfTest.cpp" 
+
+

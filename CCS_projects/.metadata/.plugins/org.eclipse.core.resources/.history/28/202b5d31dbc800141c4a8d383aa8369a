@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp \
+../src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.cpp 
+
+OBJS += \
+./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.obj \
+./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.obj 
+
+CPP_DEPS += \
+./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.pp \
+./src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.pp 
+
+CPP_DEPS__QUOTED += \
+"src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\MotorController.pp" \
+"src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinController.pp" 
+
+OBJS__QUOTED += \
+"src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\MotorController.obj" \
+"src\TopLevel\IsolatedCopter\OverseerOptimusPiInterface\OverseerPeripheralInterfaces\PinController.obj" 
+
+CPP_SRCS__QUOTED += \
+"../src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.cpp" \
+"../src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.cpp" 
+
+

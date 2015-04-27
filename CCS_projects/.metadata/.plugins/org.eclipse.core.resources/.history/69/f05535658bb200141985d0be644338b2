@@ -1,0 +1,24 @@
+/*
+ * MPU9150Test.cpp
+ *
+ *  Created on: 12 Feb 2015
+ *      Author: Rellik
+ */
+
+#include <src/MPU9150/test/MPU9150Test.h>
+
+namespace std
+{
+
+MPU9150Test::MPU9150Test()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+MPU9150Test::~MPU9150Test()
+{
+	// TODO Auto-generated destructor stub
+}
+
+} /* namespace std */

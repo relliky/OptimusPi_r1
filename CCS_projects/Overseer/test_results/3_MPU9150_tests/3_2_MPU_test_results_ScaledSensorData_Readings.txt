@@ -1,0 +1,66 @@
+[CORTEX_M4_0] 
+
+3. Start Continuous MPU Tests.
+
+MPU9150 connection verified
+  2) MPU ScaledSensorData Reading Test. It will take the sensored data five times and move to next test. Please shake, rotate the board and warm up the sensor while the test is running in order to observe a clear change on raw data. 
+
+     Reading the sensor data for 40 times, printing out the 40th reading of data.
+     scaledSensorData.x is 0.021729.
+     scaledSensorData.y is 0.004395.
+     scaledSensorData.z is 0.980225.
+     scaledSensorData.temp is 30.205883.
+     scaledSensorData.p is -1.236641.
+     scaledSensorData.q is -0.992366.
+     scaledSensorData.r is 0.625954.
+     scaledSensorData.magx is 0.000000.
+     scaledSensorData.magy is 0.000000.
+     scaledSensorData.magz is -8.015640.
+
+     Reading the sensor data for 40 times, printing out the 40th reading of data.
+     scaledSensorData.x is 0.020874.
+     scaledSensorData.y is 0.001343.
+     scaledSensorData.z is 0.987427.
+     scaledSensorData.temp is 30.397058.
+     scaledSensorData.p is -0.977099.
+     scaledSensorData.q is -1.206107.
+     scaledSensorData.r is 0.564885.
+     scaledSensorData.magx is 0.000000.
+     scaledSensorData.magy is 0.000000.
+     scaledSensorData.magz is -8.015640.
+
+     Reading the sensor data for 40 times, printing out the 40th reading of data.
+     scaledSensorData.x is 0.145264.
+     scaledSensorData.y is 0.671997.
+     scaledSensorData.z is 0.824097.
+     scaledSensorData.temp is 30.558823.
+     scaledSensorData.p is -20.000000.
+     scaledSensorData.q is 9.450381.
+     scaledSensorData.r is -19.770992.
+     scaledSensorData.magx is 0.000000.
+     scaledSensorData.magy is 0.000000.
+     scaledSensorData.magz is -8.015640.
+
+     Reading the sensor data for 40 times, printing out the 40th reading of data.
+     scaledSensorData.x is 0.024414.
+     scaledSensorData.y is 0.233521.
+     scaledSensorData.z is 0.937744.
+     scaledSensorData.temp is 32.229412.
+     scaledSensorData.p is -6.259542.
+     scaledSensorData.q is -5.114504.
+     scaledSensorData.r is -0.961832.
+     scaledSensorData.magx is 0.000000.
+     scaledSensorData.magy is 0.000000.
+     scaledSensorData.magz is -8.015640.
+
+     Reading the sensor data for 40 times, printing out the 40th reading of data.
+     scaledSensorData.x is 0.081055.
+     scaledSensorData.y is 0.104492.
+     scaledSensorData.z is 0.964233.
+     scaledSensorData.temp is 33.132355.
+     scaledSensorData.p is 23.190840.
+     scaledSensorData.q is -6.595420.
+     scaledSensorData.r is 5.435114.
+     scaledSensorData.magx is 0.000000.
+     scaledSensorData.magy is 0.000000.
+     scaledSensorData.magz is -8.015640.

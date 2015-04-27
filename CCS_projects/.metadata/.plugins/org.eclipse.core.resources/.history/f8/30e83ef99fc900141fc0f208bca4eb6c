@@ -1,0 +1,31 @@
+/*
+ * PiSlavedCopter.h
+ *
+ *  Created on: 13 Mar 2015
+ *      Author: Rellik
+ */
+
+#ifndef PISLAVEDCOPTER_H_
+#define PISLAVEDCOPTER_H_
+
+#include <stdbool.h>
+#include <stdint.h>
+#include "driverlib/sysctl.h"
+
+#include <src/shared/SPI/SPISlave/SPISlave.h>
+#include <src/shared/SPI/SPICommands/SPICommands.h>
+#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/MotorController.h>
+#include <src/TopLevel/IsolatedCopter/OverseerOptimusPiInterface/OverseerPeripheralInterfaces/PinController.h>
+
+class PiSlavedCopterClass
+{
+public:
+	PiSlavedCopterClass();
+	virtual ~PiSlavedCopterClass();
+
+
+};
+
+
+
+#endif /* PISLAVEDCOPTER_H_ */

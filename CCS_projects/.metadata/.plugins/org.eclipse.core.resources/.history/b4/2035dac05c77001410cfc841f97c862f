@@ -1,0 +1,106 @@
+/*
+ * I2CTest.cpp
+ *
+ *  Created on: 28 Nov 2014
+ *      Author: Tai
+ */
+
+#include "I2CTest.h"
+
+I2CClass I2CClass_0, ABC;
+I2CTest::I2CTest()
+{
+	public: I2CClass I2CClass_0, ABC;
+	// TODO Auto-generated constructor stub
+
+}
+
+I2CTest::~I2CTest()
+{
+	// TODO Auto-generated destructor stub
+}
+
+void I2CTest::runBasicReadTest(void)
+{
+	// TP stands for test points. It contains the value decide if the tests pass or fail.
+	uint8_t 	TP_Rreg8_signle 			= 0	,
+				TP_Rreg8_multiple_arr[2]		,
+				TP_readBit8 				= 0	,
+				TP_readbits8 				= 0	;
+
+	uint16_t 	TP_Rreg16_single 			= 0	,
+				TP_Rreg16_multiple_arr[2]		;
+
+
+	//1.1.1 test readReg8 single byte functionality
+	I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, &TP_Rreg8_signle, 1);
+	while(TP_Rreg8_signle != 0x68){}
+	//pass
+
+	//1.1.2. test readReg8 multiple byte functionality
+	//test the second reg
+	I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I - 1, TP_Rreg8_multiple_arr, 2);
+	while(TP_Rreg8_multiple_arr[1] != 0x68){}
+	//pass
+
+	//1.2.1 test readReg16 single word functionality
+	I2CClass_0.readRegisters16(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I - 1, &TP_Rreg16_single, 1);
+	// TP_Rreg[7:0] = Reg value of who_am_i reg.
+	TP_Rreg16_single = (TP_Rreg16_single << 8) >> 8;
+	while(TP_Rreg16_single != 0x68){}
+	//pass
+
+	//1.2.2 test readReg16 multiple word functionality by testing the second reg lower 8 bits
+	I2CClass_0.readRegisters16(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I - 3, TP_Rreg16_multiple_arr, 2);
+	// TP_Rreg16[1][7:0] = Reg value of who_am_i reg.
+	TP_Rreg16_multiple_arr[1] = (TP_Rreg16_multiple_arr[1] << 8) >> 8;
+	while(TP_Rreg16_multiple_arr[1] != 0x68){}
+	//pass
+
+	//1.3. test bit 3 of b (4th bit) out of 0x68, which is 0b0110_1000[3] = 0x1
+	I2CClass_0.readBit8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 3, &TP_readBit8);
+	while(TP_readBit8 != 0x1){}
+	//pass
+
+	//1.4 test [5:3] of b => 0b0110_1000[5:3]=> 0b101 => 0x5
+	I2CClass_0.readbits8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_WHO_AM_I, 5, 3, &TP_readbits8);
+	while(TP_readbits8 != 0x5){}
+	//pass
+
+
+}
+
+void I2CTest::runBasicWriteTest(void)
+{
+/*
+		//2.0 check the reset value of the test reg for following testing.
+		I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &d, 1);
+		// This read return as 0x00, so assuming the reset value of MPU9150_RA_INT_PIN_CFG is 0x00
+
+		while(d ! = 0x00){}
+
+		//test writeReg8 single byte functionality
+		I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG - 1, arr, 2);
+
+		//and read back
+		I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &e, 1);
+
+		while(e != 0x00){}
+		//pass
+
+		//test writeReg8 multiple byte functionality
+		//enable LATCH_INT_EN bit, bit 5
+		//write 0x20 into this reg
+		I2CClass_0.writeRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, 0, 1);
+		//and read back
+		I2CClass_0.readRegisters8(MPU9150_ADDRESS_AD0_LOW, MPU9150_RA_INT_PIN_CFG, &e, 1);
+		while(e != 0x00){}
+		//pass
+
+
+		arr[0] = 0x00;
+		arr[1] = 0x20;
+
+*/
+}
+

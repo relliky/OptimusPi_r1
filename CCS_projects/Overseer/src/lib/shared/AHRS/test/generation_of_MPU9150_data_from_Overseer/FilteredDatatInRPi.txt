@@ -1,0 +1,242 @@
+﻿
+This is the result generated after a Kalman filter In RPi by using test data MPU9150 in Overseer
+
+This is data set 0
+Pitch is 1.612486
+Roll is 35.079720
+Yaw is 0.509679
+X is 0.031491
+Y is -0.642912
+Z is 0.885281
+P is 19.389313
+Q is 39.465649
+R is -10.854961
+Temp is 0.000000
+
+This is data set 1
+Pitch is 2.521745
+Roll is 33.343700
+Yaw is -2.072362
+X is 0.053994
+Y is -0.597651
+Z is 0.970094
+P is 16.473282
+Q is 29.893129
+R is -12.152672
+Temp is 0.000000
+
+This is data set 2
+Pitch is 3.330683
+Roll is 31.556473
+Yaw is -4.690550
+X is 0.089220
+Y is -0.552663
+Z is 1.036358
+P is 10.900764
+Q is 16.549618
+R is -10.106871
+Temp is 0.000000
+
+This is data set 3
+Pitch is 3.790808
+Roll is 29.902075
+Yaw is -6.626616
+X is 0.099122
+Y is -0.496063
+Z is 1.062840
+P is 5.389313
+Q is 3.114504
+R is -5.908397
+Temp is 0.000000
+
+This is data set 4
+Pitch is 3.932125
+Roll is 28.793112
+Yaw is -7.678375
+X is 0.085776
+Y is -0.464743
+Z is 1.024399
+P is 1.984733
+Q is -8.687023
+R is -1.801527
+Temp is 0.000000
+
+This is data set 5
+Pitch is 4.056314
+Roll is 28.238451
+Yaw is -8.270678
+X is 0.086114
+Y is -0.459004
+Z is 0.962406
+P is 0.595420
+Q is -22.885496
+R is 2.091603
+Temp is 0.000000
+
+This is data set 6
+Pitch is 3.890271
+Roll is 28.165718
+Yaw is -8.202184
+X is 0.051388
+Y is -0.471030
+Z is 0.896386
+P is -0.824427
+Q is -27.358778
+R is 4.671756
+Temp is 0.000000
+
+This is data set 7
+Pitch is 3.485036
+Roll is 28.457705
+Yaw is -7.618170
+X is 0.011959
+Y is -0.483919
+Z is 0.822433
+P is -0.916031
+Q is -26.580153
+R is 6.244275
+Temp is 0.000000
+
+This is data set 8
+Pitch is 2.981085
+Roll is 29.054148
+Yaw is -6.728112
+X is -0.014682
+Y is -0.510532
+Z is 0.761905
+P is -0.458015
+Q is -23.145039
+R is 7.343512
+Temp is 0.000000
+
+This is data set 9
+Pitch is 2.457835
+Roll is 29.893267
+Yaw is -5.778595
+X is -0.032279
+Y is -0.547464
+Z is 0.713091
+P is -1.389313
+Q is -17.587786
+R is 8.045801
+Temp is 0.000000
+
+This is data set 10
+Pitch is 1.895396
+Roll is 30.820997
+Yaw is -4.873077
+X is -0.053756
+Y is -0.572458
+Z is 0.676115
+P is -2.564885
+Q is -11.557252
+R is 8.274809
+Temp is 0.000000
+
+This is data set 11
+Pitch is 1.392475
+Roll is 31.654722
+Yaw is -4.207364
+X is -0.060401
+Y is -0.582441
+Z is 0.670013
+P is 0.473282
+Q is -7.038168
+R is 5.465649
+Temp is 0.000000
+
+This is data set 12
+Pitch is 1.134590
+Roll is 32.373417
+Yaw is -4.297489
+X is -0.031394
+Y is -0.587056
+Z is 0.674529
+P is 6.290076
+Q is 5.862596
+R is 1.618321
+Temp is 0.000000
+
+This is data set 13
+Pitch is 0.931254
+Roll is 32.875175
+Yaw is -4.261694
+X is -0.027217
+Y is -0.584686
+Z is 0.711017
+P is 11.480916
+Q is 13.175572
+R is -0.320611
+Temp is 0.000000
+
+This is data set 14
+Pitch is 0.806216
+Roll is 33.238247
+Yaw is -4.326690
+X is -0.016401
+Y is -0.593866
+Z is 0.751410
+P is 15.236641
+Q is 16.183207
+R is -0.427481
+Temp is 0.000000
+
+This is data set 15
+Pitch is 0.827334
+Roll is 33.495590
+Yaw is -4.846029
+X is 0.014572
+Y is -0.615666
+Z is 0.809620
+P is 13.328244
+Q is 15.419847
+R is 0.824427
+Temp is 0.000000
+
+This is data set 16
+Pitch is 0.875661
+Roll is 33.709412
+Yaw is -5.401734
+X is 0.023584
+Y is -0.633497
+Z is 0.840006
+P is 9.603053
+Q is 10.854961
+R is 0.641221
+Temp is 0.000000
+
+This is data set 17
+Pitch is 0.858581
+Roll is 33.881290
+Yaw is -5.571169
+X is 0.008546
+Y is -0.647564
+Z is 0.866488
+P is 6.503817
+Q is 5.893130
+R is -2.992366
+Temp is 0.000000
+
+This is data set 18
+Pitch is 0.844108
+Roll is 33.901936
+Yaw is -5.530940
+X is 0.011441
+Y is -0.603746
+Z is 0.885647
+P is 2.229008
+Q is 1.328244
+R is -7.679389
+Temp is 0.000000
+
+This is data set 19
+Pitch is 0.889919
+Roll is 33.811646
+Yaw is -5.619833
+X is 0.031508
+Y is -0.564072
+Z is 0.900047
+P is -1.358779
+Q is -1.175573
+R is -2.671756
+Temp is 0.000000

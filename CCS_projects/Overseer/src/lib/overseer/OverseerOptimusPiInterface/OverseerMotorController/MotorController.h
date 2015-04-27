@@ -1,0 +1,35 @@
+ /*
+ * MotorController.h
+ *
+ *  Created on: 11 Aug 2014
+ *      Author: admin
+ */
+
+#ifndef MOTORCONTROLLER_H_
+#define MOTORCONTROLLER_H_
+
+#include <src/lib/shared/SPI/SPIMaster/SPIMaster.h>
+#include <src/lib/shared/SPI/SPICommands/SPICommands.h>
+
+typedef enum {unconfigured, BLDC, brushed, stepper} motorChannelState_t;
+
+class MotorControllerClass {
+public:
+	MotorControllerClass(uint32_t newChannel);
+	virtual ~MotorControllerClass();
+	void config(motorChannelState_t newState);
+	void start();
+	void stop();
+	void setPower(uint32_t period);
+	bool running();
+
+private:
+	SPIMasterClass* SPI;
+	//static SPIMasterClass SPI1, SPI2;
+	uint32_t channel;
+	motorChannelState_t state;
+};
+
+
+
+#endif /* MOTORCONTROLLER_H_ */
