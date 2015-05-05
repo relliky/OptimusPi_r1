@@ -1,2 +1,2 @@
-PiCopter_r1
+OptimusPi_r1
 ===========
